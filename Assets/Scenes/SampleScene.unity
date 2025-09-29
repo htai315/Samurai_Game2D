@@ -927,6 +927,17 @@ GameObject:
   - component: {fileID: 1094113369}
   - component: {fileID: 1094113368}
   - component: {fileID: 1094113372}
+  - component: {fileID: 1094113384}
+  - component: {fileID: 1094113383}
+  - component: {fileID: 1094113382}
+  - component: {fileID: 1094113381}
+  - component: {fileID: 1094113380}
+  - component: {fileID: 1094113379}
+  - component: {fileID: 1094113378}
+  - component: {fileID: 1094113377}
+  - component: {fileID: 1094113376}
+  - component: {fileID: 1094113375}
+  - component: {fileID: 1094113374}
   - component: {fileID: 1094113373}
   m_Layer: 0
   m_Name: Player
@@ -1110,29 +1121,189 @@ MonoBehaviour:
   m_GameObject: {fileID: 1094113367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 675af5b4938b0364ba24e871b1c80e39, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eac197b6a1da8e4aa8dafc4199d3fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thanhMau: {fileID: 825053546}
-  luongMauToiDa: 10
-  luongMauHienTai: 0
-  moveSpeed: 10
-  jumpForce: 20
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  groundCheck: {fileID: 726650537}
-  groundCheckRadius: 0.2
-  dashDistance: 6
-  dashDuration: 0.12
-  dashBlockerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  dashSkin: 0.02
+  cfg: {fileID: 11400000, guid: 3cb91ee8031f0ef46a476f317cbf4029, type: 2}
+  motor: {fileID: 1094113384}
+  state: {fileID: 1094113383}
+  eventsBus: {fileID: 1094113382}
+  run: {fileID: 1094113381}
+  jump: {fileID: 1094113380}
+  dash: {fileID: 1094113379}
+  input: {fileID: 1094113374}
+--- !u!114 &1094113374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35191a3b1f957d499f4b5faf11cdb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1094113375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7206414a66b19c24b8dcae2202935b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventsBus: {fileID: 1094113382}
+  state: {fileID: 1094113383}
   dashDustPrefab: {fileID: 1298284015183899223, guid: 0d53dd209d6e15d429c3b81f49fa1c70, type: 3}
   dustSpawnPoint: {fileID: 0}
   dustBackOffset: 0.2
-  maxJumps: 2
+  playerSR: {fileID: 1094113370}
+--- !u!114 &1094113376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ac9fe70139b8f429cbccb8895e7c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 1094113383}
+--- !u!114 &1094113377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6798a97d85c2c1e47af669b9805e1ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1094113372}
+  motor: {fileID: 1094113384}
+  state: {fileID: 1094113383}
+  eventsBus: {fileID: 1094113382}
+--- !u!114 &1094113378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e9141be9f9bca4998d623db003296d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cfg: {fileID: 11400000, guid: 3cb91ee8031f0ef46a476f317cbf4029, type: 2}
+  state: {fileID: 1094113383}
+  eventsBus: {fileID: 1094113382}
+  thanhMau: {fileID: 825053546}
+  luongMauHienTai: 0
+--- !u!114 &1094113379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb994f15a7544e4b801e61fcc665fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cfg: {fileID: 11400000, guid: 3cb91ee8031f0ef46a476f317cbf4029, type: 2}
+  motor: {fileID: 1094113384}
+  state: {fileID: 1094113383}
+  eventsBus: {fileID: 1094113382}
+  dashBlockerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &1094113380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40334a7219d823547950dbc9fb8f51a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cfg: {fileID: 11400000, guid: 3cb91ee8031f0ef46a476f317cbf4029, type: 2}
+  motor: {fileID: 1094113384}
+  state: {fileID: 1094113383}
+  eventsBus: {fileID: 1094113382}
+--- !u!114 &1094113381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4dde20040e13548ae8a38b0a184e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cfg: {fileID: 11400000, guid: 3cb91ee8031f0ef46a476f317cbf4029, type: 2}
+  motor: {fileID: 1094113384}
+  state: {fileID: 1094113383}
+--- !u!114 &1094113382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b778920fad54745b57e47d5ccc15de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1094113383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836bc5d1926cf314ea8363434baa35ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDead: 0
+  IsHurting: 0
+  IsDashing: 0
+  JumpsLeft: 0
+  Facing: 1
+--- !u!114 &1094113384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094113367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bce8e744c3218b48bb8e090c57e1e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 726650537}
+  groundCheckRadius: 0.2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1202897445
 GameObject:
   m_ObjectHideFlags: 0
