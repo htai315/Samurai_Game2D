@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -52,6 +53,9 @@ TagManager:
     locked: 0
   - name: Dash
     uniqueID: 2339794391
+    locked: 0
+  - name: Enemy
+    uniqueID: 3250343985
     locked: 0
   - name: Player
     uniqueID: 801221765
