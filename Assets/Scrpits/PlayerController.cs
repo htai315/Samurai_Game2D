@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform dustSpawnPoint;
     [SerializeField] private float dustBackOffset = 0.2f;
 
+    [Header("Dash Layers")]
+    [SerializeField] string normalLayerName = "Player";
+    [SerializeField] string dashGhostLayerName = "PlayerGhost";
+
     [Header("Jump Settings")]
     [SerializeField] private int maxJumps = 2;
 
@@ -56,6 +60,10 @@ public class PlayerController : MonoBehaviour
     private float dashRemain;
     private readonly RaycastHit2D[] hitBuf = new RaycastHit2D[4];
     private ContactFilter2D dashFilter;
+
+    // Dash enemy
+    private int _normalLayer;
+    private int _ghostLayer;
 
     // Animator hashes
     private static class AP
@@ -94,6 +102,9 @@ public class PlayerController : MonoBehaviour
             layerMask = dashBlockerMask,
             useTriggers = false
         };
+
+        _normalLayer = LayerMask.NameToLayer(normalLayerName);
+        _ghostLayer = LayerMask.NameToLayer(dashGhostLayerName);
     }
 
     private void Start()
@@ -163,6 +174,13 @@ public class PlayerController : MonoBehaviour
         if (!groundCheck) return;
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
+        // Vẽ vùng chém (attack range)
+        if (attackPoint)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
     }
 
     // ---------------------- Input & Actions ----------------------
@@ -216,6 +234,8 @@ public class PlayerController : MonoBehaviour
 
         isDashing = true;
         anim.SetTrigger(AP.DoDash);
+
+        gameObject.layer = _ghostLayer;
 
         // Ngắt chuyển động thường ở frame đầu
         var v = rb.linearVelocity; v.x = 0f; rb.linearVelocity = v;
@@ -276,6 +296,8 @@ public class PlayerController : MonoBehaviour
     private void EndDash()
     {
         isDashing = false;
+
+        gameObject.layer = _normalLayer;
     }
 
     private void ApplyAnimator()
@@ -344,5 +366,47 @@ public class PlayerController : MonoBehaviour
     {
         isAttacking = false;
         anim.SetBool(AP.IsAttacking, false);
+    }
+
+    // ------------------ ATTACK HIT DETECTION ------------------
+    [Header("Attack Settings")]
+    public Transform attackPoint;   // Empty object trước mặt player
+    public float attackRange = 0.6f; // bán kính chém
+    public LayerMask enemyMask;     // layer địch
+    public float attackDamage = 5f; // sát thương
+
+    // Gọi từ Animation Event ở frame chém
+    public void AttackStart()
+    {
+        // Vẽ vòng tròn quanh attackPoint để phát hiện enemy
+        var hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyMask);
+
+        foreach (var h in hits)
+        {
+            if (h.TryGetComponent<EnemyHealth>(out var eh))
+            {
+                eh.TakeDamage(attackDamage);
+            }
+        }
+    }
+
+    public void TakeDamageFromEnemy(float amount)
+    {
+        if (isDead || isHurting) return;
+
+        luongMauHienTai = Mathf.Max(0, luongMauHienTai - Mathf.Abs(amount));
+        if (thanhMau) thanhMau.capNhatMau(luongMauHienTai, luongMauToiDa);
+
+        if (luongMauHienTai <= 0)
+        {
+            anim.SetTrigger(AP.DoDie);
+            isDead = true;
+            enabled = false;               // ngưng điều khiển sau khi chết
+        }
+        else
+        {
+            anim.SetTrigger(AP.DoHurt);
+            StartCoroutine(HurtStun(0.25f)); // bạn đã có coroutine này
+        }
     }
 }
