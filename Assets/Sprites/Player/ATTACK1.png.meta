@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 115abcb20ed3c7b4988fe781410a4348
+guid: 75ed697df692e8c4697afa8f1a07c3b0
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -120,7 +120,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -137,12 +137,12 @@ TextureImporter:
       name: ATTACK1_1
       rect:
         serializedVersion: 2
-        x: 127
+        x: 125
         y: 0
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: ATTACK1_2
       rect:
         serializedVersion: 2
-        x: 219
+        x: 221
         y: 0
-        width: 68
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,15 +178,37 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK1_4
+      name: ATTACK1_3
       rect:
         serializedVersion: 2
-        x: 321
+        x: 320
         y: 0
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf6a01d05c44a1b0800000000000000
+      internalID: -5646304122827542582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK1_4
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -199,33 +221,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: ATTACK1_5
-      rect:
-        serializedVersion: 2
-        x: 409
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d31ce0966b72ff140b7400f9dfe95789
-      internalID: 301750602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 27b736b9f2e375d43b70e02190418296
+    spriteID: c2699f4f20a0633429d78026dc298eef
     internalID: 0
     vertices: []
     indices: 
@@ -240,7 +240,6 @@ TextureImporter:
       ATTACK1_2: 960042356911032275
       ATTACK1_3: -5646304122827542582
       ATTACK1_4: -4301868137376958527
-      ATTACK1_5: 301750602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
