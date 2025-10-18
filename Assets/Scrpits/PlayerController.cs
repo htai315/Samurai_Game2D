@@ -143,6 +143,21 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = v;
     }
 
+    void LateUpdate()
+    {
+        // Nếu đang “đang chém” mà Animator KHÔNG còn ở state Attack nào → tự gỡ kẹt
+        if (isAttacking && !IsInAttackState())
+            FinishAttack(); // tắt cờ + SetBool(IsAttacking,false)
+    }
+
+    bool IsInAttackState()
+    {
+        var info = anim.GetCurrentAnimatorStateInfo(0); // layer 0
+        return info.IsName("Player_Attack1")
+            || info.IsName("Player_Attack2")
+            || info.IsName("Player_Attack3");
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (!groundCheck) return;
@@ -176,8 +191,8 @@ public class PlayerController : MonoBehaviour
     private void HandleJumpInput()
     {
         if (isDashing) return; // đang dash thì không nhảy
+        //if (isAttacking) return;
 
-        // có thể NHẢY trong khi đang attack (yêu cầu của bạn)
         if (!Input.GetButtonDown("Jump")) return;
 
         if (grounded || jumpsLeft > 0)
