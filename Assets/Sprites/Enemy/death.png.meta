@@ -172,10 +172,10 @@ TextureImporter:
       name: death_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 116
-        width: 55
-        height: 65
+        x: 0
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: death_1
       rect:
         serializedVersion: 2
-        x: 133
-        y: 116
-        width: 40
-        height: 56
+        x: 100
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: death_2
       rect:
         serializedVersion: 2
-        x: 160
-        y: 161
-        width: 28
-        height: 20
+        x: 200
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: death_3
       rect:
         serializedVersion: 2
-        x: 171
-        y: 158
-        width: 10
-        height: 9
+        x: 300
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: death_4
       rect:
         serializedVersion: 2
-        x: 233
-        y: 116
-        width: 55
-        height: 62
+        x: 400
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +282,10 @@ TextureImporter:
       name: death_5
       rect:
         serializedVersion: 2
-        x: 333
-        y: 116
-        width: 34
-        height: 56
+        x: 500
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +304,10 @@ TextureImporter:
       name: death_6
       rect:
         serializedVersion: 2
-        x: 433
-        y: 116
-        width: 33
-        height: 56
+        x: 600
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,10 +326,10 @@ TextureImporter:
       name: death_7
       rect:
         serializedVersion: 2
-        x: 533
-        y: 116
-        width: 23
-        height: 56
+        x: 700
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +348,10 @@ TextureImporter:
       name: death_8
       rect:
         serializedVersion: 2
-        x: 634
-        y: 124
-        width: 22
-        height: 46
+        x: 800
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,10 +370,10 @@ TextureImporter:
       name: death_9
       rect:
         serializedVersion: 2
-        x: 735
-        y: 46
-        width: 25
-        height: 119
+        x: 900
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,10 +392,10 @@ TextureImporter:
       name: death_10
       rect:
         serializedVersion: 2
-        x: 835
-        y: 131
-        width: 28
-        height: 32
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,10 +414,10 @@ TextureImporter:
       name: death_11
       rect:
         serializedVersion: 2
-        x: 935
-        y: 143
-        width: 28
-        height: 23
+        x: 100
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,10 +436,10 @@ TextureImporter:
       name: death_12
       rect:
         serializedVersion: 2
-        x: 41
-        y: 43
-        width: 22
-        height: 20
+        x: 200
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,10 +458,10 @@ TextureImporter:
       name: death_13
       rect:
         serializedVersion: 2
-        x: 143
-        y: 43
-        width: 19
-        height: 19
+        x: 300
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,10 +480,10 @@ TextureImporter:
       name: death_14
       rect:
         serializedVersion: 2
-        x: 244
-        y: 45
-        width: 17
-        height: 16
+        x: 400
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,10 +502,10 @@ TextureImporter:
       name: death_15
       rect:
         serializedVersion: 2
-        x: 344
-        y: 46
-        width: 16
-        height: 15
+        x: 500
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -524,10 +524,10 @@ TextureImporter:
       name: death_16
       rect:
         serializedVersion: 2
-        x: 444
-        y: 46
-        width: 16
-        height: 15
+        x: 600
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,10 +546,10 @@ TextureImporter:
       name: death_17
       rect:
         serializedVersion: 2
-        x: 544
-        y: 48
-        width: 9
-        height: 10
+        x: 700
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -564,143 +564,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: death_18
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 50
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a85ad2b8c6b729790800000000000000
-      internalID: -7524816321260968566
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_19
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 46
-        width: 11
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad58117ae8233e0d0800000000000000
-      internalID: -3394814105837533734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_20
-      rect:
-        serializedVersion: 2
-        x: 644
-        y: 46
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a123bdda4c66e190800000000000000
-      internalID: -7933534624763666014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_21
-      rect:
-        serializedVersion: 2
-        x: 648
-        y: 53
-        width: 9
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0c0dc39bab340d4b0800000000000000
-      internalID: -5417755882475958080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_22
-      rect:
-        serializedVersion: 2
-        x: 649
-        y: 48
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d93b009c41f2d90d0800000000000000
-      internalID: -3414521176158850147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_23
-      rect:
-        serializedVersion: 2
-        x: 652
-        y: 50
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bdfe7f382a6d892f0800000000000000
-      internalID: -965786126583861285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9e6a52d9df2c5e54d84f3539133a8c87
     internalID: 0
     vertices: []
     indices: 
@@ -720,13 +588,7 @@ TextureImporter:
       death_15: 6275631635777415744
       death_16: -9015114149152096869
       death_17: -133209616158212645
-      death_18: -7524816321260968566
-      death_19: -3394814105837533734
       death_2: -5286180679089938723
-      death_20: -7933534624763666014
-      death_21: -5417755882475958080
-      death_22: -3414521176158850147
-      death_23: -965786126583861285
       death_3: -1891855120789479077
       death_4: -5582970244224541034
       death_5: 830680230883465780

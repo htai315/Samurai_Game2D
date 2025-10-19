@@ -139,10 +139,10 @@ TextureImporter:
       name: attacking_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 216
-        width: 47
-        height: 64
+        x: 0
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +161,10 @@ TextureImporter:
       name: attacking_1
       rect:
         serializedVersion: 2
-        x: 129
-        y: 218
-        width: 33
-        height: 68
+        x: 100
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: attacking_2
       rect:
         serializedVersion: 2
-        x: 229
-        y: 215
-        width: 68
-        height: 73
+        x: 200
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: attacking_3
       rect:
         serializedVersion: 2
-        x: 333
-        y: 216
-        width: 61
-        height: 56
+        x: 300
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: attacking_4
       rect:
         serializedVersion: 2
-        x: 433
-        y: 216
-        width: 55
-        height: 56
+        x: 400
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: attacking_5
       rect:
         serializedVersion: 2
-        x: 533
-        y: 216
-        width: 50
-        height: 69
+        x: 500
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,10 +271,10 @@ TextureImporter:
       name: attacking_6
       rect:
         serializedVersion: 2
-        x: 33
-        y: 116
-        width: 41
-        height: 67
+        x: 0
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,10 +293,10 @@ TextureImporter:
       name: attacking_7
       rect:
         serializedVersion: 2
-        x: 133
-        y: 116
-        width: 32
-        height: 67
+        x: 100
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: attacking_8
       rect:
         serializedVersion: 2
-        x: 226
-        y: 116
-        width: 33
-        height: 66
+        x: 200
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,10 +337,10 @@ TextureImporter:
       name: attacking_9
       rect:
         serializedVersion: 2
-        x: 317
-        y: 116
-        width: 78
-        height: 57
+        x: 300
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,10 +359,10 @@ TextureImporter:
       name: attacking_10
       rect:
         serializedVersion: 2
-        x: 433
-        y: 116
-        width: 62
-        height: 57
+        x: 400
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,10 +381,10 @@ TextureImporter:
       name: attacking_11
       rect:
         serializedVersion: 2
-        x: 533
-        y: 116
-        width: 61
-        height: 57
+        x: 500
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,10 +403,10 @@ TextureImporter:
       name: attacking_12
       rect:
         serializedVersion: 2
-        x: 33
-        y: 15
-        width: 50
-        height: 69
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -425,7 +425,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 52f94e8ae91e2a541ae5ae4790e75865
     internalID: 0
     vertices: []
     indices: 
