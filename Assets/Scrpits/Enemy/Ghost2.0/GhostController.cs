@@ -9,18 +9,24 @@ public class GhostController : MonoBehaviour
     [Header("Chase & Attack Settings")]
     public float agroRange = 5f;
     public float attackRange = 1f;
+    public float chaseStopDistance = 0.3f;
     public float attackCooldown = 1.5f;
+    public float loseAgroDelay = 0.5f; // delay trước khi quay về patrol
     public LayerMask playerLayer;
     public Transform attackPoint;
 
     [Header("Facing Control")]
-    [SerializeField] private float flipCooldown = 0.2f;   // chống flip liên tục
-    [SerializeField] private float flipDeadzone = 0.05f;  // không flip khi chênh lệch ~0
+    [SerializeField] private float flipCooldown = 0.2f;
+    [SerializeField] private float flipDeadzone = 0.05f;
     private bool facingRight = true;
     private float lastFlipTime = -999f;
 
+    private enum GhostState { Patrol, Chase, Attack, Idle }
+    private GhostState currentState = GhostState.Patrol;
+    private float loseAgroTimer = 0f;
+
     private Vector2 startPosition;
-    private int direction = 1; // hướng tuần tra: +1 phải, -1 trái
+    private int direction = 1;
     private SpriteRenderer spriteRenderer;
     private Transform player;
     private Rigidbody2D rb;
@@ -44,40 +50,78 @@ public class GhostController : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
+        // Xác định state dựa trên khoảng cách
         if (distanceToPlayer <= attackRange)
         {
-            rb.linearVelocity = Vector2.zero;
-
-            if (Time.time >= lastAttackTime + attackCooldown)
-            {
-                Attack();
-                lastAttackTime = Time.time;
-            }
+            currentState = GhostState.Attack;
+            loseAgroTimer = 0f; // reset timer
         }
         else if (distanceToPlayer <= agroRange)
         {
-            ChasePlayer();
+            if (distanceToPlayer > chaseStopDistance)
+            {
+                currentState = GhostState.Chase;
+            }
+            else
+            {
+                currentState = GhostState.Idle;
+            }
+            loseAgroTimer = 0f; // reset timer
         }
         else
         {
-            Patrol();
+            // Player ra khỏi agro range - đợi delay trước khi patrol
+            if (currentState != GhostState.Patrol)
+            {
+                loseAgroTimer += Time.deltaTime;
+                if (loseAgroTimer >= loseAgroDelay)
+                {
+                    currentState = GhostState.Patrol;
+                    loseAgroTimer = 0f;
+                }
+                else
+                {
+                    // Đứng yên trong thời gian delay, KHÔNG quay mặt
+                    rb.linearVelocity = Vector2.zero;
+                    return;
+                }
+            }
+        }
+
+        // Thực hiện hành động theo state
+        switch (currentState)
+        {
+            case GhostState.Patrol:
+                Patrol();
+                break;
+            case GhostState.Chase:
+                ChasePlayer();
+                break;
+            case GhostState.Attack:
+                rb.linearVelocity = Vector2.zero;
+                if (Time.time >= lastAttackTime + attackCooldown)
+                {
+                    Attack();
+                    lastAttackTime = Time.time;
+                }
+                break;
+            case GhostState.Idle:
+                rb.linearVelocity = Vector2.zero;
+                float dx = player.position.x - transform.position.x;
+                if (Mathf.Abs(dx) > flipDeadzone)
+                    UpdateFacing(dx);
+                break;
         }
     }
 
     private void Patrol()
     {
-        // di chuyển theo hướng tuần tra
         transform.Translate(Vector2.right * direction * moveSpeed * Time.deltaTime);
-
-        // cập nhật hướng nhìn theo hướng di chuyển (không toggle liên tục)
         UpdateFacing(direction);
 
-        // đảo hướng khi tới biên
         if (Mathf.Abs(transform.position.x - startPosition.x) >= patrolDistance)
         {
-            direction *= -1; // đổi hướng di chuyển
-            // KHÔNG gọi Flip() ngay lập tức để tránh flip 2 lần, 
-            // UpdateFacing(direction) ở frame sau sẽ xử lý
+            direction *= -1;
         }
     }
 
@@ -85,13 +129,16 @@ public class GhostController : MonoBehaviour
     {
         float dx = player.position.x - transform.position.x;
 
-        // di chuyển tiến về phía player
-        float dirX = Mathf.Sign(dx);
-        transform.Translate(Vector2.right * dirX * moveSpeed * Time.deltaTime);
-
-        // chỉ cập nhật hướng khi chênh lệch đủ lớn (tránh lật khi dx ~ 0)
-        if (Mathf.Abs(dx) > flipDeadzone)
+        if (Mathf.Abs(dx) > flipDeadzone * 2f)
+        {
+            float dirX = Mathf.Sign(dx);
+            transform.Translate(Vector2.right * dirX * moveSpeed * Time.deltaTime);
             UpdateFacing(dx);
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private void Attack()
@@ -120,14 +167,13 @@ public class GhostController : MonoBehaviour
         }
     }
 
-    // ======== Hướng nhìn: đặt tuyệt đối, có deadzone + cooldown ========
     private void UpdateFacing(float dirX)
     {
-        if (Mathf.Abs(dirX) < flipDeadzone) return;                 // quá nhỏ -> bỏ
-        if (Time.time < lastFlipTime + flipCooldown) return;        // chống giật
+        if (Mathf.Abs(dirX) < flipDeadzone) return;
+        if (Time.time < lastFlipTime + flipCooldown) return;
 
         bool shouldFaceRight = dirX > 0f;
-        if (shouldFaceRight == facingRight) return;                 // đã đúng hướng
+        if (shouldFaceRight == facingRight) return;
 
         ApplyFlip(shouldFaceRight);
         lastFlipTime = Time.time;
@@ -137,11 +183,9 @@ public class GhostController : MonoBehaviour
     {
         facingRight = faceRight;
 
-        // SpriteRenderer flipX
         if (spriteRenderer != null)
             spriteRenderer.flipX = !faceRight;
 
-        // nếu có attackPoint, chuyển nó sang phía trước mặt
         if (attackPoint != null)
         {
             var lp = attackPoint.localPosition;
@@ -149,7 +193,6 @@ public class GhostController : MonoBehaviour
             attackPoint.localPosition = lp;
         }
     }
-    // ===================================================================
 
     private void OnDrawGizmosSelected()
     {
