@@ -32,7 +32,7 @@ public class EnemyHealth1 : MonoBehaviour
         if (healthBarPrefab != null)
         {
             // Nếu bạn không gán Canvas thì tự tìm (optional)
-            if (!uiCanvasParent) uiCanvasParent = FindObjectOfType<Canvas>();
+            if (!uiCanvasParent) uiCanvasParent = Object.FindFirstObjectByType<Canvas>();
 
             // Nếu canvas là Screen Space → spawn làm con canvas
             if (uiCanvasParent && uiCanvasParent.renderMode != RenderMode.WorldSpace)
@@ -93,6 +93,11 @@ public class EnemyHealth1 : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+
+        // +10 mana cho player khi enemy chết
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
+            player.GetComponent<PlayerMana>()?.AddMana(10f);
 
         if (animator != null)
             animator.SetTrigger("Die");

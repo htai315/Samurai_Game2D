@@ -13,10 +13,14 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private Transform dustSpawnPoint;
     [SerializeField] private float dustBackOffset = 0.2f;
 
+    [Header("Mana")]
+    [SerializeField] private float dashManaCost = 5f;   // ⟵ mỗi lần dash tốn 5 mana
+
     private PlayerController1 controller;
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sr;
+    private PlayerMana mana;                            // ⟵ cache PlayerMana
 
     private bool isDashing;
     private float dashDir;
@@ -35,6 +39,9 @@ public class PlayerDash : MonoBehaviour
         anim = animator;
         sr = spriteRenderer;
 
+        // ⟵ lấy PlayerMana
+        mana = GetComponent<PlayerMana>();
+
         dashFilter = new ContactFilter2D
         {
             useLayerMask = true,
@@ -45,12 +52,20 @@ public class PlayerDash : MonoBehaviour
 
     public void HandleInput()
     {
-        if (isDashing || controller.IsAttacking) return; // KHÔNG dash khi đang chém
+        if (isDashing || controller.IsAttacking) return;
 
-        bool dashPressed = Input.GetKeyDown(KeyCode.L) ;
+        bool dashPressed = Input.GetKeyDown(KeyCode.L);
         if (!dashPressed) return;
 
-        StartDash();
+        // ⟵ kiểm tra & trừ mana
+        if (mana == null || !mana.TrySpend(dashManaCost))
+        {
+            // (tuỳ chọn) thêm hiệu ứng/âm thanh hết mana ở đây
+            // ví dụ: Debug.Log("Not enough mana to dash!");
+            return;
+        }
+
+        StartDash(); // chỉ gọi khi đã trừ mana thành công
     }
 
     private void StartDash()
@@ -62,7 +77,6 @@ public class PlayerDash : MonoBehaviour
         isDashing = true;
         anim.SetTrigger(DoDash);
 
-        // Ngắt chuyển động thường ở frame đầu
         var v = rb.linearVelocity;
         v.x = 0f;
         rb.linearVelocity = v;
@@ -93,10 +107,7 @@ public class PlayerDash : MonoBehaviour
             EndDash();
     }
 
-    private void EndDash()
-    {
-        isDashing = false;
-    }
+    private void EndDash() => isDashing = false;
 
     private void SpawnDashDust()
     {
