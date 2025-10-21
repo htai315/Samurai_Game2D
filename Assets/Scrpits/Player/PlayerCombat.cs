@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -12,7 +13,12 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange = 0.6f;
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private int attackDamage = 1;
+
+    // 🔧 NEW: tách baseDamage và bonus thay vì 1 biến attackDamage
+    [SerializeField] private int baseDamage = 1;             // damage gốc
+    private int permanentBonus = 0;                           // cộng vĩnh viễn
+    private readonly List<Buff> timedBuffs = new();           // buff có thời hạn
+
     [SerializeField] private float attackCooldown = 0.25f;
 
     // Animator hashes
@@ -23,6 +29,13 @@ public class PlayerCombat : MonoBehaviour
 
     private float lastAttackTime = -999f;
 
+    // 🔧 NEW: struct cho buff theo thời gian
+    private struct Buff
+    {
+        public int amount;
+        public float expireTime;
+    }
+
     public void Initialize(PlayerController1 ctrl, Rigidbody2D rigidbody, Animator animator)
     {
         controller = ctrl;
@@ -32,86 +45,56 @@ public class PlayerCombat : MonoBehaviour
 
     public void HandleInput()
     {
-        // Chỉ xử lý khi bấm J
         if (!Input.GetKeyDown(KeyCode.J)) return;
 
-        // Ưu tiên tổ hợp trước
         bool upHeld = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
         bool downHeld = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 
-        if (upHeld && !downHeld)
-        {
-            // W + J => Attack 2 (chém dọc)
-            TryAttack(2);
-        }
-        else if (downHeld && !upHeld)
-        {
-            // S + J => Attack 3 (chém xoay / chém thấp)
-            TryAttack(3);
-        }
-        else
-        {
-            // J đơn => Attack 1 (chém ngang)
-            TryAttack(1);
-        }
+        if (upHeld && !downHeld) TryAttack(2);
+        else if (downHeld && !upHeld) TryAttack(3);
+        else TryAttack(1);
     }
-
 
     private bool TryAttack(int slot)
     {
-        if (controller.IsDead || controller.IsHurting || controller.IsDashing)
-            return false;
-
-        if (isAttacking)
-            return false;
+        if (controller.IsDead || controller.IsHurting || controller.IsDashing) return false;
+        if (isAttacking) return false;
 
         isAttacking = true;
         lastAttackTime = Time.time;
 
-        // stop horizontal movement when attack starts
-        var v = rb.linearVelocity;
-        v.x = 0f;
-        rb.linearVelocity = v;
+        var v = rb.linearVelocity; v.x = 0f; rb.linearVelocity = v;
 
         switch (slot)
         {
-            case 1:
-                anim.SetTrigger(DoAttack1);
-                break;
-            case 2:
-                anim.SetTrigger(DoAttack2);
-                break;
-            case 3:
-                anim.SetTrigger(DoAttack3);
-                break;
-            default:
-                isAttacking = false;
-                return false;
+            case 1: anim.SetTrigger(DoAttack1); break;
+            case 2: anim.SetTrigger(DoAttack2); break;
+            case 3: anim.SetTrigger(DoAttack3); break;
+            default: isAttacking = false; return false;
         }
 
         anim.SetBool(AnimIsAttacking, true);
         return true;
     }
 
-    // Called from Animation Event at the hit frame
+    // Gọi từ Animation Event tại frame gây sát thương
     public void DoAttackDamage()
     {
         if (attackPoint == null) return;
 
+        int finalDamage = GetCurrentDamage(); // 🔧 NEW: dùng damage hiện tại sau khi cộng buff
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach (var hit in hits)
         {
-            // Try both EnemyHealth1 or any health component
             var enemyHealth = hit.GetComponent<EnemyHealth1>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(attackDamage);
-                // optionally apply knockback if enemy has method
+                enemyHealth.TakeDamage(finalDamage);
                 var enemyRb = hit.GetComponent<Rigidbody2D>();
                 if (enemyRb != null)
                 {
                     float dir = Mathf.Sign(hit.transform.position.x - transform.position.x);
-                    enemyRb.AddForce(new Vector2(dir * 150f, 50f)); // tweak values
+                    enemyRb.AddForce(new Vector2(dir * 150f, 50f));
                 }
             }
         }
@@ -119,6 +102,9 @@ public class PlayerCombat : MonoBehaviour
 
     public void LateUpdateCombat()
     {
+        // 🔧 NEW: dọn buff hết hạn
+        CleanupExpiredBuffs();
+
         if (isAttacking && !IsInAttackState())
         {
             FinishAttack();
@@ -146,5 +132,52 @@ public class PlayerCombat : MonoBehaviour
         if (attackPoint == null) return;
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    // ===== 🔧 NEW: API tăng/giảm damage =====
+
+    public void AddDamageBonus(int amount, float durationSeconds = 0f)
+    {
+        if (amount == 0) return;
+
+        if (durationSeconds <= 0f)
+        {
+            // vĩnh viễn
+            permanentBonus += amount;
+        }
+        else
+        {
+            // theo thời gian
+            timedBuffs.Add(new Buff
+            {
+                amount = amount,
+                expireTime = Time.time + durationSeconds
+            });
+        }
+        // (tuỳ chọn) Debug.Log($"[PlayerCombat] +{amount} dmg, duration={durationSeconds}");
+    }
+
+    public void ResetPermanentBonus() => permanentBonus = 0;
+
+    private int GetCurrentDamage()
+    {
+        int sum = baseDamage + permanentBonus;
+        float now = Time.time;
+        for (int i = 0; i < timedBuffs.Count; i++)
+        {
+            if (timedBuffs[i].expireTime > now)
+                sum += timedBuffs[i].amount;
+        }
+        return Mathf.Max(0, sum);
+    }
+
+    private void CleanupExpiredBuffs()
+    {
+        float now = Time.time;
+        for (int i = timedBuffs.Count - 1; i >= 0; i--)
+        {
+            if (timedBuffs[i].expireTime <= now)
+                timedBuffs.RemoveAt(i);
+        }
     }
 }
