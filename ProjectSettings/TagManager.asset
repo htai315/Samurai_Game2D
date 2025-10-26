@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MapBackGround
+    uniqueID: 1346588573
+    locked: 0
   - name: BackGround
     uniqueID: 3524522011
     locked: 0

@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 4db31f31a50d6444d8f64f646d0b61ab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5968883645022516340
+    second: Kenshin Skill1_0
+  - first:
+      213: -694755297405155367
+    second: Kenshin Skill1_1
+  - first:
+      213: 5572058518520954944
+    second: Kenshin Skill1_2
+  - first:
+      213: -4123942647081199463
+    second: Kenshin Skill1_3
+  - first:
+      213: 5350631222256722467
+    second: Kenshin Skill1_4
+  - first:
+      213: 2404338468186579392
+    second: Kenshin Skill1_5
+  - first:
+      213: -5334186744149484180
+    second: Kenshin Skill1_6
+  - first:
+      213: 2034074083057626304
+    second: Kenshin Skill1_7
+  - first:
+      213: -4164962197311058471
+    second: Kenshin Skill1_8
+  - first:
+      213: -26417859315272925
+    second: Kenshin Skill1_9
+  - first:
+      213: 3039058573557015675
+    second: Kenshin Skill1_10
+  - first:
+      213: 6269996408346426848
+    second: Kenshin Skill1_11
+  - first:
+      213: -4700575695976741667
+    second: Kenshin Skill1_12
+  - first:
+      213: 7916074803006879748
+    second: Kenshin Skill1_13
+  - first:
+      213: -8159969652418953697
+    second: Kenshin Skill1_14
+  - first:
+      213: -8425716057512238439
+    second: Kenshin Skill1_15
+  - first:
+      213: 5551095020481527137
+    second: Kenshin Skill1_16
+  - first:
+      213: -5035384983763726807
+    second: Kenshin Skill1_17
+  - first:
+      213: -849073944150693455
+    second: Kenshin Skill1_18
+  - first:
+      213: 4594765759835761861
+    second: Kenshin Skill1_19
+  - first:
+      213: 8977781683758307198
+    second: Kenshin Skill1_20
+  - first:
+      213: 5281039684159035324
+    second: Kenshin Skill1_21
+  - first:
+      213: 512140735378910485
+    second: Kenshin Skill1_22
+  - first:
+      213: -7550695865467940829
+    second: Kenshin Skill1_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kenshin Skill1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 479
+        width: 214
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b4bc803f34a2da0800000000000000
+      internalID: -5968883645022516340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_1
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 525
+        width: 122
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7485cecbbbb56f0800000000000000
+      internalID: -694755297405155367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_2
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 525
+        width: 116
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040812853bde35d40800000000000000
+      internalID: 5572058518520954944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 524
+        width: 123
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99814a61300d4c6c0800000000000000
+      internalID: -4123942647081199463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_4
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 536
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 322e9be6fb2414a40800000000000000
+      internalID: 5350631222256722467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_5
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 523
+        width: 108
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1611c191ded5120800000000000000
+      internalID: 2404338468186579392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_6
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 524
+        width: 113
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d5f5dfa6929f5b0800000000000000
+      internalID: -5334186744149484180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_7
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 525
+        width: 121
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cc6a7ff99b7a3c10800000000000000
+      internalID: 2034074083057626304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_8
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 529
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dd085ec2f41336c0800000000000000
+      internalID: -4164962197311058471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_9
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 543
+        width: 57
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32379cfc81522aff0800000000000000
+      internalID: -26417859315272925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_10
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 471
+        width: 466
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74a878cba7ec2a20800000000000000
+      internalID: 3039058573557015675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_11
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 471
+        width: 190
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0edb6767380830750800000000000000
+      internalID: 6269996408346426848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_12
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 500
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd4c8792f4334ceb0800000000000000
+      internalID: -4700575695976741667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_13
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 475
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40835a8971c8bdd60800000000000000
+      internalID: 7916074803006879748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 249
+        width: 218
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1eb991a5d6f1ce80800000000000000
+      internalID: -8159969652418953697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_15
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 249
+        width: 216
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992ada513e7d11b80800000000000000
+      internalID: -8425716057512238439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_16
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 249
+        width: 213
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16dbd3a9283790d40800000000000000
+      internalID: 5551095020481527137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_17
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 249
+        width: 213
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e4d6f2908be1ab0800000000000000
+      internalID: -5035384983763726807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_18
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 249
+        width: 221
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b9abd21fbb7734f0800000000000000
+      internalID: -849073944150693455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 45
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cc632d4d13e3cf30800000000000000
+      internalID: 4594765759835761861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_20
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 30
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e771c6300ec779c70800000000000000
+      internalID: 8977781683758307198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_21
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 33
+        width: 180
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb75a03dc950a4940800000000000000
+      internalID: 5281039684159035324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_22
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 42
+        width: 150
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d644f094d7b1700800000000000000
+      internalID: 512140735378910485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenshin Skill1_23
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 54
+        width: 117
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320d5cb9d1a863790800000000000000
+      internalID: -7550695865467940829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Kenshin Skill1_0: -5968883645022516340
+      Kenshin Skill1_1: -694755297405155367
+      Kenshin Skill1_10: 3039058573557015675
+      Kenshin Skill1_11: 6269996408346426848
+      Kenshin Skill1_12: -4700575695976741667
+      Kenshin Skill1_13: 7916074803006879748
+      Kenshin Skill1_14: -8159969652418953697
+      Kenshin Skill1_15: -8425716057512238439
+      Kenshin Skill1_16: 5551095020481527137
+      Kenshin Skill1_17: -5035384983763726807
+      Kenshin Skill1_18: -849073944150693455
+      Kenshin Skill1_19: 4594765759835761861
+      Kenshin Skill1_2: 5572058518520954944
+      Kenshin Skill1_20: 8977781683758307198
+      Kenshin Skill1_21: 5281039684159035324
+      Kenshin Skill1_22: 512140735378910485
+      Kenshin Skill1_23: -7550695865467940829
+      Kenshin Skill1_3: -4123942647081199463
+      Kenshin Skill1_4: 5350631222256722467
+      Kenshin Skill1_5: 2404338468186579392
+      Kenshin Skill1_6: -5334186744149484180
+      Kenshin Skill1_7: 2034074083057626304
+      Kenshin Skill1_8: -4164962197311058471
+      Kenshin Skill1_9: -26417859315272925
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
