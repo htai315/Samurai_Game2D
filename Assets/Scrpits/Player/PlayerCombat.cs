@@ -17,6 +17,8 @@ public class PlayerCombat : MonoBehaviour
     // 🔧 NEW: tách baseDamage và bonus thay vì 1 biến attackDamage
     [SerializeField] private int baseDamage = 1;             // damage gốc
     private int permanentBonus = 0;                           // cộng vĩnh viễn
+    public int PermanentBonus => permanentBonus;
+
     private readonly List<Buff> timedBuffs = new();           // buff có thời hạn
 
     [SerializeField] private float attackCooldown = 0.25f;
