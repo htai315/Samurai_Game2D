@@ -92,12 +92,19 @@ public class PlayerCombat : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(finalDamage);
-                var enemyRb = hit.GetComponent<Rigidbody2D>();
-                if (enemyRb != null)
-                {
-                    float dir = Mathf.Sign(hit.transform.position.x - transform.position.x);
-                    enemyRb.AddForce(new Vector2(dir * 150f, 50f));
-                }
+            }
+            else
+            {
+                var bossHealth = hit.GetComponent<BossHealth>();
+                if (bossHealth != null)
+                    bossHealth.TakeDamage(finalDamage);
+            }
+
+            var enemyRb = hit.GetComponent<Rigidbody2D>();
+            if (enemyRb != null)
+            {
+                float dir = Mathf.Sign(hit.transform.position.x - transform.position.x);
+                enemyRb.AddForce(new Vector2(dir * 150f, 50f));
             }
         }
     }

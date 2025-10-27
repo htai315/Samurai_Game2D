@@ -65,14 +65,21 @@ public class SwordProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Gây damage cho enemy
         if (other.CompareTag("Enemy"))
         {
             var enemy = other.GetComponent<EnemyHealth1>();
             if (enemy)
                 enemy.TakeDamage(damage);
+            else
+            {
+                var boss = other.GetComponent<BossHealth>();
+                if (boss)
+                    boss.TakeDamage(damage);
+            }
 
-            Destroy(gameObject); // chỉ biến mất khi trúng enemy
+            Destroy(gameObject); // chỉ biến mất khi trúng enemy hoặc boss
         }
+
+
     }
 }
