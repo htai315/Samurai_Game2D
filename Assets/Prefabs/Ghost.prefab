@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3427489224054679196}
   m_Layer: 7
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1044623311
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -4744724232239111109, guid: 18ac22e175ddc5c41b1e2ab2c65811ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -221,7 +221,9 @@ MonoBehaviour:
   patrolDistance: 3
   agroRange: 5
   attackRange: 1
+  chaseStopDistance: 0.3
   attackCooldown: 1.5
+  loseAgroDelay: 0.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 8

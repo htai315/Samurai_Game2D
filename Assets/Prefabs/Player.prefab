@@ -82,6 +82,9 @@ GameObject:
   - component: {fileID: 4382240901724109808}
   - component: {fileID: 8787013859117592671}
   - component: {fileID: 2850396803599595440}
+  - component: {fileID: 1824131654894648084}
+  - component: {fileID: 20162462948044632}
+  - component: {fileID: 2624770062732329781}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -148,7 +151,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 801221765
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 815424164945274260, guid: 8e96ce9af16171d47be320ff4f33f9ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -287,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5755841c23f3b34c83259e7530c36b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thanhMau: {fileID: 0}
+  thanhMau: {fileID: 8564967844733595325, guid: 8230e24dd08d32945929ea66f3b8c1ca, type: 3}
   tutorialFilter: {fileID: 0}
 --- !u!114 &3171865579310262523
 MonoBehaviour:
@@ -370,5 +373,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMana: 100
-  startMana: 0
+  startMana: 50
   thanhMana: {fileID: 0}
+--- !u!114 &1824131654894648084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068263956581262312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d930a945d28b8428691ea75bf54bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &20162462948044632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068263956581262312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6582c26d02c92874893fb049fba63217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2624770062732329781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068263956581262312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4600f8403f326479bdd34fb29ad00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordWavePrefab: {fileID: 1314768592859829834, guid: 1786883222cb82044bdd3b36573289cf, type: 3}
+  spawnPoint: {fileID: 3018014902085477688}
+  manaCost: 5

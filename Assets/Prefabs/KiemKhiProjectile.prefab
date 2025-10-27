@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2978415782677099002}
   - component: {fileID: 5874731044084263642}
   - component: {fileID: 5469429587939181788}
-  - component: {fileID: 696093209754673667}
+  - component: {fileID: 3428299743882975898}
   m_Layer: 0
   m_Name: KiemKhiProjectile
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1314768592859829834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.1, y: 3.6, z: 0}
+  m_LocalPosition: {x: -20.07, y: 3.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -541834949
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -8159969652418953697, guid: 4db31f31a50d6444d8f64f646d0b61ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,14 +121,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314768592859829834}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -174,10 +174,10 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2.0633922, y: 0.36413002}
-  m_Size: {x: 9.093612, y: 12.896742}
+  m_Offset: {x: -1.0534897, y: 0.023717284}
+  m_Size: {x: 0.45040512, y: 2.2588432}
   m_Direction: 0
---- !u!114 &696093209754673667
+--- !u!114 &3428299743882975898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,13 +186,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1314768592859829834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ced18df6ddfd4468fa12b44a6ff3ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 79874cd256e8b724d8c65034af0b230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
   speed: 10
-  lifeTime: 2.5
-  pierceCount: 1
-  knockbackX: 200
-  knockbackY: 80
-  hitVfx: {fileID: 0}
+  maxDistance: 8
+  damage: 20
