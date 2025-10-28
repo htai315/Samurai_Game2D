@@ -189,4 +189,10 @@ public class PlayerCombat : MonoBehaviour
                 timedBuffs.RemoveAt(i);
         }
     }
+    // PlayerCombat.cs (chỉ bổ sung phần setter bên dưới)
+    public void SetBaseDamage(int value)
+    {
+        baseDamage = Mathf.Max(0, value);
+    }
+
 }

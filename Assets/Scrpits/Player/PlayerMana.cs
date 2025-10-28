@@ -41,4 +41,26 @@ public class PlayerMana : MonoBehaviour
         Debug.Log($"[PlayerMana] -{amount} mana → {Current}/{maxMana}");
         return true;
     }
+    // PlayerMana.cs (bổ sung 2 API bên dưới trong class)
+    public void ApplyNewMaxMana(float newMax, bool keepRatio)
+    {
+        float oldMax = maxMana;
+        float oldCur = Current;
+
+        maxMana = Mathf.Max(0.01f, newMax);
+
+        float targetCur = keepRatio && oldMax > 0.0001f
+            ? Mathf.Clamp01(oldCur / oldMax) * maxMana
+            : Mathf.Min(oldCur, maxMana);
+
+        Current = targetCur; // setter private nhưng trong class được phép set
+        if (thanhMana) thanhMana.capNhatMana(Current, Max);
+    }
+
+    public void SetCurrentMana(float value)
+    {
+        Current = Mathf.Clamp(value, 0, maxMana);
+        if (thanhMana) thanhMana.capNhatMana(Current, Max);
+    }
+
 }

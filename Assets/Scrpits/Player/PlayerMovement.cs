@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿// PlayerMovement.cs
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f; // default nếu chưa có Stats
 
     private PlayerController1 controller;
     private Rigidbody2D rb;
@@ -38,21 +39,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleFlip()
     {
-        // KHÔNG đổi mặt khi đang dash hoặc đang attack
-        if (controller.IsDashing || controller.IsAttacking)
-            return;
-
+        if (controller.IsDashing || controller.IsAttacking) return;
         if (xInput != 0f)
-        {
             transform.localScale = new Vector3(xInput > 0 ? 1 : -1, 1, 1);
-        }
     }
 
     private void HandleStopOnRelease()
     {
-        // KHÔNG dừng cưỡng bức khi đang attack/dash
-        if (controller.IsDashing || controller.IsAttacking)
-            return;
+        if (controller.IsDashing || controller.IsAttacking) return;
 
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow) ||
             Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
@@ -74,12 +68,14 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyAnimator()
     {
         anim.SetBool(IsDashing, controller.IsDashing);
-
         float vx = rb.linearVelocity.x;
-        // KHÔNG chạy khi đang attack hoặc dash
         bool isRunning = !controller.IsDashing && !controller.IsAttacking && Mathf.Abs(vx) > 0.01f;
         anim.SetBool(IsRunning, isRunning);
     }
+
+    // 🔧 NEW: API rõ ràng
+    public void SetMoveSpeed(float value) => moveSpeed = Mathf.Max(0.01f, value);
+    public float GetMoveSpeed() => moveSpeed;
 
     public float CurrentSpeed => rb.linearVelocity.x;
 }

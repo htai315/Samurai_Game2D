@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿// PlayerSaveBridge.cs
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerHealth))]
@@ -9,51 +10,83 @@ public class PlayerSaveBridge : MonoBehaviour
     private PlayerHealth health;
     private PlayerMana mana;
     private PlayerCombat combat;
+    private PlayerStats stats;
 
     private void Awake()
     {
         health = GetComponent<PlayerHealth>();
         mana = GetComponent<PlayerMana>();
         combat = GetComponent<PlayerCombat>();
+        stats = GetComponent<PlayerStats>();
     }
 
-    // Ghi lại trạng thái player
     public SaveData Capture()
     {
-        return new SaveData
+        var d = new SaveData
         {
             sceneName = SceneManager.GetActiveScene().name,
             px = transform.position.x,
             py = transform.position.y,
+
+            // Vital hiện tại
             healthCurrent = health.CurrentHealth,
             healthMax = health.MaxHealth,
             manaCurrent = mana.Current,
             manaMax = mana.Max,
+
+            // Stats trong PlayerStats (nếu có)
+            stats_maxHealth = stats ? stats.maxHealth : health.MaxHealth,
+            stats_maxMana = stats ? stats.maxMana : mana.Max,
+            stats_baseDamage = stats ? stats.baseDamage : 1,
+            stats_moveSpeed = stats ? stats.moveSpeed : 5f,
+
+            // Bonus vĩnh viễn
             permanentBonus = combat.PermanentBonus
         };
+
+        // Lưu tiền
+        var gm = UnityEngine.Object.FindFirstObjectByType<GameManager>();
+        d.gold = gm ? gm.Score : 0;
+
+        // ✨ NEW: ghi danh sách pickup đã nhặt
+        SaveRuntime.WriteTo(d);
+
+        return d;
     }
 
-    // Áp lại trạng thái khi load game
+    // PlayerSaveBridge.cs (thay phần Apply)
     public void Apply(SaveData d)
     {
-        // Vị trí
+        if (d == null) return;
+
+        // 0) Vị trí
         transform.position = new Vector3(d.px, d.py, transform.position.z);
 
-        // Áp máu (dùng Heal / TakeDamage để cập nhật đúng UI)
-        float deltaHealth = d.healthCurrent - health.CurrentHealth;
-        if (deltaHealth > 0) health.Heal(deltaHealth);
-        else if (deltaHealth < 0) health.TakeDamage(-deltaHealth);
+        // 1) Stats max/base → Modules
+        if (stats)
+        {
+            if (d.stats_maxHealth > 0) stats.maxHealth = d.stats_maxHealth;
+            if (d.stats_maxMana > 0) stats.maxMana = d.stats_maxMana;
+            if (d.stats_baseDamage != 0) stats.baseDamage = d.stats_baseDamage;
+            if (d.stats_moveSpeed > 0) stats.moveSpeed = d.stats_moveSpeed;
 
-        // Áp mana (AddMana / TrySpend)
-        float deltaMana = d.manaCurrent - mana.Current;
-        if (deltaMana > 0) mana.AddMana(deltaMana);
-        else if (deltaMana < 0) mana.TrySpend(-deltaMana);
+            stats.ApplyAllToModules();
+        }
 
-        // Áp bonus damage vĩnh viễn
+        // 2) Permanent bonus
         combat.ResetPermanentBonus();
         if (d.permanentBonus != 0)
             combat.AddDamageBonus(d.permanentBonus, 0f);
-    }
 
+        // 3) Current HP/MP (set trực tiếp)
+        if (d.healthMax > 0 && d.healthCurrent >= 0)
+            health.SetCurrentHealth(Mathf.Min(d.healthCurrent, d.healthMax));
+        if (d.manaMax > 0 && d.manaCurrent >= 0)
+            mana.SetCurrentMana(Mathf.Min(d.manaCurrent, d.manaMax));
+
+        // 4) Tiền
+        var gm = FindFirstObjectByType<GameManager>();
+        if (gm) gm.SetScore(d.gold);
+    }
 
 }

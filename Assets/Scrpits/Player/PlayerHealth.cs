@@ -90,4 +90,26 @@ public class PlayerHealth : MonoBehaviour
 
     public float CurrentHealth => luongMauHienTai;
     public float MaxHealth => luongMauToiDa;
+    // PlayerHealth.cs (bổ sung 2 API bên dưới trong class)
+    public void ApplyNewMaxHealth(float newMax, bool keepRatio)
+    {
+        float oldMax = luongMauToiDa;
+        float oldCur = luongMauHienTai;
+
+        luongMauToiDa = Mathf.Max(0.01f, newMax);
+
+        float targetCur = keepRatio && oldMax > 0.0001f
+            ? Mathf.Clamp01(oldCur / oldMax) * luongMauToiDa
+            : Mathf.Min(oldCur, luongMauToiDa);
+
+        luongMauHienTai = targetCur;
+        if (thanhMau) thanhMau.capNhatMau(luongMauHienTai, luongMauToiDa);
+    }
+
+    public void SetCurrentHealth(float value)
+    {
+        luongMauHienTai = Mathf.Clamp(value, 0, luongMauToiDa);
+        if (thanhMau) thanhMau.capNhatMau(luongMauHienTai, luongMauToiDa);
+    }
+
 }

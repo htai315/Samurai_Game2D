@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -59,6 +60,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3250343985
+    locked: 0
+  - name: UI
+    uniqueID: 2261973143
     locked: 0
   - name: Items
     uniqueID: 3753132347

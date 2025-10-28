@@ -49,6 +49,9 @@ public class PlayerController1 : MonoBehaviour
         jumpModule?.Initialize(this, rb, anim);
         dashModule?.Initialize(this, rb, anim, sr);
         combatModule?.Initialize(this, rb, anim);
+
+        var stats = GetComponent<PlayerStats>();
+        stats?.ApplyAllToModules();
     }
 
     private void Start()

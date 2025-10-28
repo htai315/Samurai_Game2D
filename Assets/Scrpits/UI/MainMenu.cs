@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿// MainMenu.cs
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -11,10 +12,8 @@ public class MainMenu : MonoBehaviour
     // 🧩 New Game
     public void NewGame()
     {
-        // Xóa dữ liệu cũ nếu có
         SaveSystem.Delete();
-
-        // Chuyển sang scene game
+        SaveRuntime.Clear();                  // <<< thêm dòng này
         SceneManager.LoadScene(gameSceneName);
     }
 
@@ -37,36 +36,40 @@ public class MainMenu : MonoBehaviour
             return;
         }
 
-        // Khi scene được load xong, áp trạng thái player
+        // ✨ PHẢI nạp danh sách coin/item đã nhặt TRƯỚC khi vào scene
+        SaveRuntime.LoadFrom(data);           // <<< thêm dòng này
+
         SceneManager.sceneLoaded += OnSceneLoadedApply;
         SceneManager.LoadScene(data.sceneName);
     }
 
-    // Hàm callback khi scene load xong
+    // Callback khi scene load xong
     private void OnSceneLoadedApply(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoadedApply;
 
-        SaveData data = SaveSystem.Load();
-        if (data == null) return;
-
+        // Không cần Load() lại — dữ liệu đã có trong RAM rồi
         var player = GameObject.FindGameObjectWithTag("Player");
-        if (player)
+        if (!player)
         {
-            var bridge = player.GetComponent<PlayerSaveBridge>();
-            if (bridge != null)
+            Debug.LogWarning("Không tìm thấy Player trong scene!");
+            return;
+        }
+
+        var bridge = player.GetComponent<PlayerSaveBridge>();
+        if (bridge != null)
+        {
+            // Lấy lại data từ file cho chắc (ok), hoặc bạn có thể cache biến 'data' ở trên
+            var data = SaveSystem.Load();
+            if (data != null)
             {
                 bridge.Apply(data);
                 Debug.Log("Đã áp trạng thái Player từ save file.");
             }
         }
-        else
-        {
-            Debug.LogWarning("Không tìm thấy Player trong scene!");
-        }
     }
 
-    // 🪧 Phần hướng dẫn gốc của bạn
+    // 🪧...
     public void Instructions()
     {
         instructionsPanel.SetActive(true);

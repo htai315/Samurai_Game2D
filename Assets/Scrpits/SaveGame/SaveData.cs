@@ -1,20 +1,32 @@
-﻿using UnityEngine;
+﻿// SaveData.cs
+using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class SaveData
 {
-    // Scene name
+    // Scene name & vị trí
     public string sceneName;
-
-    // Player position
     public float px, py;
 
-    // Health & Mana
+    // Vital
     public float healthCurrent;
     public float healthMax;
     public float manaCurrent;
     public float manaMax;
 
-    // Damage bonus vĩnh viễn
+    // Stats cơ bản của PlayerStats
+    public float stats_maxHealth;
+    public float stats_maxMana;
+    public int stats_baseDamage;
+    public float stats_moveSpeed;
+
+    // Bonus vĩnh viễn từ Combat
     public int permanentBonus;
+
+    // Tiền (score/gold)
+    public int gold;
+
+    // ✨ NEW: ID các pickup (coin, v.v.) đã nhặt
+    public List<string> collectedPickups = new();
 }
