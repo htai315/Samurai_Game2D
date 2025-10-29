@@ -32,9 +32,9 @@ public class PlayerStatsUI : MonoBehaviour
     {
         if (!stats) return;
 
-        healthText.text = $"Máu tối đa: {stats.maxHealth}";
-        manaText.text = $"Mana tối đa: {stats.maxMana}";
-        damageText.text = $"Damage: {stats.baseDamage}";
-        speedText.text = $"Tốc độ: {stats.moveSpeed:F1}";
+        healthText.text = $"{stats.maxHealth}";
+        manaText.text = $"{stats.maxMana}";
+        damageText.text = $"{stats.baseDamage}";
+        speedText.text = $"{stats.moveSpeed:F1}";
     }
 }
