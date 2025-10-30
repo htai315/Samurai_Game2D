@@ -5,94 +5,75 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] string gameSceneName = "SampleScene";
+    [Header("Scenes")]
+    [SerializeField] string tutorialSceneName = "TutorialScene";
+    [SerializeField] string firstMapScene = "SampleScene";  // màn chính đầu tiên
+
+    [Header("UI")]
     [SerializeField] GameObject instructionsPanel;
     [SerializeField] GameObject btnBack;
 
-    // 🧩 New Game
+    [Header("Prefabs")]
+    [SerializeField] GameObject persistentRootPrefab; // KÉO prefab PersistentRoot vào
+
+    // New Game → luôn vào tutorial, KHÔNG tạo PersistentRoot ở đây
     public void NewGame()
     {
         SaveSystem.Delete();
-        SaveRuntime.Clear();                  // <<< thêm dòng này
-        SceneManager.LoadScene(gameSceneName);
+        SaveRuntime.Clear();
+        SceneManager.LoadScene(tutorialSceneName);
     }
 
-    // 🧩 Continue Game
+    // Continue → tạo PersistentRoot rồi load scene đã save
     public void ContinueGame()
     {
         Debug.Log("Path: " + Application.persistentDataPath);
-        Debug.Log("Has Save? " + SaveSystem.HasSave());
+        if (!SaveSystem.HasSave()) { Debug.LogWarning("Không có save!"); return; }
 
-        if (!SaveSystem.HasSave())
-        {
-            Debug.LogWarning("Không có dữ liệu lưu nào để tiếp tục!");
-            return;
-        }
+        var data = SaveSystem.Load();
+        if (data == null) { Debug.LogWarning("Save null."); return; }
 
-        SaveData data = SaveSystem.Load();
-        if (data == null)
-        {
-            Debug.LogWarning("File save bị lỗi hoặc rỗng.");
-            return;
-        }
+        SaveRuntime.LoadFrom(data);
 
-        // ✨ PHẢI nạp danh sách coin/item đã nhặt TRƯỚC khi vào scene
-        SaveRuntime.LoadFrom(data);           // <<< thêm dòng này
+        // đảm bảo có PersistentRoot (player thật + HUD)
+        PersistentRootLoader.Ensure(persistentRootPrefab);
 
         SceneManager.sceneLoaded += OnSceneLoadedApply;
         SceneManager.LoadScene(data.sceneName);
     }
 
-    // Callback khi scene load xong
     private void OnSceneLoadedApply(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoadedApply;
 
-        // Không cần Load() lại — dữ liệu đã có trong RAM rồi
         var player = GameObject.FindGameObjectWithTag("Player");
-        if (!player)
-        {
-            Debug.LogWarning("Không tìm thấy Player trong scene!");
-            return;
-        }
+        if (!player) { Debug.LogWarning("Không tìm thấy Player sau khi Continue!"); return; }
 
         var bridge = player.GetComponent<PlayerSaveBridge>();
-        if (bridge != null)
+        var data = SaveSystem.Load();
+        if (bridge && data != null)
         {
-            // Lấy lại data từ file cho chắc (ok), hoặc bạn có thể cache biến 'data' ở trên
-            var data = SaveSystem.Load();
-            if (data != null)
-            {
-                bridge.Apply(data);
-                Debug.Log("Đã áp trạng thái Player từ save file.");
-            }
+            bridge.Apply(data);
+            Debug.Log($"Đã áp trạng thái Player từ save ({data.sceneName}).");
         }
     }
 
-    // 🪧...
+    // Các nút khác…
     public void Instructions()
     {
         instructionsPanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(btnBack);
     }
-
+    public void CloseInstructions()
+    {
+        instructionsPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("BtnInstructions"));
+    }
     public void ExitGame()
     {
         Application.Quit();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
-    }
-
-    public void CloseInstructions()
-    {
-        instructionsPanel.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(GameObject.Find("BtnInstructions"));
-    }
-
-    public class MenuFocus : MonoBehaviour
-    {
-        [SerializeField] GameObject firstButton;
-        void Start() => EventSystem.current.SetSelectedGameObject(firstButton);
     }
 }

@@ -324,11 +324,6 @@ Transform:
   - {fileID: 1019043177}
   m_Father: {fileID: 2026338846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!225 &45409796 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 3835565902802113819, guid: 5c0bdc03396d5cb4c9757f10fe4bc5ef, type: 3}
-  m_PrefabInstance: {fileID: 1760562644335283958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88558610
 GameObject:
   m_ObjectHideFlags: 0
@@ -26555,6 +26550,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1175699808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &1115728728 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 3835565902802113819, guid: 5c0bdc03396d5cb4c9757f10fe4bc5ef, type: 3}
+  m_PrefabInstance: {fileID: 1760562644335283958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1119516936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26563,6 +26563,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1643476702894352614, guid: 5217b47263dead7469d1bc07f0389a4c, type: 3}
+      propertyPath: thanhMau
+      value: 
+      objectReference: {fileID: 2054254863}
     - target: {fileID: 2142877660076145482, guid: 5217b47263dead7469d1bc07f0389a4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.55
@@ -27024,7 +27028,7 @@ GameObject:
   - component: {fileID: 1713927274}
   - component: {fileID: 1713927273}
   - component: {fileID: 1713927276}
-  - component: {fileID: 1713927275}
+  - component: {fileID: 1713927277}
   m_Layer: 0
   m_Name: ItemPack_Outline_White_16
   m_TagString: Untagged
@@ -27102,24 +27106,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1713927275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713927272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d7efa98ad3eda547a96d34d9abcd4dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetScene: SampleScene
-  requireTutorialComplete: 1
-  tutorialManager: {fileID: 1796857449}
-  requiredStage: 5
-  fadeCanvas: {fileID: 45409796}
-  fadeDuration: 0.6
 --- !u!61 &1713927276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27166,6 +27152,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1713927277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713927272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7efa98ad3eda547a96d34d9abcd4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScene: SampleScene
+  requireTutorialComplete: 1
+  tutorialManager: {fileID: 1796857449}
+  requiredStage: 5
+  fadeCanvas: {fileID: 1115728728}
+  fadeDuration: 0.4
 --- !u!1 &1796857446
 GameObject:
   m_ObjectHideFlags: 0
@@ -27379,6 +27383,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8293109182163997708, guid: 8230e24dd08d32945929ea66f3b8c1ca, type: 3}
   m_PrefabInstance: {fileID: 2054254861}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2054254863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8564967844733595325, guid: 8230e24dd08d32945929ea66f3b8c1ca, type: 3}
+  m_PrefabInstance: {fileID: 2054254861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fb3e5c63d848942800e00b8ba8b4fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2072825883
 GameObject:
   m_ObjectHideFlags: 0

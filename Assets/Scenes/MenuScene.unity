@@ -1548,9 +1548,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a21cc0a1252194192172d961bd8354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneName: TutorialScene
+  tutorialSceneName: TutorialScene
+  firstMapScene: SampleScene
   instructionsPanel: {fileID: 1896163600}
   btnBack: {fileID: 671740437}
+  persistentRootPrefab: {fileID: 8485437486559449668, guid: e5eed71ea1e800b45b71597774014957, type: 3}
 --- !u!1 &1738796133
 GameObject:
   m_ObjectHideFlags: 0
