@@ -11,7 +11,7 @@ public class GhostController : MonoBehaviour
     public float attackRange = 1f;
     public float chaseStopDistance = 0.3f;
     public float attackCooldown = 1.5f;
-    public float loseAgroDelay = 0.5f; // delay trước khi quay về patrol
+    public float loseAgroDelay = 0.5f;
     public LayerMask playerLayer;
     public Transform attackPoint;
 
@@ -23,7 +23,6 @@ public class GhostController : MonoBehaviour
 
     private enum GhostState { Patrol, Chase, Attack, Idle }
     private GhostState currentState = GhostState.Patrol;
-    private float loseAgroTimer = 0f;
 
     private Vector2 startPosition;
     private int direction = 1;
@@ -33,7 +32,11 @@ public class GhostController : MonoBehaviour
     private Animator animator;
 
     private float lastAttackTime;
+    private float loseAgroTimer = 0f;
     private bool hasDealtDamage = false;
+
+    // 🔧 Thêm biến để nhớ hướng cuối cùng của player khi còn trong tầm
+    private float lastKnownPlayerDir = 1f;
 
     private void Start()
     {
@@ -49,67 +52,71 @@ public class GhostController : MonoBehaviour
         if (player == null) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float dx = player.position.x - transform.position.x;
 
-        // Xác định state dựa trên khoảng cách
-        if (distanceToPlayer <= attackRange)
+        // Cập nhật hướng player lần cuối khi còn thấy
+        if (Mathf.Abs(dx) > flipDeadzone && distanceToPlayer <= agroRange * 1.2f)
+            lastKnownPlayerDir = Mathf.Sign(dx);
+
+        switch (currentState)
         {
-            currentState = GhostState.Attack;
-            loseAgroTimer = 0f; // reset timer
-        }
-        else if (distanceToPlayer <= agroRange)
-        {
-            if (distanceToPlayer > chaseStopDistance)
-            {
-                currentState = GhostState.Chase;
-            }
-            else
-            {
-                currentState = GhostState.Idle;
-            }
-            loseAgroTimer = 0f; // reset timer
-        }
-        else
-        {
-            // Player ra khỏi agro range - đợi delay trước khi patrol
-            if (currentState != GhostState.Patrol)
-            {
-                loseAgroTimer += Time.deltaTime;
-                if (loseAgroTimer >= loseAgroDelay)
+            case GhostState.Patrol:
+                if (distanceToPlayer <= agroRange)
                 {
-                    currentState = GhostState.Patrol;
+                    currentState = GhostState.Chase;
                     loseAgroTimer = 0f;
                 }
                 else
                 {
-                    // Đứng yên trong thời gian delay, KHÔNG quay mặt
-                    rb.linearVelocity = Vector2.zero;
-                    return;
+                    Patrol();
                 }
-            }
-        }
+                break;
 
-        // Thực hiện hành động theo state
-        switch (currentState)
-        {
-            case GhostState.Patrol:
-                Patrol();
-                break;
             case GhostState.Chase:
-                ChasePlayer();
+                if (distanceToPlayer <= attackRange)
+                {
+                    currentState = GhostState.Attack;
+                    rb.linearVelocity = Vector2.zero;
+                }
+                else if (distanceToPlayer > agroRange)
+                {
+                    loseAgroTimer += Time.deltaTime;
+                    if (loseAgroTimer >= loseAgroDelay)
+                    {
+                        currentState = GhostState.Patrol;
+                        direction = (transform.position.x >= startPosition.x) ? -1 : 1;
+                        UpdateFacing(direction);
+                        loseAgroTimer = 0f;
+                    }
+                    else
+                    {
+                        // 🔧 Khi player vừa ra khỏi tầm, chỉ nhìn theo hướng cuối cùng, KHÔNG flip nữa
+                        IdleLookInLastKnownDirection();
+                    }
+                }
+                else
+                {
+                    ChasePlayer();
+                }
                 break;
+
             case GhostState.Attack:
                 rb.linearVelocity = Vector2.zero;
+                UpdateFacing(dx);
+
                 if (Time.time >= lastAttackTime + attackCooldown)
                 {
                     Attack();
                     lastAttackTime = Time.time;
                 }
+
+                // 🔧 Nếu player chạy xa, quay lại Chase
+                if (distanceToPlayer > attackRange * 1.3f)
+                    currentState = GhostState.Chase;
                 break;
+
             case GhostState.Idle:
-                rb.linearVelocity = Vector2.zero;
-                float dx = player.position.x - transform.position.x;
-                if (Mathf.Abs(dx) > flipDeadzone)
-                    UpdateFacing(dx);
+                IdleLookInLastKnownDirection();
                 break;
         }
     }
@@ -122,33 +129,38 @@ public class GhostController : MonoBehaviour
         if (Mathf.Abs(transform.position.x - startPosition.x) >= patrolDistance)
         {
             direction *= -1;
+            UpdateFacing(direction);
         }
+
+        animator?.SetBool("isMoving", true);
     }
 
     private void ChasePlayer()
     {
         float dx = player.position.x - transform.position.x;
-
-        if (Mathf.Abs(dx) > flipDeadzone * 2f)
+        if (Mathf.Abs(dx) > flipDeadzone)
         {
             float dirX = Mathf.Sign(dx);
             transform.Translate(Vector2.right * dirX * moveSpeed * Time.deltaTime);
             UpdateFacing(dx);
         }
-        else
-        {
-            rb.linearVelocity = Vector2.zero;
-        }
+
+        animator?.SetBool("isMoving", true);
     }
 
     private void Attack()
     {
         float dx = player.position.x - transform.position.x;
-        if (Mathf.Abs(dx) > flipDeadzone)
-            UpdateFacing(dx);
-
-        animator.SetTrigger("Attack");
+        UpdateFacing(dx);
+        animator?.SetTrigger("Attack");
         hasDealtDamage = false;
+    }
+
+    private void IdleLookInLastKnownDirection()
+    {
+        rb.linearVelocity = Vector2.zero;
+        UpdateFacing(lastKnownPlayerDir);
+        animator?.SetBool("isMoving", false);
     }
 
     public void DoDamage()
