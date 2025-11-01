@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2048270313122604656}
   - component: {fileID: 5942782399308908211}
   - component: {fileID: 6593387873985217392}
-  - component: {fileID: 1525165953862452114}
+  - component: {fileID: 8343730903267916555}
   m_Layer: 0
   m_Name: ItemPack_Outline_White_16
   m_TagString: Untagged
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 921220901
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 614859096285214795, guid: 8d0ec356e87c1004e92de279dd65e05e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &1525165953862452114
+--- !u!114 &8343730903267916555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,12 +144,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3697463644330139249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d7efa98ad3eda547a96d34d9abcd4dc, type: 3}
+  m_Script: {fileID: 11500000, guid: f83c777b29579694babb3b652b37f745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: SampleScene
-  requireTutorialComplete: 1
-  tutorialManager: {fileID: 0}
-  requiredStage: 5
+  targetScene: Level2
+  targetSpawnId: A
   fadeCanvas: {fileID: 0}
   fadeDuration: 0.4
+  delayBeforeTeleport: 0.2

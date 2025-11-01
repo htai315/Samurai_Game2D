@@ -86,6 +86,8 @@ GameObject:
   - component: {fileID: 20162462948044632}
   - component: {fileID: 2624770062732329781}
   - component: {fileID: 7518590755278960656}
+  - component: {fileID: 6269980522228146098}
+  - component: {fileID: 704269253045694196}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -152,7 +154,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 801221765
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 815424164945274260, guid: 8e96ce9af16171d47be320ff4f33f9ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -436,3 +438,36 @@ MonoBehaviour:
   damagePerUpgrade: 1
   speedPerUpgrade: 0.5
   keepCurrentRatioOnMaxChange: 1
+  upgradeCost: 10
+--- !u!114 &6269980522228146098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068263956581262312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2567810d53445a540a09491d434c06e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounds: {fileID: 0}
+  checkPoint: {fileID: 6042361344707125661}
+  margin: 0.02
+  killByDamage: 1
+--- !u!114 &704269253045694196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068263956581262312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3558a3b6a1d8ad48b0cd755a5acf597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 756889821611598267, guid: e7e3b93955d8f0b408c489200aa83d26, type: 3}
+  castPoint: {fileID: 3018014902085477688}
+  manaCost: 10
+  cooldown: 0.8
