@@ -58,6 +58,9 @@ TagManager:
   - name: ForceGround
     uniqueID: 2759086021
     locked: 0
+  - name: Decoreground
+    uniqueID: 1002046219
+    locked: 0
   - name: Dash
     uniqueID: 2339794391
     locked: 0
