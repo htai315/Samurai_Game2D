@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -57,15 +58,51 @@ public class PlayerHealth : MonoBehaviour
         anim.SetTrigger(DoDie);
         controller.SetDead(true);
 
-        // Dừng hoàn toàn mọi chuyển động
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
-
-        // Khoá Rigidbody để không bị di chuyển nữa
         rb.bodyType = RigidbodyType2D.Static;
 
-        controller.enabled = false;
+        // Hỏi hệ thống mạng
+        bool canRespawn = false;
+        if (PlayerLives.Instance != null)
+        {
+            canRespawn = PlayerLives.Instance.UseLife();
+            // true  = còn mạng → respawn
+            // false = hết mạng → không respawn
+        }
+
+        if (canRespawn && LevelRespawnManager.Instance != null)
+        {
+            // Chết nhưng vẫn còn mạng → hồi sinh
+            StartCoroutine(RespawnAfterDelay(1.2f));
+        }
+        else
+        {
+            // Hết mạng hoặc không có manager → chết hẳn
+            StartCoroutine(FinalDeath(1.2f));
+        }
     }
+
+    private IEnumerator RespawnAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        LevelRespawnManager.Instance.RespawnPlayer();
+    }
+
+    private IEnumerator FinalDeath(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Cách 1: Destroy player luôn (game over im lặng)
+        Destroy(gameObject);
+
+        // Cách 2 (khuyên dùng): Load sang GameOver scene
+        // SceneManager.LoadScene("GameOverScene");
+
+        // Cách 3: Hiện UI Game Over ngay tại màn hình hiện tại (cần thêm script khác)
+    }
+
+
 
     private IEnumerator HurtStun()
     {
