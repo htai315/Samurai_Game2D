@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class PlayerLives : MonoBehaviour
 {
@@ -8,12 +9,12 @@ public class PlayerLives : MonoBehaviour
     [SerializeField] private int maxLives = 3;
     public int CurrentLives { get; private set; }
 
-    [Header("UI (optional)")]
-    // Bạn có thể kéo Text / Icon vào đây để hiển thị
-    [SerializeField] private TMPro.TextMeshProUGUI livesText;
+    [Header("UI hiển thị mạng")]
+    [SerializeField] private TextMeshProUGUI livesText; // có thể để trống, GameManager sẽ gán runtime
 
     private void Awake()
     {
+        // Đảm bảo chỉ tồn tại 1 PlayerLives
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -21,8 +22,7 @@ public class PlayerLives : MonoBehaviour
         }
 
         Instance = this;
-        // Nếu muốn giữ mạng khi đổi scene:
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject); // giữ khi qua scene mới
     }
 
     private void Start()
@@ -32,7 +32,7 @@ public class PlayerLives : MonoBehaviour
     }
 
     /// <summary>
-    /// Gọi khi player chết. Trả về true nếu SAU KHI trừ mạng vẫn còn mạng để respawn.
+    /// Trừ 1 mạng. Trả về true nếu SAU KHI trừ vẫn còn mạng.
     /// </summary>
     public bool UseLife()
     {
@@ -42,17 +42,30 @@ public class PlayerLives : MonoBehaviour
         CurrentLives--;
         UpdateUI();
 
-        // Nếu sau khi trừ mà vẫn còn > 0 → cho phép respawn
         return CurrentLives > 0;
     }
+
+    /// <summary>
+    /// Reset lại toàn bộ mạng (ví dụ khi ấn "Chơi lại")
+    /// </summary>
     public void ResetLives()
     {
         CurrentLives = maxLives;
+        UpdateUI();
+    }
+
+    /// <summary>
+    /// Gọi từ GameManager hoặc scene mới để gán lại Text UI.
+    /// </summary>
+    public void BindUI(TextMeshProUGUI textUI)
+    {
+        livesText = textUI;
+        UpdateUI();
     }
 
     private void UpdateUI()
     {
-        // if (livesText)
-        //     livesText.text = $"Lives: {CurrentLives}";
+        if (livesText)
+            livesText.text = $"X {CurrentLives}";
     }
 }

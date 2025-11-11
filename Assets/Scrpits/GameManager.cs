@@ -4,26 +4,45 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    // ==== COIN / SCORE ====
     private int score = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI scoreTextStatus;
 
+    // ==== UI MẠNG ====
+    [Header("Player Lives UI")]
+    [SerializeField] private TextMeshProUGUI livesText;
+    // Gắn Text hiển thị "X 3" vào đây (trên Canvas)
 
-    // ⬇️ Kéo Panel chứa PlayerStatsUI vào đây
+    // ==== PLAYER STATS PANEL ====
     [Header("Player Stats Panel")]
     [SerializeField] private GameObject statsPanel;
-
     private PlayerStatsUI statsUI;
 
     void Start()
     {
+        // Coin
         UpdatScore();
 
+        // Bảng chỉ số (P)
         if (statsPanel != null)
         {
             statsUI = statsPanel.GetComponent<PlayerStatsUI>();
-            // Ẩn panel lúc bắt đầu
             statsPanel.SetActive(false);
+        }
+
+        // UI Mạng
+        if (PlayerLives.Instance != null && livesText != null)
+        {
+            // Gắn text này cho PlayerLives để nó tự UpdateUI mỗi lần UseLife()
+            PlayerLives.Instance.BindUI(livesText);
+        }
+        else
+        {
+            if (PlayerLives.Instance == null)
+                Debug.LogWarning("[GameManager] Không tìm thấy PlayerLives trong scene.");
+            if (livesText == null)
+                Debug.LogWarning("[GameManager] Chưa gán livesText trong Inspector.");
         }
     }
 
@@ -38,6 +57,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // ====== COIN / SCORE API ======
+
     public void AddScore(int points)
     {
         score += points;
@@ -47,26 +68,27 @@ public class GameManager : MonoBehaviour
 
     public void UpdatScore()
     {
-        if (scoreText) { scoreText.text ="X " + score.ToString(); }
-        if (scoreTextStatus) {
-            scoreTextStatus.text = "Coins: " + score.ToString();
-        }
+        if (scoreText)
+            scoreText.text = "X " + score.ToString();
 
+        if (scoreTextStatus)
+            scoreTextStatus.text = "Coins: " + score.ToString();
     }
 
-    // >>>> 2 HÀM BẠN ĐANG CÓ <<<<
     public int Score => score;
+
     public void SetScore(int value)
     {
         score = Mathf.Max(0, value);
         UpdatScore();
     }
 
-    // ✨ Trừ coin có kiểm tra
+    // Trừ coin có kiểm tra
     public bool TrySpend(int amount)
     {
         if (amount <= 0) return true;
         if (score < amount) return false;
+
         score -= amount;
         UpdatScore();
         return true;
