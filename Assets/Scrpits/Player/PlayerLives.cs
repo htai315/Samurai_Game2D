@@ -68,4 +68,21 @@ public class PlayerLives : MonoBehaviour
         if (livesText)
             livesText.text = $"X {CurrentLives}";
     }
+
+    // =================== 🧩 THÊM PHẦN DƯỚI NÀY ===================
+
+    /// <summary>
+    /// Trả về số mạng tối đa hiện tại (để lưu)
+    /// </summary>
+    public int GetMaxLives() => maxLives;
+
+    /// <summary>
+    /// Cập nhật lại số mạng hiện tại và tối đa khi load game
+    /// </summary>
+    public void LoadFromSave(int current, int max)
+    {
+        maxLives = Mathf.Max(1, max);
+        CurrentLives = Mathf.Clamp(current, 0, maxLives);
+        UpdateUI();
+    }
 }

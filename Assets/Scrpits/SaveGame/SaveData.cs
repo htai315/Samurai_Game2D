@@ -29,4 +29,6 @@ public class SaveData
 
     // ✨ NEW: ID các pickup (coin, v.v.) đã nhặt
     public List<string> collectedPickups = new();
+    public int livesCurrent;   // số mạng hiện tại còn lại
+    public int livesMax;       // cấu hình tối đa tại thời điểm save (để hiển thị/đồng bộ UI)
 }

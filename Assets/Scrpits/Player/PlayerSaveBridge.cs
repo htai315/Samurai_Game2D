@@ -48,6 +48,14 @@ public class PlayerSaveBridge : MonoBehaviour
         var gm = UnityEngine.Object.FindFirstObjectByType<GameManager>();
         d.gold = gm ? gm.Score : 0;
 
+        // ✅ Lives
+        if (PlayerLives.Instance != null)
+        {
+            d.livesCurrent = PlayerLives.Instance.CurrentLives;
+            d.livesMax = PlayerLives.Instance.GetMaxLives();
+        }
+
+
         // ✨ NEW: ghi danh sách pickup đã nhặt
         SaveRuntime.WriteTo(d);
 
@@ -87,6 +95,19 @@ public class PlayerSaveBridge : MonoBehaviour
         // 4) Tiền
         var gm = FindFirstObjectByType<GameManager>();
         if (gm) gm.SetScore(d.gold);
-    }
+        // ✅ Lives
+        if (PlayerLives.Instance != null)
+        {
+            // Nếu save cũ chưa có trường lives (mặc định 0),
+            // ta fallback về max hiện tại để không mất mạng oan.
+            bool hasLives = d.livesCurrent > 0 || d.livesMax > 0;
 
+            if (PlayerLives.Instance != null && d.livesMax > 0)
+            {
+                PlayerLives.Instance.LoadFromSave(d.livesCurrent, d.livesMax);
+            }
+
+        }
+    }
 }
+  
