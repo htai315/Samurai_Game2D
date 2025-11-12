@@ -30,6 +30,8 @@ public class TeleportGate1 : MonoBehaviour
         // Ghi nhớ ID spawn cho scene kế tiếp
         SpawnLocator.NextSpawnId = targetSpawnId;
 
+        RunSession.Instance?.BeginSceneTransition();
+
         StartCoroutine(TeleportRoutine());
     }
 

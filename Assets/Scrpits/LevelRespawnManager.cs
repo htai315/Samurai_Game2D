@@ -10,6 +10,8 @@ public class LevelRespawnManager : MonoBehaviour
     [SerializeField] private Animator fadeAnimator;
     [SerializeField] private float fadeDuration = 1f;
 
+    private bool _skipAutoRestore = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -22,8 +24,16 @@ public class LevelRespawnManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        _skipAutoRestore = false;
         StartCoroutine(RespawnRoutine());
     }
+
+    public void RespawnPlayerSkipRestore()
+    {
+        _skipAutoRestore = true;
+        StartCoroutine(RespawnRoutine());
+    }
+
 
     private IEnumerator RespawnRoutine()
     {
@@ -58,20 +68,20 @@ public class LevelRespawnManager : MonoBehaviour
         if (respawnPoint)
             player.transform.position = respawnPoint.position;
 
-        if (health)
+        if (!_skipAutoRestore)
         {
-            float need = health.MaxHealth - health.CurrentHealth;
-            if (need > 0) health.Heal(need);
-            controller?.SetDead(false);
+            if (health)
+            {
+                float need = health.MaxHealth - health.CurrentHealth;
+                if (need > 0) health.Heal(need); // máu đầy
+            }
         }
 
-        //if (mana)
-        //{
-        //    float needMp = mana.Max - mana.Current;
-        //    if (needMp > 0) mana.AddMana(needMp);
-        //}
-
+        // ---- mở khoá nhân vật ----
+        if (health) controller?.SetDead(false);
         if (controller && !controller.enabled)
             controller.enabled = true;
+
+        _skipAutoRestore = false;
     }
 }

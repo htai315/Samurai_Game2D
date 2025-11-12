@@ -89,6 +89,8 @@ MonoBehaviour:
       m_LigatureGlyphID: 245
     - m_ComponentGlyphIDs: 9b000000b4000000
       m_LigatureGlyphID: 246
+    - m_ComponentGlyphIDs: b40000000b020000
+      m_LigatureGlyphID: 184
     m_GlyphPairAdjustmentRecords: []
     m_MarkToBaseAdjustmentRecords: []
     m_MarkToMarkAdjustmentRecords: []

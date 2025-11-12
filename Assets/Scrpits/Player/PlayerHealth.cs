@@ -55,6 +55,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        if (RunSession.Instance != null && RunSession.Instance.IsTransitioningScene)
+            return;
         anim.SetTrigger(DoDie);
         controller.SetDead(true);
 
@@ -94,7 +96,7 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // Cách 1: Destroy player luôn (game over im lặng)
-        Destroy(gameObject);
+        RunSession.Instance?.OpenGameOver();
 
         // Cách 2 (khuyên dùng): Load sang GameOver scene
         // SceneManager.LoadScene("GameOverScene");
