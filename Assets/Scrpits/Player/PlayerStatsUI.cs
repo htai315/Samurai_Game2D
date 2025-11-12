@@ -1,14 +1,17 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatsUI : MonoBehaviour
 {
+    [Header("Texts")]
     public TMP_Text healthText;
     public TMP_Text manaText;
     public TMP_Text damageText;
     public TMP_Text speedText;
 
+    [Header("Buttons")]
     public Button healthPlus;
     public Button manaPlus;
     public Button damagePlus;
@@ -16,25 +19,62 @@ public class PlayerStatsUI : MonoBehaviour
 
     private PlayerStats stats;
 
-    void Start()
+    private void Awake()
     {
-        stats = Object.FindFirstObjectByType<PlayerStats>();
+        if (healthPlus) healthPlus.onClick.AddListener(OnClickHealth);
+        if (manaPlus) manaPlus.onClick.AddListener(OnClickMana);
+        if (damagePlus) damagePlus.onClick.AddListener(OnClickDamage);
+        if (speedPlus) speedPlus.onClick.AddListener(OnClickSpeed);
 
-        healthPlus.onClick.AddListener(() => { stats.UpgradeHealth(); Refresh(); });
-        manaPlus.onClick.AddListener(() => { stats.UpgradeMana(); Refresh(); });
-        damagePlus.onClick.AddListener(() => { stats.UpgradeDamage(); Refresh(); });
-        speedPlus.onClick.AddListener(() => { stats.UpgradeSpeed(); Refresh(); });
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void Start()
+    {
+        RebindStats();
         Refresh();
     }
 
+    private void OnEnable()
+    {
+        RebindStats();
+        Refresh();
+    }
+
+    private void OnSceneLoaded(Scene s, LoadSceneMode m)
+    {
+        RebindStats();
+        Refresh();
+    }
+
+    private void RebindStats()
+    {
+        stats = FindFirstObjectByType<PlayerStats>(FindObjectsInactive.Exclude);
+        // Debug.Log("[PlayerStatsUI] Rebind: " + (stats ? "OK" : "NULL"));
+    }
+
+    private PlayerStats GetStats()
+    {
+        if (!stats) RebindStats();
+        return stats;
+    }
+
+    private void OnClickHealth() { var s = GetStats(); if (!s) return; s.UpgradeHealth(); Refresh(); }
+    private void OnClickMana() { var s = GetStats(); if (!s) return; s.UpgradeMana(); Refresh(); }
+    private void OnClickDamage() { var s = GetStats(); if (!s) return; s.UpgradeDamage(); Refresh(); }
+    private void OnClickSpeed() { var s = GetStats(); if (!s) return; s.UpgradeSpeed(); Refresh(); }
+
     public void Refresh()
     {
-        if (!stats) return;
-
-        healthText.text = $"{stats.maxHealth}";
-        manaText.text = $"{stats.maxMana}";
-        damageText.text = $"{stats.baseDamage}";
-        speedText.text = $"{stats.moveSpeed:F1}";
+        var s = GetStats(); if (!s) return;
+        if (healthText) healthText.text = $"{s.maxHealth}";
+        if (manaText) manaText.text = $"{s.maxMana}";
+        if (damageText) damageText.text = $"{s.baseDamage}";
+        if (speedText) speedText.text = $"{s.moveSpeed:F1}";
     }
 }

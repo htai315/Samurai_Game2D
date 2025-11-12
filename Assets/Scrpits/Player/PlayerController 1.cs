@@ -7,7 +7,7 @@ public class PlayerController1 : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private ThanhMau thanhMau;
-    [SerializeField] private TutorialInputFilter tutorialFilter;
+   
 
     // Các module con
     private PlayerHealth healthModule;
@@ -67,16 +67,11 @@ public class PlayerController1 : MonoBehaviour
             return;
         }
 
-        // Cập nhật các module
-        bool okMove = tutorialFilter ? tutorialFilter.allowMove : true;
-        bool okDash = tutorialFilter ? tutorialFilter.allowDash : true;
-        bool okJump = tutorialFilter ? tutorialFilter.allowJump : true;
-        bool okAttack = tutorialFilter ? tutorialFilter.allowAttack : true;
+        movementModule?.HandleInput();
+        dashModule?.HandleInput();
+        jumpModule?.HandleInput();
+        combatModule?.HandleInput();
 
-        if (okMove) movementModule?.HandleInput();
-        if (okDash) dashModule?.HandleInput();     // dash L (trừ mana) :contentReference[oaicite:6]{index=6}
-        if (okJump) jumpModule?.HandleInput();     // jump K, double jump :contentReference[oaicite:7]{index=7}
-        if (okAttack) combatModule?.HandleInput();
 
         // Cập nhật animator
         movementModule?.ApplyAnimator();

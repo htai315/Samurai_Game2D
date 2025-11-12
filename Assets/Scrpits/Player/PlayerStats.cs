@@ -1,31 +1,29 @@
-﻿// PlayerStats.cs
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
+[DisallowMultipleComponent]
 public class PlayerStats : MonoBehaviour
 {
-    [Header("Base Stats (hiển thị trên bảng)")]
+    [Header("Base Stats")]
     public float maxHealth = 10f;
-    public float maxMana = 100f;
+    public float maxMana = 50f;
     public int baseDamage = 1;
     public float moveSpeed = 5f;
 
-    [Header("Mỗi lần bấm + sẽ cộng thêm (demo)")]
-    public float healthPerUpgrade = 2f;
-    public float manaPerUpgrade = 10f;
-    public int damagePerUpgrade = 1;
-    public float speedPerUpgrade = 0.5f;
+    [Header("Upgrade")]
+    public int upgradeCost = 5;      // coin/ lần nâng
+    public float hpStep = 2f;      // +2 HP mỗi lần
+    public float manaStep = 10f;     // +10 MP mỗi lần
+    public int dmgStep = 1;       // +1 DMG
+    public float spdStep = 0.5f;    // +0.5 Speed
 
-    [Header("Giữ tỉ lệ khi tăng Max?")]
-    public bool keepCurrentRatioOnMaxChange = true;
-
-    [Header("Chi phí nâng cấp")]
-    public int upgradeCost = 5;   // ✨ mỗi lần bấm + tốn 5 coin
-
+    // Cached modules (nếu không có cũng OK)
     private PlayerHealth _health;
     private PlayerMana _mana;
     private PlayerCombat _combat;
     private PlayerMovement _movement;
-    private GameManager _gm;      // ✨ để trừ coin
+
+    private GameManager _gm;
 
     void Awake()
     {
@@ -33,63 +31,32 @@ public class PlayerStats : MonoBehaviour
         _mana = GetComponent<PlayerMana>();
         _combat = GetComponent<PlayerCombat>();
         _movement = GetComponent<PlayerMovement>();
-        _gm = Object.FindFirstObjectByType<GameManager>();
+
+        RebindGameManager();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // Đẩy stats xuống modules (API sạch)
-    public void ApplyAllToModules()
+    void OnDestroy()
     {
-        if (_health) _health.ApplyNewMaxHealth(maxHealth, keepCurrentRatioOnMaxChange);
-        if (_mana) _mana.ApplyNewMaxMana(maxMana, keepCurrentRatioOnMaxChange);
-        if (_combat) _combat.SetBaseDamage(baseDamage);
-        if (_movement) _movement.SetMoveSpeed(moveSpeed);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // ====== Nâng cấp có thu coin ======
-    public void UpgradeHealth()
+    private void OnSceneLoaded(Scene s, LoadSceneMode m)
     {
-        if (!CanPay()) return;
-        Pay();
-        maxHealth += Mathf.Max(0.01f, healthPerUpgrade);
-        if (_health) _health.ApplyNewMaxHealth(maxHealth, keepCurrentRatioOnMaxChange);
-        Debug.Log($"[Upgrade] +HP Max → {maxHealth} (đã trừ {upgradeCost} coin)");
+        RebindGameManager();
     }
 
-    public void UpgradeMana()
+    private void RebindGameManager()
     {
-        if (!CanPay()) return;
-        Pay();
-        maxMana += Mathf.Max(0.01f, manaPerUpgrade);
-        if (_mana) _mana.ApplyNewMaxMana(maxMana, keepCurrentRatioOnMaxChange);
-        Debug.Log($"[Upgrade] +MP Max → {maxMana} (đã trừ {upgradeCost} coin)");
+        // Include cả inactive để bắt trường hợp GM nằm ẩn trong PersistentRoot
+        _gm = FindFirstObjectByType<GameManager>(FindObjectsInactive.Include);
+        // Debug.Log("[PlayerStats] Rebind GM: " + (_gm ? "OK" : "NULL"));
     }
 
-    public void UpgradeDamage()
-    {
-        if (!CanPay()) return;
-        Pay();
-        baseDamage += Mathf.Max(1, damagePerUpgrade);
-        if (_combat) _combat.SetBaseDamage(baseDamage);
-        Debug.Log($"[Upgrade] +DMG Base → {baseDamage} (đã trừ {upgradeCost} coin)");
-    }
-
-    public void UpgradeSpeed()
-    {
-        if (!CanPay()) return;
-        Pay();
-        moveSpeed += Mathf.Max(0.01f, speedPerUpgrade);
-        if (_movement) _movement.SetMoveSpeed(moveSpeed);
-        Debug.Log($"[Upgrade] +Speed → {moveSpeed} (đã trừ {upgradeCost} coin)");
-    }
-
-    // ✨ Helpers
     private bool CanPay()
     {
-        if (_gm == null)
-        {
-            Debug.LogWarning("[Upgrade] Không tìm thấy GameManager để trừ coin!");
-            return false;
-        }
+        if (_gm == null) RebindGameManager();
+        if (_gm == null) { Debug.LogWarning("[Upgrade] Không thấy GameManager để trừ coin!"); return false; }
         if (_gm.Score < upgradeCost)
         {
             Debug.Log($"[Upgrade] Không đủ coin! Cần {upgradeCost}, hiện có {_gm.Score}.");
@@ -100,9 +67,62 @@ public class PlayerStats : MonoBehaviour
 
     private void Pay()
     {
-        if (!_gm.TrySpend(upgradeCost))
+        if (_gm == null) RebindGameManager();
+        if (_gm == null) { Debug.LogWarning("[Upgrade] Không thấy GameManager để trừ coin!"); return; }
+        _gm.TrySpend(upgradeCost); // đã check đủ tiền ở CanPay
+    }
+
+    // ===== Upgrades =====
+    public void UpgradeHealth()
+    {
+        if (!CanPay()) return;
+        maxHealth += hpStep;
+        Pay();
+
+        if (_health)
         {
-            Debug.Log($"[Upgrade] Không đủ coin! Cần {upgradeCost}, hiện có {_gm.Score}.");
+            // Tăng max theo tỉ lệ giữ % máu hiện tại
+            _health.ApplyNewMaxHealth(maxHealth, keepRatio: true);
         }
+    }
+
+    public void UpgradeMana()
+    {
+        if (!CanPay()) return;
+        maxMana += manaStep;
+        Pay();
+
+        if (_mana)
+        {
+            _mana.ApplyNewMaxMana(maxMana, keepRatio: true);
+        }
+    }
+
+    public void UpgradeDamage()
+    {
+        if (!CanPay()) return;
+        baseDamage += dmgStep;
+        Pay();
+
+        if (_combat) _combat.SetBaseDamage(baseDamage); // nếu không có API này thì bỏ qua cũng không sao
+    }
+
+    public void UpgradeSpeed()
+    {
+        if (!CanPay()) return;
+        moveSpeed += spdStep;
+        Pay();
+
+        if (_movement) _movement.SetMoveSpeed(moveSpeed); // nếu module không có API này thì bỏ qua
+    }
+
+    // (Tuỳ) gọi ở Awake của Player để bơm stat vào các module ngay khi spawn
+    public void ApplyAllToModules()
+    {
+        if (_health) _health.ApplyNewMaxHealth(maxHealth, keepRatio: true);
+        if (_mana) _mana.ApplyNewMaxMana(maxMana, keepRatio: true);
+        if (_combat) _combat.SetBaseDamage(baseDamage);
+        if (_movement) _movement.SetMoveSpeed(moveSpeed);
+
     }
 }

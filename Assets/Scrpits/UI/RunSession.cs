@@ -118,7 +118,14 @@ public class RunSession : MonoBehaviour
         if (gameOverUI) gameOverUI.Close();
         hasSnapshot = false;
 
-        // (không cần Destroy thủ công)
+        // 🔥 Huỷ PersistentRoot và singleton liên quan
+        var root = GameObject.Find("PersistentRoot");
+        if (root) Destroy(root);
+
+        if (PlayerLives.Instance)
+            Destroy(PlayerLives.Instance.gameObject);
+
         SceneManager.LoadScene(menuSceneName);
     }
+
 }

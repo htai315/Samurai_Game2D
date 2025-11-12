@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [Header("Scenes")]
-    [SerializeField] string tutorialSceneName = "TutorialScene";
     [SerializeField] string firstMapScene = "SampleScene";  // màn chính đầu tiên
 
     [Header("UI")]
@@ -21,7 +20,7 @@ public class MainMenu : MonoBehaviour
     {
         SaveSystem.Delete();
         SaveRuntime.Clear();
-        SceneManager.LoadScene(tutorialSceneName);
+        SceneManager.LoadScene(firstMapScene);
     }
 
     // Continue → tạo PersistentRoot rồi load scene đã save

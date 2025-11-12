@@ -132,7 +132,7 @@ public class GhostController : MonoBehaviour
             UpdateFacing(direction);
         }
 
-        animator?.SetBool("isMoving", true);
+        //animator?.SetBool("isMoving", true);
     }
 
     private void ChasePlayer()
@@ -145,7 +145,7 @@ public class GhostController : MonoBehaviour
             UpdateFacing(dx);
         }
 
-        animator?.SetBool("isMoving", true);
+        //animator?.SetBool("isMoving", true);
     }
 
     private void Attack()
@@ -160,7 +160,7 @@ public class GhostController : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         UpdateFacing(lastKnownPlayerDir);
-        animator?.SetBool("isMoving", false);
+        //animator?.SetBool("isMoving", false);
     }
 
     public void DoDamage()

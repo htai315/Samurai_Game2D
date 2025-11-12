@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 5b9b1755def86a040b9e6dd28ff50c4d
+guid: 3264de752f78d134f8facb26495ab999
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2180077709276997917
-    second: istockphoto-1445035269-640x640_0
+      213: 3571635775238715396
+    second: HURT_0
+  - first:
+      213: -6552392919759675800
+    second: HURT_1
+  - first:
+      213: -4191814458887339610
+    second: HURT_2
+  - first:
+      213: -5703626821815436037
+    second: HURT_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: istockphoto-1445035269-640x640_0
+      name: HURT_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 768
-        height: 432
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d19e3344021314e10800000000000000
-      internalID: 2180077709276997917
+      spriteID: 4083e2270dff09130800000000000000
+      internalID: 3571635775238715396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HURT_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86e90f40b593115a0800000000000000
+      internalID: -6552392919759675800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HURT_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a18ca575fea3d5c0800000000000000
+      internalID: -4191814458887339610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HURT_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfcfc4aef95a8d0b0800000000000000
+      internalID: -5703626821815436037
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a81a955bb14fb2147b51a7de7cd10c38
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      istockphoto-1445035269-640x640_0: 2180077709276997917
+      HURT_0: 3571635775238715396
+      HURT_1: -6552392919759675800
+      HURT_2: -4191814458887339610
+      HURT_3: -5703626821815436037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
