@@ -9,18 +9,15 @@ public class PauseSettingsMenu : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
 
     [Header("Scenes")]
-    [SerializeField] private string menuSceneName = "MenuScene"; // tên scene menu của bạn
+    [SerializeField] private string menuSceneName = "MenuScene";
 
     private PlayerSaveBridge bridge;
     private bool isOpen = false;
 
     private void Start()
     {
-        // tìm PlayerSaveBridge
-        var player = GameObject.FindGameObjectWithTag("Player");
-        if (player) bridge = player.GetComponent<PlayerSaveBridge>();
+        TryFindBridge();
 
-        // setup slider âm lượng
         if (volumeSlider != null)
         {
             volumeSlider.minValue = 0f;
@@ -32,12 +29,11 @@ public class PauseSettingsMenu : MonoBehaviour
         if (settingsPanel != null)
             settingsPanel.SetActive(false);
 
-        Time.timeScale = 1f; // đảm bảo game đang chạy bình thường
+        Time.timeScale = 1f;
     }
 
     private void Update()
     {
-        // Nhấn ESC để mở / đóng
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isOpen) CloseSettings();
@@ -48,25 +44,33 @@ public class PauseSettingsMenu : MonoBehaviour
     private void OpenSettings()
     {
         isOpen = true;
-        if (settingsPanel != null)
-            settingsPanel.SetActive(true);
-        Time.timeScale = 0f; // pause game
+        settingsPanel?.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     private void CloseSettings()
     {
         isOpen = false;
-        if (settingsPanel != null)
-            settingsPanel.SetActive(false);
-        Time.timeScale = 1f; // resume game
+        settingsPanel?.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     private void OnVolumeChanged(float value)
     {
-        AudioListener.volume = value; // chỉnh master volume đơn giản
+        AudioListener.volume = value;
     }
 
-    // === các hàm gán cho button ===
+    private void TryFindBridge()
+    {
+        if (bridge != null) return;
+
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
+            bridge = player.GetComponent<PlayerSaveBridge>();
+    }
+
+    // ======= BUTTONS =======
+
     public void OnResumeButton()
     {
         CloseSettings();
@@ -89,14 +93,23 @@ public class PauseSettingsMenu : MonoBehaviour
             Debug.Log("💾 Save & Quit!");
         }
 
+        // Trả timeScale về bình thường
         Time.timeScale = 1f;
 
-        // nếu bạn có PersistentRoot dạng DontDestroyOnLoad
-        // thì có thể huỷ nó trước khi về menu (tuỳ script của bạn)
-        // ví dụ:
-        // if (PersistentRoot.Instance != null)
-        //     Destroy(PersistentRoot.Instance.gameObject);
+        // 💥 DỌN PERSISTENTROOT (rất quan trọng)
+        // Cách 1: nếu bạn có class PersistentRoot
+        var root = FindFirstObjectByType<PersistentRoot>();
+        if (root != null)
+        {
+            Destroy(root.gameObject);
+        }
 
+        // Cách 2 (fallback): tìm theo tên nếu bạn đặt tên object là "PersistentRoot"
+        // var rootGO = GameObject.Find("PersistentRoot");
+        // if (rootGO != null) Destroy(rootGO);
+
+        // Về menu
         SceneManager.LoadScene(menuSceneName);
     }
+
 }

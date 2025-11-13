@@ -12,6 +12,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float chaseStopDistance = 0.3f;
     public float attackCooldown = 1.5f;
     public float loseAgroDelay = 0.5f; // delay trước khi quay về patrol
+    public float attackDamage = 1f; // <-- BIẾN SÁT THƯƠNG ĐÃ ĐƯỢC THÊM VÀO
     public LayerMask playerLayer;
     public Transform attackPoint;
 
@@ -161,7 +162,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
             PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(1);
+                // Sử dụng biến attackDamage có thể tùy chỉnh
+                playerHealth.TakeDamage((int)attackDamage);
                 hasDealtDamage = true;
             }
         }

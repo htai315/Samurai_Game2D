@@ -38,12 +38,21 @@ public class PlayerHealth : MonoBehaviour
         if (controller.IsDead || controller.IsHurting)
             return;
 
+        // 🔍 LOG trước khi trừ
+        Debug.Log($"[HP] Nhận sát thương: {damage}. Trước khi trừ: {luongMauHienTai}/{luongMauToiDa}");
+
         luongMauHienTai -= damage;
+
+        // Cập nhật UI
         if (thanhMau)
             thanhMau.capNhatMau(luongMauHienTai, luongMauToiDa);
 
+        // 🔍 LOG sau khi trừ
+        Debug.Log($"[HP] Sau khi trừ: {luongMauHienTai}/{luongMauToiDa}");
+
         if (luongMauHienTai <= 0)
         {
+            Debug.Log("[HP] Player chết.");
             Die();
         }
         else
@@ -52,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(HurtStun());
         }
     }
+
 
     private void Die()
     {
@@ -114,18 +124,19 @@ public class PlayerHealth : MonoBehaviour
         controller.SetHurting(false);
     }
 
-    // Test damage (xóa hoặc thay bằng hệ thống collision)
-    private void OnMouseDown()
-    {
-        TakeDamage(1f);
-    }
+
 
     public void Heal(float amount)
     {
+        Debug.Log($"[HP] Hồi máu: +{amount}. Trước khi hồi: {luongMauHienTai}/{luongMauToiDa}");
+
         luongMauHienTai = Mathf.Min(luongMauHienTai + amount, luongMauToiDa);
         if (thanhMau)
             thanhMau.capNhatMau(luongMauHienTai, luongMauToiDa);
+
+        Debug.Log($"[HP] Sau khi hồi: {luongMauHienTai}/{luongMauToiDa}");
     }
+
 
     public float CurrentHealth => luongMauHienTai;
     public float MaxHealth => luongMauToiDa;

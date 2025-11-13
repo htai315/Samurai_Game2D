@@ -12,6 +12,7 @@ public class GhostController : MonoBehaviour
     public float chaseStopDistance = 0.3f;
     public float attackCooldown = 1.5f;
     public float loseAgroDelay = 0.5f;
+    public float attackDamage = 1f; // <-- BIẾN SÁT THƯƠNG ĐÃ ĐƯỢC THÊM VÀO
     public LayerMask playerLayer;
     public Transform attackPoint;
 
@@ -35,13 +36,14 @@ public class GhostController : MonoBehaviour
     private float loseAgroTimer = 0f;
     private bool hasDealtDamage = false;
 
-    // 🔧 Thêm biến để nhớ hướng cuối cùng của player khi còn trong tầm
+    // Biến để nhớ hướng cuối cùng của player khi còn trong tầm
     private float lastKnownPlayerDir = 1f;
 
     private void Start()
     {
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        // Tìm player bằng Tag "Player"
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -84,13 +86,14 @@ public class GhostController : MonoBehaviour
                     if (loseAgroTimer >= loseAgroDelay)
                     {
                         currentState = GhostState.Patrol;
+                        // Xác định hướng đi tuần tra quay về startPosition
                         direction = (transform.position.x >= startPosition.x) ? -1 : 1;
                         UpdateFacing(direction);
                         loseAgroTimer = 0f;
                     }
                     else
                     {
-                        // 🔧 Khi player vừa ra khỏi tầm, chỉ nhìn theo hướng cuối cùng, KHÔNG flip nữa
+                        // Khi player vừa ra khỏi tầm (đang trong LoseAgroDelay), chỉ nhìn theo hướng cuối cùng
                         IdleLookInLastKnownDirection();
                     }
                 }
@@ -102,7 +105,7 @@ public class GhostController : MonoBehaviour
 
             case GhostState.Attack:
                 rb.linearVelocity = Vector2.zero;
-                UpdateFacing(dx);
+                UpdateFacing(dx); // Luôn nhìn về phía player khi tấn công
 
                 if (Time.time >= lastAttackTime + attackCooldown)
                 {
@@ -110,7 +113,7 @@ public class GhostController : MonoBehaviour
                     lastAttackTime = Time.time;
                 }
 
-                // 🔧 Nếu player chạy xa, quay lại Chase
+                // Nếu player chạy xa ra khỏi phạm vi tấn công
                 if (distanceToPlayer > attackRange * 1.3f)
                     currentState = GhostState.Chase;
                 break;
@@ -119,61 +122,76 @@ public class GhostController : MonoBehaviour
                 IdleLookInLastKnownDirection();
                 break;
         }
+
+        // Cập nhật Animator (nếu có)
+        animator?.SetBool("isMoving", currentState == GhostState.Patrol || (currentState == GhostState.Chase && distanceToPlayer > chaseStopDistance));
     }
 
     private void Patrol()
     {
+        // Di chuyển qua lại
         transform.Translate(Vector2.right * direction * moveSpeed * Time.deltaTime);
         UpdateFacing(direction);
 
+        // Đảo chiều khi hết phạm vi tuần tra
         if (Mathf.Abs(transform.position.x - startPosition.x) >= patrolDistance)
         {
             direction *= -1;
             UpdateFacing(direction);
         }
-
-        //animator?.SetBool("isMoving", true);
     }
 
     private void ChasePlayer()
     {
         float dx = player.position.x - transform.position.x;
-        if (Mathf.Abs(dx) > flipDeadzone)
+        // Di chuyển đến gần player (trừ khoảng cách dừng)
+        if (Mathf.Abs(dx) > chaseStopDistance)
         {
             float dirX = Mathf.Sign(dx);
             transform.Translate(Vector2.right * dirX * moveSpeed * Time.deltaTime);
             UpdateFacing(dx);
         }
-
-        //animator?.SetBool("isMoving", true);
+        else
+        {
+            // Dừng lại khi đủ gần
+            rb.linearVelocity = Vector2.zero;
+            UpdateFacing(dx);
+        }
     }
 
     private void Attack()
     {
         float dx = player.position.x - transform.position.x;
         UpdateFacing(dx);
+        // Kích hoạt animation tấn công
         animator?.SetTrigger("Attack");
-        hasDealtDamage = false;
+        hasDealtDamage = false; // Reset cờ sát thương
     }
 
     private void IdleLookInLastKnownDirection()
     {
         rb.linearVelocity = Vector2.zero;
+        // Chỉ nhìn về hướng cuối cùng thấy player, không di chuyển
         UpdateFacing(lastKnownPlayerDir);
-        //animator?.SetBool("isMoving", false);
+        animator?.SetBool("isMoving", false);
     }
 
+    // PHƯƠNG THỨC GÂY SÁT THƯƠNG - GỌI TỪ ANIMATION EVENT
     public void DoDamage()
     {
         if (hasDealtDamage) return;
 
+        // Kiểm tra tất cả các Collider 2D trong phạm vi tấn công thuộc Layer của Player
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+
         foreach (var hit in hits)
         {
+            // Tìm script PlayerHealth trên đối tượng vừa va chạm
             PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(1);
+                // Gây sát thương với giá trị attackDamage đã thiết lập
+                playerHealth.TakeDamage((int)attackDamage);
                 hasDealtDamage = true;
             }
         }
@@ -195,12 +213,15 @@ public class GhostController : MonoBehaviour
     {
         facingRight = faceRight;
 
+        // Đảo sprite
         if (spriteRenderer != null)
             spriteRenderer.flipX = !faceRight;
 
+        // Đảo vị trí AttackPoint để nó luôn ở phía trước mặt quái
         if (attackPoint != null)
         {
             var lp = attackPoint.localPosition;
+            // Đảm bảo tọa độ X của AttackPoint là giá trị tuyệt đối * hướng
             lp.x = Mathf.Abs(lp.x) * (faceRight ? 1f : -1f);
             attackPoint.localPosition = lp;
         }
@@ -208,8 +229,13 @@ public class GhostController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        // Vẽ Gizmo để dễ dàng thấy phạm vi tấn công trong Scene view
         if (attackPoint == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
+        // Vẽ Gizmo cho phạm vi Agro (tầm nhìn)
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, agroRange);
     }
 }

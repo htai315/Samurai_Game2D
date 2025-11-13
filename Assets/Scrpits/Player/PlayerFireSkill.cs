@@ -29,25 +29,28 @@ public class PlayerFireSkill : MonoBehaviour
 
     void TryCastFire()
     {
+        // Đang cast hoặc chưa hết cooldown → bỏ
         if (isCasting) return;
         if (Time.time < lastCastTime + cooldown) return;
 
+        // Kiểm tra mana
         if (!mana.TrySpend(manaCost))
         {
             Debug.Log("❌ Không đủ mana để cast chiêu lửa!");
             return;
         }
 
-        // Phát trigger animation cast
         isCasting = true;
         lastCastTime = Time.time;
+
+        // Phát trigger animation cast
         anim.SetTrigger("doCastFire"); // nhớ tạo trigger này trong Animator Player
     }
 
     // 🔥 GỌI TỪ ANIMATION EVENT trong clip cast (frame vung tay)
     public void SpawnFireball()
     {
-        if (!fireballPrefab || !castPoint) return;
+        if (!fireballPrefab || !castPoint) { isCasting = false; return; }
 
         // Tính hướng theo hướng Player đang nhìn
         float dir = Mathf.Sign(transform.localScale.x);
@@ -64,4 +67,13 @@ public class PlayerFireSkill : MonoBehaviour
         Debug.Log("🔥 Fireball casted!");
         isCasting = false;
     }
+
+    // ===== API CHO UI COOLDOWN =====
+    public float SkillCooldown => cooldown;
+
+    public float SkillCooldownRemaining
+        => Mathf.Max(0f, (lastCastTime + cooldown) - Time.time);
+
+    public bool IsSkillReady
+        => !isCasting && Time.time >= lastCastTime + cooldown;
 }

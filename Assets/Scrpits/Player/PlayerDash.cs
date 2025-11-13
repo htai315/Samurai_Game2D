@@ -7,6 +7,8 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private float dashDuration = 0.12f;
     [SerializeField] private LayerMask dashBlockerMask;
     [SerializeField] private float dashSkin = 0.02f;
+    // ⟵ THÊM: Cooldown cho dash
+    [SerializeField] private float dashCooldown = 1.0f;
 
     [Header("Dash VFX")]
     [SerializeField] private GameObject dashDustPrefab;
@@ -29,6 +31,9 @@ public class PlayerDash : MonoBehaviour
     private readonly RaycastHit2D[] hitBuf = new RaycastHit2D[4];
     private ContactFilter2D dashFilter;
 
+    // ⟵ THÊM: Biến theo dõi thời gian cooldown còn lại
+    private float nextDashTime;
+
     // Animator hashes
     private static readonly int DoDash = Animator.StringToHash("doDash");
 
@@ -48,11 +53,15 @@ public class PlayerDash : MonoBehaviour
             layerMask = dashBlockerMask,
             useTriggers = false
         };
+
+        // ⟵ KHỞI TẠO: Đảm bảo có thể dash ngay khi bắt đầu
+        nextDashTime = 0f;
     }
 
     public void HandleInput()
     {
-        if (isDashing || controller.IsAttacking) return;
+        // ⟵ THÊM: Kiểm tra cooldown 
+        if (isDashing || controller.IsAttacking || Time.time < nextDashTime) return;
 
         bool dashPressed = Input.GetKeyDown(KeyCode.L);
         if (!dashPressed) return;
@@ -64,6 +73,9 @@ public class PlayerDash : MonoBehaviour
             // ví dụ: Debug.Log("Not enough mana to dash!");
             return;
         }
+
+        // ⟵ THÊM: Đặt thời gian cooldown mới
+        nextDashTime = Time.time + dashCooldown;
 
         StartDash(); // chỉ gọi khi đã trừ mana thành công
     }
@@ -128,4 +140,12 @@ public class PlayerDash : MonoBehaviour
     }
 
     public bool IsDashing => isDashing;
+    // === 🔎 Cho UI đọc trạng thái cooldown ===
+    public float DashCooldown => dashCooldown;
+
+    public float DashCooldownRemaining
+        => Mathf.Max(0f, nextDashTime - Time.time);
+
+    public bool IsDashReady
+        => !isDashing && Time.time >= nextDashTime;
 }
