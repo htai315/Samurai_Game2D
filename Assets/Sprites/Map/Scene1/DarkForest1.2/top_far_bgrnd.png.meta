@@ -1084,7 +1084,46 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      top_far_bgrnd_0: -4219134444641109766
+      top_far_bgrnd_1: 205935511540882859
+      top_far_bgrnd_10: 2570461829416463968
+      top_far_bgrnd_11: 4524187652852611590
+      top_far_bgrnd_12: -8822852501580362321
+      top_far_bgrnd_13: 4367753676916548321
+      top_far_bgrnd_14: -3852186176301154771
+      top_far_bgrnd_15: -6032273635458271609
+      top_far_bgrnd_16: 124490051336152523
+      top_far_bgrnd_17: -2058900458461974204
+      top_far_bgrnd_18: -4671023715348445486
+      top_far_bgrnd_19: -2628438497468609832
+      top_far_bgrnd_2: -9060194621009612625
+      top_far_bgrnd_20: -1892903526148099767
+      top_far_bgrnd_21: 9174627449619117516
+      top_far_bgrnd_22: 2357925768236427912
+      top_far_bgrnd_23: -4670354921151043425
+      top_far_bgrnd_24: -7568491288407996964
+      top_far_bgrnd_25: 2025738066051852536
+      top_far_bgrnd_26: -8613252962887750089
+      top_far_bgrnd_27: 157614497707831767
+      top_far_bgrnd_28: -126115063345916359
+      top_far_bgrnd_29: 7256347733922951290
+      top_far_bgrnd_3: 1059145417291778130
+      top_far_bgrnd_30: -1876482865312234535
+      top_far_bgrnd_31: 4240822733461071654
+      top_far_bgrnd_32: -5225641987685477781
+      top_far_bgrnd_33: -4771154427451717399
+      top_far_bgrnd_34: 4734113638332272022
+      top_far_bgrnd_35: -2510190975328784320
+      top_far_bgrnd_36: 3993381386711799281
+      top_far_bgrnd_37: 5664498465758658282
+      top_far_bgrnd_38: 7200675447716852973
+      top_far_bgrnd_4: -6465862322680240322
+      top_far_bgrnd_5: -3432996983011041322
+      top_far_bgrnd_6: -2854476001591673416
+      top_far_bgrnd_7: -4207758879949944457
+      top_far_bgrnd_8: -8275856428696930068
+      top_far_bgrnd_9: 8087404319364921757
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

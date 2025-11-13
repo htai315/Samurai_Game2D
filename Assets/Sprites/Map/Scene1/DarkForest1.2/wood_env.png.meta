@@ -709,7 +709,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wood_env_0: 6167489346621658444
+      wood_env_1: 5140568443003981999
+      wood_env_10: 8015764328856465413
+      wood_env_11: -3764376893969583160
+      wood_env_12: 2795924691096803258
+      wood_env_13: -752450913240699383
+      wood_env_14: -5279076477566529037
+      wood_env_15: 1204312477820097470
+      wood_env_16: -5957924393774764236
+      wood_env_17: -6688109351046928356
+      wood_env_18: 2788164425645588259
+      wood_env_19: 6704687663840560512
+      wood_env_2: -6083278840270124132
+      wood_env_20: 1141072665469655593
+      wood_env_21: -2446962255448878096
+      wood_env_22: -91517009842893696
+      wood_env_23: 8666703567919033044
+      wood_env_3: 3201945345161946748
+      wood_env_4: 6440472967513911866
+      wood_env_5: 8028095939034081481
+      wood_env_6: -3508637457953159829
+      wood_env_7: -1479253815536356558
+      wood_env_8: -1253231910567423540
+      wood_env_9: -5370035713757906848
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

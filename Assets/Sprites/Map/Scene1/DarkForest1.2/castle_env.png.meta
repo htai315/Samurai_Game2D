@@ -784,7 +784,34 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      castle_env_0: -207994861796681891
+      castle_env_1: -4445022054983906845
+      castle_env_10: 5529526567596142380
+      castle_env_11: -8137608722759060268
+      castle_env_12: -2584462977090657571
+      castle_env_13: -2491635706789813234
+      castle_env_14: 1309213315113277235
+      castle_env_15: 8784318799370337892
+      castle_env_16: -293550919736355872
+      castle_env_17: 2002100010313610172
+      castle_env_18: 3406053118739073269
+      castle_env_19: -2032595842404912772
+      castle_env_2: -2332685906206651193
+      castle_env_20: 1799875909049825550
+      castle_env_21: 7874498249956533742
+      castle_env_22: -1841994162556502953
+      castle_env_23: -4234831728882617475
+      castle_env_24: 2433876568293344631
+      castle_env_25: -9128615330651066050
+      castle_env_26: 702104906063407186
+      castle_env_3: 4852670541126992747
+      castle_env_4: -1162949384569549892
+      castle_env_5: 8883743248699752796
+      castle_env_6: -7802708566780381589
+      castle_env_7: 7505212315336009773
+      castle_env_8: -1129608101658700004
+      castle_env_9: -5018291283235691000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
