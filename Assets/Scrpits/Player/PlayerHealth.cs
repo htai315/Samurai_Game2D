@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerController1 controller;
     private Animator anim;
     private Rigidbody2D rb;
+    private bool initialized;
 
     // Animator hashes
     private static readonly int DoHurt = Animator.StringToHash("doHurt");
@@ -24,24 +25,24 @@ public class PlayerHealth : MonoBehaviour
         anim = animator;
         rb = rigidbody;
         thanhMau = healthBar;
-    }
-
-    public void Start()
-    {
-        luongMauHienTai = luongMauToiDa;
+        if (!initialized)
+        {
+            luongMauHienTai = luongMauToiDa;
+            initialized = true;
+        }
         if (thanhMau)
             thanhMau.capNhatMau(luongMauHienTai, luongMauToiDa);
     }
 
     public void TakeDamage(float damage)
     {
-        if (controller.IsDead || controller.IsHurting)
+        if (!CanChangeHealth || controller.IsHurting || !PositiveFinite(damage))
             return;
 
         // 🔍 LOG trước khi trừ
         Debug.Log($"[HP] Nhận sát thương: {damage}. Trước khi trừ: {luongMauHienTai}/{luongMauToiDa}");
 
-        luongMauHienTai -= damage;
+        luongMauHienTai = Mathf.Max(0, luongMauHienTai - damage);
 
         // Cập nhật UI
         if (thanhMau)
@@ -63,10 +64,30 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
+    private bool CanChangeHealth => isActiveAndEnabled && controller && !controller.IsDead &&
+        Time.timeScale > 0 && !SceneTransition.IsBusy &&
+        !(RunSession.Instance && (RunSession.Instance.IsTransitioningScene || RunSession.Instance.IsGameOver)) &&
+        !(LevelRespawnManager.Instance && LevelRespawnManager.Instance.IsRespawning);
+
+    private static bool PositiveFinite(float value) => value > 0 && !float.IsNaN(value) && !float.IsInfinity(value);
+
+    // Environmental death bypasses hurt invulnerability, never pause/transition/death guards.
+    public void KillOutOfBounds()
+    {
+        if (!CanChangeHealth) return;
+        luongMauHienTai = 0;
+        if (thanhMau) thanhMau.capNhatMau(0, luongMauToiDa);
+        Die();
+    }
+
     private void Die()
     {
         if (RunSession.Instance != null && RunSession.Instance.IsTransitioningScene)
             return;
+        if (controller.IsDead) return;
+        StopAllCoroutines();
+        controller.SetHurting(false);
+        anim.ResetTrigger(DoHurt);
         anim.SetTrigger(DoDie);
         controller.SetDead(true);
 
@@ -128,6 +149,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(float amount)
     {
+        if (!CanChangeHealth || !PositiveFinite(amount)) return;
         Debug.Log($"[HP] Hồi máu: +{amount}. Trước khi hồi: {luongMauHienTai}/{luongMauToiDa}");
 
         luongMauHienTai = Mathf.Min(luongMauHienTai + amount, luongMauToiDa);
@@ -143,6 +165,7 @@ public class PlayerHealth : MonoBehaviour
     // PlayerHealth.cs (bổ sung 2 API bên dưới trong class)
     public void ApplyNewMaxHealth(float newMax, bool keepRatio)
     {
+        if (!PositiveFinite(newMax)) return;
         float oldMax = luongMauToiDa;
         float oldCur = luongMauHienTai;
 
@@ -158,6 +181,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void SetCurrentHealth(float value)
     {
+        if (float.IsNaN(value) || float.IsInfinity(value)) return;
         luongMauHienTai = Mathf.Clamp(value, 0, luongMauToiDa);
         if (thanhMau) thanhMau.capNhatMau(luongMauHienTai, luongMauToiDa);
     }

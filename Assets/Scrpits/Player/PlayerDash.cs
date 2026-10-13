@@ -60,24 +60,20 @@ public class PlayerDash : MonoBehaviour
 
     public void HandleInput()
     {
-        // ⟵ THÊM: Kiểm tra cooldown 
-        if (isDashing || controller.IsAttacking || Time.time < nextDashTime) return;
+        if (Input.GetKeyDown(KeyCode.L)) TryDash();
+    }
 
-        bool dashPressed = Input.GetKeyDown(KeyCode.L);
-        if (!dashPressed) return;
-
-        // ⟵ kiểm tra & trừ mana
-        if (mana == null || !mana.TrySpend(dashManaCost))
-        {
-            // (tuỳ chọn) thêm hiệu ứng/âm thanh hết mana ở đây
-            // ví dụ: Debug.Log("Not enough mana to dash!");
-            return;
-        }
-
-        // ⟵ THÊM: Đặt thời gian cooldown mới
+    public bool TryDash()
+    {
+        if (!isActiveAndEnabled || !controller || !controller.CanStartAction ||
+            Time.time < nextDashTime || !PlayerActionAnimation.ValidCost(dashCooldown) ||
+            !PlayerActionAnimation.ValidCost(dashDistance) || dashDistance <= 0f ||
+            !PlayerActionAnimation.ValidCost(dashDuration) || dashDuration <= 0f ||
+            !PlayerActionAnimation.CanPlay(anim, "Player_Dash", "doDash") ||
+            !mana || !mana.TrySpend(dashManaCost)) return false;
         nextDashTime = Time.time + dashCooldown;
-
-        StartDash(); // chỉ gọi khi đã trừ mana thành công
+        StartDash();
+        return true;
     }
 
     private void StartDash()
@@ -98,7 +94,7 @@ public class PlayerDash : MonoBehaviour
 
     public void FixedUpdateDash()
     {
-        if (!isDashing) return;
+        if (!isDashing || !controller.CanAct) return;
 
         float step = dashSpeed * Time.fixedDeltaTime;
         float move = Mathf.Min(step, dashRemain);
@@ -139,7 +135,15 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
+    private void OnDisable() => ResetForRespawn(false);
     public bool IsDashing => isDashing;
+    public void ResetForRespawn(bool newAttempt)
+    {
+        isDashing = false;
+        if (anim && anim.runtimeAnimatorController) anim.ResetTrigger(DoDash);
+        dashRemain = dashSpeed = 0f;
+        if (newAttempt) nextDashTime = 0f;
+    }
     // === 🔎 Cho UI đọc trạng thái cooldown ===
     public float DashCooldown => dashCooldown;
 

@@ -22,13 +22,15 @@ public class PlayerLives : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // giữ khi qua scene mới
-    }
-
-    private void Start()
-    {
+        // Children are already owned by PersistentRoot; only persist standalone roots.
+        if (transform.parent == null) DontDestroyOnLoad(gameObject);
         CurrentLives = maxLives;
         UpdateUI();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     /// <summary>

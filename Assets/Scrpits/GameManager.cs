@@ -48,6 +48,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale <= 0 || SceneTransition.IsBusy ||
+            (RunSession.Instance && (RunSession.Instance.IsTransitioningScene || RunSession.Instance.IsGameOver)) ||
+            (LevelRespawnManager.Instance && LevelRespawnManager.Instance.IsRespawning))
+        { CloseStats(); return; }
+        if (!player) player = FindFirstObjectByType<PlayerController1>();
+        if (!player || player.IsDead) { CloseStats(); return; }
         // P để bật/tắt bảng chỉ số
         if (Input.GetKeyDown(KeyCode.P) && statsPanel != null)
         {
@@ -56,6 +62,9 @@ public class GameManager : MonoBehaviour
             if (show) statsUI?.Refresh();
         }
     }
+
+    private PlayerController1 player;
+    public void CloseStats() { if (statsPanel && statsPanel.activeSelf) statsPanel.SetActive(false); }
 
     // ====== COIN / SCORE API ======
 

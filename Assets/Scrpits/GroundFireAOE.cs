@@ -29,14 +29,20 @@ public class GroundFireAOE : MonoBehaviour
 
     void Deal(float r, int dmg)
     {
+        if (Time.timeScale == 0f) return;
         var hits = Physics2D.OverlapCircleAll(transform.position, r, enemyLayer);
+        var damaged = new System.Collections.Generic.HashSet<Component>();
         foreach (var h in hits)
         {
-            var e = h.GetComponent<EnemyHealth1>();
-            if (e) { e.TakeDamage(dmg); continue; }
+            var e = h.GetComponentInParent<EnemyHealth1>();
+            if (e)
+            {
+                if (damaged.Add(e)) e.TakeDamage(dmg);
+                continue;
+            }
 
-            var b = h.GetComponent<BossHealth>();
-            if (b) b.TakeDamage(dmg);
+            var b = h.GetComponentInParent<BossHealth>();
+            if (b && damaged.Add(b)) b.TakeDamage(dmg);
         }
     }
 

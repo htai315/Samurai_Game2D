@@ -19,6 +19,7 @@ public class FireballController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private bool hasDamaged = false;
+    private bool hasSpawnedGroundFire;
     private float dir = 1f;
 
     void Awake()
@@ -47,14 +48,21 @@ public class FireballController : MonoBehaviour
     // 🎯 GỌI TỪ ANIMATION EVENT ở frame nổ sáng nhất
     public void DoBurst()
     {
-        if (hasDamaged) return;
+        if (hasDamaged || Time.timeScale == 0f) return;
         hasDamaged = true;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, burstRadius, enemyMask);
+        var damaged = new System.Collections.Generic.HashSet<Component>();
         foreach (var h in hits)
         {
-            var e = h.GetComponent<EnemyHealth1>();
-            if (e) e.TakeDamage(burstDamage);
+            var e = h.GetComponentInParent<EnemyHealth1>();
+            if (e)
+            {
+                if (damaged.Add(e)) e.TakeDamage(burstDamage);
+                continue;
+            }
+            var boss = h.GetComponentInParent<BossHealth>();
+            if (boss && damaged.Add(boss)) boss.TakeDamage(burstDamage);
         }
 
         Debug.Log("🔥 Fireball burst damage applied!");
@@ -63,8 +71,9 @@ public class FireballController : MonoBehaviour
     // 🔥 GỌI TỪ ANIMATION EVENT ở frame cuối (lửa lan ra)
     public void SpawnGroundFire()
     {
-        if (groundFirePrefab)
-            Instantiate(groundFirePrefab, transform.position + (Vector3)groundOffset, Quaternion.identity);
+        if (!groundFirePrefab || hasSpawnedGroundFire || Time.timeScale == 0f) return;
+        hasSpawnedGroundFire = true;
+        Instantiate(groundFirePrefab, transform.position + (Vector3)groundOffset, Quaternion.identity);
     }
 
     void DestroySelf()

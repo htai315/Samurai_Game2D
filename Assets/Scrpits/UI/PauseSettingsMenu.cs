@@ -13,6 +13,7 @@ public class PauseSettingsMenu : MonoBehaviour
 
     private PlayerSaveBridge bridge;
     private bool isOpen = false;
+    private string saveError;
 
     private void Start()
     {
@@ -29,11 +30,12 @@ public class PauseSettingsMenu : MonoBehaviour
         if (settingsPanel != null)
             settingsPanel.SetActive(false);
 
-        Time.timeScale = 1f;
     }
 
     private void Update()
     {
+        if (isOpen && !CanUseMenu()) { CloseSettings(); return; }
+        if (SceneTransition.IsBusy) return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isOpen) CloseSettings();
@@ -43,6 +45,8 @@ public class PauseSettingsMenu : MonoBehaviour
 
     private void OpenSettings()
     {
+        if (isOpen || !settingsPanel || Time.timeScale <= 0 || !CanUseMenu()) return;
+        foreach (var manager in FindObjectsByType<GameManager>(FindObjectsSortMode.None)) manager.CloseStats();
         isOpen = true;
         settingsPanel?.SetActive(true);
         Time.timeScale = 0f;
@@ -50,9 +54,27 @@ public class PauseSettingsMenu : MonoBehaviour
 
     private void CloseSettings()
     {
+        bool ownedPause = isOpen;
         isOpen = false;
         settingsPanel?.SetActive(false);
-        Time.timeScale = 1f;
+        if (ownedPause) Time.timeScale = 1f;
+    }
+
+    private bool CanUseMenu()
+    {
+        if (SceneTransition.IsBusy || (RunSession.Instance &&
+            (RunSession.Instance.IsTransitioningScene || RunSession.Instance.IsGameOver)) ||
+            (LevelRespawnManager.Instance && LevelRespawnManager.Instance.IsRespawning)) return false;
+        TryFindBridge();
+        var player = bridge ? bridge.GetComponent<PlayerController1>() : null;
+        return player && !player.IsDead;
+    }
+
+    private void OnDisable() => CloseSettings();
+
+    private void OnDestroy()
+    {
+        if (volumeSlider) volumeSlider.onValueChanged.RemoveListener(OnVolumeChanged);
     }
 
     private void OnVolumeChanged(float value)
@@ -78,6 +100,7 @@ public class PauseSettingsMenu : MonoBehaviour
 
     public void OnSaveAndQuitButton()
     {
+        if (!CanUseMenu()) return;
         // đảm bảo có bridge
         if (bridge == null)
         {
@@ -85,31 +108,25 @@ public class PauseSettingsMenu : MonoBehaviour
             if (player) bridge = player.GetComponent<PlayerSaveBridge>();
         }
 
-        // Lưu game
-        if (bridge != null)
+        if (!Application.CanStreamedLevelBeLoaded(menuSceneName))
         {
-            var data = bridge.Capture();
-            SaveSystem.Save(data);
-            Debug.Log("💾 Save & Quit!");
+            saveError = "Không tìm thấy màn hình menu trong Build Settings.";
+            return;
         }
+        if (bridge == null) { saveError = "Không tìm thấy nhân vật để lưu."; return; }
+        if (!SaveSystem.Save(bridge.Capture())) { saveError = SaveSystem.LastError; return; }
+        saveError = null;
 
-        // Trả timeScale về bình thường
-        Time.timeScale = 1f;
+        SceneTransition.TryLoad(menuSceneName, SaveRuntime.Clear, destroyRoot: true);
+    }
 
-        // 💥 DỌN PERSISTENTROOT (rất quan trọng)
-        // Cách 1: nếu bạn có class PersistentRoot
-        var root = FindFirstObjectByType<PersistentRoot>();
-        if (root != null)
-        {
-            Destroy(root.gameObject);
-        }
-
-        // Cách 2 (fallback): tìm theo tên nếu bạn đặt tên object là "PersistentRoot"
-        // var rootGO = GameObject.Find("PersistentRoot");
-        // if (rootGO != null) Destroy(rootGO);
-
-        // Về menu
-        SceneManager.LoadScene(menuSceneName);
+    private void OnGUI()
+    {
+        if (string.IsNullOrEmpty(saveError)) return;
+        GUILayout.BeginArea(new Rect(20, 20, Mathf.Min(520, Screen.width - 40), 150), GUI.skin.box);
+        GUILayout.Label(saveError);
+        if (GUILayout.Button("Đóng")) saveError = null;
+        GUILayout.EndArea();
     }
 
 }

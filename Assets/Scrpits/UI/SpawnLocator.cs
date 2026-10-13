@@ -4,45 +4,51 @@ using System.Linq;
 
 public class SpawnLocator : MonoBehaviour
 {
-    public static string NextSpawnId = "A"; // sẽ được set bởi TeleportGate
+    public static string NextSpawnId = "A";
+    private int initializedScene = -1;
 
     void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
     void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
-    void Start()
+    // Fallback for a root created after sceneLoaded; never repeat a completed load.
+    void Start() => InitializeScene(SceneManager.GetActiveScene());
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) => InitializeScene(scene);
+
+    private void InitializeScene(Scene scene)
     {
-        PlacePlayerAndCapture();
-    }
+        var owner = GetComponentInParent<PersistentRoot>();
+        if (owner && owner != PersistentRoot.Instance) return;
+        if (initializedScene == scene.handle) return;
+        var pending = SaveRuntime.PendingLoad;
+        if (pending != null && pending.sceneName != scene.name) return;
+        var ownedBridge = owner ? owner.GetComponentInChildren<PlayerSaveBridge>() : null;
+        var player = ownedBridge ? ownedBridge.gameObject : GameObject.FindGameObjectWithTag("Player");
+        if (!player) return;
 
-    private void PlacePlayerAndCapture()
-    {
-        var spawns = Object.FindObjectsByType<SceneSpawnPoint>(FindObjectsSortMode.None);
-        var target = System.Linq.Enumerable.FirstOrDefault(spawns, s => s.spawnId == NextSpawnId)
-                     ?? (spawns.Length > 0 ? spawns[0] : null);
-
-        var player = GameObject.FindGameObjectWithTag("Player");
-        if (player && target) player.transform.position = target.transform.position;
-
-        // CHỤP SNAPSHOT “đầu màn”
-        var gm = FindFirstObjectByType<GameManager>();
-        RunSession.Instance?.CaptureLevelStart(player, gm);
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // tìm spawn trùng ID
-        var spawns = Object.FindObjectsByType<SceneSpawnPoint>(FindObjectsSortMode.None);
-        var target = spawns.FirstOrDefault(s => s.spawnId == NextSpawnId) ?? spawns.FirstOrDefault();
-
-        if (target)
+        if (pending != null)
         {
-            // Đặt Player tới đúng chỗ spawn
-            var player = GameObject.FindGameObjectWithTag("Player");
-            if (player) player.transform.position = target.transform.position;
-
-            var gm = FindFirstObjectByType<GameManager>();
-            RunSession.Instance?.CaptureLevelStart(player, gm);
-            RunSession.Instance?.EndSceneTransition();
+            var bridge = player.GetComponent<PlayerSaveBridge>();
+            if (!bridge)
+            {
+                Debug.LogError("[Continue] Player thiếu PlayerSaveBridge.");
+                return;
+            }
+            bridge.Apply(pending);
+            player.GetComponent<PlayerController1>()?.ResetForRespawn(true);
+            SaveRuntime.CompleteLoad();
         }
+        else
+        {
+            var spawns = Object.FindObjectsByType<SceneSpawnPoint>(FindObjectsSortMode.None);
+            var target = spawns.FirstOrDefault(s => s.gameObject.scene == scene && s.spawnId == NextSpawnId)
+                         ?? spawns.FirstOrDefault(s => s.gameObject.scene == scene);
+            if (target) player.transform.position = target.transform.position;
+        }
+
+        // All Awake initialization has finished; no Start callback resets saved values.
+        Physics2D.SyncTransforms();
+        initializedScene = scene.handle;
+        RunSession.Instance?.CaptureLevelStart(player, pending);
+        if (!SceneTransition.IsBusy) RunSession.Instance?.EndSceneTransition();
     }
 }

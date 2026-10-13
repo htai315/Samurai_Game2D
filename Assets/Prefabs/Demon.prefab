@@ -261,3 +261,4 @@ MonoBehaviour:
   attackPoint: {fileID: 6604190521395703879}
   flipCooldown: 0.2
   flipDeadzone: 0.05
+  avoidLedges: 0

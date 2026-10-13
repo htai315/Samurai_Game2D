@@ -24,6 +24,7 @@ public class EnemyHealthBarUI : MonoBehaviour
     public void Bind(Transform followTarget, int max, int current)
     {
         target = followTarget;
+        if (!slider) return;
         slider.maxValue = max;
         slider.value = current;
         targetValue = current;
@@ -32,6 +33,7 @@ public class EnemyHealthBarUI : MonoBehaviour
 
     public void UpdateHealth(int current, int max)
     {
+        if (!slider) return;
         if (slider.maxValue != max)
             slider.maxValue = max;
         targetValue = Mathf.Clamp(current, 0, max);
@@ -44,12 +46,13 @@ public class EnemyHealthBarUI : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!target) return;
+        if (!target) { Destroy(gameObject); return; }
+        if (!cam) cam = Camera.main;
 
         // Cập nhật vị trí
         if (canvas != null && canvas.renderMode != RenderMode.WorldSpace)
         {
-            rect.position = cam.WorldToScreenPoint(target.position + worldOffset);
+            if (cam && rect) rect.position = cam.WorldToScreenPoint(target.position + worldOffset);
         }
         else
         {
@@ -65,8 +68,11 @@ public class EnemyHealthBarUI : MonoBehaviour
     public void UpdatePositionImmediate()
     {
         if (!target) return;
+        if (!cam) cam = Camera.main;
         if (canvas != null && canvas.renderMode != RenderMode.WorldSpace)
-            rect.position = cam.WorldToScreenPoint(target.position + worldOffset);
+        {
+            if (cam && rect) rect.position = cam.WorldToScreenPoint(target.position + worldOffset);
+        }
         else
             transform.position = target.position + worldOffset;
     }

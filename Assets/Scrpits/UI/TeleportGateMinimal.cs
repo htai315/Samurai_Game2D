@@ -15,7 +15,7 @@ public class TeleportGateMinimal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
-        SceneManager.LoadScene(targetScene, LoadSceneMode.Single);
+        if (!SceneTransition.CanEnterGate(other)) return;
+        SceneTransition.TryLoad(targetScene, () => SpawnLocator.NextSpawnId = "A");
     }
 }

@@ -13,8 +13,8 @@ public class AutoSaveTester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F5)) // Nhấn F5 để save
         {
-            SaveSystem.Save(bridge.Capture());
-            Debug.Log("💾 Game đã được lưu thủ công!");
+            if (bridge && SaveSystem.Save(bridge.Capture()))
+                Debug.Log("💾 Game đã được lưu thủ công!");
         }
     }
 }

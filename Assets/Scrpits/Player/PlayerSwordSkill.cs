@@ -3,88 +3,70 @@
 [RequireComponent(typeof(PlayerMana))]
 public class PlayerSwordSkill : MonoBehaviour
 {
-    [Header("Skill Settings")]
-    public GameObject swordWavePrefab;   // prefab kiếm khí
-    public Transform spawnPoint;         // điểm spawn trước mặt
+    public GameObject swordWavePrefab;
+    public Transform spawnPoint;
     public float manaCost = 5f;
-
-    [Header("Cooldown")]
-    [SerializeField] private float skillCooldown = 1.0f;   // thời gian chờ giữa 2 lần U
-
+    [SerializeField] private float skillCooldown = 1.0f;
     private PlayerMana mana;
     private PlayerController1 controller;
     private Animator anim;
+    private bool isUsingSkill;
+    private float nextCastTime = 0f;
+    private readonly PlayerActionAnimation action = new();
 
-    private bool isUsingSkill = false;
-    private float nextCastTime = 0f;     // thời điểm có thể cast lần tiếp theo
-
-    private void Start()
+    private void Awake()
     {
         mana = GetComponent<PlayerMana>();
         controller = GetComponent<PlayerController1>();
-        anim = GetComponentInChildren<Animator>();
-        nextCastTime = 0f;               // cast được ngay
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-            TryUseSwordSkill();
+        action.Tick(controller && controller.CanAct, Time.timeScale == 0f);
+        isUsingSkill = action.Active;
+        if (Input.GetKeyDown(KeyCode.U)) TryUseSwordSkill();
     }
 
-    private void TryUseSwordSkill()
+    public bool TryUseSwordSkill()
     {
-        // Đang dùng skill hoặc chưa hết cooldown → bỏ
-        if (isUsingSkill) return;
-        if (Time.time < nextCastTime) return;
-
-        // (tuỳ chọn) chặn khi đang chết/hurt/dash
-        if (controller != null &&
-            (controller.IsDead || controller.IsHurting || controller.IsDashing))
-            return;
-
-        // Kiểm tra mana
-        if (!mana.TrySpend(manaCost))
-        {
-            Debug.Log("❌ Không đủ mana!");
-            return;
-        }
-
-        // Đặt cooldown mới
-        nextCastTime = Time.time + skillCooldown;
+        if (!isActiveAndEnabled || !controller || !controller.CanStartAction || !(Time.time >= nextCastTime) ||
+            !swordWavePrefab || !spawnPoint || !swordWavePrefab.GetComponent<SwordProjectile>() ||
+            !swordWavePrefab.GetComponent<Rigidbody2D>() || !PlayerActionAnimation.ValidCost(skillCooldown) ||
+            !PlayerActionAnimation.CanPlay(anim, "Player_Skill1", "doSkillWave") ||
+            !mana || !mana.TrySpend(manaCost)) return false;
 
         isUsingSkill = true;
-        anim.SetTrigger("doSkillWave"); // trigger animation có event
+        nextCastTime = Time.time + skillCooldown;
+        action.Begin(anim, "Player_Skill1", "doSkillWave");
+        var body = GetComponent<Rigidbody2D>();
+        if (body) body.linearVelocity = new Vector2(0f, body.linearVelocity.y);
+        return true;
     }
 
-    // 🧩 HÀM NÀY SẼ ĐƯỢC GỌI BỞI ANIMATION EVENT
+    // Animation event: only the accepted, still-active cast may produce one projectile.
     public void ShootSwordWave()
     {
-        float direction = Mathf.Sign(controller.transform.localScale.x);
-        if (direction == 0) direction = 1f;
-
-        // Spawn trước mặt
-        Vector3 spawnPos = spawnPoint.position;
-        spawnPos.x = transform.position.x + Mathf.Abs(spawnPoint.localPosition.x) * direction;
-
-        GameObject wave = Instantiate(swordWavePrefab, spawnPos, Quaternion.identity);
-        var proj = wave.GetComponent<SwordProjectile>();
-        if (proj != null)
-        {
-            proj.SetDirection(direction);
-            proj.Launch(); // nếu bạn dùng bản có Launch()
-        }
-
-        Debug.Log("💨 Bắn kiếm khí từ animation!");
-        isUsingSkill = false;
+        if (!isActiveAndEnabled || !swordWavePrefab || !spawnPoint ||
+            !action.TryEmit(controller && controller.CanAct)) return;
+        float direction = transform.localScale.x < 0f ? -1f : 1f;
+        Vector3 position = spawnPoint.position;
+        position.x = transform.position.x + Mathf.Abs(spawnPoint.localPosition.x) * direction;
+        var projectile = Instantiate(swordWavePrefab, position, Quaternion.identity).GetComponent<SwordProjectile>();
+        projectile.SetDirection(direction);
+        projectile.Launch();
     }
 
-    // ===== API cho UI cooldown =====
+    private void OnDisable() => ResetForRespawn(false);
+    public bool IsCasting => isUsingSkill;
     public float SkillCooldown => skillCooldown;
+    public float SkillCooldownRemaining => Mathf.Max(0f, nextCastTime - Time.time);
+    public bool IsSkillReady => !isUsingSkill && Time.time >= nextCastTime;
 
-    public float SkillCooldownRemaining
-        => Mathf.Max(0f, nextCastTime - Time.time);
-
-    public bool IsSkillReady
-        => !isUsingSkill && Time.time >= nextCastTime;
+    public void ResetForRespawn(bool newAttempt)
+    {
+        action.Cancel();
+        isUsingSkill = false;
+        if (newAttempt) nextCastTime = 0f;
+    }
 }

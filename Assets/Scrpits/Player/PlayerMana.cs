@@ -9,9 +9,17 @@ public class PlayerMana : MonoBehaviour
 
     public float Current { get; private set; }
     public float Max => maxMana;
+    private bool initialized;
 
     private void Awake()
     {
+        EnsureInitialized();
+    }
+
+    private void EnsureInitialized()
+    {
+        if (initialized) return;
+        initialized = true;
         Current = Mathf.Clamp(startMana, 0f, maxMana);
         if (thanhMana)
             thanhMana.capNhatMana(Current, Max);
@@ -31,7 +39,8 @@ public class PlayerMana : MonoBehaviour
 
     public bool TrySpend(float amount)
     {
-        if (amount <= 0f || Current < amount) return false;
+        EnsureInitialized();
+        if (!PlayerActionAnimation.ValidCost(amount) || Current < amount) return false;
         Current -= amount;
 
         // Cập nhật UI
@@ -44,6 +53,7 @@ public class PlayerMana : MonoBehaviour
     // PlayerMana.cs (bổ sung 2 API bên dưới trong class)
     public void ApplyNewMaxMana(float newMax, bool keepRatio)
     {
+        EnsureInitialized();
         float oldMax = maxMana;
         float oldCur = Current;
 
@@ -59,6 +69,7 @@ public class PlayerMana : MonoBehaviour
 
     public void SetCurrentMana(float value)
     {
+        EnsureInitialized();
         Current = Mathf.Clamp(value, 0, maxMana);
         if (thanhMana) thanhMana.capNhatMana(Current, Max);
     }

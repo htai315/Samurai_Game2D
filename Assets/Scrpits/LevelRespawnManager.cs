@@ -1,87 +1,71 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelRespawnManager : MonoBehaviour
 {
     public static LevelRespawnManager Instance { get; private set; }
-
     [SerializeField] private Transform respawnPoint;
     [SerializeField] private Animator fadeAnimator;
     [SerializeField] private float fadeDuration = 1f;
-
-    private bool _skipAutoRestore = false;
+    public bool IsRespawning { get; private set; }
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
-
-    public void RespawnPlayer()
+    private void OnDisable()
     {
-        _skipAutoRestore = false;
-        StartCoroutine(RespawnRoutine());
+        StopAllCoroutines();
+        IsRespawning = false;
+    }
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
-    public void RespawnPlayerSkipRestore()
+    public void RespawnPlayer() => BeginRespawn(true);
+    public void RespawnPlayerSkipRestore() => BeginRespawn(false);
+    public void SetCheckpoint(Transform point) { if (point) respawnPoint = point; }
+
+    private void BeginRespawn(bool restoreHealth)
     {
-        _skipAutoRestore = true;
-        StartCoroutine(RespawnRoutine());
+        if (IsRespawning || (RunSession.Instance && RunSession.Instance.IsTransitioningScene)) return;
+        if (!GameObject.FindGameObjectWithTag("Player") || !respawnPoint)
+        {
+            Debug.LogWarning("[Respawn] Thiếu nhân vật hoặc checkpoint; không thay đổi trạng thái.");
+            return;
+        }
+        IsRespawning = true;
+        StartCoroutine(RespawnRoutine(restoreHealth));
     }
 
-
-    private IEnumerator RespawnRoutine()
+    private IEnumerator RespawnRoutine(bool restoreHealth)
     {
         if (fadeAnimator)
         {
             fadeAnimator.SetTrigger("FadeOut");
             yield return new WaitForSeconds(fadeDuration);
         }
-
-        var player = GameObject.FindGameObjectWithTag("Player");
-
-        if (!player)
+        if (RunSession.Instance && RunSession.Instance.IsTransitioningScene)
         {
-            // Nếu lỡ destroy mất player → reload scene
-            var s = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(s.name);
+            IsRespawning = false;
             yield break;
         }
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (!player || !respawnPoint) { IsRespawning = false; yield break; }
 
-        var controller = player.GetComponent<PlayerController1>();
-        var rb = player.GetComponent<Rigidbody2D>();
+        player.transform.position = respawnPoint.position;
         var health = player.GetComponent<PlayerHealth>();
-        var mana = player.GetComponent<PlayerMana>();
-
-        if (rb)
+        if (restoreHealth && health) health.SetCurrentHealth(health.MaxHealth);
+        player.GetComponent<PlayerController1>()?.ResetForRespawn();
+        Physics2D.SyncTransforms();
+        if (fadeAnimator)
         {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
+            foreach (var parameter in fadeAnimator.parameters)
+                if (parameter.name == "FadeIn" && parameter.type == AnimatorControllerParameterType.Trigger)
+                    fadeAnimator.SetTrigger("FadeIn");
         }
-
-        if (respawnPoint)
-            player.transform.position = respawnPoint.position;
-
-        if (!_skipAutoRestore)
-        {
-            if (health)
-            {
-                float need = health.MaxHealth - health.CurrentHealth;
-                if (need > 0) health.Heal(need); // máu đầy
-            }
-        }
-
-        // ---- mở khoá nhân vật ----
-        if (health) controller?.SetDead(false);
-        if (controller && !controller.enabled)
-            controller.enabled = true;
-
-        _skipAutoRestore = false;
+        IsRespawning = false;
     }
 }

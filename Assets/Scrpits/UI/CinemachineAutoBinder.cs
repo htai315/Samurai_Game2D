@@ -14,7 +14,8 @@ public class CinemachineAutoBinder : MonoBehaviour
     {
         vcam = GetComponent<CinemachineCamera>();
         confiner = GetComponent<CinemachineConfiner2D>();
-        DontDestroyOnLoad(gameObject);
+        // Children already follow PersistentRoot's lifetime; Unity only accepts roots here.
+        if (!transform.parent) DontDestroyOnLoad(gameObject);
     }
 
     void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;

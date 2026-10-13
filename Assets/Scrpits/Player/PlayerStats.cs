@@ -55,6 +55,10 @@ public class PlayerStats : MonoBehaviour
 
     private bool CanPay()
     {
+        var controller = GetComponent<PlayerController1>();
+        if (!controller || controller.IsDead || Time.timeScale <= 0 || SceneTransition.IsBusy ||
+            (RunSession.Instance && (RunSession.Instance.IsTransitioningScene || RunSession.Instance.IsGameOver)) ||
+            (LevelRespawnManager.Instance && LevelRespawnManager.Instance.IsRespawning)) return false;
         if (_gm == null) RebindGameManager();
         if (_gm == null) { Debug.LogWarning("[Upgrade] Không thấy GameManager để trừ coin!"); return false; }
         if (_gm.Score < upgradeCost)
@@ -119,6 +123,11 @@ public class PlayerStats : MonoBehaviour
     // (Tuỳ) gọi ở Awake của Player để bơm stat vào các module ngay khi spawn
     public void ApplyAllToModules()
     {
+        // May be called by PlayerController before this component's Awake.
+        _health = GetComponent<PlayerHealth>();
+        _mana = GetComponent<PlayerMana>();
+        _combat = GetComponent<PlayerCombat>();
+        _movement = GetComponent<PlayerMovement>();
         if (_health) _health.ApplyNewMaxHealth(maxHealth, keepRatio: true);
         if (_mana) _mana.ApplyNewMaxMana(maxMana, keepRatio: true);
         if (_combat) _combat.SetBaseDamage(baseDamage);

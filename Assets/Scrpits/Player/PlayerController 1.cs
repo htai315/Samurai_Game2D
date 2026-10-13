@@ -15,6 +15,8 @@ public class PlayerController1 : MonoBehaviour
     private PlayerJump jumpModule;
     private PlayerDash dashModule;
     private PlayerCombat combatModule;
+    private PlayerFireSkill fireModule;
+    private PlayerSwordSkill swordModule;
 
     // Components chung
     private Rigidbody2D rb;
@@ -42,6 +44,8 @@ public class PlayerController1 : MonoBehaviour
         jumpModule = GetComponent<PlayerJump>();
         dashModule = GetComponent<PlayerDash>();
         combatModule = GetComponent<PlayerCombat>();
+        fireModule = GetComponent<PlayerFireSkill>();
+        swordModule = GetComponent<PlayerSwordSkill>();
 
         // Inject dependencies
         healthModule?.Initialize(this, anim, rb, thanhMau);
@@ -54,14 +58,9 @@ public class PlayerController1 : MonoBehaviour
         stats?.ApplyAllToModules();
     }
 
-    private void Start()
-    {
-        healthModule?.Start();
-    }
-
     private void Update()
     {
-        if (isDead || isHurting)
+        if (!CanAct)
         {
             movementModule?.ApplyAnimator();
             return;
@@ -79,7 +78,7 @@ public class PlayerController1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isDead || isHurting) return;
+        if (!CanAct) return;
 
         // Dash có độ ưu tiên cao nhất
         if (dashModule != null && dashModule.IsDashing)
@@ -89,7 +88,7 @@ public class PlayerController1 : MonoBehaviour
         }
 
         // Không di chuyển khi đang tấn công
-        if (combatModule != null && combatModule.IsAttacking)
+        if (IsAttacking || IsCasting)
             return;
 
         // Di chuyển thường
@@ -106,9 +105,65 @@ public class PlayerController1 : MonoBehaviour
     public bool IsHurting => isHurting;
     public bool IsDashing => dashModule != null && dashModule.IsDashing;
     public bool IsAttacking => combatModule != null && combatModule.IsAttacking;
+    public bool IsCasting => (fireModule && fireModule.IsCasting) || (swordModule && swordModule.IsCasting);
+    public bool CanAct => isActiveAndEnabled && !isDead && !isHurting && Time.timeScale > 0f &&
+        !SceneTransition.IsBusy && !(RunSession.Instance && (RunSession.Instance.IsTransitioningScene || RunSession.Instance.IsGameOver)) &&
+        !(LevelRespawnManager.Instance && LevelRespawnManager.Instance.IsRespawning);
+    public bool CanStartAction => CanAct && !IsDashing && !IsAttacking && !IsCasting && !InActionAnimation();
 
-    public void SetDead(bool value) => isDead = value;
-    public void SetHurting(bool value) => isHurting = value;
+    private bool InActionAnimation()
+    {
+        return PlayerActionAnimation.InState(anim, "Player_Attack1") ||
+            PlayerActionAnimation.InState(anim, "Player_Attack2") ||
+            PlayerActionAnimation.InState(anim, "Player_Attack3") ||
+            PlayerActionAnimation.InState(anim, "Player_Dash") ||
+            PlayerActionAnimation.InState(anim, "Player_Fire_Skill") ||
+            PlayerActionAnimation.InState(anim, "Player_Skill1") ||
+            PlayerActionAnimation.InState(anim, "Player_Hurt") ||
+            PlayerActionAnimation.InState(anim, "Player_Death");
+    }
+
+    public void SetDead(bool value)
+    {
+        isDead = value;
+        if (value) InterruptActions();
+    }
+    public void SetHurting(bool value)
+    {
+        isHurting = value;
+        if (value) InterruptActions();
+    }
+
+    public void InterruptActions()
+    {
+        combatModule?.CancelAction();
+        dashModule?.ResetForRespawn(false);
+        fireModule?.ResetForRespawn(false);
+        swordModule?.ResetForRespawn(false);
+        movementModule?.ResetInput();
+        if (rb && rb.bodyType != RigidbodyType2D.Static)
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+    }
+
+    private void OnDisable() => InterruptActions();
+
+    public void ResetForRespawn(bool newAttempt = false)
+    {
+        healthModule?.StopAllCoroutines();
+        isDead = isHurting = false;
+        dashModule?.ResetForRespawn(newAttempt);
+        combatModule?.ResetForRespawn(newAttempt);
+        jumpModule?.ResetForRespawn();
+        movementModule?.ResetInput();
+        GetComponent<PlayerFireSkill>()?.ResetForRespawn(newAttempt);
+        GetComponent<PlayerSwordSkill>()?.ResetForRespawn(newAttempt);
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        enabled = true;
+        anim.Rebind();
+        anim.Update(0f);
+    }
 
     // Gọi từ Animation Event
     public void FinishAttack() => combatModule?.FinishAttack();

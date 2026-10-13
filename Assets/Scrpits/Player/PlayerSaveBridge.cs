@@ -24,6 +24,7 @@ public class PlayerSaveBridge : MonoBehaviour
     {
         var d = new SaveData
         {
+            version = SaveSystem.CurrentVersion,
             sceneName = SceneManager.GetActiveScene().name,
             px = transform.position.x,
             py = transform.position.y,
@@ -58,12 +59,14 @@ public class PlayerSaveBridge : MonoBehaviour
 
         // ✨ NEW: ghi danh sách pickup đã nhặt
         SaveRuntime.WriteTo(d);
+        d.levelStart = RunSession.Instance?.CopyLevelStart();
+        d.hasLevelStart = d.levelStart != null;
 
         return d;
     }
 
     // PlayerSaveBridge.cs (thay phần Apply)
-    public void Apply(SaveData d)
+    public void Apply(PlayerSnapshot d)
     {
         if (d == null) return;
 
@@ -75,10 +78,17 @@ public class PlayerSaveBridge : MonoBehaviour
         {
             if (d.stats_maxHealth > 0) stats.maxHealth = d.stats_maxHealth;
             if (d.stats_maxMana > 0) stats.maxMana = d.stats_maxMana;
-            if (d.stats_baseDamage != 0) stats.baseDamage = d.stats_baseDamage;
+            stats.baseDamage = d.stats_baseDamage;
             if (d.stats_moveSpeed > 0) stats.moveSpeed = d.stats_moveSpeed;
 
             stats.ApplyAllToModules();
+        }
+        else
+        {
+            health.ApplyNewMaxHealth(d.healthMax, keepRatio: false);
+            mana.ApplyNewMaxMana(d.manaMax, keepRatio: false);
+            combat.SetBaseDamage(d.stats_baseDamage);
+            GetComponent<PlayerMovement>()?.SetMoveSpeed(d.stats_moveSpeed);
         }
 
         // 2) Permanent bonus
@@ -96,18 +106,11 @@ public class PlayerSaveBridge : MonoBehaviour
         var gm = FindFirstObjectByType<GameManager>();
         if (gm) gm.SetScore(d.gold);
         // ✅ Lives
-        if (PlayerLives.Instance != null)
-        {
-            // Nếu save cũ chưa có trường lives (mặc định 0),
-            // ta fallback về max hiện tại để không mất mạng oan.
-            bool hasLives = d.livesCurrent > 0 || d.livesMax > 0;
+        if (PlayerLives.Instance != null && d.livesMax > 0)
+            PlayerLives.Instance.LoadFromSave(d.livesCurrent, d.livesMax);
 
-            if (PlayerLives.Instance != null && d.livesMax > 0)
-            {
-                PlayerLives.Instance.LoadFromSave(d.livesCurrent, d.livesMax);
-            }
-
-        }
+        var body = GetComponent<Rigidbody2D>();
+        if (body && body.bodyType != RigidbodyType2D.Static) body.linearVelocity = Vector2.zero;
     }
 }
   

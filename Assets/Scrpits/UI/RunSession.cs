@@ -1,131 +1,101 @@
 ﻿// RunSession.cs
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RunSession : MonoBehaviour
 {
     public static RunSession Instance { get; private set; }
-
-    [Header("Refs")]
     [SerializeField] private GameOverUI gameOverUI;
-    [SerializeField] private string menuSceneName = "MenuScene"; // bạn đã confirm: MenuScene
-
-    // Snapshot “đầu màn”
-    private bool hasSnapshot = false;
-    private float startHP, startHPMax;
-    private float startMP, startMPMax;
-    private int startScore;
-
-    public bool IsTransitioningScene { get; private set; } = false;
-
+    [SerializeField] private string menuSceneName = "MenuScene";
+    private PlayerSnapshot levelStart;
+    public bool IsTransitioningScene { get; private set; }
+    public bool IsGameOver { get; private set; }
     public void BeginSceneTransition()
     {
         IsTransitioningScene = true;
+        IsGameOver = false;
+        if (gameOverUI) gameOverUI.Close();
+        var player = GetComponentInChildren<PlayerController1>();
+        if (player) player.InterruptActions();
     }
-
-    public void EndSceneTransition()
-    {
-        IsTransitioningScene = false;
-    }
+    public void EndSceneTransition() => IsTransitioningScene = false;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-
-        // Tự tìm GameOverUI trong con của PersistentRoot, cả khi đang inactive
-        if (gameOverUI == null)
-            gameOverUI = GetComponentInChildren<GameOverUI>(true);
+        if (!gameOverUI) gameOverUI = GetComponentInChildren<GameOverUI>(true);
     }
 
-    // Gọi 1 lần mỗi khi vào màn (sau khi SpawnLocator đã đặt Player đúng vị trí)
-    public void CaptureLevelStart(GameObject player, GameManager gm)
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
+    public PlayerSnapshot CopyLevelStart() => PlayerSnapshot.Copy(levelStart);
+
+    // Called after spawn/save is applied, never on checkpoint respawn.
+    public void CaptureLevelStart(GameObject player, SaveData loaded = null)
     {
         if (!player) return;
-
-        var hp = player.GetComponent<PlayerHealth>();
-        var mana = player.GetComponent<PlayerMana>();
-
-        if (hp)
+        if (loaded != null && loaded.hasLevelStart && loaded.levelStart != null)
+            levelStart = PlayerSnapshot.Copy(loaded.levelStart);
+        else
         {
-            startHPMax = hp.MaxHealth;
-            startHP = hp.CurrentHealth;
+            var bridge = player.GetComponent<PlayerSaveBridge>();
+            if (!bridge) return;
+            levelStart = PlayerSnapshot.Copy(bridge.Capture());
+            if (loaded != null)
+                Debug.Log("[RunSession] Save cũ thiếu mốc đầu màn; dùng trạng thái Continue làm mốc dự phòng.");
         }
-        if (mana)
-        {
-            startMPMax = mana.Max;
-            startMP = mana.Current;
-        }
-
-        startScore = gm ? gm.Score : 0;
-
-        hasSnapshot = true;
-        // Debug.Log("[RunSession] Snapshot captured.");
     }
 
-    // Mở UI khi HẾT MẠNG
     public void OpenGameOver()
     {
+        if (IsTransitioningScene || SceneTransition.IsBusy || IsGameOver) return;
+        IsGameOver = true;
+        foreach (var menu in FindObjectsByType<PauseSettingsMenu>(FindObjectsSortMode.None)) menu.OnResumeButton();
+        foreach (var manager in FindObjectsByType<GameManager>(FindObjectsSortMode.None)) manager.CloseStats();
         if (gameOverUI) gameOverUI.Open();
     }
 
-    // Nút Play Again
     public void DoPlayAgain()
     {
-        // Reset lại 3 mạng
-        if (PlayerLives.Instance) PlayerLives.Instance.ResetLives();
-
-        // Khôi phục stats đúng như snapshot
+        if (IsTransitioningScene || SceneTransition.IsBusy) return;
         var player = GameObject.FindGameObjectWithTag("Player");
-        var gm = FindFirstObjectByType<GameManager>();
-        var resp = LevelRespawnManager.Instance;
-
-        if (!hasSnapshot || player == null || resp == null)
+        if (levelStart == null || !player || !player.GetComponent<PlayerSaveBridge>() ||
+            levelStart.sceneName != SceneManager.GetActiveScene().name ||
+            !Application.CanStreamedLevelBeLoaded(levelStart.sceneName))
         {
-            Debug.LogWarning("[RunSession] Missing snapshot/player/respawn; abort PlayAgain.");
+            Debug.LogWarning("[RunSession] Không thể Play Again: thiếu mốc đầu màn/nhân vật/màn chơi.");
             return;
         }
-
-        var hp = player.GetComponent<PlayerHealth>();
-        var mana = player.GetComponent<PlayerMana>();
-
-        // 1) Score
-        if (gm) gm.SetScore(startScore);
-
-        // 2) Max trước → Current sau
-        if (hp)
+        var restart = SaveData.FromSnapshot(levelStart);
+        restart.livesCurrent = restart.livesMax;
+        restart.levelStart = PlayerSnapshot.Copy(levelStart);
+        restart.hasLevelStart = true;
+        if (!SaveSystem.Validate(restart, out var error))
         {
-            hp.ApplyNewMaxHealth(startHPMax, keepRatio: false);
-            hp.SetCurrentHealth(startHP);
+            Debug.LogWarning("[RunSession] " + error);
+            return;
         }
-        if (mana)
+        SceneTransition.TryLoad(restart.sceneName, () =>
         {
-            mana.ApplyNewMaxMana(startMPMax, keepRatio: false);
-            mana.SetCurrentMana(startMP);
-        }
-
-        // 3) Respawn về checkpoint
-        resp.RespawnPlayerSkipRestore();
-
-        // 4) Đóng UI
-        if (gameOverUI) gameOverUI.Close();
+            player.GetComponent<PlayerHealth>()?.StopAllCoroutines();
+            if (gameOverUI) gameOverUI.Close();
+            // Filter coins before scene OnEnable; reload restores pickups/enemies.
+            SaveRuntime.QueueLoad(restart);
+        });
     }
 
-    // Nút Quit Game
     public void DoQuitGame()
     {
-        if (gameOverUI) gameOverUI.Close();
-        hasSnapshot = false;
-
-        // 🔥 Huỷ PersistentRoot và singleton liên quan
-        var root = GameObject.Find("PersistentRoot");
-        if (root) Destroy(root);
-
-        if (PlayerLives.Instance)
-            Destroy(PlayerLives.Instance.gameObject);
-
-        SceneManager.LoadScene(menuSceneName);
+        if (IsTransitioningScene || SceneTransition.IsBusy) return;
+        SceneTransition.TryLoad(menuSceneName, () =>
+        {
+            if (gameOverUI) gameOverUI.Close();
+            levelStart = null;
+            SaveRuntime.Clear();
+        }, destroyRoot: true);
     }
-
 }

@@ -15,46 +15,63 @@ public class MainMenu : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] GameObject persistentRootPrefab; // KÉO prefab PersistentRoot vào
 
-    // New Game → luôn vào tutorial, KHÔNG tạo PersistentRoot ở đây
+    private string loadError;
+
     public void NewGame()
     {
-        SaveSystem.Delete();
-        SaveRuntime.Clear();
-        SceneManager.LoadScene(firstMapScene);
+        if (SceneTransition.IsBusy || !CanLoadScene(firstMapScene)) return;
+        if (!SaveSystem.Delete()) { loadError = SaveSystem.LastError; return; }
+        SceneTransition.TryLoad(firstMapScene, () =>
+        {
+            SaveRuntime.Clear();
+            SpawnLocator.NextSpawnId = "A";
+        }, destroyRoot: true);
     }
 
-    // Continue → tạo PersistentRoot rồi load scene đã save
     public void ContinueGame()
     {
-        Debug.Log("Path: " + Application.persistentDataPath);
-        if (!SaveSystem.HasSave()) { Debug.LogWarning("Không có save!"); return; }
-
+        if (SceneTransition.IsBusy) return;
+        loadError = null;
         var data = SaveSystem.Load();
-        if (data == null) { Debug.LogWarning("Save null."); return; }
-
-        SaveRuntime.LoadFrom(data);
-
-        // đảm bảo có PersistentRoot (player thật + HUD)
-        PersistentRootLoader.Ensure(persistentRootPrefab);
-
-        SceneManager.sceneLoaded += OnSceneLoadedApply;
-        SceneManager.LoadScene(data.sceneName);
+        if (data == null) { loadError = SaveSystem.LastError; return; }
+        if (!CanLoadScene(data.sceneName)) return;
+        if (data.sceneName == "MenuScene" || data.sceneName == "Ending")
+        {
+            loadError = "Save không trỏ tới màn chơi.";
+            return;
+        }
+        var existingRoot = FindFirstObjectByType<PersistentRoot>();
+        var rootObject = existingRoot ? existingRoot.gameObject : persistentRootPrefab;
+        if (!rootObject || !rootObject.GetComponent<PersistentRoot>() ||
+            !rootObject.GetComponentInChildren<SpawnLocator>() ||
+            !rootObject.GetComponentInChildren<PlayerSaveBridge>())
+        {
+            loadError = "Thiếu PersistentRoot, SpawnLocator hoặc PlayerSaveBridge.";
+            return;
+        }
+        // Queue before instantiation so coin filtering and scene initialization use one save.
+        SceneTransition.TryLoad(data.sceneName, () =>
+        {
+            SaveRuntime.QueueLoad(data);
+            PersistentRootLoader.Ensure(persistentRootPrefab);
+        });
     }
 
-    private void OnSceneLoadedApply(Scene scene, LoadSceneMode mode)
+    private bool CanLoadScene(string sceneName)
     {
-        SceneManager.sceneLoaded -= OnSceneLoadedApply;
+        if (!string.IsNullOrWhiteSpace(sceneName) && Application.CanStreamedLevelBeLoaded(sceneName))
+            return true;
+        loadError = "Không tìm thấy màn chơi trong Build Settings: " + sceneName;
+        return false;
+    }
 
-        var player = GameObject.FindGameObjectWithTag("Player");
-        if (!player) { Debug.LogWarning("Không tìm thấy Player sau khi Continue!"); return; }
-
-        var bridge = player.GetComponent<PlayerSaveBridge>();
-        var data = SaveSystem.Load();
-        if (bridge && data != null)
-        {
-            bridge.Apply(data);
-            Debug.Log($"Đã áp trạng thái Player từ save ({data.sceneName}).");
-        }
+    private void OnGUI()
+    {
+        if (string.IsNullOrEmpty(loadError)) return;
+        GUILayout.BeginArea(new Rect(20, 20, Mathf.Min(520, Screen.width - 40), 150), GUI.skin.box);
+        GUILayout.Label(loadError);
+        if (GUILayout.Button("Đóng")) loadError = null;
+        GUILayout.EndArea();
     }
 
     // Các nút khác…

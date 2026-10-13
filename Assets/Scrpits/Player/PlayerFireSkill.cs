@@ -3,77 +3,68 @@
 [RequireComponent(typeof(PlayerMana))]
 public class PlayerFireSkill : MonoBehaviour
 {
-    [Header("Skill Settings")]
-    public GameObject fireballPrefab;     // Prefab của đốm lửa
-    public Transform castPoint;           // Điểm spawn (trước người)
-    public float manaCost = 10f;          // Mana tiêu hao mỗi lần cast
-    public float cooldown = 0.8f;         // Thời gian hồi chiêu (giây)
-
+    public GameObject fireballPrefab;
+    public Transform castPoint;
+    public float manaCost = 10f;
+    public float cooldown = 0.8f;
     private PlayerMana mana;
+    private PlayerController1 controller;
     private Animator anim;
+    private bool isCasting;
     private float lastCastTime = -999f;
-    private bool isCasting = false;
+    private readonly PlayerActionAnimation action = new();
 
-    void Start()
+    private void Awake()
     {
         mana = GetComponent<PlayerMana>();
-        anim = GetComponentInChildren<Animator>();
+        controller = GetComponent<PlayerController1>();
+        anim = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
-        // Ấn phím I để cast chiêu lửa
-        if (Input.GetKeyDown(KeyCode.I))
-            TryCastFire();
+        action.Tick(controller && controller.CanAct, Time.timeScale == 0f);
+        isCasting = action.Active;
+        if (Input.GetKeyDown(KeyCode.I)) TryCastFire();
     }
 
-    void TryCastFire()
+    public bool TryCastFire()
     {
-        // Đang cast hoặc chưa hết cooldown → bỏ
-        if (isCasting) return;
-        if (Time.time < lastCastTime + cooldown) return;
-
-        // Kiểm tra mana
-        if (!mana.TrySpend(manaCost))
-        {
-            Debug.Log("❌ Không đủ mana để cast chiêu lửa!");
-            return;
-        }
+        if (!isActiveAndEnabled || !controller || !controller.CanStartAction || !(Time.time >= lastCastTime + cooldown) ||
+            !fireballPrefab || !castPoint || !fireballPrefab.GetComponent<FireballController>() ||
+            !fireballPrefab.GetComponent<Rigidbody2D>() || !PlayerActionAnimation.ValidCost(cooldown) ||
+            !PlayerActionAnimation.CanPlay(anim, "Player_Fire_Skill", "doCastFire") ||
+            !mana || !mana.TrySpend(manaCost)) return false;
 
         isCasting = true;
         lastCastTime = Time.time;
-
-        // Phát trigger animation cast
-        anim.SetTrigger("doCastFire"); // nhớ tạo trigger này trong Animator Player
+        action.Begin(anim, "Player_Fire_Skill", "doCastFire");
+        var body = GetComponent<Rigidbody2D>();
+        if (body) body.linearVelocity = new Vector2(0f, body.linearVelocity.y);
+        return true;
     }
 
-    // 🔥 GỌI TỪ ANIMATION EVENT trong clip cast (frame vung tay)
+    // Animation event: only the accepted, still-active cast may produce one projectile.
     public void SpawnFireball()
     {
-        if (!fireballPrefab || !castPoint) { isCasting = false; return; }
-
-        // Tính hướng theo hướng Player đang nhìn
-        float dir = Mathf.Sign(transform.localScale.x);
-        if (dir == 0) dir = 1f;
-
-        Vector3 pos = castPoint.position;
-
-        // Sinh ra Fireball
-        GameObject fb = Instantiate(fireballPrefab, pos, Quaternion.identity);
-        var ctrl = fb.GetComponent<FireballController>();
-        if (ctrl != null)
-            ctrl.SetDirection(dir);
-
-        Debug.Log("🔥 Fireball casted!");
-        isCasting = false;
+        if (!isActiveAndEnabled || !fireballPrefab || !castPoint ||
+            !action.TryEmit(controller && controller.CanAct)) return;
+        float direction = transform.localScale.x < 0f ? -1f : 1f;
+        Vector3 position = castPoint.position;
+        var projectile = Instantiate(fireballPrefab, position, Quaternion.identity).GetComponent<FireballController>();
+        projectile.SetDirection(direction);
     }
 
-    // ===== API CHO UI COOLDOWN =====
+    private void OnDisable() => ResetForRespawn(false);
+    public bool IsCasting => isCasting;
     public float SkillCooldown => cooldown;
+    public float SkillCooldownRemaining => Mathf.Max(0f, lastCastTime + cooldown - Time.time);
+    public bool IsSkillReady => !isCasting && Time.time >= lastCastTime + cooldown;
 
-    public float SkillCooldownRemaining
-        => Mathf.Max(0f, (lastCastTime + cooldown) - Time.time);
-
-    public bool IsSkillReady
-        => !isCasting && Time.time >= lastCastTime + cooldown;
+    public void ResetForRespawn(bool newAttempt)
+    {
+        action.Cancel();
+        isCasting = false;
+        if (newAttempt) lastCastTime = -999f;
+    }
 }

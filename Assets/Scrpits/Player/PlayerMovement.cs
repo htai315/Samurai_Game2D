@@ -39,17 +39,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleFlip()
     {
-        if (controller.IsDashing || controller.IsAttacking) return;
+        if (controller.IsDashing || controller.IsAttacking || controller.IsCasting) return;
         if (xInput != 0f)
             transform.localScale = new Vector3(xInput > 0 ? 1 : -1, 1, 1);
     }
 
     private void HandleStopOnRelease()
     {
-        if (controller.IsDashing || controller.IsAttacking) return;
+        if (controller.IsDashing || controller.IsAttacking || controller.IsCasting) return;
 
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow) ||
-            Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+        // Use the resolved held-key state, not release events from any one binding.
+        if (xInput == 0f)
         {
             var v = rb.linearVelocity;
             v.x = 0f;
@@ -78,4 +78,5 @@ public class PlayerMovement : MonoBehaviour
     public float GetMoveSpeed() => moveSpeed;
 
     public float CurrentSpeed => rb.linearVelocity.x;
+    public void ResetInput() => xInput = 0f;
 }

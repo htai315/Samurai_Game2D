@@ -8,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
     private Animator anim;
 
     private bool isAttacking;
+    private readonly PlayerActionAnimation action = new();
 
     [Header("Attack Settings")]
     [SerializeField] private Transform attackPoint;
@@ -24,9 +25,6 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.25f;
 
     // Animator hashes
-    private static readonly int DoAttack1 = Animator.StringToHash("DoAttack1");
-    private static readonly int DoAttack2 = Animator.StringToHash("DoAttack2");
-    private static readonly int DoAttack3 = Animator.StringToHash("DoAttack3");
     private static readonly int AnimIsAttacking = Animator.StringToHash("IsAttacking");
 
     private float lastAttackTime = -999f;
@@ -57,23 +55,19 @@ public class PlayerCombat : MonoBehaviour
         else TryAttack(1);
     }
 
-    private bool TryAttack(int slot)
+    public bool TryAttack(int slot)
     {
-        if (controller.IsDead || controller.IsHurting || controller.IsDashing) return false;
-        if (isAttacking) return false;
+        if (!isActiveAndEnabled || !controller || !controller.CanStartAction || slot < 1 || slot > 3 ||
+            !attackPoint || !PlayerActionAnimation.ValidCost(attackCooldown) ||
+            Time.time < lastAttackTime + attackCooldown ||
+            !PlayerActionAnimation.CanPlay(anim, "Player_Attack" + slot, "DoAttack" + slot)) return false;
 
         isAttacking = true;
         lastAttackTime = Time.time;
 
         var v = rb.linearVelocity; v.x = 0f; rb.linearVelocity = v;
 
-        switch (slot)
-        {
-            case 1: anim.SetTrigger(DoAttack1); break;
-            case 2: anim.SetTrigger(DoAttack2); break;
-            case 3: anim.SetTrigger(DoAttack3); break;
-            default: isAttacking = false; return false;
-        }
+        action.Begin(anim, "Player_Attack" + slot, "DoAttack" + slot);
 
         anim.SetBool(AnimIsAttacking, true);
         return true;
@@ -82,22 +76,27 @@ public class PlayerCombat : MonoBehaviour
     // Gọi từ Animation Event tại frame gây sát thương
     public void DoAttackDamage()
     {
-        if (attackPoint == null) return;
+        if (!isActiveAndEnabled || attackPoint == null || !action.TryEmit(controller && controller.CanAct)) return;
 
         int finalDamage = GetCurrentDamage(); // 🔧 NEW: dùng damage hiện tại sau khi cộng buff
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+        var damaged = new HashSet<Component>();
         foreach (var hit in hits)
         {
-            var enemyHealth = hit.GetComponent<EnemyHealth1>();
+            var enemyHealth = hit.GetComponentInParent<EnemyHealth1>();
             if (enemyHealth != null)
             {
+                if (!damaged.Add(enemyHealth)) continue;
                 enemyHealth.TakeDamage(finalDamage);
             }
             else
             {
-                var bossHealth = hit.GetComponent<BossHealth>();
+                var bossHealth = hit.GetComponentInParent<BossHealth>();
                 if (bossHealth != null)
+                {
+                    if (!damaged.Add(bossHealth)) continue;
                     bossHealth.TakeDamage(finalDamage);
+                }
             }
 
             var enemyRb = hit.GetComponent<Rigidbody2D>();
@@ -114,27 +113,33 @@ public class PlayerCombat : MonoBehaviour
         // 🔧 NEW: dọn buff hết hạn
         CleanupExpiredBuffs();
 
-        if (isAttacking && !IsInAttackState())
+        action.Tick(controller && controller.CanAct, Time.timeScale == 0f);
+        if (isAttacking && !action.Active)
         {
             FinishAttack();
         }
     }
 
-    private bool IsInAttackState()
-    {
-        var info = anim.GetCurrentAnimatorStateInfo(0);
-        return info.IsName("Player_Attack1")
-            || info.IsName("Player_Attack2")
-            || info.IsName("Player_Attack3");
-    }
-
     public void FinishAttack()
     {
+        action.Cancel();
         isAttacking = false;
-        anim.SetBool(AnimIsAttacking, false);
+        if (anim && anim.runtimeAnimatorController) anim.SetBool(AnimIsAttacking, false);
     }
 
+    public void CancelAction() => FinishAttack();
+    private void OnDisable() => CancelAction();
+
     public bool IsAttacking => isAttacking;
+    public void ResetForRespawn(bool newAttempt)
+    {
+        CancelAction();
+        if (newAttempt)
+        {
+            lastAttackTime = -999f;
+            timedBuffs.Clear();
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {

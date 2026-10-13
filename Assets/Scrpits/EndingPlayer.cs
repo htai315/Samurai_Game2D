@@ -12,11 +12,10 @@ public class EndingPlayer : MonoBehaviour
     [SerializeField] private CanvasGroup thankGroup;       // CanvasGroup chứa “Thank you for playing”
 
     [Header("Flow")]
-    [SerializeField] private string menuSceneName = "MainMenu";
+    [SerializeField] private string menuSceneName = "MenuScene";
     [SerializeField] private float thankFadeIn = 1.0f;     // thời gian fade chữ
     [SerializeField] private float thankHold = 2.0f;       // giữ chữ trước khi về menu
     [SerializeField] private bool destroyPersistentRoot = true;
-    [SerializeField] private string persistentRootName = "PersistentRoot";
 
     [Header("Skip")]
     [SerializeField] private bool allowSkip = true;        // cho phép bấm để bỏ qua
@@ -45,20 +44,40 @@ public class EndingPlayer : MonoBehaviour
 
     private void OnEnable()
     {
+        _endingStarted = false;
+        if (videoImage) videoImage.enabled = true;
         if (videoPlayer)
         {
             videoPlayer.loopPointReached += OnVideoFinished;
-            // bắt đầu phát ngay khi ready
-            if (!videoPlayer.isPrepared)
-                videoPlayer.Prepare();
-            videoPlayer.prepareCompleted += _ => videoPlayer.Play();
+            videoPlayer.prepareCompleted += OnVideoPrepared;
+            videoPlayer.errorReceived += OnVideoError;
+            if (videoPlayer.isPrepared) OnVideoPrepared(videoPlayer);
+            else videoPlayer.Prepare();
         }
+        else OnVideoFinished(null);
+    }
+
+    private void OnVideoPrepared(VideoPlayer vp)
+    {
+        if (isActiveAndEnabled && !_endingStarted) vp.Play();
+    }
+
+    private void OnVideoError(VideoPlayer vp, string message)
+    {
+        Debug.LogWarning("[EndingPlayer] " + message);
+        OnVideoFinished(vp);
     }
 
     private void OnDisable()
     {
         if (videoPlayer)
+        {
             videoPlayer.loopPointReached -= OnVideoFinished;
+            videoPlayer.prepareCompleted -= OnVideoPrepared;
+            videoPlayer.errorReceived -= OnVideoError;
+            videoPlayer.Stop();
+        }
+        StopAllCoroutines();
     }
 
     private void Update()
@@ -72,8 +91,9 @@ public class EndingPlayer : MonoBehaviour
 
     private void OnVideoFinished(VideoPlayer vp)
     {
-        if (_endingStarted) return;
+        if (_endingStarted || !isActiveAndEnabled) return;
         _endingStarted = true;
+        if (vp) vp.Stop();
 
         // dừng output video để tránh khung hình cuối đè lên text
         if (videoImage) videoImage.enabled = false;
@@ -100,14 +120,7 @@ public class EndingPlayer : MonoBehaviour
         // Giữ một lát
         yield return new WaitForSecondsRealtime(thankHold);
 
-        // (tuỳ chọn) dọn singleton để về menu sạch sẽ
-        if (destroyPersistentRoot)
-        {
-            var root = GameObject.Find(persistentRootName);
-            if (root) Destroy(root);
-        }
-
-        // Về Menu
-        SceneManager.LoadScene(menuSceneName);
+        if (!SceneTransition.TryLoad(menuSceneName, SaveRuntime.Clear, destroyPersistentRoot))
+            _endingStarted = false; // Allow retry/skip after a configuration error.
     }
 }

@@ -9,6 +9,7 @@ public class SwordProjectile : MonoBehaviour
 
     private Vector3 startPos;
     private float direction = 1f;
+    private bool hasHit;
     private Rigidbody2D rb;
     private Collider2D col;
     private Animator anim; // Animator của phần hiển thị (Visual child)
@@ -65,17 +66,16 @@ public class SwordProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (hasHit || Time.timeScale == 0f || !other) return;
+        var enemy = other.GetComponentInParent<EnemyHealth1>();
+        var boss = enemy ? null : other.GetComponentInParent<BossHealth>();
+        // Health components identify a target, including untagged child hitboxes.
+        if ((enemy && !enemy.IsDead) || (boss && !boss.IsDead))
         {
-            var enemy = other.GetComponent<EnemyHealth1>();
+            hasHit = true;
             if (enemy)
                 enemy.TakeDamage(damage);
-            else
-            {
-                var boss = other.GetComponent<BossHealth>();
-                if (boss)
-                    boss.TakeDamage(damage);
-            }
+            else boss.TakeDamage(damage);
 
             Destroy(gameObject); // chỉ biến mất khi trúng enemy hoặc boss
         }

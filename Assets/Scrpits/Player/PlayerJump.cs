@@ -54,7 +54,7 @@ public class PlayerJump : MonoBehaviour
 
     private void HandleJumpInput()
     {
-        if (controller.IsDashing) return; // Đang dash thì không nhảy
+        if (!controller.CanStartAction) return;
 
         if (!Input.GetKeyDown(KeyCode.K)) return;
 
@@ -82,5 +82,10 @@ public class PlayerJump : MonoBehaviour
     }
 
     public bool IsGrounded => grounded;
+    public void ResetForRespawn()
+    {
+        grounded = prevGrounded = false;
+        jumpsLeft = maxJumps;
+    }
     public int JumpsLeft => jumpsLeft;
 }

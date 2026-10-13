@@ -2,6 +2,9 @@
 
 public class SwordPickup : MonoBehaviour
 {
+    [SerializeField] private string pickupId;
+    private string FullId => $"{gameObject.scene.name}:sword:{pickupId}";
+    private bool IsPermanent => durationSeconds <= 0f;
     [Header("Cấu hình buff damage")]
     [SerializeField] private int bonusAmount = 3;       // +3 damage
     [SerializeField] private float durationSeconds = 0; // 0 = vĩnh viễn, >0 = buff theo thời gian
@@ -15,14 +18,30 @@ public class SwordPickup : MonoBehaviour
 
     private bool consumed = false;
 
+    private void OnEnable()
+    {
+        if (IsPermanent && !string.IsNullOrWhiteSpace(pickupId) && SaveRuntime.IsCollected(FullId))
+            gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (consumed) return;
-        if (!other.CompareTag("Player")) return;
-
-        var combat = other.GetComponent<PlayerCombat>();
-        if (!combat) combat = other.GetComponentInParent<PlayerCombat>();
-        if (!combat) return;
+        if (consumed || !other || Time.timeScale <= 0 || SceneTransition.IsBusy) return;
+        var player = other.GetComponentInParent<PlayerController1>();
+        if (!player || !player.CompareTag("Player") || player.IsDead) return;
+        var combat = player.GetComponent<PlayerCombat>();
+        if (!combat || bonusAmount <= 0 || float.IsNaN(durationSeconds) || float.IsInfinity(durationSeconds)) return;
+        if (IsPermanent)
+        {
+            if (string.IsNullOrWhiteSpace(pickupId))
+            {
+                Debug.LogWarning("[SwordPickup] Thiếu ID vật phẩm; lưu scene để tạo ID trước khi chơi.", this);
+                return;
+            }
+            if (SaveRuntime.IsCollected(FullId)) return;
+            SaveRuntime.MarkCollected(FullId);
+        }
+        consumed = true; // Commit before effects or deferred destruction.
 
         // Gọi API cộng damage
         combat.AddDamageBonus(bonusAmount, durationSeconds);
@@ -31,7 +50,6 @@ public class SwordPickup : MonoBehaviour
         if (pickupVfx) Instantiate(pickupVfx, transform.position, Quaternion.identity);
         if (pickupSfx) AudioSource.PlayClipAtPoint(pickupSfx, transform.position);
 
-        consumed = true;
         if (destroyOnPickup) Destroy(gameObject);
         else gameObject.SetActive(false); // nếu muốn bật/tắt thay vì Destroy
     }

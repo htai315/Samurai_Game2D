@@ -53,7 +53,9 @@ public class PlayerOutOfBoundsKiller : MonoBehaviour
 
     void Update()
     {
-        if (!bounds) return;
+        if (!bounds || Time.timeScale <= 0 || SceneTransition.IsBusy ||
+            (RunSession.Instance && (RunSession.Instance.IsTransitioningScene || RunSession.Instance.IsGameOver)) ||
+            (LevelRespawnManager.Instance && LevelRespawnManager.Instance.IsRespawning)) return;
 
         Vector2 p = checkPoint ? (Vector2)checkPoint.position : (Vector2)playerCol.bounds.center;
 
@@ -68,7 +70,7 @@ public class PlayerOutOfBoundsKiller : MonoBehaviour
     private void KillNow()
     {
         if (killByDamage && health)
-            health.TakeDamage(9999f);
+            health.KillOutOfBounds();
         else
             Destroy(gameObject);
     }
