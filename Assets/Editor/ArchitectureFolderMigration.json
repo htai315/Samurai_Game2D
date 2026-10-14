@@ -1,0 +1,1663 @@
+{
+  "entries": [
+    {
+      "oldPath": "Assets/Scrpits/Application.meta",
+      "newPath": "Assets/Scripts/Application.meta",
+      "sha256": "FAC9F9F9980E5F1D6C7D5E4A231E70E3A7B303A945AEB0A559F94691CE3A053C",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/AtmosphericParticles.cs",
+      "newPath": "Assets/Scripts/AtmosphericParticles.cs",
+      "sha256": "796F8A0D780351A6791081ED00041F6E1962ACB66E4844DD736ABE3E5AA5035E",
+      "guid": "394ea05d4fb55a94a923fa2a7e5dd7f9",
+      "assetClass": "AtmosphericParticles"
+    },
+    {
+      "oldPath": "Assets/Scrpits/AtmosphericParticles.cs.meta",
+      "newPath": "Assets/Scripts/AtmosphericParticles.cs.meta",
+      "sha256": "A834B5AF2646FB16200EEC2AD063B9841EE7A34AEF1950A1F0A73680F74A1E2F",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss.meta",
+      "newPath": "Assets/Scripts/Boss.meta",
+      "sha256": "C24A5927B5C4DB1541D5DAC0DED21C56EEF0E496C1CE52AD5F277F1ED94DFAD9",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/BreakableProp.cs",
+      "newPath": "Assets/Scripts/BreakableProp.cs",
+      "sha256": "0EA07A2F846A5776E212C02A67024095800BBFCBF81A7E78741C781C0BEDCAC2",
+      "guid": "e2c64822a3b248fabb2eb2efb5c646ff",
+      "assetClass": "BreakableProp"
+    },
+    {
+      "oldPath": "Assets/Scrpits/BreakableProp.cs.meta",
+      "newPath": "Assets/Scripts/BreakableProp.cs.meta",
+      "sha256": "B58BD5C88CC8E374B7EAD8780B1AD28AF7E43B80F3FE641BCBB06DBC738DD7E2",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/CameraBoundsSetup.cs",
+      "newPath": "Assets/Scripts/CameraBoundsSetup.cs",
+      "sha256": "9A6BB4A6916FCD137CB552C153BE9303DC53A3DD8AACD1F8D3E7EA39A4E9FCAF",
+      "guid": "f2faec364aedefb46a90851a220efadc",
+      "assetClass": "CameraBoundsSetup"
+    },
+    {
+      "oldPath": "Assets/Scrpits/CameraBoundsSetup.cs.meta",
+      "newPath": "Assets/Scripts/CameraBoundsSetup.cs.meta",
+      "sha256": "691DF9299FFF0C7AD36EA3204BD4915B5A611F5BB1D16420705DF1991FBBEB84",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/CameraShaker.cs",
+      "newPath": "Assets/Scripts/CameraShaker.cs",
+      "sha256": "76A4C94531C93890BA50B1569C7ED7FD5E4E53C8AFBC081732CA49C118948CF2",
+      "guid": "9781ccf45ae245fcaa63893c111d3b94",
+      "assetClass": "CameraShaker"
+    },
+    {
+      "oldPath": "Assets/Scrpits/CameraShaker.cs.meta",
+      "newPath": "Assets/Scripts/CameraShaker.cs.meta",
+      "sha256": "BF77E133EF0A54DDA747222ADBCFAE4D67F83B4ED1475E3BBF568375BE3EBDD6",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/CitadelBackdrop.cs",
+      "newPath": "Assets/Scripts/CitadelBackdrop.cs",
+      "sha256": "7AC9F12FE23DB17F029B8BF3A50257FD7A8A5617CAA3DFD399C6BBA2AAEF131B",
+      "guid": "c134caa2de774b21a6c80acb4601c785",
+      "assetClass": "CitadelBackdrop"
+    },
+    {
+      "oldPath": "Assets/Scrpits/CitadelBackdrop.cs.meta",
+      "newPath": "Assets/Scripts/CitadelBackdrop.cs.meta",
+      "sha256": "D3F6F504089E43C8C63740B935465A791A32A40CDD44859A58C85A9C0140AFA9",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/CitadelCheckpoint.cs",
+      "newPath": "Assets/Scripts/CitadelCheckpoint.cs",
+      "sha256": "3844BF60677848C3E2FD9C3CDBBE6309B2F45BF1B008E4B2880DB11C8C043F2C",
+      "guid": "23e65c7615a94cb2ac859f1222f38b43",
+      "assetClass": "CitadelCheckpoint"
+    },
+    {
+      "oldPath": "Assets/Scrpits/CitadelCheckpoint.cs.meta",
+      "newPath": "Assets/Scripts/CitadelCheckpoint.cs.meta",
+      "sha256": "518DB3E16144070FC36D90F012DE38240D6E3E43AA814D642BF03207C2DDB510",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/CitadelLevel.cs",
+      "newPath": "Assets/Scripts/CitadelLevel.cs",
+      "sha256": "1D13C7579BAFA902144F70B2D4C1BE71CF19A2B898A9206AB989E4BB03E9A48A",
+      "guid": "9f58382c192345ec93c015903565ca31",
+      "assetClass": "CitadelLevel"
+    },
+    {
+      "oldPath": "Assets/Scrpits/CitadelLevel.cs.meta",
+      "newPath": "Assets/Scripts/CitadelLevel.cs.meta",
+      "sha256": "1210F65732A7E6977ADC8FDFCE2282D3C93A3B38E0A14366DECB25942F053AFC",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/CoinPickup.cs",
+      "newPath": "Assets/Scripts/CoinPickup.cs",
+      "sha256": "7BD48C731D4FE54A4AB3F9487B29D4EA8BFEA52C4A3BC7545805C71B07114144",
+      "guid": "7d6878eb55c6970429d35e3bb5f385dd",
+      "assetClass": "CoinPickup"
+    },
+    {
+      "oldPath": "Assets/Scrpits/CoinPickup.cs.meta",
+      "newPath": "Assets/Scripts/CoinPickup.cs.meta",
+      "sha256": "437D2900BC78E6DBBAA819BF0570B5C6E2E6D31E057466A374ABC54FC190BDB8",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/CombatVFX.cs",
+      "newPath": "Assets/Scripts/CombatVFX.cs",
+      "sha256": "6F99F3FAC2580B7AF59BB82163AF0376756874B657C3B2F8FB238133DD0922EB",
+      "guid": "874b246c048f41a29f7d2a7b18e67afa",
+      "assetClass": "CombatVFX"
+    },
+    {
+      "oldPath": "Assets/Scrpits/CombatVFX.cs.meta",
+      "newPath": "Assets/Scripts/CombatVFX.cs.meta",
+      "sha256": "2949B245464A02A4FD9B54B729C7BF191EE827D4D969FCDFA06F4F701F5CF547",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/ComboSystem.cs",
+      "newPath": "Assets/Scripts/ComboSystem.cs",
+      "sha256": "63297CFEF6A187FF87798DA4FFE5C3B6012F403E048F2A45074061FEB7712726",
+      "guid": "681a064b008340bd9fc3e6c957d91a29",
+      "assetClass": "ComboSystem"
+    },
+    {
+      "oldPath": "Assets/Scrpits/ComboSystem.cs.meta",
+      "newPath": "Assets/Scripts/ComboSystem.cs.meta",
+      "sha256": "ED2320D4AF8B370A4E4657E159A5CEF7484BAF215621A84BA46FF23FC913D47E",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core.meta",
+      "newPath": "Assets/Scripts/Core.meta",
+      "sha256": "D837FB94D313D6C4350915BC660376AB4F98D1E6DA34B52D55C03949B2EC3089",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/DashCooldownUI.cs",
+      "newPath": "Assets/Scripts/DashCooldownUI.cs",
+      "sha256": "A9798243990B4BBCEFEB957918CCA555A968F06A214E34D461398FCD03E57E9C",
+      "guid": "0a1252e7f64a2c04f8925480896cf743",
+      "assetClass": "DashCooldownUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/DashCooldownUI.cs.meta",
+      "newPath": "Assets/Scripts/DashCooldownUI.cs.meta",
+      "sha256": "5D051EC239060C1502E183066C0EA4ECB29CE49E358914863E4422981D103F55",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/DustEvents.cs",
+      "newPath": "Assets/Scripts/DustEvents.cs",
+      "sha256": "88FDEB694AAEA46B29BFF9161DCFAF5CCD8802857BE3BAA162E799678F7781F6",
+      "guid": "b902ffa86087e734ebb15120a8fbacfd",
+      "assetClass": "DustEvents"
+    },
+    {
+      "oldPath": "Assets/Scrpits/DustEvents.cs.meta",
+      "newPath": "Assets/Scripts/DustEvents.cs.meta",
+      "sha256": "F9087F918B02847B3239DC8C83C5EDB90D1BF697281C1623E520FD29C9B8936B",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/EndingPlayer.cs",
+      "newPath": "Assets/Scripts/EndingPlayer.cs",
+      "sha256": "A6C4994128DCB05B082DEB51B2CDF1C630BF8E208A7D6999AD1158FDCF40AD15",
+      "guid": "84d2c59cb32a89c439879c6c12258115",
+      "assetClass": "EndingPlayer"
+    },
+    {
+      "oldPath": "Assets/Scrpits/EndingPlayer.cs.meta",
+      "newPath": "Assets/Scripts/EndingPlayer.cs.meta",
+      "sha256": "C06C59105817F536A3F1EF57DB6D8DC73B79E51FE226329C32179061D20CDE2B",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy.meta",
+      "newPath": "Assets/Scripts/Enemy.meta",
+      "sha256": "E555E97BB1E70AF08CFB37996E7502397267EE16992C7390599BFBDE904B7B8E",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/FireballController.cs",
+      "newPath": "Assets/Scripts/FireballController.cs",
+      "sha256": "27C37B9510B6F5C9EC684974C5F3EE1C07725C11621EFEF4D4234F01F2A93AAB",
+      "guid": "f7813483dd2983a448a1013999d11ae2",
+      "assetClass": "FireballController"
+    },
+    {
+      "oldPath": "Assets/Scrpits/FireballController.cs.meta",
+      "newPath": "Assets/Scripts/FireballController.cs.meta",
+      "sha256": "6FC7A99172A8D5972EA69E356DB5396749B7AFD794E098E600D29F8D31799E9E",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/FireSkillCooldownUI.cs",
+      "newPath": "Assets/Scripts/FireSkillCooldownUI.cs",
+      "sha256": "2AEA0D5F3D256DC890F518C9A9DFA14B983962D5692B37C23D7E5E5348F3C4D7",
+      "guid": "881e4ba0dfc26cb47b91b508dc890ccf",
+      "assetClass": "FireSkillCooldownUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/FireSkillCooldownUI.cs.meta",
+      "newPath": "Assets/Scripts/FireSkillCooldownUI.cs.meta",
+      "sha256": "DCFAF9322E2670A6D6838EA38548E7A4D89BF97C78A520B42FF6B659BB55AAE4",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/GameManager.cs",
+      "newPath": "Assets/Scripts/GameManager.cs",
+      "sha256": "4A1F4B81D9566DC681F1618C943CAB8B05D3E4AD3277354D99F070E5A1E5D55A",
+      "guid": "6baba661ee4aeba4188d5834e4585bb4",
+      "assetClass": "GameManager"
+    },
+    {
+      "oldPath": "Assets/Scrpits/GameManager.cs.meta",
+      "newPath": "Assets/Scripts/GameManager.cs.meta",
+      "sha256": "453D04E21FDB49A153F9291D01A9034C2B3607727093E2D1C783F5CF3CE0748A",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/GroundFireAOE.cs",
+      "newPath": "Assets/Scripts/GroundFireAOE.cs",
+      "sha256": "7F3B64E92BFA721EF32C1474BEB37D881F3905470F914B300A980DE53F4D5E65",
+      "guid": "090236025e86c3641a50a8310a669d6b",
+      "assetClass": "GroundFireAOE"
+    },
+    {
+      "oldPath": "Assets/Scrpits/GroundFireAOE.cs.meta",
+      "newPath": "Assets/Scripts/GroundFireAOE.cs.meta",
+      "sha256": "2E4B48A0821EDDE84280E26D9B77AC1DCB864A306B30C0E01BE9C35D88766FFD",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/HealthPickup.cs",
+      "newPath": "Assets/Scripts/HealthPickup.cs",
+      "sha256": "F67BE6313BD84D73217DACA20B161753C4424CE8E3B19CC76DABA8EFC095EA8B",
+      "guid": "44ac4169e9740e14bbbd04b497564cf7",
+      "assetClass": "HealthPickup"
+    },
+    {
+      "oldPath": "Assets/Scrpits/HealthPickup.cs.meta",
+      "newPath": "Assets/Scripts/HealthPickup.cs.meta",
+      "sha256": "F8BEF50262804DE253617DC49E8439D50164A1732361836A6D9BA373C906EEA9",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/HitStop.cs",
+      "newPath": "Assets/Scripts/HitStop.cs",
+      "sha256": "3416D4ADC52A2C77293522F55758A3613EDC2A2630B11D4479C3908218E8E609",
+      "guid": "bb917948fcc04a4ab2febd5ed70d75df",
+      "assetClass": "HitStop"
+    },
+    {
+      "oldPath": "Assets/Scrpits/HitStop.cs.meta",
+      "newPath": "Assets/Scripts/HitStop.cs.meta",
+      "sha256": "C358F2B88FD09C10B74EC0FB4C7B5B88C7DFE1EF10397AD617C1C0FD85503A5E",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/LevelRespawnManager.cs",
+      "newPath": "Assets/Scripts/LevelRespawnManager.cs",
+      "sha256": "2D146761ABA2D55A32E6454BED655D00182D2E94C8C2839D244BF49F28D9987D",
+      "guid": "c42b12c3b3436514bbafc41ccd44b992",
+      "assetClass": "LevelRespawnManager"
+    },
+    {
+      "oldPath": "Assets/Scrpits/LevelRespawnManager.cs.meta",
+      "newPath": "Assets/Scripts/LevelRespawnManager.cs.meta",
+      "sha256": "E37716BCE43C51A454B06B84624F4D3375F9C55F620F612B3D5B775A1BCBCA9C",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/PersistentRoot.cs",
+      "newPath": "Assets/Scripts/PersistentRoot.cs",
+      "sha256": "4158D4BEEAE553BFAE1D1819D12E06FF73C3AA9CED486E571F334F04D592EE3B",
+      "guid": "12e5edaf26d00ee4e8e5bbbd747814a5",
+      "assetClass": "PersistentRoot"
+    },
+    {
+      "oldPath": "Assets/Scrpits/PersistentRoot.cs.meta",
+      "newPath": "Assets/Scripts/PersistentRoot.cs.meta",
+      "sha256": "106340FB923BEE22053D2DA307A643EC4589069C6F573E35536021F20B9A6137",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/PersistentRootLoader.cs",
+      "newPath": "Assets/Scripts/PersistentRootLoader.cs",
+      "sha256": "4D78201BBAED9E69304260FEC48A33EE50A5DB777E72D12A49AF52EC93445591",
+      "guid": "83b6eb4d5b0e0d04c9d2c9ec2a00d841",
+      "assetClass": "PersistentRootLoader"
+    },
+    {
+      "oldPath": "Assets/Scrpits/PersistentRootLoader.cs.meta",
+      "newPath": "Assets/Scripts/PersistentRootLoader.cs.meta",
+      "sha256": "401CC0B563AEEC63FED79F2D747132381744CF7E9DABFDD43B13A919AE33BEC8",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player.meta",
+      "newPath": "Assets/Scripts/Player.meta",
+      "sha256": "11BF29B80B9286F1483A87C6855FDE2AFC59B6E801D181CDD6ED20D25544C587",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/SaveGame.meta",
+      "newPath": "Assets/Scripts/SaveGame.meta",
+      "sha256": "48CD99B9BE09A10E72E0D635322E77179031A65980004A1B10B6CE7CAB539EE3",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/SoundManager.cs",
+      "newPath": "Assets/Scripts/SoundManager.cs",
+      "sha256": "BAEE111AC1C7C70F5EBE24ECBAF75CF78E552C6408C37D50174EB5CEFB8E9ACC",
+      "guid": "a2c2cc406338425e8fc9f4c080ecb110",
+      "assetClass": "SoundManager"
+    },
+    {
+      "oldPath": "Assets/Scrpits/SoundManager.cs.meta",
+      "newPath": "Assets/Scripts/SoundManager.cs.meta",
+      "sha256": "85630112AFB5E2B12E2F5F266568FBEF359E1625D603C2F040F35720D1E3BE8E",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/SwordPickup.cs",
+      "newPath": "Assets/Scripts/SwordPickup.cs",
+      "sha256": "E454CF88D28FF1F76D2567ED4FAC17E6A26FBCAA7AEA1B197FAC82FE51992BFD",
+      "guid": "213b00090a2b0ca4aaf9048669ac05b1",
+      "assetClass": "SwordPickup"
+    },
+    {
+      "oldPath": "Assets/Scrpits/SwordPickup.cs.meta",
+      "newPath": "Assets/Scripts/SwordPickup.cs.meta",
+      "sha256": "5F249DBFE6EB92E3259F9DFA24274258BF48AEF4EB44F3D997A429A09006F5E0",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/SwordProjectile.cs",
+      "newPath": "Assets/Scripts/SwordProjectile.cs",
+      "sha256": "741BDEE7C5271AEA1252B4ECA5059DEC4523494C8F4E0C747B019CF649B49545",
+      "guid": "79874cd256e8b724d8c65034af0b230c",
+      "assetClass": "SwordProjectile"
+    },
+    {
+      "oldPath": "Assets/Scrpits/SwordProjectile.cs.meta",
+      "newPath": "Assets/Scripts/SwordProjectile.cs.meta",
+      "sha256": "D251CE38829A7F2C435EAD5A007961DD36FA53A54B29BB99A5029CBDC538A662",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/SwordSkillCooldownUI.cs",
+      "newPath": "Assets/Scripts/SwordSkillCooldownUI.cs",
+      "sha256": "D59996571BA3F95E3E50EEB6178430A28D660B3DADD09EBDA5EB9EC68602B315",
+      "guid": "728075eeb22d6874aa7a7a5da56c18f3",
+      "assetClass": "SwordSkillCooldownUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/SwordSkillCooldownUI.cs.meta",
+      "newPath": "Assets/Scripts/SwordSkillCooldownUI.cs.meta",
+      "sha256": "666CDD1B8BD445D21BBC044F10D8F62E0532DCF1BA2BA52515F70ED2C833777F",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/ThanhMana.cs",
+      "newPath": "Assets/Scripts/ThanhMana.cs",
+      "sha256": "7BD472EF3FF1AD6B8D4C62480024E00045F316D50FF1B9576B3A91E4A522754A",
+      "guid": "bc44d5e22cc92ea4e8c1eb7ba71a8218",
+      "assetClass": "ThanhMana"
+    },
+    {
+      "oldPath": "Assets/Scrpits/ThanhMana.cs.meta",
+      "newPath": "Assets/Scripts/ThanhMana.cs.meta",
+      "sha256": "1C44B6F52049CE199149437A6D75087A34FA64D4D5F18FB59E62319A10FB6A5D",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/ThanhMau.cs",
+      "newPath": "Assets/Scripts/ThanhMau.cs",
+      "sha256": "8738FF84CA7941624B6EC3E6C13AA033569D8A5F386E585FC1559438EC680E55",
+      "guid": "34fb3e5c63d848942800e00b8ba8b4fb",
+      "assetClass": "ThanhMau"
+    },
+    {
+      "oldPath": "Assets/Scrpits/ThanhMau.cs.meta",
+      "newPath": "Assets/Scripts/ThanhMau.cs.meta",
+      "sha256": "E5EC459D19CF934AFC9C60A9A33949A521F0B653E6C7CF49A0E4CE3AB9016346",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI.meta",
+      "newPath": "Assets/Scripts/UI.meta",
+      "sha256": "FB11C80C82B44AB6A72A4A9A046E62FD873771C3C461F769FDB0F00713BAAC72",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/BossPresentationBinding.cs",
+      "newPath": "Assets/Scripts/Application/BossPresentationBinding.cs",
+      "sha256": "6C485BEBA6D65890001C80C2E826A9A5B343770634BC0B581975B2A4458D246D",
+      "guid": "70cb9b027c6d49d5a4b6c6db58626932",
+      "assetClass": "BossPresentationBinding"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/BossPresentationBinding.cs.meta",
+      "newPath": "Assets/Scripts/Application/BossPresentationBinding.cs.meta",
+      "sha256": "B182553D4B9A91D797628D1131AA2D26710BFB51F9BEC9ADA9ED61183D21BD69",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/CombatFeedbackChannel.cs",
+      "newPath": "Assets/Scripts/Application/CombatFeedbackChannel.cs",
+      "sha256": "51012CBB23E4E7A771355599BB8416EC1D8D822164104AA082D7232A10D963B4",
+      "guid": "04168c267cbe43388c3eac2217606ae1",
+      "assetClass": "CombatFeedbackChannel"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/CombatFeedbackChannel.cs.meta",
+      "newPath": "Assets/Scripts/Application/CombatFeedbackChannel.cs.meta",
+      "sha256": "82A8326E15DEC9E0A5B8BA91414BAF7FF12D7CDAEF792DFA82337EAC3464FEDD",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/GameTime.cs",
+      "newPath": "Assets/Scripts/Application/GameTime.cs",
+      "sha256": "B50C961B02F6C3412A783D05933B6BDDEAA0AABA365FDC7ECF7BBF3E709FBF5D",
+      "guid": "cb879bcf66b142589694c72d9e8f38b4",
+      "assetClass": "GameTime"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/GameTime.cs.meta",
+      "newPath": "Assets/Scripts/Application/GameTime.cs.meta",
+      "sha256": "5AA1BFB54A69C2D1411BDA87089EBEBB5AD052CEA2668115691A24DF3845D4B0",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+      "newPath": "Assets/Scripts/Application/PlayerCombatHudSource.cs",
+      "sha256": "DD1BC0D5E9CA83AEEF7267A8964387237DB48F6B4D82A013ADD7A966AA75A6ED",
+      "guid": "bc23178dba784856bb38372bc36e3762",
+      "assetClass": "PlayerCombatHudSource"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/PlayerCombatHudSource.cs.meta",
+      "newPath": "Assets/Scripts/Application/PlayerCombatHudSource.cs.meta",
+      "sha256": "D9E6C9CB02F49C9621ED1BC50CA9611D9D1E10B42F4F9EE2FFC5A6AD2D81F267",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/PlayerContext.cs",
+      "newPath": "Assets/Scripts/Application/PlayerContext.cs",
+      "sha256": "D323826B54E05F1B7533FD3295E469C9A8132B9D11265E4237A1166C5E711801",
+      "guid": "db902c6a83a245459b759774e603721f",
+      "assetClass": "PlayerContext"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/PlayerContext.cs.meta",
+      "newPath": "Assets/Scripts/Application/PlayerContext.cs.meta",
+      "sha256": "67A66087BD252C89EF653DA351BC0DBF6FE7AB959BF8EAAA40922BEDEDCB47A7",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/PlayerVitalsSource.cs",
+      "newPath": "Assets/Scripts/Application/PlayerVitalsSource.cs",
+      "sha256": "FF528E7CB074E8AD55D9DEBA3BBFC0BCC18DAA4B6484369BA46570D9514BAD36",
+      "guid": "3421ea5c961e4e7b8ec17e3ae8eab385",
+      "assetClass": "PlayerVitalsSource"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/PlayerVitalsSource.cs.meta",
+      "newPath": "Assets/Scripts/Application/PlayerVitalsSource.cs.meta",
+      "sha256": "794326156C46D05DCE025623324D2C9701506CD5020A4EF0BAA94FFA227AFE76",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/SceneContext.cs",
+      "newPath": "Assets/Scripts/Application/SceneContext.cs",
+      "sha256": "9D6094C902F59EF3194D7D50E8E68F62FE9001289C1A940FD237B3037FAF16C4",
+      "guid": "72b7abc1aeca4d6188a3cb2b5b630320",
+      "assetClass": "SceneContext"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Application/SceneContext.cs.meta",
+      "newPath": "Assets/Scripts/Application/SceneContext.cs.meta",
+      "sha256": "244CA2400FB2333AFF334CA8CAE7F2AC43EE868D378CDC88DD1BE033D1B31210",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/Boss1Controller.cs",
+      "newPath": "Assets/Scripts/Boss/Boss1Controller.cs",
+      "sha256": "A54569A5DA8FD5D150D9DECA38B1F6476168FCA6260DBD94CDA7EBE1E3097ED1",
+      "guid": "1fe67ae9abb2e6249ba855da02aee58d",
+      "assetClass": "Boss1Controller"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/Boss1Controller.cs.meta",
+      "newPath": "Assets/Scripts/Boss/Boss1Controller.cs.meta",
+      "sha256": "856F971DAE02AA3942A724A5FB35DAE888BB014218375314EEEDE6DC6EE12BF2",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/BossAbilityController.cs",
+      "newPath": "Assets/Scripts/Boss/BossAbilityController.cs",
+      "sha256": "F18960E8F73DD95BD77F7A3BBB72C281287A6B6DDE36B243E124E94A2D3625FA",
+      "guid": "c25fb07a9e6841d895418975339f354b",
+      "assetClass": "BossAbilityController"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/BossAbilityController.cs.meta",
+      "newPath": "Assets/Scripts/Boss/BossAbilityController.cs.meta",
+      "sha256": "7BF70D57B04D46A6141193CE096DDCA72FF920FC4C9CEAFF364B287529156650",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+      "newPath": "Assets/Scripts/Boss/BossEnragePresentation.cs",
+      "sha256": "C0A345F253F229131A199AB8E294647CBE89AC75C8563A0245937E8307DDF4BC",
+      "guid": "d3f39aa64c9244f3a3ef0bca4125fe28",
+      "assetClass": "BossEnragePresentation"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/BossEnragePresentation.cs.meta",
+      "newPath": "Assets/Scripts/Boss/BossEnragePresentation.cs.meta",
+      "sha256": "0C84C05BCBA8DFB4545457BC8557807E5DAEB4307CF42AC2C6FAB3B84B89E899",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/BossGroundWave.cs",
+      "newPath": "Assets/Scripts/Boss/BossGroundWave.cs",
+      "sha256": "4AC5C71B217CC435133D19ACDDB985762758E6CE47DCA58AA89AF0B8D5F4AAC7",
+      "guid": "72ea47e0ef414e38b5bde69bc1b6519e",
+      "assetClass": "BossGroundWave"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/BossGroundWave.cs.meta",
+      "newPath": "Assets/Scripts/Boss/BossGroundWave.cs.meta",
+      "sha256": "B9B77FAC6BA19CCCCFFEB732CFC2E36D14A1B6AE87E1E0B1339DC86395D17ED5",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/BossHealth.cs",
+      "newPath": "Assets/Scripts/Boss/BossHealth.cs",
+      "sha256": "0435A4DB0C04878B84699FC43A958E768B97BE860EA970118F59141BAA44D6B3",
+      "guid": "72be45654965385448e42382e8c7196e",
+      "assetClass": "BossHealth"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Boss/BossHealth.cs.meta",
+      "newPath": "Assets/Scripts/Boss/BossHealth.cs.meta",
+      "sha256": "73A3C4FDD15C6DE0FA9557FC3480B5D0F5B3BE83856CAA955A4B48119B711632",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/BossPhaseState.cs",
+      "newPath": "Assets/Scripts/Core/BossPhaseState.cs",
+      "sha256": "F1EE14FED7E2931F9B82EF503A5C585BF2075EC64CB87920E28AAC74D842007B",
+      "guid": "b78ba5c0b3de4b2f83287fbde191ace4",
+      "assetClass": "Samurai.Core.Combat.BossPhaseState"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/BossPhaseState.cs.meta",
+      "newPath": "Assets/Scripts/Core/BossPhaseState.cs.meta",
+      "sha256": "A7392F744055975248DE12162C6BC8326D41D9B5C523993F6121C3D0F9F54476",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/DamageContract.cs",
+      "newPath": "Assets/Scripts/Core/DamageContract.cs",
+      "sha256": "7F7A654AD26C0F5CACFCBC2EA7DD6C234B45109D06B9E104AD69F4E2B5EC4AFE",
+      "guid": "5fe6fabf616949dc9bebf8b4f73aa829",
+      "assetClass": "Samurai.Core.Combat.DamageRequest"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/DamageContract.cs.meta",
+      "newPath": "Assets/Scripts/Core/DamageContract.cs.meta",
+      "sha256": "A4CE75221E95DC720153CAA18617BD61C72624ABC70837E056BEE876C7C4E4CA",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/DeflectionContract.cs",
+      "newPath": "Assets/Scripts/Core/DeflectionContract.cs",
+      "sha256": "048081E895F3F86E5845F0ABCB5633B34757D3796F3039FC7E01A1E2A66C5D83",
+      "guid": "01c3e38e59774c52a6f1a614a0d030a1",
+      "assetClass": "Samurai.Core.Combat.DeflectionRequest"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/DeflectionContract.cs.meta",
+      "newPath": "Assets/Scripts/Core/DeflectionContract.cs.meta",
+      "sha256": "852388F5983D608CB2EDA82554E0AD81BC1EAB57079236C05C498CFA3626987A",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/EnemyAttackWindow.cs",
+      "newPath": "Assets/Scripts/Core/EnemyAttackWindow.cs",
+      "sha256": "16244ECE8CBDF6E3CD6F92E223F7561A0620C17646F4304354B8BF50781AE6E1",
+      "guid": "f20b8c4097344c2dad31e9b8f5a47d16",
+      "assetClass": "Samurai.Core.Combat.EnemyAttackWindow"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/EnemyAttackWindow.cs.meta",
+      "newPath": "Assets/Scripts/Core/EnemyAttackWindow.cs.meta",
+      "sha256": "DFAFBCDB82D3E9DBF55D34EE1E9EB8D21C065D35FF79BBC3A3A69CE7A85721CC",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/HealthPresentationState.cs",
+      "newPath": "Assets/Scripts/Core/HealthPresentationState.cs",
+      "sha256": "C5B76F7AF7AEDA54C25EE7D88CB973AAF77C98AAC1B7741AE217EDE197744C6B",
+      "guid": "9a8ab5192eba4fdd930c9fe1b961d336",
+      "assetClass": "Samurai.Core.Presentation.PlayerVitalsSnapshot"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/HealthPresentationState.cs.meta",
+      "newPath": "Assets/Scripts/Core/HealthPresentationState.cs.meta",
+      "sha256": "D7E06A1E55BCE5E679303496D1A5D547DB705584638C6035D59D8C3FC58288FB",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/HudPresentationState.cs",
+      "newPath": "Assets/Scripts/Core/HudPresentationState.cs",
+      "sha256": "0015F01C242F6026E8D5A85A14FA5344F247C478F3A84862B3D77FA200E470E5",
+      "guid": "17b284bdab784be582c42dc67c49f5fa",
+      "assetClass": "Samurai.Core.Presentation.SkillHudState"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/HudPresentationState.cs.meta",
+      "newPath": "Assets/Scripts/Core/HudPresentationState.cs.meta",
+      "sha256": "352D4F335745F8FF18F1D529C909051746FB020275288440A7FA52BE90F63136",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/LevelBannerPresentation.cs",
+      "newPath": "Assets/Scripts/Core/LevelBannerPresentation.cs",
+      "sha256": "2A888AE75A7180E46048E72D0EEA2C2A29526C06221604EA40C78370D44CA8D1",
+      "guid": "0c7942cb22034afc85a07ac3701d3b47",
+      "assetClass": "Samurai.Core.Presentation.LevelBannerPresentation"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/LevelBannerPresentation.cs.meta",
+      "newPath": "Assets/Scripts/Core/LevelBannerPresentation.cs.meta",
+      "sha256": "9EE956C4ECCDAF7E4B0996B34F92EAE2BF538538FE36C681F22B073486B85F31",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/PlayerActionOwnership.cs",
+      "newPath": "Assets/Scripts/Core/PlayerActionOwnership.cs",
+      "sha256": "1068A3841C284C4C2D2318962B34D8BB23B466CE057E5678DE585513F78C26E3",
+      "guid": "023cc8570d5f49bb985b8b4f1849157f",
+      "assetClass": "Samurai.Core.Player.PlayerActionOwnership"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/PlayerActionOwnership.cs.meta",
+      "newPath": "Assets/Scripts/Core/PlayerActionOwnership.cs.meta",
+      "sha256": "5A145291BC3E497C464A6D96E8FD3852E27A5CEDA290A534E2993DED2732A1B9",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/PlayerActionPolicy.cs",
+      "newPath": "Assets/Scripts/Core/PlayerActionPolicy.cs",
+      "sha256": "E0A39C200AE433A80F495952CA32BC3DC98623361263CEDB5980250486A41499",
+      "guid": "652a445bdbe7402a90bb9b51da38ee92",
+      "assetClass": "Samurai.Core.Player.PlayerActionState"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/PlayerActionPolicy.cs.meta",
+      "newPath": "Assets/Scripts/Core/PlayerActionPolicy.cs.meta",
+      "sha256": "4034C5EDF1FF7294802F0FBF2D0C78C6B3E21006D790CB5C6BFB2DB631395767",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/PlayerInputArbitration.cs",
+      "newPath": "Assets/Scripts/Core/PlayerInputArbitration.cs",
+      "sha256": "CE8A570B470D24B777FBE0BB1EEFAC69785E11556D75C3654A3522162638D916",
+      "guid": "72b4f5a9697f4a189db27f594567e134",
+      "assetClass": "Samurai.Core.Player.PlayerInputArbitration"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/PlayerInputArbitration.cs.meta",
+      "newPath": "Assets/Scripts/Core/PlayerInputArbitration.cs.meta",
+      "sha256": "4793065D90D518A1D3A565DA498AC0B3199DA427F5710DA7C09F1E910DEE4407",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/Samurai.Core.asmdef",
+      "newPath": "Assets/Scripts/Core/Samurai.Core.asmdef",
+      "sha256": "3090CCE26F758DF4658DB0CEC0F49450D1D7EDE3CB35A28D280F1397AD2782BD",
+      "guid": "5e26c1b05f834685aaa28d2eb6a7cc86",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/Samurai.Core.asmdef.meta",
+      "newPath": "Assets/Scripts/Core/Samurai.Core.asmdef.meta",
+      "sha256": "6707FF578E5AF3F96C42F18E9856CDEDA61DCAF9CC54DEE0498D365A5821364C",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/TimeScaleOwnership.cs",
+      "newPath": "Assets/Scripts/Core/TimeScaleOwnership.cs",
+      "sha256": "090F09F7C3A2E4EEC3E51BB7EA111D2F6A3CB56E022CD38F88C0AC0A8448C6C8",
+      "guid": "9fb8627f9c3c4db9ae0915823d6fd7bc",
+      "assetClass": "Samurai.Core.Time.TimeScaleOwnership"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/TimeScaleOwnership.cs.meta",
+      "newPath": "Assets/Scripts/Core/TimeScaleOwnership.cs.meta",
+      "sha256": "26BE15406919C6A77758B5C4B7BCBB5F4FA7933F00F12A4199C29A6D9EF7A4D2",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/WalletModel.cs",
+      "newPath": "Assets/Scripts/Core/WalletModel.cs",
+      "sha256": "14D0AEE1829D13E8C02A155C61ED53E72E15B7850DA87868C7FF3D3F1280AD2E",
+      "guid": "e7555540a6cb4b19ae42f814b61a9ec4",
+      "assetClass": "Samurai.Core.Economy.WalletModel"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Core/WalletModel.cs.meta",
+      "newPath": "Assets/Scripts/Core/WalletModel.cs.meta",
+      "sha256": "F30CE25B5F1D0A0E587C0108E0C177F3A8526B11F4ED9113A3F44654E0CCEE2A",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/EnemyAI.cs",
+      "newPath": "Assets/Scripts/Enemy/EnemyAI.cs",
+      "sha256": "FD667299761B4FD9D5DF0181B215603FBF46A8FF174826B28875B8A51D6FB3F6",
+      "guid": "9498ce5b1122e684582616e039345134",
+      "assetClass": "EnemyAI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/EnemyAI.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/EnemyAI.cs.meta",
+      "sha256": "72FA99EF1D044C440F733E46B1A5E7A8A9DB0B13554B04E7B27378795E4537DE",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+      "newPath": "Assets/Scripts/Enemy/EnemyProjectile.cs",
+      "sha256": "52398303D1321465730556D790A2D6C2289FBE1B7C978F6EAAF7D8FB11994893",
+      "guid": "1ba6dc6414f445578a6818e62fef91d6",
+      "assetClass": "EnemyProjectile"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/EnemyProjectile.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/EnemyProjectile.cs.meta",
+      "sha256": "454D44E86705C4E4BDF40A597BF186C327A6D88964EEA31110365C7E9735E372",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/EnemyRangedAttack.cs",
+      "newPath": "Assets/Scripts/Enemy/EnemyRangedAttack.cs",
+      "sha256": "AF73D3197AB561C8D669D9B406CAAB19C608AD81746ACA9403C8DD05750CD603",
+      "guid": "136f97db8d254de5a8aa3434caa47b68",
+      "assetClass": "EnemyRangedAttack"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/EnemyRangedAttack.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/EnemyRangedAttack.cs.meta",
+      "sha256": "0B5CECADB2575D98455A5BD5CC75A0CB375600AF56C40CEE82F8C4493E0DEE7F",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0.meta",
+      "newPath": "Assets/Scripts/Enemy/Controllers.meta",
+      "sha256": "619F7E2A77641A6D4F3C3FF0808F6783EFC0066B0C0A679F7D5E4A77C367CA40",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemyHealth1.cs",
+      "sha256": "B665C88CC77CED6148C425B3356BAFF50AFB39FF7425D6709CCE0D2A51175739",
+      "guid": "20791763aa01a38409782c0da148050e",
+      "assetClass": "EnemyHealth1"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemyHealth1.cs.meta",
+      "sha256": "BAB7772827AC2AC1B8C6059EEF9C3D7106EB9438428B54357930BBAA28F93777",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealthBarUI.cs",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemyHealthBarUI.cs",
+      "sha256": "8697D7A162385191690BAB8CE013F8E07A098D1A7E176E5B98AAA1889162C1B5",
+      "guid": "92971afe6e4c91649a64fb5d46a5654a",
+      "assetClass": "EnemyHealthBarUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealthBarUI.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemyHealthBarUI.cs.meta",
+      "sha256": "ACA1A5C8CF698DEF72A854F6511FD8F4DF20CE5749857CDDCC1CD0C9C4ABC507",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemyNavigationMotor.cs",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemyNavigationMotor.cs",
+      "sha256": "55D5F5BF97D5775CA2E8AB4E38B5E67FE10F62BFB44C0493B5D6440CCDC2D189",
+      "guid": "9e24541bfecd40a2b9d7fd606776efde",
+      "assetClass": "EnemyNavigationMotor"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemyNavigationMotor.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemyNavigationMotor.cs.meta",
+      "sha256": "8E7C7263B4748D15346B6A5578FBB0458925BE03FD4610CB937948B70678B2D0",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemySpatialSensor.cs",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemySpatialSensor.cs",
+      "sha256": "6BDD2A3D238F5841692BEB66F0BC0785F17C5C0E9C318532127AC250CE09870A",
+      "guid": "9e12811599f546a38d9d3a650db75696",
+      "assetClass": "EnemySpatialSensor"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemySpatialSensor.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemySpatialSensor.cs.meta",
+      "sha256": "D61E51931C4353FC7DA1FD7B92948A1340D2B972BBDB34D88B6E9C490B1EB746",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemyTargetAcquisition.cs",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemyTargetAcquisition.cs",
+      "sha256": "3992E2F5E61463D2C110B1BE017BCFE14D9AEC637BFC214F40493608298726C1",
+      "guid": "4211b914b7ef4235b15a3924aee23294",
+      "assetClass": "EnemyTargetAcquisition"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/EnemyTargetAcquisition.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/Controllers/EnemyTargetAcquisition.cs.meta",
+      "sha256": "6EDBA9727832D1725DFD9648C3949046673DC1801D121A8C9D6B58EEF3807007",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+      "newPath": "Assets/Scripts/Enemy/Controllers/GhostController.cs",
+      "sha256": "578E4CBC3C97568A7AAFEEC8AFC0882724E7A4CB69203C9D293B05BFCB67B650",
+      "guid": "2d3f8edd92a2eed458dfde755f03f01a",
+      "assetClass": "GhostController"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs.meta",
+      "newPath": "Assets/Scripts/Enemy/Controllers/GhostController.cs.meta",
+      "sha256": "D95CD9D52E6F624D06BEF56F2CF94B9BCF322519AAE596630DD895DDCA5817FE",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/AutoSaveTester.cs",
+      "newPath": "Assets/Scripts/Player/AutoSaveTester.cs",
+      "sha256": "6E68C201684785A364AC33B77138E7FD2754A6CADE84BDA7BFB329851BDB2687",
+      "guid": "6582c26d02c92874893fb049fba63217",
+      "assetClass": "AutoSaveTester"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/AutoSaveTester.cs.meta",
+      "newPath": "Assets/Scripts/Player/AutoSaveTester.cs.meta",
+      "sha256": "C8BC971C060B037D6415BAB7FD01BE77C4C9F07D62FAAB76778F566641EBAA0B",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/GhostTrail.cs",
+      "newPath": "Assets/Scripts/Player/GhostTrail.cs",
+      "sha256": "D7763E2FABC48385ADE008D53A7BC204F593E9848CE72E468C76B15ED334D461",
+      "guid": "bfdd98fb568d46ff8bc9d8d95cccde86",
+      "assetClass": "GhostTrail"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/GhostTrail.cs.meta",
+      "newPath": "Assets/Scripts/Player/GhostTrail.cs.meta",
+      "sha256": "DF616578B984EF2A3D27C5CCAE1A42C569F910FA01AB43C2035BD3B200508F7A",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerActionAnimation.cs",
+      "newPath": "Assets/Scripts/Player/PlayerActionAnimation.cs",
+      "sha256": "F8EE91CB70AB80B07E3D0FFEEB824A233FBCEF390F7DCCC93CBE12B9C381763F",
+      "guid": "d9fa366075c24baea56077d4cb96aba7",
+      "assetClass": "PlayerActionAnimation"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerActionAnimation.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerActionAnimation.cs.meta",
+      "sha256": "DC547A1200A7B463551B0963383167B984C8C484F55BB1B7C3D0B864F9B5F2A9",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerCombat.cs",
+      "newPath": "Assets/Scripts/Player/PlayerCombat.cs",
+      "sha256": "D5443C2C3D7EFBC31801E69A8D10D95DE4A22B58F9004CA9429C0DED566303C9",
+      "guid": "ffe269c458fafc8429d9ec9c4d71d72d",
+      "assetClass": "PlayerCombat"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerCombat.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerCombat.cs.meta",
+      "sha256": "A4DE38E7DD378FB55E7875B1DE4792E84D7C01B6FC5228D277B45CABD48D1D9C",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerController1.cs",
+      "newPath": "Assets/Scripts/Player/PlayerController1.cs",
+      "sha256": "103333A27421FFAACAEE673A3B1BF37A1CDC209B16CC0478034F2716CD6F5EF9",
+      "guid": "e5755841c23f3b34c83259e7530c36b3",
+      "assetClass": "PlayerController1"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerController1.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerController1.cs.meta",
+      "sha256": "BE3B7EFA76425A3DA481E5CCFD8E7B26BF31BF9BC9B8DE9B90446AB1DF5DE163",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerDash.cs",
+      "newPath": "Assets/Scripts/Player/PlayerDash.cs",
+      "sha256": "561B37677A9BB2C1159507E6DA9C8B61B90EBA1391B7935521EAD7F976F0EDBB",
+      "guid": "801193513e50a6942aa11aea0b68034e",
+      "assetClass": "PlayerDash"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerDash.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerDash.cs.meta",
+      "sha256": "77FE06353697639440DBD55FF27299D8FEC26F56D2DD3B0EAD75D38AB047CAAB",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerFireSkill.cs",
+      "newPath": "Assets/Scripts/Player/PlayerFireSkill.cs",
+      "sha256": "20B24508E5E9129EABD680964681C2C471884E7080156D04A4CACD8A6C5FCD60",
+      "guid": "b3558a3b6a1d8ad48b0cd755a5acf597",
+      "assetClass": "PlayerFireSkill"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerFireSkill.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerFireSkill.cs.meta",
+      "sha256": "2672ED1E531F068ABB390373BD5E7EBA7C7CBB25BCA2C9351F9E41FAD5FDD303",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+      "newPath": "Assets/Scripts/Player/PlayerFocusHeal.cs",
+      "sha256": "FB644FDEDCD55703B30EE1A5BDB20ED31669C79EC1161C565F1BC37FFC680DF2",
+      "guid": "5b066bf140b75a34c98f475112f3538d",
+      "assetClass": "PlayerFocusHeal"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerFocusHeal.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerFocusHeal.cs.meta",
+      "sha256": "E939845D17DB26AD742375A4555422C9FB333C11D21B78FC497FD3FEB2E60C6B",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerHealth.cs",
+      "newPath": "Assets/Scripts/Player/PlayerHealth.cs",
+      "sha256": "4C90B677CDC1B6EA11901AC008D0BD47C8A4D881A2075AAA64C777CB1B6BC121",
+      "guid": "b3053b49d2a8f89449096acc2890e818",
+      "assetClass": "PlayerHealth"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerHealth.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerHealth.cs.meta",
+      "sha256": "3D04E06523E121C19A6DB28777EAE6DDB1DD0A5F3E29A617F365851179C11A12",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerJump.cs",
+      "newPath": "Assets/Scripts/Player/PlayerJump.cs",
+      "sha256": "D3A0CB0755CAE36608C79EEF35D102C793577B89B9FF230D7BDA7071A9AE441C",
+      "guid": "7a9e924530ae8f6488d0e5a7cb11df45",
+      "assetClass": "PlayerJump"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerJump.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerJump.cs.meta",
+      "sha256": "BD099EB99A2DA5E083E21FC66AC320E200B442EA43CBE8BB6275D3CE66CF2E20",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerLives.cs",
+      "newPath": "Assets/Scripts/Player/PlayerLives.cs",
+      "sha256": "66B87740ED7676D86A3EC7D95B667F89982A8A7B18F7D81864E00542A52CB6AE",
+      "guid": "5baa47aedf38b9a43ae1f75720c5aa0c",
+      "assetClass": "PlayerLives"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerLives.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerLives.cs.meta",
+      "sha256": "C5F883CED8CB8CF1C27B3E73D59E0411D43ADC352232FBC19C247F4EE59D002A",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerMana.cs",
+      "newPath": "Assets/Scripts/Player/PlayerMana.cs",
+      "sha256": "BE1AC3EB2A57B308525F75682945F27E95EE79B6959668061DCB71230D77E2A5",
+      "guid": "d29f99f1a85e2b141b36eec4f12c1588",
+      "assetClass": "PlayerMana"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerMana.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerMana.cs.meta",
+      "sha256": "71CE154083DA623EDE881F98437BA1F85A173502374B6388E4AABCFE8D413CB5",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerMovement.cs",
+      "newPath": "Assets/Scripts/Player/PlayerMovement.cs",
+      "sha256": "0BB0FCF5EA5CB83A878BD3131FEEBBB253296AA49C0F63B9DF069D327159D537",
+      "guid": "621fd6d55c8ed8e49a650e39e0b6b101",
+      "assetClass": "PlayerMovement"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerMovement.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerMovement.cs.meta",
+      "sha256": "0CFB902138FD5E9D28D277E2DE504265DDA53B5FA9E67305EF492DF1C44919FA",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerOutOfBoundsKiller.cs",
+      "newPath": "Assets/Scripts/Player/PlayerOutOfBoundsKiller.cs",
+      "sha256": "C19E46DBC8C91D768E072BBFBACD125497992A748C36A4AF73DFDC2A032E74C7",
+      "guid": "2567810d53445a540a09491d434c06e2",
+      "assetClass": "PlayerOutOfBoundsKiller"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerOutOfBoundsKiller.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerOutOfBoundsKiller.cs.meta",
+      "sha256": "D6813A7F609DF4B6C7963E0C009F458C03522D473F353DB802E385D0CEB90978",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerParry.cs",
+      "newPath": "Assets/Scripts/Player/PlayerParry.cs",
+      "sha256": "B858BB5017D93CD9F085D7E982BA094282A453558E240B43F25EEE658F151ABB",
+      "guid": "aea87952753f47e09e5b202c7b99ad49",
+      "assetClass": "PlayerParry"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerParry.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerParry.cs.meta",
+      "sha256": "BC2BD7E0A01D27B7833820E77BCF1457168B4AEB9376405269EE22EF971425A5",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+      "newPath": "Assets/Scripts/Player/PlayerSaveBridge.cs",
+      "sha256": "A4433B8F4A2BA4F9D9E2C1D639B5107D5F2A4AB14B050A4A213DF7FDD25FEEA9",
+      "guid": "a6d930a945d28b8428691ea75bf54bc7",
+      "assetClass": "PlayerSaveBridge"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerSaveBridge.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerSaveBridge.cs.meta",
+      "sha256": "182011AB771F1911F8F808313A163C1CF8B95BFB5212C97BEF6CF61F7652EF82",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerStats.cs",
+      "newPath": "Assets/Scripts/Player/PlayerStats.cs",
+      "sha256": "FB02D3F8DAD28FADEBD61584765B87DC4684EB95FBA7A35504A019C7C132AA94",
+      "guid": "b52dcd70cb276184ba5468757c1758d7",
+      "assetClass": "PlayerStats"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerStats.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerStats.cs.meta",
+      "sha256": "9C53587DCB2B9F55DB7629D02C3CDEAFD4A90937830F779DADEB47473AE55937",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerStatsUI.cs",
+      "newPath": "Assets/Scripts/Player/PlayerStatsUI.cs",
+      "sha256": "BE1797E8009A4BC59B25AD35C3E6579E537DADA4E29CB6705EE846D5481986B9",
+      "guid": "2fb2585ec3279894796bb8263252d5a1",
+      "assetClass": "PlayerStatsUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerStatsUI.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerStatsUI.cs.meta",
+      "sha256": "9196C79296259AA800FADEC96312FB73390CD6C6EBF174950C98CBDA01981FFC",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+      "newPath": "Assets/Scripts/Player/PlayerSwordSkill.cs",
+      "sha256": "9D3731AA9B1FF6E6EDB5316FA0FF758B36F23151B98143F303EC8C7D5F29B900",
+      "guid": "bf4600f8403f326479bdd34fb29ad00d",
+      "assetClass": "PlayerSwordSkill"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerSwordSkill.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerSwordSkill.cs.meta",
+      "sha256": "9BFDA6BAA3F7A92D7A4445D86ED94592D48AA250F449C1B900CD9988090303E9",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+      "newPath": "Assets/Scripts/Player/PlayerUltimateSkill.cs",
+      "sha256": "74604448EA5DC49471C65CEA01375777D4BF22CCB5640A13AC85166019BBB057",
+      "guid": "362d637c6a3c44dba39fd3132f0b4cc7",
+      "assetClass": "PlayerUltimateSkill"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerUltimateSkill.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerUltimateSkill.cs.meta",
+      "sha256": "778A78601F7E556E366FF5C6FC4081C6F639B5060DA4206F3B3A632027C202E4",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerUpgradeService.cs",
+      "newPath": "Assets/Scripts/Player/PlayerUpgradeService.cs",
+      "sha256": "25D7863E76336F19BAA639D122E07D76D3D870AADB9EAA16BADCD3100BCBADC0",
+      "guid": "aea0d06025564c2c9a3bdeebdb3d82c5",
+      "assetClass": "PlayerUpgradeService"
+    },
+    {
+      "oldPath": "Assets/Scrpits/Player/PlayerUpgradeService.cs.meta",
+      "newPath": "Assets/Scripts/Player/PlayerUpgradeService.cs.meta",
+      "sha256": "D361613644495430B5EE03DBD5587A9AF42599A0ABFDA6AB6D15720796B01439",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/SaveGame/SaveData.cs",
+      "newPath": "Assets/Scripts/SaveGame/SaveData.cs",
+      "sha256": "525936F9A99AE46610B03687807A8D2E6627E355CE0212F52D693EA2464DEC7F",
+      "guid": "0195a50bbcb6b7f4495c41e0305436e8",
+      "assetClass": "SaveData"
+    },
+    {
+      "oldPath": "Assets/Scrpits/SaveGame/SaveData.cs.meta",
+      "newPath": "Assets/Scripts/SaveGame/SaveData.cs.meta",
+      "sha256": "1FEB2B79F2753D608B40C85DD4DA556ACD57E40573BB6244229D6A53B835723A",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/SaveGame/SaveRuntime.cs",
+      "newPath": "Assets/Scripts/SaveGame/SaveRuntime.cs",
+      "sha256": "1CB0C0FB93388305F857A3CA6F3EF125B44AF0340F83825342C0329DA94998A3",
+      "guid": "92f498af57016194c8e19dadbd99401b",
+      "assetClass": "SaveRuntime"
+    },
+    {
+      "oldPath": "Assets/Scrpits/SaveGame/SaveRuntime.cs.meta",
+      "newPath": "Assets/Scripts/SaveGame/SaveRuntime.cs.meta",
+      "sha256": "34A780F777DDE069D731EDCD72A2B11D8B7006706CB434384722BAA79829FBDB",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/SaveGame/SaveSystem.cs",
+      "newPath": "Assets/Scripts/SaveGame/SaveSystem.cs",
+      "sha256": "058A0045C8050F54BF84CB8058EE5F5EFF61A805F9242D7B8D6D78E245ABAB6B",
+      "guid": "d622d8a789f98d940a85f2ac7f389de7",
+      "assetClass": "SaveSystem"
+    },
+    {
+      "oldPath": "Assets/Scrpits/SaveGame/SaveSystem.cs.meta",
+      "newPath": "Assets/Scripts/SaveGame/SaveSystem.cs.meta",
+      "sha256": "B9B68F8CDEA6C3AF55D22845BBB22EE2D053BBB3E8404F016F69CD1D5A726097",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/CheckpointShrineUI.cs",
+      "newPath": "Assets/Scripts/UI/CheckpointShrineUI.cs",
+      "sha256": "EC44C70146F0036F26E604026D717B679F8AA1872E08E81DA1482D25CF5810BB",
+      "guid": "08de62aae384492ba682fe94fc733e75",
+      "assetClass": "CheckpointShrineUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/CheckpointShrineUI.cs.meta",
+      "newPath": "Assets/Scripts/UI/CheckpointShrineUI.cs.meta",
+      "sha256": "F06309E112E5CDD8BA1B12CDDBF4FB4155FEDA7B7E72E1A83A1E3EDB1B081FE5",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/CinemachineAutoBinder.cs",
+      "newPath": "Assets/Scripts/UI/CinemachineAutoBinder.cs",
+      "sha256": "5D4D4A8DCC091E66640C83FE8CBB526FA74C1F22ACD4CE7C88ADACB0F1E52222",
+      "guid": "9d80dbef772985b4a890e45f27c6b1cf",
+      "assetClass": "CinemachineAutoBinder"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/CinemachineAutoBinder.cs.meta",
+      "newPath": "Assets/Scripts/UI/CinemachineAutoBinder.cs.meta",
+      "sha256": "DDFD4359B38045F962F82583AEB2BF7390FA883578B75E3D8C88CAB78845EA9F",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/CloseOnCancel.cs",
+      "newPath": "Assets/Scripts/UI/CloseOnCancel.cs",
+      "sha256": "C613CE59F07EF910FDC036626084EC6333F0A24A7951888AA964C0A125002CFF",
+      "guid": "d3496a48d2ee4124aad99a9b99f47eaa",
+      "assetClass": "CloseOnCancel"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/CloseOnCancel.cs.meta",
+      "newPath": "Assets/Scripts/UI/CloseOnCancel.cs.meta",
+      "sha256": "121290F1CD29A450BF145D72CB6622419012BD1F553626B6E118A83FB3BB6A89",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/ComboHudRenderer.cs",
+      "newPath": "Assets/Scripts/UI/ComboHudRenderer.cs",
+      "sha256": "300C89741BF6A3442EAE46C9DE490F499DF6AF9DB4B43DDE8EC4C9AF27564439",
+      "guid": "e3a64cba1a184e4b8da71df79d60b8bc",
+      "assetClass": "ComboHudRenderer"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/ComboHudRenderer.cs.meta",
+      "newPath": "Assets/Scripts/UI/ComboHudRenderer.cs.meta",
+      "sha256": "C287842EC3365647D82F5FB5A31EEF7475EDCFE3274E55E009A01D93AD1E532F",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/EndItemGate.cs",
+      "newPath": "Assets/Scripts/UI/EndItemGate.cs",
+      "sha256": "99DEFEF79A932C664B1D503CEA23BC974856E77A183DAF7E42F6BEC1AE0425D7",
+      "guid": "8631ad39339e6dd409f8527289e1ceb2",
+      "assetClass": "EndItemGate"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/EndItemGate.cs.meta",
+      "newPath": "Assets/Scripts/UI/EndItemGate.cs.meta",
+      "sha256": "5282D0B9A2B3C91C924C94C59F2606EDD6AE41832E03F7B546990CD3E92D9336",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/EpicBossHealthBar.cs",
+      "newPath": "Assets/Scripts/UI/EpicBossHealthBar.cs",
+      "sha256": "97504D74D5D9BEBEA7C3B7AD62AAE8351A8AD69BDBBA99832FB9EA2DDC843285",
+      "guid": "136a0389b3d621c48a0716c352ee7cf7",
+      "assetClass": "EpicBossHealthBar"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/EpicBossHealthBar.cs.meta",
+      "newPath": "Assets/Scripts/UI/EpicBossHealthBar.cs.meta",
+      "sha256": "1C668099837B8959DBCEFB696F351CF6173984C1C5AFBE334EE71C80BF744354",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/FloatingDamageText.cs",
+      "newPath": "Assets/Scripts/UI/FloatingDamageText.cs",
+      "sha256": "18176557EEE7B5260F25183957063F58B0493EEBD1319913302E881D572533A7",
+      "guid": "077c2082f32ea5946ae6bbbf27279052",
+      "assetClass": "FloatingDamageText"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/FloatingDamageText.cs.meta",
+      "newPath": "Assets/Scripts/UI/FloatingDamageText.cs.meta",
+      "sha256": "AF9693B334BC0642DC423C3BD593D7731501EB9EE211A1A55754F97BDE10422A",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/GameOverUI.cs",
+      "newPath": "Assets/Scripts/UI/GameOverUI.cs",
+      "sha256": "792237A54547FC236EE5FD446CED3C9230510BE1241FE5A98877F038C4F011C7",
+      "guid": "1fa799ab3b80d9744906b41fc2148aac",
+      "assetClass": "GameOverUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/GameOverUI.cs.meta",
+      "newPath": "Assets/Scripts/UI/GameOverUI.cs.meta",
+      "sha256": "4BD7D71580B469F352F5410C5EDA68630B02DADEF881E6B01C0BC10B732B150F",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/HealthHudRenderer.cs",
+      "newPath": "Assets/Scripts/UI/HealthHudRenderer.cs",
+      "sha256": "7293448091235629243CD95BB2594C8323EDC873E34080CA7F92F503E92C468E",
+      "guid": "8fdc8eec80d54b4792b9f735f5f095ce",
+      "assetClass": "HealthHudRenderer"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/HealthHudRenderer.cs.meta",
+      "newPath": "Assets/Scripts/UI/HealthHudRenderer.cs.meta",
+      "sha256": "14CB5895B4AF2581A51FD0BC5C4231474E45F74402DC181D09FBA0334004BAA4",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/LegacySkillHudVisibility.cs",
+      "newPath": "Assets/Scripts/UI/LegacySkillHudVisibility.cs",
+      "sha256": "75BE3E7064E5C8371DE440CAE427DB78086E7BED73E3BD7DDFF5D01EFF390CDE",
+      "guid": "8ef6b47988f14b01a0cb3b59b35c87dc",
+      "assetClass": "LegacySkillHudVisibility"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/LegacySkillHudVisibility.cs.meta",
+      "newPath": "Assets/Scripts/UI/LegacySkillHudVisibility.cs.meta",
+      "sha256": "777223063A2B45AEB7B116214F2C2ADB2F6F9A269C73AB488A95C8B6B64F27DD",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/LevelBannerRenderer.cs",
+      "newPath": "Assets/Scripts/UI/LevelBannerRenderer.cs",
+      "sha256": "3FD09A5D17938F61E9508FE5F94EB7B0DB1121AE64EBF0A56DA966FA208809D3",
+      "guid": "8f038f4652b445d8b0d12d99f09b776c",
+      "assetClass": "LevelBannerRenderer"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/LevelBannerRenderer.cs.meta",
+      "newPath": "Assets/Scripts/UI/LevelBannerRenderer.cs.meta",
+      "sha256": "E93CAF69EB53918C48C83836DBD623D18497D914DEE4BDAA39464B64B1627A9B",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/LevelBannerUI.cs",
+      "newPath": "Assets/Scripts/UI/LevelBannerUI.cs",
+      "sha256": "C6A73BCD93CA960779FBF39F78C12DA8F0B434462D4BBB68A3846ED1FAA555C1",
+      "guid": "945a9c80dcfeada4f8816fb2b69bb45b",
+      "assetClass": "LevelBannerUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/LevelBannerUI.cs.meta",
+      "newPath": "Assets/Scripts/UI/LevelBannerUI.cs.meta",
+      "sha256": "4F3C7ECB1640CEA2C61F582DEEC25E4002649CEC1E829597748292F543CA3FC6",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/LowHealthVignette.cs",
+      "newPath": "Assets/Scripts/UI/LowHealthVignette.cs",
+      "sha256": "BA6895FC19E8CBE82D102017182F26409973ED9A7693FD23E2CCE166EFE98124",
+      "guid": "ffeb90503cbd4c9295e416cb84519329",
+      "assetClass": "LowHealthVignette"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/LowHealthVignette.cs.meta",
+      "newPath": "Assets/Scripts/UI/LowHealthVignette.cs.meta",
+      "sha256": "85BBF7742B093F19B4940760F4A059D38C71FE9D099A975D6F51BD8E42D33254",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/MainMenu.cs",
+      "newPath": "Assets/Scripts/UI/MainMenu.cs",
+      "sha256": "8089950516E8449CFAEFD4829A04D8FD972CBD6C4CB3C6BF37D2019DF01886FB",
+      "guid": "01a21cc0a1252194192172d961bd8354",
+      "assetClass": "MainMenu"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/MainMenu.cs.meta",
+      "newPath": "Assets/Scripts/UI/MainMenu.cs.meta",
+      "sha256": "12A74994C2003C81B94006C3F4FF3F9E147C0310C7745A397ED32955CD3F38A2",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+      "newPath": "Assets/Scripts/UI/PauseSettingsMenu.cs",
+      "sha256": "201FE7872C28E964DD7F97F7B707A049181F6B9A5C1FFD35B99BC60790798B42",
+      "guid": "b1beca3174100ca4d9f65f499ca7deb8",
+      "assetClass": "PauseSettingsMenu"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/PauseSettingsMenu.cs.meta",
+      "newPath": "Assets/Scripts/UI/PauseSettingsMenu.cs.meta",
+      "sha256": "009BE28578B4385CE39262B8EF9BFACF672480D2B1DD1191862C9571B0C227EB",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/RunSession.cs",
+      "newPath": "Assets/Scripts/UI/RunSession.cs",
+      "sha256": "283488DE6626D9B03D66177DF2C1BE4418B568AFC6BBFBA9CC782F18488B76DA",
+      "guid": "8a088b03ed8b7734d8e6e41925260813",
+      "assetClass": "RunSession"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/RunSession.cs.meta",
+      "newPath": "Assets/Scripts/UI/RunSession.cs.meta",
+      "sha256": "639481585924ABA8290E3726F7E0159048CB7EF50EA010203DDFEBC6BD198760",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SamuraiCombatHUD.cs",
+      "newPath": "Assets/Scripts/UI/SamuraiCombatHUD.cs",
+      "sha256": "DC06B071506171F13B051981B94855C5FE3CD5E0BF6678CA9F48090839CC0182",
+      "guid": "8917490c51ad4b849b48dbe10c2897fa",
+      "assetClass": "SamuraiCombatHUD"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SamuraiCombatHUD.cs.meta",
+      "newPath": "Assets/Scripts/UI/SamuraiCombatHUD.cs.meta",
+      "sha256": "2A79A25F64B01E39213DFEFF656A2B885F0BF46BF986BAF62EC0A07FEB29FE34",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SamuraiGuideUI.cs",
+      "newPath": "Assets/Scripts/UI/SamuraiGuideUI.cs",
+      "sha256": "48E57BBDC78472800F1D6A1D1C08598E9D894460946B097E06FC4490E1949345",
+      "guid": "eabe4f6593ef438da12bfcddb44d6bb6",
+      "assetClass": "SamuraiGuideUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SamuraiGuideUI.cs.meta",
+      "newPath": "Assets/Scripts/UI/SamuraiGuideUI.cs.meta",
+      "sha256": "A33379F67E52ED08BB10ACAA70BD4CB99CF88D3037F15B5CC83A625E08DFCA8F",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SamuraiUI.cs",
+      "newPath": "Assets/Scripts/UI/SamuraiUI.cs",
+      "sha256": "2C8FF69EA88FA3D8599377A3601CE77354CE5FAF009C52DFCADF52CC281D0EF7",
+      "guid": "a8cdf2b3e921457ca7f1c05d0bcf8306",
+      "assetClass": "SamuraiUI"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SamuraiUI.cs.meta",
+      "newPath": "Assets/Scripts/UI/SamuraiUI.cs.meta",
+      "sha256": "C438CBFFBC1C0C8238044B2FCA10880EC3B3CF1A32CD8F4207ADD84840EFE0F6",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SamuraiUITheme.cs",
+      "newPath": "Assets/Scripts/UI/SamuraiUITheme.cs",
+      "sha256": "5A453DC3F08EF3DE198A8DD93E8CB6B138ED442490852B4AA7EEE71F9F28CF22",
+      "guid": "325be7b2213e4aaea1ccdfa1a75bbb01",
+      "assetClass": "SamuraiUITheme"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SamuraiUITheme.cs.meta",
+      "newPath": "Assets/Scripts/UI/SamuraiUITheme.cs.meta",
+      "sha256": "51304A8755012140D292510B734A01A65DFB93DE71E9B6D66A7AC5EF0170DC67",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SceneSpawnPoint.cs",
+      "newPath": "Assets/Scripts/UI/SceneSpawnPoint.cs",
+      "sha256": "1CAACAF6F55A1CB2A29B6A8586E424D03890E51B54A9E75BDABFBE67C2159EFC",
+      "guid": "e6b50c22209cfdc4592ab960b73c088a",
+      "assetClass": "SceneSpawnPoint"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SceneSpawnPoint.cs.meta",
+      "newPath": "Assets/Scripts/UI/SceneSpawnPoint.cs.meta",
+      "sha256": "C7F1038627A36B7A850712A278A6386428C47420BB91CC37F26F26FB84298E72",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SceneTransition.cs",
+      "newPath": "Assets/Scripts/UI/SceneTransition.cs",
+      "sha256": "166A7C71EA54F72E4E66D1E861AC55A51AD2DC57D5FA8F9D96A7C26EE824A6BD",
+      "guid": "3503b23b72af4dc7a2b4e3bb637ef040",
+      "assetClass": "SceneTransition"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SceneTransition.cs.meta",
+      "newPath": "Assets/Scripts/UI/SceneTransition.cs.meta",
+      "sha256": "51EF21030115EDD3C04C59CF19E7928B70BFC279C73733EF2FED8CDD3D864750",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SpawnLocator.cs",
+      "newPath": "Assets/Scripts/UI/SpawnLocator.cs",
+      "sha256": "634BBCA8F6C6C1BBAB23D787BDA6402D3B1D9306C0F1479C7E031700A8088331",
+      "guid": "b89e043316b8c1043b3a3c126d8ff69f",
+      "assetClass": "SpawnLocator"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/SpawnLocator.cs.meta",
+      "newPath": "Assets/Scripts/UI/SpawnLocator.cs.meta",
+      "sha256": "D963541C5E38015101AA4BFD70942F6DCFB8A2A49C6D85700EB6DBF26E9B3F38",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/TeleportGate1.cs",
+      "newPath": "Assets/Scripts/UI/TeleportGate1.cs",
+      "sha256": "AF304248DE63963840918DCA0E74087DEC950FD55B38BDAE09C4C7EE443FE1F9",
+      "guid": "f83c777b29579694babb3b652b37f745",
+      "assetClass": "TeleportGate1"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/TeleportGate1.cs.meta",
+      "newPath": "Assets/Scripts/UI/TeleportGate1.cs.meta",
+      "sha256": "B1382FC6C1E72425EC6B8EE2E9623AEBA0BF72A0FD0B33B8896659AE346D1D2D",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/TeleportGateMinimal.cs",
+      "newPath": "Assets/Scripts/UI/TeleportGateMinimal.cs",
+      "sha256": "42165AC52DF1429249F8A2A8AACB13CCE15273C8E0965CE0B2D642294D06A652",
+      "guid": "f7a0c397d6cacaa4c8ea8466594344df",
+      "assetClass": "TeleportGateMinimal"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/TeleportGateMinimal.cs.meta",
+      "newPath": "Assets/Scripts/UI/TeleportGateMinimal.cs.meta",
+      "sha256": "8DEC4DD45DD3A90193484EDE3CAB8835ED63843357385558D0387475D92F95FF",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/TextButtonEffects.cs",
+      "newPath": "Assets/Scripts/UI/TextButtonEffects.cs",
+      "sha256": "30C2BE258E2C3E169A7C36C7C0C5AE1C30180D9911DD74E504F3D5F48A8A1F6E",
+      "guid": "0775e19ab289a2f43b433a08aa3106a6",
+      "assetClass": "TextButtonEffects"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/TextButtonEffects.cs.meta",
+      "newPath": "Assets/Scripts/UI/TextButtonEffects.cs.meta",
+      "sha256": "F2772C206039F8461FAD6FE6BFA96F4BD9BA18C5B4C11A489A48C536A63CEDA0",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/TutorialEnd.cs",
+      "newPath": "Assets/Scripts/UI/TutorialEnd.cs",
+      "sha256": "59A52660457490301841A41C8B079196E5038E6ABF82393A09131E25F6A24283",
+      "guid": "a4496ff24c98ce345b4e1c731341c468",
+      "assetClass": "TutorialEnd"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/TutorialEnd.cs.meta",
+      "newPath": "Assets/Scripts/UI/TutorialEnd.cs.meta",
+      "sha256": "F45793290A8983898769077F4CD99AC2F356AAAD04C5C0AB31F39E21A5BA3771",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/UIToggleHotkey.cs",
+      "newPath": "Assets/Scripts/UI/UIToggleHotkey.cs",
+      "sha256": "5BD6F6CBC22530E2158E43EAB60F827224AF7B93E3229AA23BC7905B83AA1BEC",
+      "guid": "e51192c3bbd34f34dac6dace8de94b2a",
+      "assetClass": "UIToggleHotkey"
+    },
+    {
+      "oldPath": "Assets/Scrpits/UI/UIToggleHotkey.cs.meta",
+      "newPath": "Assets/Scripts/UI/UIToggleHotkey.cs.meta",
+      "sha256": "983E3EA1441D94C18182D05526B53DC572E06D549FA30C4968E4B8236CB41843",
+      "guid": "",
+      "assetClass": ""
+    },
+    {
+      "oldPath": "Assets/Scrpits.meta",
+      "newPath": "Assets/Scripts.meta",
+      "sha256": "1A817A20326FB0E7E423CC1E0DF0928D869BDB8CAA819A122215E41219303F81",
+      "guid": "",
+      "assetClass": ""
+    }
+  ]
+}

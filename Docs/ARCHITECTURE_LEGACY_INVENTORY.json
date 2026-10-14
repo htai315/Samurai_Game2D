@@ -1,0 +1,3363 @@
+{
+  "scope": "Assets/Scrpits scripts; authored textual Assets and imported clip events; no deletion/migration",
+  "limitations": "Code mentions are lexical, include comments and nested-name collisions, and are not a semantic call graph. Callback method names do not prove receiver identity. Asset dependencies are direct. Dynamic sites are heuristic, not exhaustive. Packages/external code/Addressables/custom bundles/editor manual AddComponent use cannot be disproved. No entry is certified safe to delete.",
+  "scripts": 113,
+  "assets": 13926,
+  "clips": 74,
+  "callbackNames": 24,
+  "entries": [
+    {
+      "path": "Assets/Scrpits/Application/BossPresentationBinding.cs",
+      "guid": "70cb9b027c6d49d5a4b6c6db58626932",
+      "sha256": "6C485BEBA6D65890001C80C2E826A9A5B343770634BC0B581975B2A4458D246D",
+      "monoType": "",
+      "assetClass": "BossPresentationBinding",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "BossPresentationBinding"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/EpicBossHealthBar.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/HealthLevelPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Application/CombatFeedbackChannel.cs",
+      "guid": "04168c267cbe43388c3eac2217606ae1",
+      "sha256": "51012CBB23E4E7A771355599BB8416EC1D8D822164104AA082D7232A10D963B4",
+      "monoType": "",
+      "assetClass": "CombatFeedbackChannel",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CombatFeedbackChannel",
+        "CombatFeedbackKind",
+        "CombatFeedbackPresenter",
+        "ConfirmedCombatHit"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+        "Assets/Scrpits/FireballController.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+        "Assets/Scrpits/SwordProjectile.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamageContractValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Application/GameTime.cs",
+      "guid": "cb879bcf66b142589694c72d9e8f38b4",
+      "sha256": "B50C961B02F6C3412A783D05933B6BDDEAA0AABA365FDC7ECF7BBF3E709FBF5D",
+      "monoType": "",
+      "assetClass": "GameTime",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "GameTime"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/EndingPlayer.cs",
+        "Assets/Scrpits/HitStop.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs",
+        "Assets/Scrpits/UI/SceneTransition.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+      "guid": "bc23178dba784856bb38372bc36e3762",
+      "sha256": "DD1BC0D5E9CA83AEEF7267A8964387237DB48F6B4D82A013ADD7A966AA75A6ED",
+      "monoType": "",
+      "assetClass": "PlayerCombatHudSource",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerCombatHudSource"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/SamuraiCombatHUD.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/HudPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Application/PlayerContext.cs",
+      "guid": "db902c6a83a245459b759774e603721f",
+      "sha256": "09EFD71D8EF99EEEFF9CBE40138B080262A4383AED4597B0E8AFC77C4C09C97D",
+      "monoType": "",
+      "assetClass": "PlayerContext",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerContext"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+        "Assets/Scrpits/Application/PlayerVitalsSource.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/CoinPickup.cs",
+        "Assets/Scrpits/ComboSystem.cs",
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/PersistentRoot.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/Player/PlayerStats.cs",
+        "Assets/Scrpits/UI/CheckpointShrineUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Application/PlayerVitalsSource.cs",
+      "guid": "3421ea5c961e4e7b8ec17e3ae8eab385",
+      "sha256": "FF528E7CB074E8AD55D9DEBA3BBFC0BCC18DAA4B6484369BA46570D9514BAD36",
+      "monoType": "",
+      "assetClass": "PlayerVitalsSource",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerVitalsSource"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/LowHealthVignette.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/HealthLevelPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Application/SceneContext.cs",
+      "guid": "72b7abc1aeca4d6188a3cb2b5b630320",
+      "sha256": "9D6094C902F59EF3194D7D50E8E68F62FE9001289C1A940FD237B3037FAF16C4",
+      "monoType": "",
+      "assetClass": "SceneContext",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SceneContext"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerContext.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/AtmosphericParticles.cs",
+      "guid": "394ea05d4fb55a94a923fa2a7e5dd7f9",
+      "sha256": "796F8A0D780351A6791081ED00041F6E1962ACB66E4844DD736ABE3E5AA5035E",
+      "monoType": "AtmosphericParticles",
+      "assetClass": "AtmosphericParticles",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "AtmosphereMode",
+        "AtmosphericParticles",
+        "ParticleNode"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Boss/Boss1Controller.cs",
+      "guid": "1fe67ae9abb2e6249ba855da02aee58d",
+      "sha256": "A54569A5DA8FD5D150D9DECA38B1F6476168FCA6260DBD94CDA7EBE1E3097ED1",
+      "monoType": "Boss1Controller",
+      "assetClass": "Boss1Controller",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "Boss1Controller",
+        "names"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Boss1.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/EnemyAI.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureLegacyAudit.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": [
+        "DoDamage @ animation:Assets/Animation/Bat/Bat_Attack.anim#Bat_Attack",
+        "DoDamage @ animation:Assets/Animation/Boss1/Boss1_Attack.anim#Boss1_Attack",
+        "DoDamage @ animation:Assets/Animation/Boss1/Boss2_Attack.anim#Boss2_Attack",
+        "DoDamage @ animation:Assets/Animation/Demon/Demon_Attack.anim#Demon_Attack",
+        "DoDamage @ animation:Assets/Animation/Enemy/Ghost_2.0/Ghost_Attack.anim#Ghost_Attack",
+        "DoDamage @ animation:Assets/Animation/Goblin/goblin_attack.anim#goblin_attack",
+        "DoDamage @ animation:Assets/Animation/Golem/Golem_Attack.anim#Golem_Attack",
+        "DoDamage @ animation:Assets/Animation/Mushroom/attack.anim#attack",
+        "DoDamage @ animation:Assets/Animation/Skeleton/attack.anim#attack"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Boss/BossAbilityController.cs",
+      "guid": "c25fb07a9e6841d895418975339f354b",
+      "sha256": "F18960E8F73DD95BD77F7A3BBB72C281287A6B6DDE36B243E124E94A2D3625FA",
+      "monoType": "",
+      "assetClass": "BossAbilityController",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "BossAbilityController"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/EnemyRangedAttack.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/BossArchitectureValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+      "guid": "d3f39aa64c9244f3a3ef0bca4125fe28",
+      "sha256": "C0A345F253F229131A199AB8E294647CBE89AC75C8563A0245937E8307DDF4BC",
+      "monoType": "",
+      "assetClass": "BossEnragePresentation",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "BossEnragePresentation"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossHealth.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Boss/BossGroundWave.cs",
+      "guid": "72ea47e0ef414e38b5bde69bc1b6519e",
+      "sha256": "4AC5C71B217CC435133D19ACDDB985762758E6CE47DCA58AA89AF0B8D5F4AAC7",
+      "monoType": "BossGroundWave",
+      "assetClass": "BossGroundWave",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "BossGroundWave"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossAbilityController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/BossArchitectureValidation.cs",
+        "Assets/Editor/CombatUpgradeValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Boss/BossHealth.cs",
+      "guid": "72be45654965385448e42382e8c7196e",
+      "sha256": "0435A4DB0C04878B84699FC43A958E768B97BE860EA970118F59141BAA44D6B3",
+      "monoType": "BossHealth",
+      "assetClass": "BossHealth",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "BossHealth"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Boss1.prefab",
+        "Assets/Scenes/LV6-MoonlitCitadel.unity"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/BossPresentationBinding.cs",
+        "Assets/Scrpits/Boss/BossAbilityController.cs",
+        "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+        "Assets/Scrpits/CitadelLevel.cs",
+        "Assets/Scrpits/Core/BossPhaseState.cs",
+        "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/FireballController.cs",
+        "Assets/Scrpits/GroundFireAOE.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+        "Assets/Scrpits/SwordProjectile.cs",
+        "Assets/Scrpits/UI/EpicBossHealthBar.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/ArchitectureLegacyAudit.cs",
+        "Assets/Editor/BossArchitectureValidation.cs",
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs"
+      ],
+      "callbackEvidence": [
+        "DestroySelf @ animation:Assets/Animation/Bat/Bat_Die.anim#Bat_Die",
+        "DestroySelf @ animation:Assets/Animation/Boss1/Boss2_Die.anim#Boss2_Die",
+        "DestroySelf @ animation:Assets/Animation/Demon/Demon_Die.anim#Demon_Die",
+        "DestroySelf @ animation:Assets/Animation/Enemy/Ghost_2.0/Ghost_Dead.anim#Ghost_Dead",
+        "DestroySelf @ animation:Assets/Animation/Goblin/goblin_Die.anim#goblin_Die",
+        "DestroySelf @ animation:Assets/Animation/Golem/Golem_Die.anim#Golem_Die",
+        "DestroySelf @ animation:Assets/Animation/Mushroom/die.anim#die",
+        "DestroySelf @ animation:Assets/Animation/Skeleton/die.anim#die"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/BreakableProp.cs",
+      "guid": "e2c64822a3b248fabb2eb2efb5c646ff",
+      "sha256": "0EA07A2F846A5776E212C02A67024095800BBFCBF81A7E78741C781C0BEDCAC2",
+      "monoType": "BreakableProp",
+      "assetClass": "BreakableProp",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "BreakableProp"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerCombat.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CoinIdentityValidator.cs",
+        "Assets/Editor/DamageContractValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/CameraBoundsSetup.cs",
+      "guid": "f2faec364aedefb46a90851a220efadc",
+      "sha256": "9A6BB4A6916FCD137CB552C153BE9303DC53A3DD8AACD1F8D3E7EA39A4E9FCAF",
+      "monoType": "CameraBoundsSetup",
+      "assetClass": "CameraBoundsSetup",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CameraBoundsSetup"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/LV2-Scene2.unity",
+        "Assets/Scenes/LV5-Scene5.unity",
+        "Assets/Scenes/LV6-MoonlitCitadel.unity",
+        "Assets/Scenes/Lv3-Scene3.unity",
+        "Assets/Scenes/Lv4-Scene4.unity",
+        "Assets/Scenes/SampleScene.unity"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/CitadelMapBuilder.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/CameraShaker.cs",
+      "guid": "9781ccf45ae245fcaa63893c111d3b94",
+      "sha256": "76A4C94531C93890BA50B1569C7ED7FD5E4E53C8AFBC081732CA49C118948CF2",
+      "monoType": "CameraShaker",
+      "assetClass": "CameraShaker",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CameraShaker"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/CombatFeedbackChannel.cs",
+        "Assets/Scrpits/Boss/BossAbilityController.cs",
+        "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+        "Assets/Scrpits/Boss/BossGroundWave.cs",
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/ComboSystem.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/FireballController.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerFireSkill.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs",
+        "Assets/Scrpits/Player/PlayerJump.cs",
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CombatUpgradeValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/CitadelBackdrop.cs",
+      "guid": "c134caa2de774b21a6c80acb4601c785",
+      "sha256": "7AC9F12FE23DB17F029B8BF3A50257FD7A8A5617CAA3DFD399C6BBA2AAEF131B",
+      "monoType": "CitadelBackdrop",
+      "assetClass": "CitadelBackdrop",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CitadelBackdrop"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/LV6-MoonlitCitadel.unity"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CitadelRenovation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/CitadelCheckpoint.cs",
+      "guid": "23e65c7615a94cb2ac859f1222f38b43",
+      "sha256": "3844BF60677848C3E2FD9C3CDBBE6309B2F45BF1B008E4B2880DB11C8C043F2C",
+      "monoType": "CitadelCheckpoint",
+      "assetClass": "CitadelCheckpoint",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CitadelCheckpoint"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/LV6-MoonlitCitadel.unity"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/SceneContext.cs",
+        "Assets/Scrpits/CitadelLevel.cs",
+        "Assets/Scrpits/UI/CheckpointShrineUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CitadelRenovation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/CitadelLevel.cs",
+      "guid": "9f58382c192345ec93c015903565ca31",
+      "sha256": "1D13C7579BAFA902144F70B2D4C1BE71CF19A2B898A9206AB989E4BB03E9A48A",
+      "monoType": "CitadelLevel",
+      "assetClass": "CitadelLevel",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CitadelLevel"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/LV6-MoonlitCitadel.unity"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/CitadelCheckpoint.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CitadelValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/CoinPickup.cs",
+      "guid": "7d6878eb55c6970429d35e3bb5f385dd",
+      "sha256": "7BD48C731D4FE54A4AB3F9487B29D4EA8BFEA52C4A3BC7545805C71B07114144",
+      "monoType": "CoinPickup",
+      "assetClass": "CoinPickup",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CoinPickup"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Coin.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CoinIdentityValidator.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/CombatVFX.cs",
+      "guid": "874b246c048f41a29f7d2a7b18e67afa",
+      "sha256": "6F99F3FAC2580B7AF59BB82163AF0376756874B657C3B2F8FB238133DD0922EB",
+      "monoType": "CombatVFX",
+      "assetClass": "CombatVFX",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CombatVFX"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/CombatFeedbackChannel.cs",
+        "Assets/Scrpits/Boss/BossAbilityController.cs",
+        "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+        "Assets/Scrpits/Boss/BossGroundWave.cs",
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/CoinPickup.cs",
+        "Assets/Scrpits/Enemy/EnemyRangedAttack.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/FireballController.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerFireSkill.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerJump.cs",
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CombatUpgradeValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/ComboSystem.cs",
+      "guid": "681a064b008340bd9fc3e6c957d91a29",
+      "sha256": "63297CFEF6A187FF87798DA4FFE5C3B6012F403E048F2A45074061FEB7712726",
+      "monoType": "ComboSystem",
+      "assetClass": "ComboSystem",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "ComboSystem"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/CombatFeedbackChannel.cs",
+        "Assets/Scrpits/UI/ComboHudRenderer.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/BossPhaseState.cs",
+      "guid": "b78ba5c0b3de4b2f83287fbde191ace4",
+      "sha256": "F1EE14FED7E2931F9B82EF503A5C585BF2075EC64CB87920E28AAC74D842007B",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Combat.BossPhaseState",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "BossPhaseState"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossHealth.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/BossArchitectureValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/DamageContract.cs",
+      "guid": "5fe6fabf616949dc9bebf8b4f73aa829",
+      "sha256": "7F7A654AD26C0F5CACFCBC2EA7DD6C234B45109D06B9E104AD69F4E2B5EC4AFE",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Combat.DamageRequest",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "DamageRequest",
+        "DamageResult",
+        "DamageSignal",
+        "DamageStatus",
+        "IDamageReceiver"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/Core/DeflectionContract.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/DeflectionContract.cs",
+      "guid": "01c3e38e59774c52a6f1a614a0d030a1",
+      "sha256": "048081E895F3F86E5845F0ABCB5633B34757D3796F3039FC7E01A1E2A66C5D83",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Combat.DeflectionRequest",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "DeflectionRequest",
+        "DeflectionResult",
+        "DeflectionStatus",
+        "IDeflectable"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/EnemyAttackWindow.cs",
+      "guid": "f20b8c4097344c2dad31e9b8f5a47d16",
+      "sha256": "16244ECE8CBDF6E3CD6F92E223F7561A0620C17646F4304354B8BF50781AE6E1",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Combat.EnemyAttackWindow",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyAttackWindow"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/HealthPresentationState.cs",
+      "guid": "9a8ab5192eba4fdd930c9fe1b961d336",
+      "sha256": "C5B76F7AF7AEDA54C25EE7D88CB973AAF77C98AAC1B7741AE217EDE197744C6B",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Presentation.PlayerVitalsSnapshot",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "BossHudSnapshot",
+        "BossVitalsSnapshot",
+        "LowHealthPresentation",
+        "PlayerVitalsSnapshot"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/BossPresentationBinding.cs",
+        "Assets/Scrpits/Application/PlayerVitalsSource.cs",
+        "Assets/Scrpits/UI/EpicBossHealthBar.cs",
+        "Assets/Scrpits/UI/HealthHudRenderer.cs",
+        "Assets/Scrpits/UI/LowHealthVignette.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/HudPresentationState.cs",
+      "guid": "17b284bdab784be582c42dc67c49f5fa",
+      "sha256": "0015F01C242F6026E8D5A85A14FA5344F247C478F3A84862B3D77FA200E470E5",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Presentation.SkillHudState",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CombatHudSnapshot",
+        "ComboHudSnapshot",
+        "SkillHudState",
+        "SkillHudStatus"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+        "Assets/Scrpits/ComboSystem.cs",
+        "Assets/Scrpits/UI/ComboHudRenderer.cs",
+        "Assets/Scrpits/UI/SamuraiCombatHUD.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/LevelBannerPresentation.cs",
+      "guid": "0c7942cb22034afc85a07ac3701d3b47",
+      "sha256": "2A888AE75A7180E46048E72D0EEA2C2A29526C06221604EA40C78370D44CA8D1",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Presentation.LevelBannerPresentation",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "LevelBannerPresentation",
+        "LevelBannerSnapshot",
+        "SceneBannerCatalog",
+        "SceneBannerDefinition"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/LevelBannerRenderer.cs",
+        "Assets/Scrpits/UI/LevelBannerUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/PlayerActionOwnership.cs",
+      "guid": "023cc8570d5f49bb985b8b4f1849157f",
+      "sha256": "1068A3841C284C4C2D2318962B34D8BB23B466CE057E5678DE585513F78C26E3",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Player.PlayerActionOwnership",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerActionKind",
+        "PlayerActionOwnership",
+        "PlayerActionToken"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerFireSkill.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/PlayerActionPolicy.cs",
+      "guid": "652a445bdbe7402a90bb9b51da38ee92",
+      "sha256": "E0A39C200AE433A80F495952CA32BC3DC98623361263CEDB5980250486A41499",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Player.PlayerActionState",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerAction",
+        "PlayerActionState",
+        "PlayerGate"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerController 1.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/PlayerInputArbitration.cs",
+      "guid": "72b4f5a9697f4a189db27f594567e134",
+      "sha256": "CE8A570B470D24B777FBE0BB1EEFAC69785E11556D75C3654A3522162638D916",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Player.PlayerInputArbitration",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "IPlayerInputSink",
+        "PlayerInputArbitration",
+        "PlayerInputCommands",
+        "PlayerInputFrame"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerFireSkill.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerJump.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/TimeScaleOwnership.cs",
+      "guid": "9fb8627f9c3c4db9ae0915823d6fd7bc",
+      "sha256": "090F09F7C3A2E4EEC3E51BB7EA111D2F6A3CB56E022CD38F88C0AC0A8448C6C8",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Time.TimeScaleOwnership",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "TimeScaleLease",
+        "TimeScaleOwnership"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/GameTime.cs",
+        "Assets/Scrpits/HitStop.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Core/WalletModel.cs",
+      "guid": "e7555540a6cb4b19ae42f814b61a9ec4",
+      "sha256": "14D0AEE1829D13E8C02A155C61ED53E72E15B7850DA87868C7FF3D3F1280AD2E",
+      "monoType": "",
+      "assetClass": "Samurai.Core.Economy.WalletModel",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "IWallet",
+        "WalletModel"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerContext.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/Player/PlayerStats.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/ArchitectureFoundationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/DashCooldownUI.cs",
+      "guid": "0a1252e7f64a2c04f8925480896cf743",
+      "sha256": "A9798243990B4BBCEFEB957918CCA555A968F06A214E34D461398FCD03E57E9C",
+      "monoType": "DashCooldownUI",
+      "assetClass": "DashCooldownUI",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "DashCooldownUI"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/LegacySkillHudVisibility.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureLegacyAudit.cs",
+        "Assets/Editor/HudPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/DustEvents.cs",
+      "guid": "b902ffa86087e734ebb15120a8fbacfd",
+      "sha256": "88FDEB694AAEA46B29BFF9161DCFAF5CCD8802857BE3BAA162E799678F7781F6",
+      "monoType": "DustEvents",
+      "assetClass": "DustEvents",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "DustEvents"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/DustEffect.prefab",
+        "Assets/Resources/DustEffect.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [],
+      "callbackEvidence": [
+        "OnDustEnd @ animation:Assets/Animation/DustEffect/DushEffect.anim#DushEffect"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/EndingPlayer.cs",
+      "guid": "84d2c59cb32a89c439879c6c12258115",
+      "sha256": "A6C4994128DCB05B082DEB51B2CDF1C630BF8E208A7D6999AD1158FDCF40AD15",
+      "monoType": "EndingPlayer",
+      "assetClass": "EndingPlayer",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EndingPlayer"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/Ending.unity"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/EnemyAI.cs",
+      "guid": "9498ce5b1122e684582616e039345134",
+      "sha256": "FD667299761B4FD9D5DF0181B215603FBF46A8FF174826B28875B8A51D6FB3F6",
+      "monoType": "EnemyAI",
+      "assetClass": "EnemyAI",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyAI",
+        "EnemyState"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureLegacyAudit.cs",
+        "Assets/Editor/EnemyBehaviorValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+      "guid": "1ba6dc6414f445578a6818e62fef91d6",
+      "sha256": "52398303D1321465730556D790A2D6C2289FBE1B7C978F6EAAF7D8FB11994893",
+      "monoType": "EnemyProjectile",
+      "assetClass": "EnemyProjectile",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyProjectile"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/EnemyRangedAttack.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/BossArchitectureValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/EnemyRangedAttack.cs",
+      "guid": "136f97db8d254de5a8aa3434caa47b68",
+      "sha256": "AF73D3197AB561C8D669D9B406CAAB19C608AD81746ACA9403C8DD05750CD603",
+      "monoType": "",
+      "assetClass": "EnemyRangedAttack",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyRangedAttack"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/BossArchitectureValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+      "guid": "20791763aa01a38409782c0da148050e",
+      "sha256": "B665C88CC77CED6148C425B3356BAFF50AFB39FF7425D6709CCE0D2A51175739",
+      "monoType": "EnemyHealth1",
+      "assetClass": "EnemyHealth1",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyHealth1"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Bat.prefab",
+        "Assets/Prefabs/Demon.prefab",
+        "Assets/Prefabs/Ghost.prefab",
+        "Assets/Prefabs/Goblin.prefab",
+        "Assets/Prefabs/Golem.prefab",
+        "Assets/Prefabs/Mushroom.prefab",
+        "Assets/Prefabs/Skeleton.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/FireballController.cs",
+        "Assets/Scrpits/GroundFireAOE.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+        "Assets/Scrpits/SwordProjectile.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/EnemyBehaviorValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/Phase4Validation.cs"
+      ],
+      "callbackEvidence": [
+        "DestroySelf @ animation:Assets/Animation/Bat/Bat_Die.anim#Bat_Die",
+        "DestroySelf @ animation:Assets/Animation/Boss1/Boss2_Die.anim#Boss2_Die",
+        "DestroySelf @ animation:Assets/Animation/Demon/Demon_Die.anim#Demon_Die",
+        "DestroySelf @ animation:Assets/Animation/Enemy/Ghost_2.0/Ghost_Dead.anim#Ghost_Dead",
+        "DestroySelf @ animation:Assets/Animation/Goblin/goblin_Die.anim#goblin_Die",
+        "DestroySelf @ animation:Assets/Animation/Golem/Golem_Die.anim#Golem_Die",
+        "DestroySelf @ animation:Assets/Animation/Mushroom/die.anim#die",
+        "DestroySelf @ animation:Assets/Animation/Skeleton/die.anim#die"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealthBarUI.cs",
+      "guid": "92971afe6e4c91649a64fb5d46a5654a",
+      "sha256": "8697D7A162385191690BAB8CE013F8E07A098D1A7E176E5B98AAA1889162C1B5",
+      "monoType": "EnemyHealthBarUI",
+      "assetClass": "EnemyHealthBarUI",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyHealthBarUI"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/EnemyHealthBar.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/Ghost2.0/EnemyNavigationMotor.cs",
+      "guid": "9e24541bfecd40a2b9d7fd606776efde",
+      "sha256": "55D5F5BF97D5775CA2E8AB4E38B5E67FE10F62BFB44C0493B5D6440CCDC2D189",
+      "monoType": "",
+      "assetClass": "EnemyNavigationMotor",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyNavigationMotor",
+        "EnemyNavigationSettings"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamageContractValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/Ghost2.0/EnemySpatialSensor.cs",
+      "guid": "9e12811599f546a38d9d3a650db75696",
+      "sha256": "6BDD2A3D238F5841692BEB66F0BC0785F17C5C0E9C318532127AC250CE09870A",
+      "monoType": "",
+      "assetClass": "EnemySpatialSensor",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemySpatialSensor"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamageContractValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/Ghost2.0/EnemyTargetAcquisition.cs",
+      "guid": "4211b914b7ef4235b15a3924aee23294",
+      "sha256": "3992E2F5E61463D2C110B1BE017BCFE14D9AEC637BFC214F40493608298726C1",
+      "monoType": "",
+      "assetClass": "EnemyTargetAcquisition",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyTargetAcquisition",
+        "EnemyTargetReference"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamageContractValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+      "guid": "2d3f8edd92a2eed458dfde755f03f01a",
+      "sha256": "578E4CBC3C97568A7AAFEEC8AFC0882724E7A4CB69203C9D293B05BFCB67B650",
+      "monoType": "GhostController",
+      "assetClass": "GhostController",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EnemyArchetype",
+        "EnemyState",
+        "GhostController"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Bat.prefab",
+        "Assets/Prefabs/Demon.prefab",
+        "Assets/Prefabs/Ghost.prefab",
+        "Assets/Prefabs/Goblin.prefab",
+        "Assets/Prefabs/Golem.prefab",
+        "Assets/Prefabs/Mushroom.prefab",
+        "Assets/Prefabs/Skeleton.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/Boss1Controller.cs",
+        "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/Enemy/EnemyAI.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BossArchitectureValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CitadelRenovation.cs",
+        "Assets/Editor/CitadelTraversalValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/EnemyBehaviorValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/EnemySceneGeometryValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/SceneEnemyDiagnostic.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": [
+        "DoDamage @ animation:Assets/Animation/Bat/Bat_Attack.anim#Bat_Attack",
+        "DoDamage @ animation:Assets/Animation/Boss1/Boss1_Attack.anim#Boss1_Attack",
+        "DoDamage @ animation:Assets/Animation/Boss1/Boss2_Attack.anim#Boss2_Attack",
+        "DoDamage @ animation:Assets/Animation/Demon/Demon_Attack.anim#Demon_Attack",
+        "DoDamage @ animation:Assets/Animation/Enemy/Ghost_2.0/Ghost_Attack.anim#Ghost_Attack",
+        "DoDamage @ animation:Assets/Animation/Goblin/goblin_attack.anim#goblin_attack",
+        "DoDamage @ animation:Assets/Animation/Golem/Golem_Attack.anim#Golem_Attack",
+        "DoDamage @ animation:Assets/Animation/Mushroom/attack.anim#attack",
+        "DoDamage @ animation:Assets/Animation/Skeleton/attack.anim#attack"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/FireSkillCooldownUI.cs",
+      "guid": "881e4ba0dfc26cb47b91b508dc890ccf",
+      "sha256": "2AEA0D5F3D256DC890F518C9A9DFA14B983962D5692B37C23D7E5E5348F3C4D7",
+      "monoType": "FireSkillCooldownUI",
+      "assetClass": "FireSkillCooldownUI",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "FireSkillCooldownUI"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/LegacySkillHudVisibility.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/HudPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/FireballController.cs",
+      "guid": "f7813483dd2983a448a1013999d11ae2",
+      "sha256": "27C37B9510B6F5C9EC684974C5F3EE1C07725C11621EFEF4D4234F01F2A93AAB",
+      "monoType": "FireballController",
+      "assetClass": "FireballController",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "FireballController"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Fireball.prefab",
+        "Assets/Scenes/SampleScene.unity"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerFireSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/Phase4Validation.cs"
+      ],
+      "callbackEvidence": [
+        "DestroySelf @ animation:Assets/Animation/Bat/Bat_Die.anim#Bat_Die",
+        "DestroySelf @ animation:Assets/Animation/Boss1/Boss2_Die.anim#Boss2_Die",
+        "DestroySelf @ animation:Assets/Animation/Demon/Demon_Die.anim#Demon_Die",
+        "DestroySelf @ animation:Assets/Animation/Enemy/Ghost_2.0/Ghost_Dead.anim#Ghost_Dead",
+        "DestroySelf @ animation:Assets/Animation/Goblin/goblin_Die.anim#goblin_Die",
+        "DestroySelf @ animation:Assets/Animation/Golem/Golem_Die.anim#Golem_Die",
+        "DestroySelf @ animation:Assets/Animation/Mushroom/die.anim#die",
+        "DestroySelf @ animation:Assets/Animation/Skeleton/die.anim#die",
+        "DoBurst @ animation:Assets/Animation/Skill_Fire/FireAttack.anim#FireAttack",
+        "SpawnGroundFire @ animation:Assets/Animation/Skill_Fire/FireAttack.anim#FireAttack"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/GameManager.cs",
+      "guid": "6baba661ee4aeba4188d5834e4585bb4",
+      "sha256": "4A1F4B81D9566DC681F1618C943CAB8B05D3E4AD3277354D99F070E5A1E5D55A",
+      "monoType": "GameManager",
+      "assetClass": "GameManager",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "GameManager"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/GlobalHUD .prefab",
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerContext.cs",
+        "Assets/Scrpits/Player/PlayerLives.cs",
+        "Assets/Scrpits/Player/PlayerStats.cs",
+        "Assets/Scrpits/Player/PlayerStatsUI.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/RunSession.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/RepairValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/GroundFireAOE.cs",
+      "guid": "090236025e86c3641a50a8310a669d6b",
+      "sha256": "7F3B64E92BFA721EF32C1474BEB37D881F3905470F914B300A980DE53F4D5E65",
+      "monoType": "GroundFireAOE",
+      "assetClass": "GroundFireAOE",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "GroundFireAOE"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/GroundFire.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/Phase4Validation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/HealthPickup.cs",
+      "guid": "44ac4169e9740e14bbbd04b497564cf7",
+      "sha256": "F67BE6313BD84D73217DACA20B161753C4424CE8E3B19CC76DABA8EFC095EA8B",
+      "monoType": "HealthPickup",
+      "assetClass": "HealthPickup",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "HealthPickup"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/HealingPotion.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/HitStop.cs",
+      "guid": "bb917948fcc04a4ab2febd5ed70d75df",
+      "sha256": "3416D4ADC52A2C77293522F55758A3613EDC2A2630B11D4479C3908218E8E609",
+      "monoType": "HitStop",
+      "assetClass": "HitStop",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "HitStop"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/CombatFeedbackChannel.cs",
+        "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+        "Assets/Scrpits/EndingPlayer.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs",
+        "Assets/Scrpits/UI/SceneTransition.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BossArchitectureValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/LevelRespawnManager.cs",
+      "guid": "c42b12c3b3436514bbafc41ccd44b992",
+      "sha256": "2D146761ABA2D55A32E6454BED655D00182D2E94C8C2839D244BF49F28D9987D",
+      "monoType": "LevelRespawnManager",
+      "assetClass": "LevelRespawnManager",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "LevelRespawnManager"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Hoisinh.prefab",
+        "Assets/Scenes/LV6-MoonlitCitadel.unity"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/SceneContext.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/CitadelLevel.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs",
+        "Assets/Scrpits/Player/PlayerOutOfBoundsKiller.cs",
+        "Assets/Scrpits/Player/PlayerUpgradeService.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/PersistentRoot.cs",
+      "guid": "12e5edaf26d00ee4e8e5bbbd747814a5",
+      "sha256": "4158D4BEEAE553BFAE1D1819D12E06FF73C3AA9CED486E571F334F04D592EE3B",
+      "monoType": "PersistentRoot",
+      "assetClass": "PersistentRoot",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PersistentRoot"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerContext.cs",
+        "Assets/Scrpits/PersistentRootLoader.cs",
+        "Assets/Scrpits/Player/PlayerLives.cs",
+        "Assets/Scrpits/Player/PlayerStatsUI.cs",
+        "Assets/Scrpits/UI/CinemachineAutoBinder.cs",
+        "Assets/Scrpits/UI/MainMenu.cs",
+        "Assets/Scrpits/UI/SceneTransition.cs",
+        "Assets/Scrpits/UI/SpawnLocator.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CitadelRenovation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/PersistentRootLoader.cs",
+      "guid": "83b6eb4d5b0e0d04c9d2c9ec2a00d841",
+      "sha256": "4D78201BBAED9E69304260FEC48A33EE50A5DB777E72D12A49AF52EC93445591",
+      "monoType": "",
+      "assetClass": "PersistentRootLoader",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PersistentRootLoader"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/CitadelLevel.cs",
+        "Assets/Scrpits/UI/MainMenu.cs",
+        "Assets/Scrpits/UI/TutorialEnd.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/AutoSaveTester.cs",
+      "guid": "6582c26d02c92874893fb049fba63217",
+      "sha256": "0E76F10838747714F61B52E583BA6E51EEAEED1D75CBB8CD3FE5EAEEDC65C86C",
+      "monoType": "AutoSaveTester",
+      "assetClass": "AutoSaveTester",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "AutoSaveTester"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/GhostTrail.cs",
+      "guid": "bfdd98fb568d46ff8bc9d8d95cccde86",
+      "sha256": "D7763E2FABC48385ADE008D53A7BC204F593E9848CE72E468C76B15ED334D461",
+      "monoType": "GhostTrail",
+      "assetClass": "GhostTrail",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "GhostInstance",
+        "GhostInstanceRunner",
+        "GhostTrail"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossAbilityController.cs",
+        "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerActionAnimation.cs",
+      "guid": "d9fa366075c24baea56077d4cb96aba7",
+      "sha256": "F8EE91CB70AB80B07E3D0FFEEB824A233FBCEF390F7DCCC93CBE12B9C381763F",
+      "monoType": "",
+      "assetClass": "PlayerActionAnimation",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerActionAnimation"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerFireSkill.cs",
+        "Assets/Scrpits/Player/PlayerMana.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CombatUpgradeValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerCombat.cs",
+      "guid": "ffe269c458fafc8429d9ec9c4d71d72d",
+      "sha256": "D5443C2C3D7EFBC31801E69A8D10D95DE4A22B58F9004CA9429C0DED566303C9",
+      "monoType": "PlayerCombat",
+      "assetClass": "PlayerCombat",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "Buff",
+        "PlayerCombat",
+        "cho"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/CameraShaker.cs",
+        "Assets/Scrpits/CoinPickup.cs",
+        "Assets/Scrpits/EndingPlayer.cs",
+        "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/Player/PlayerStats.cs",
+        "Assets/Scrpits/Player/PlayerStatsUI.cs",
+        "Assets/Scrpits/SwordPickup.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": [
+        "DoAttackDamage @ animation:Assets/Animation/Player_Samurai/Player_Attack1.anim#Player_Attack1",
+        "DoAttackDamage @ animation:Assets/Animation/Player_Samurai/Player_Attack2.anim#Player_Attack2",
+        "DoAttackDamage @ animation:Assets/Animation/Player_Samurai/Player_Attack3.anim#Player_Attack3",
+        "LateUpdateCombat @ animation:Assets/Animation/Player_Samurai/Player_Attack1.anim#Player_Attack1",
+        "LateUpdateCombat @ animation:Assets/Animation/Player_Samurai/Player_Attack2.anim#Player_Attack2",
+        "LateUpdateCombat @ animation:Assets/Animation/Player_Samurai/Player_Attack3.anim#Player_Attack3"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerController 1.cs",
+      "guid": "e5755841c23f3b34c83259e7530c36b3",
+      "sha256": "103333A27421FFAACAEE673A3B1BF37A1CDC209B16CC0478034F2716CD6F5EF9",
+      "monoType": "PlayerController1",
+      "assetClass": "PlayerController1",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": true,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerController1"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+        "Assets/Scrpits/Application/PlayerContext.cs",
+        "Assets/Scrpits/Application/PlayerVitalsSource.cs",
+        "Assets/Scrpits/Boss/BossGroundWave.cs",
+        "Assets/Scrpits/CitadelCheckpoint.cs",
+        "Assets/Scrpits/CoinPickup.cs",
+        "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyTargetAcquisition.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/HealthPickup.cs",
+        "Assets/Scrpits/LevelRespawnManager.cs",
+        "Assets/Scrpits/Player/GhostTrail.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerFireSkill.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs",
+        "Assets/Scrpits/Player/PlayerJump.cs",
+        "Assets/Scrpits/Player/PlayerMovement.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+        "Assets/Scrpits/Player/PlayerUpgradeService.cs",
+        "Assets/Scrpits/SwordPickup.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/RunSession.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs",
+        "Assets/Scrpits/UI/SceneTransition.cs",
+        "Assets/Scrpits/UI/SpawnLocator.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureBoundaryValidation.cs",
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/ArchitectureLegacyAudit.cs",
+        "Assets/Editor/BossArchitectureValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelRenovation.cs",
+        "Assets/Editor/CitadelTraversalValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/EnemyBehaviorValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/EnemySceneGeometryValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/SceneEnemyDiagnostic.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": [
+        "DestroySelf @ animation:Assets/Animation/Bat/Bat_Die.anim#Bat_Die",
+        "DestroySelf @ animation:Assets/Animation/Boss1/Boss2_Die.anim#Boss2_Die",
+        "DestroySelf @ animation:Assets/Animation/Demon/Demon_Die.anim#Demon_Die",
+        "DestroySelf @ animation:Assets/Animation/Enemy/Ghost_2.0/Ghost_Dead.anim#Ghost_Dead",
+        "DestroySelf @ animation:Assets/Animation/Goblin/goblin_Die.anim#goblin_Die",
+        "DestroySelf @ animation:Assets/Animation/Golem/Golem_Die.anim#Golem_Die",
+        "DestroySelf @ animation:Assets/Animation/Mushroom/die.anim#die",
+        "DestroySelf @ animation:Assets/Animation/Skeleton/die.anim#die"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerDash.cs",
+      "guid": "801193513e50a6942aa11aea0b68034e",
+      "sha256": "561B37677A9BB2C1159507E6DA9C8B61B90EBA1391B7935521EAD7F976F0EDBB",
+      "monoType": "PlayerDash",
+      "assetClass": "PlayerDash",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerDash"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+        "Assets/Scrpits/DashCooldownUI.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerFireSkill.cs",
+      "guid": "b3558a3b6a1d8ad48b0cd755a5acf597",
+      "sha256": "20B24508E5E9129EABD680964681C2C471884E7080156D04A4CACD8A6C5FCD60",
+      "monoType": "PlayerFireSkill",
+      "assetClass": "PlayerFireSkill",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerFireSkill"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+        "Assets/Scrpits/FireSkillCooldownUI.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": [
+        "SpawnFireball @ animation:Assets/Animation/Player_Samurai/Player_Fire_Skill.anim#Player_Fire_Skill"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+      "guid": "5b066bf140b75a34c98f475112f3538d",
+      "sha256": "FB644FDEDCD55703B30EE1A5BDB20ED31669C79EC1161C565F1BC37FFC680DF2",
+      "monoType": "PlayerFocusHeal",
+      "assetClass": "PlayerFocusHeal",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerFocusHeal"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerController 1.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerHealth.cs",
+      "guid": "b3053b49d2a8f89449096acc2890e818",
+      "sha256": "4C90B677CDC1B6EA11901AC008D0BD47C8A4D881A2075AAA64C777CB1B6BC121",
+      "monoType": "PlayerHealth",
+      "assetClass": "PlayerHealth",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerHealth"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerVitalsSource.cs",
+        "Assets/Scrpits/Boss/BossGroundWave.cs",
+        "Assets/Scrpits/CitadelLevel.cs",
+        "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/HealthPickup.cs",
+        "Assets/Scrpits/LevelRespawnManager.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerOutOfBoundsKiller.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/Player/PlayerStats.cs",
+        "Assets/Scrpits/UI/RunSession.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/EnemyBehaviorValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs",
+        "Assets/Editor/RepairValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerJump.cs",
+      "guid": "7a9e924530ae8f6488d0e5a7cb11df45",
+      "sha256": "D3A0CB0755CAE36608C79EEF35D102C793577B89B9FF230D7BDA7071A9AE441C",
+      "monoType": "PlayerJump",
+      "assetClass": "PlayerJump",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerJump"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerMovement.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CitadelTraversalValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerLives.cs",
+      "guid": "5baa47aedf38b9a43ae1f75720c5aa0c",
+      "sha256": "66B87740ED7676D86A3EC7D95B667F89982A8A7B18F7D81864E00542A52CB6AE",
+      "monoType": "PlayerLives",
+      "assetClass": "PlayerLives",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerLives"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerMana.cs",
+      "guid": "d29f99f1a85e2b141b36eec4f12c1588",
+      "sha256": "BE1AC3EB2A57B308525F75682945F27E95EE79B6959668061DCB71230D77E2A5",
+      "monoType": "PlayerMana",
+      "assetClass": "PlayerMana",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerMana"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/ComboSystem.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerFireSkill.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerParry.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/Player/PlayerStats.cs",
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerMovement.cs",
+      "guid": "621fd6d55c8ed8e49a650e39e0b6b101",
+      "sha256": "0BB0FCF5EA5CB83A878BD3131FEEBBB253296AA49C0F63B9DF069D327159D537",
+      "monoType": "PlayerMovement",
+      "assetClass": "PlayerMovement",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerMovement"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/Player/PlayerStats.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerOutOfBoundsKiller.cs",
+      "guid": "2567810d53445a540a09491d434c06e2",
+      "sha256": "C19E46DBC8C91D768E072BBFBACD125497992A748C36A4AF73DFDC2A032E74C7",
+      "monoType": "PlayerOutOfBoundsKiller",
+      "assetClass": "PlayerOutOfBoundsKiller",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerOutOfBoundsKiller"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BossArchitectureValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelTraversalValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/EnemyBehaviorValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerParry.cs",
+      "guid": "aea87952753f47e09e5b202c7b99ad49",
+      "sha256": "B858BB5017D93CD9F085D7E982BA094282A453558E240B43F25EEE658F151ABB",
+      "monoType": "PlayerParry",
+      "assetClass": "PlayerParry",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerParry"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerController 1.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+      "guid": "a6d930a945d28b8428691ea75bf54bc7",
+      "sha256": "A4433B8F4A2BA4F9D9E2C1D639B5107D5F2A4AB14B050A4A213DF7FDD25FEEA9",
+      "monoType": "PlayerSaveBridge",
+      "assetClass": "PlayerSaveBridge",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerSaveBridge"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/AutoSaveTester.cs",
+        "Assets/Scrpits/UI/MainMenu.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/RunSession.cs",
+        "Assets/Scrpits/UI/SpawnLocator.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/RepairValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerStats.cs",
+      "guid": "b52dcd70cb276184ba5468757c1758d7",
+      "sha256": "FB02D3F8DAD28FADEBD61584765B87DC4684EB95FBA7A35504A019C7C132AA94",
+      "monoType": "PlayerStats",
+      "assetClass": "PlayerStats",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerStats"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/CoinPickup.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/Player/PlayerStatsUI.cs",
+        "Assets/Scrpits/Player/PlayerUpgradeService.cs",
+        "Assets/Scrpits/SaveGame/SaveData.cs",
+        "Assets/Scrpits/UI/CheckpointShrineUI.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerStatsUI.cs",
+      "guid": "2fb2585ec3279894796bb8263252d5a1",
+      "sha256": "BE1797E8009A4BC59B25AD35C3E6579E537DADA4E29CB6705EE846D5481986B9",
+      "monoType": "PlayerStatsUI",
+      "assetClass": "PlayerStatsUI",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerStatsUI"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/GlobalHUD .prefab",
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/UI/CheckpointShrineUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+      "guid": "bf4600f8403f326479bdd34fb29ad00d",
+      "sha256": "9D3731AA9B1FF6E6EDB5316FA0FF758B36F23151B98143F303EC8C7D5F29B900",
+      "monoType": "PlayerSwordSkill",
+      "assetClass": "PlayerSwordSkill",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerSwordSkill"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Player.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/SwordProjectile.cs",
+        "Assets/Scrpits/SwordSkillCooldownUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": [
+        "ShootSwordWave @ animation:Assets/Animation/Player_Samurai/Player_Skill1.anim#Player_Skill1"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+      "guid": "362d637c6a3c44dba39fd3132f0b4cc7",
+      "sha256": "74604448EA5DC49471C65CEA01375777D4BF22CCB5640A13AC85166019BBB057",
+      "monoType": "PlayerUltimateSkill",
+      "assetClass": "PlayerUltimateSkill",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerUltimateSkill"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/PlayerCombatHudSource.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerUpgradeService.cs",
+      "guid": "aea0d06025564c2c9a3bdeebdb3d82c5",
+      "sha256": "25D7863E76336F19BAA639D122E07D76D3D870AADB9EAA16BADCD3100BCBADC0",
+      "monoType": "",
+      "assetClass": "PlayerUpgradeService",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "PauseSession",
+        "PlayerUpgrade",
+        "PlayerUpgradeService",
+        "UpgradePurchaseAccess",
+        "UpgradePurchaseResult",
+        "UpgradePurchaseStatus"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerStats.cs",
+        "Assets/Scrpits/Player/PlayerStatsUI.cs",
+        "Assets/Scrpits/UI/CheckpointShrineUI.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/SaveGame/SaveData.cs",
+      "guid": "0195a50bbcb6b7f4495c41e0305436e8",
+      "sha256": "525936F9A99AE46610B03687807A8D2E6627E355CE0212F52D693EA2464DEC7F",
+      "monoType": "",
+      "assetClass": "SaveData",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PlayerSnapshot",
+        "SaveData"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/SaveGame/SaveRuntime.cs",
+        "Assets/Scrpits/SaveGame/SaveSystem.cs",
+        "Assets/Scrpits/UI/RunSession.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/RepairValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/SaveGame/SaveRuntime.cs",
+      "guid": "92f498af57016194c8e19dadbd99401b",
+      "sha256": "1CB0C0FB93388305F857A3CA6F3EF125B44AF0340F83825342C0329DA94998A3",
+      "monoType": "",
+      "assetClass": "SaveRuntime",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SaveRuntime"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/CitadelLevel.cs",
+        "Assets/Scrpits/CoinPickup.cs",
+        "Assets/Scrpits/EndingPlayer.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/SwordPickup.cs",
+        "Assets/Scrpits/UI/EndItemGate.cs",
+        "Assets/Scrpits/UI/MainMenu.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/RunSession.cs",
+        "Assets/Scrpits/UI/SpawnLocator.cs",
+        "Assets/Scrpits/UI/TutorialEnd.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/SaveGame/SaveSystem.cs",
+      "guid": "d622d8a789f98d940a85f2ac7f389de7",
+      "sha256": "058A0045C8050F54BF84CB8058EE5F5EFF61A805F9242D7B8D6D78E245ABAB6B",
+      "monoType": "",
+      "assetClass": "SaveSystem",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SaveSystem"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/AutoSaveTester.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/SaveGame/SaveData.cs",
+        "Assets/Scrpits/UI/MainMenu.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/RunSession.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/SoundManager.cs",
+      "guid": "a2c2cc406338425e8fc9f4c080ecb110",
+      "sha256": "BAEE111AC1C7C70F5EBE24ECBAF75CF78E552C6408C37D50174EB5CEFB8E9ACC",
+      "monoType": "SoundManager",
+      "assetClass": "SoundManager",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SoundManager"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Application/CombatFeedbackChannel.cs",
+        "Assets/Scrpits/Boss/BossAbilityController.cs",
+        "Assets/Scrpits/Boss/BossEnragePresentation.cs",
+        "Assets/Scrpits/Boss/BossGroundWave.cs",
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/CoinPickup.cs",
+        "Assets/Scrpits/CombatVFX.cs",
+        "Assets/Scrpits/ComboSystem.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/FireballController.cs",
+        "Assets/Scrpits/Player/PlayerCombat.cs",
+        "Assets/Scrpits/Player/PlayerDash.cs",
+        "Assets/Scrpits/Player/PlayerFireSkill.cs",
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs",
+        "Assets/Scrpits/Player/PlayerJump.cs",
+        "Assets/Scrpits/Player/PlayerMovement.cs",
+        "Assets/Scrpits/Player/PlayerStatsUI.cs",
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+        "Assets/Scrpits/UI/CheckpointShrineUI.cs",
+        "Assets/Scrpits/UI/LowHealthVignette.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/SwordPickup.cs",
+      "guid": "213b00090a2b0ca4aaf9048669ac05b1",
+      "sha256": "E454CF88D28FF1F76D2567ED4FAC17E6A26FBCAA7AEA1B197FAC82FE51992BFD",
+      "monoType": "SwordPickup",
+      "assetClass": "SwordPickup",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SwordPickup"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Sword.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CoinIdentityValidator.cs",
+        "Assets/Editor/DamagePickupValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/SwordProjectile.cs",
+      "guid": "79874cd256e8b724d8c65034af0b230c",
+      "sha256": "741BDEE7C5271AEA1252B4ECA5059DEC4523494C8F4E0C747B019CF649B49545",
+      "monoType": "SwordProjectile",
+      "assetClass": "SwordProjectile",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SwordProjectile"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/KiemKhiProjectile.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerSwordSkill.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/Phase4Validation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/SwordSkillCooldownUI.cs",
+      "guid": "728075eeb22d6874aa7a7a5da56c18f3",
+      "sha256": "D59996571BA3F95E3E50EEB6178430A28D660B3DADD09EBDA5EB9EC68602B315",
+      "monoType": "SwordSkillCooldownUI",
+      "assetClass": "SwordSkillCooldownUI",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SwordSkillCooldownUI"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/LegacySkillHudVisibility.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/HudPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/ThanhMana.cs",
+      "guid": "bc44d5e22cc92ea4e8c1eb7ba71a8218",
+      "sha256": "7BD472EF3FF1AD6B8D4C62480024E00045F316D50FF1B9576B3A91E4A522754A",
+      "monoType": "ThanhMana",
+      "assetClass": "ThanhMana",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "ThanhMana"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/GlobalHUD .prefab",
+        "Assets/Prefabs/PersistentRoot.prefab",
+        "Assets/Prefabs/ThanhMana.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerMana.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/ThanhMau.cs",
+      "guid": "34fb3e5c63d848942800e00b8ba8b4fb",
+      "sha256": "8738FF84CA7941624B6EC3E6C13AA033569D8A5F386E585FC1559438EC680E55",
+      "monoType": "ThanhMau",
+      "assetClass": "ThanhMau",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "ThanhMau"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/GlobalHUD .prefab",
+        "Assets/Prefabs/PersistentRoot.prefab",
+        "Assets/Prefabs/Thanh Máu New.prefab",
+        "Assets/Prefabs/ThanhMau.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/CheckpointShrineUI.cs",
+      "guid": "08de62aae384492ba682fe94fc733e75",
+      "sha256": "EC44C70146F0036F26E604026D717B679F8AA1872E08E81DA1482D25CF5810BB",
+      "monoType": "CheckpointShrineUI",
+      "assetClass": "CheckpointShrineUI",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "CheckpointShrineUI"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/CinemachineAutoBinder.cs",
+      "guid": "9d80dbef772985b4a890e45f27c6b1cf",
+      "sha256": "5D4D4A8DCC091E66640C83FE8CBB526FA74C1F22ACD4CE7C88ADACB0F1E52222",
+      "monoType": "CinemachineAutoBinder",
+      "assetClass": "CinemachineAutoBinder",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CinemachineAutoBinder"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/CloseOnCancel.cs",
+      "guid": "d3496a48d2ee4124aad99a9b99f47eaa",
+      "sha256": "C613CE59F07EF910FDC036626084EC6333F0A24A7951888AA964C0A125002CFF",
+      "monoType": "CloseOnCancel",
+      "assetClass": "CloseOnCancel",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "CloseOnCancel"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/MenuScene.unity"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/ComboHudRenderer.cs",
+      "guid": "e3a64cba1a184e4b8da71df79d60b8bc",
+      "sha256": "300C89741BF6A3442EAE46C9DE490F499DF6AF9DB4B43DDE8EC4C9AF27564439",
+      "monoType": "",
+      "assetClass": "ComboHudRenderer",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "ComboHudRenderer"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/ComboSystem.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/EndItemGate.cs",
+      "guid": "8631ad39339e6dd409f8527289e1ceb2",
+      "sha256": "99DEFEF79A932C664B1D503CEA23BC974856E77A183DAF7E42F6BEC1AE0425D7",
+      "monoType": "EndItemGate",
+      "assetClass": "EndItemGate",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "EndItemGate"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/LV5-Scene5.unity",
+        "Assets/Scenes/LV6-MoonlitCitadel.unity"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/EpicBossHealthBar.cs",
+      "guid": "136a0389b3d621c48a0716c352ee7cf7",
+      "sha256": "97504D74D5D9BEBEA7C3B7AD62AAE8351A8AD69BDBBA99832FB9EA2DDC843285",
+      "monoType": "EpicBossHealthBar",
+      "assetClass": "EpicBossHealthBar",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "EpicBossHealthBar"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/CombatUpgradeValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/FloatingDamageText.cs",
+      "guid": "077c2082f32ea5946ae6bbbf27279052",
+      "sha256": "18176557EEE7B5260F25183957063F58B0493EEBD1319913302E881D572533A7",
+      "monoType": "FloatingDamageText",
+      "assetClass": "FloatingDamageText",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "FloatingDamageText"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/DamageText.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/GameOverUI.cs",
+      "guid": "1fa799ab3b80d9744906b41fc2148aac",
+      "sha256": "792237A54547FC236EE5FD446CED3C9230510BE1241FE5A98877F038C4F011C7",
+      "monoType": "GameOverUI",
+      "assetClass": "GameOverUI",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "GameOverUI"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/RunSession.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/HealthHudRenderer.cs",
+      "guid": "8fdc8eec80d54b4792b9f735f5f095ce",
+      "sha256": "7293448091235629243CD95BB2594C8323EDC873E34080CA7F92F503E92C468E",
+      "monoType": "",
+      "assetClass": "HealthHudRenderer",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "HealthHudRenderer"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/EpicBossHealthBar.cs",
+        "Assets/Scrpits/UI/LowHealthVignette.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/LegacySkillHudVisibility.cs",
+      "guid": "8ef6b47988f14b01a0cb3b59b35c87dc",
+      "sha256": "75BE3E7064E5C8371DE440CAE427DB78086E7BED73E3BD7DDFF5D01EFF390CDE",
+      "monoType": "",
+      "assetClass": "LegacySkillHudVisibility",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "LegacySkillHudVisibility"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/SamuraiCombatHUD.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureLegacyAudit.cs",
+        "Assets/Editor/HudPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/LevelBannerRenderer.cs",
+      "guid": "8f038f4652b445d8b0d12d99f09b776c",
+      "sha256": "3FD09A5D17938F61E9508FE5F94EB7B0DB1121AE64EBF0A56DA966FA208809D3",
+      "monoType": "",
+      "assetClass": "LevelBannerRenderer",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "LevelBannerRenderer"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/LevelBannerUI.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/LevelBannerUI.cs",
+      "guid": "945a9c80dcfeada4f8816fb2b69bb45b",
+      "sha256": "C6A73BCD93CA960779FBF39F78C12DA8F0B434462D4BBB68A3846ED1FAA555C1",
+      "monoType": "LevelBannerUI",
+      "assetClass": "LevelBannerUI",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "LevelBannerUI"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/HealthLevelPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/LowHealthVignette.cs",
+      "guid": "ffeb90503cbd4c9295e416cb84519329",
+      "sha256": "BA6895FC19E8CBE82D102017182F26409973ED9A7693FD23E2CCE166EFE98124",
+      "monoType": "LowHealthVignette",
+      "assetClass": "LowHealthVignette",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "LowHealthVignette"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/HealthLevelPresentationValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/MainMenu.cs",
+      "guid": "01a21cc0a1252194192172d961bd8354",
+      "sha256": "8089950516E8449CFAEFD4829A04D8FD972CBD6C4CB3C6BF37D2019DF01886FB",
+      "monoType": "MainMenu",
+      "assetClass": "MainMenu",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "MainMenu"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/LV2-Scene2.unity",
+        "Assets/Scenes/MenuScene.unity"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": [
+        "CloseInstructions @ persistent:Assets/Scenes/MenuScene.unity",
+        "ContinueGame @ persistent:Assets/Scenes/MenuScene.unity",
+        "ExitGame @ persistent:Assets/Scenes/MenuScene.unity",
+        "Instructions @ persistent:Assets/Scenes/MenuScene.unity",
+        "NewGame @ persistent:Assets/Scenes/MenuScene.unity"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+      "guid": "b1beca3174100ca4d9f65f499ca7deb8",
+      "sha256": "074EC213BAC9A1911A6A36D59806DE3DD4A3ED9A40048B6B7E95807ADCA4D254",
+      "monoType": "PauseSettingsMenu",
+      "assetClass": "PauseSettingsMenu",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "PauseSettingsMenu"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/RunSession.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": [
+        "OnResumeButton @ persistent:Assets/Prefabs/PersistentRoot.prefab",
+        "OnSaveAndQuitButton @ persistent:Assets/Prefabs/PersistentRoot.prefab"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/UI/RunSession.cs",
+      "guid": "8a088b03ed8b7734d8e6e41925260813",
+      "sha256": "9AC9B4247C622798C6181CFD1D1A619C2FB21652F4727710B8DD32E3C46819CB",
+      "monoType": "RunSession",
+      "assetClass": "RunSession",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "RunSession"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/LevelRespawnManager.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs",
+        "Assets/Scrpits/Player/PlayerOutOfBoundsKiller.cs",
+        "Assets/Scrpits/Player/PlayerSaveBridge.cs",
+        "Assets/Scrpits/Player/PlayerUpgradeService.cs",
+        "Assets/Scrpits/UI/GameOverUI.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs",
+        "Assets/Scrpits/UI/SceneTransition.cs",
+        "Assets/Scrpits/UI/SpawnLocator.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/SamuraiCombatHUD.cs",
+      "guid": "8917490c51ad4b849b48dbe10c2897fa",
+      "sha256": "DC06B071506171F13B051981B94855C5FE3CD5E0BF6678CA9F48090839CC0182",
+      "monoType": "SamuraiCombatHUD",
+      "assetClass": "SamuraiCombatHUD",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "SamuraiCombatHUD"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/SamuraiGuideUI.cs",
+      "guid": "eabe4f6593ef438da12bfcddb44d6bb6",
+      "sha256": "48E57BBDC78472800F1D6A1D1C08598E9D894460946B097E06FC4490E1949345",
+      "monoType": "SamuraiGuideUI",
+      "assetClass": "SamuraiGuideUI",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "SamuraiGuideUI"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/SamuraiUI.cs",
+      "guid": "a8cdf2b3e921457ca7f1c05d0bcf8306",
+      "sha256": "2C8FF69EA88FA3D8599377A3601CE77354CE5FAF009C52DFCADF52CC281D0EF7",
+      "monoType": "",
+      "assetClass": "SamuraiUI",
+      "disposition": "retain_runtime_bootstrap",
+      "filenameMismatch": false,
+      "bootstrapMarker": true,
+      "declaredNames": [
+        "SamuraiModal",
+        "SamuraiUI",
+        "Scope"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Core/TimeScaleOwnership.cs",
+        "Assets/Scrpits/EndingPlayer.cs",
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/Player/PlayerStatsUI.cs",
+        "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+        "Assets/Scrpits/UI/CheckpointShrineUI.cs",
+        "Assets/Scrpits/UI/ComboHudRenderer.cs",
+        "Assets/Scrpits/UI/HealthHudRenderer.cs",
+        "Assets/Scrpits/UI/LevelBannerRenderer.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/SamuraiCombatHUD.cs",
+        "Assets/Scrpits/UI/SamuraiGuideUI.cs",
+        "Assets/Scrpits/UI/SceneTransition.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/DeepAuditProbe.cs",
+        "Assets/Editor/DeepAuditRepairValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/SamuraiUIValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/SamuraiUITheme.cs",
+      "guid": "325be7b2213e4aaea1ccdfa1a75bbb01",
+      "sha256": "5A453DC3F08EF3DE198A8DD93E8CB6B138ED442490852B4AA7EEE71F9F28CF22",
+      "monoType": "",
+      "assetClass": "SamuraiUITheme",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SamuraiUITheme"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs"
+      ],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/SceneSpawnPoint.cs",
+      "guid": "e6b50c22209cfdc4592ab960b73c088a",
+      "sha256": "1CAACAF6F55A1CB2A29B6A8586E424D03890E51B54A9E75BDABFBE67C2159EFC",
+      "monoType": "SceneSpawnPoint",
+      "assetClass": "SceneSpawnPoint",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SceneSpawnPoint"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/LV2-Scene2.unity",
+        "Assets/Scenes/LV5-Scene5.unity",
+        "Assets/Scenes/LV6-MoonlitCitadel.unity",
+        "Assets/Scenes/Lv3-Scene3.unity",
+        "Assets/Scenes/Lv4-Scene4.unity"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/UI/SpawnLocator.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelMapBuilder.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/SceneTransition.cs",
+      "guid": "3503b23b72af4dc7a2b4e3bb637ef040",
+      "sha256": "166A7C71EA54F72E4E66D1E861AC55A51AD2DC57D5FA8F9D96A7C26EE824A6BD",
+      "monoType": "SceneTransition",
+      "assetClass": "SceneTransition",
+      "disposition": "retain_code_mention",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SceneTransition"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [
+        "Assets/Scrpits/Boss/BossGroundWave.cs",
+        "Assets/Scrpits/Boss/BossHealth.cs",
+        "Assets/Scrpits/BreakableProp.cs",
+        "Assets/Scrpits/CameraShaker.cs",
+        "Assets/Scrpits/EndingPlayer.cs",
+        "Assets/Scrpits/Enemy/EnemyProjectile.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs",
+        "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs",
+        "Assets/Scrpits/FireballController.cs",
+        "Assets/Scrpits/GameManager.cs",
+        "Assets/Scrpits/HitStop.cs",
+        "Assets/Scrpits/Player/PlayerController 1.cs",
+        "Assets/Scrpits/Player/PlayerHealth.cs",
+        "Assets/Scrpits/Player/PlayerOutOfBoundsKiller.cs",
+        "Assets/Scrpits/Player/PlayerUpgradeService.cs",
+        "Assets/Scrpits/SwordPickup.cs",
+        "Assets/Scrpits/UI/ComboHudRenderer.cs",
+        "Assets/Scrpits/UI/EndItemGate.cs",
+        "Assets/Scrpits/UI/HealthHudRenderer.cs",
+        "Assets/Scrpits/UI/LevelBannerRenderer.cs",
+        "Assets/Scrpits/UI/LowHealthVignette.cs",
+        "Assets/Scrpits/UI/MainMenu.cs",
+        "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+        "Assets/Scrpits/UI/RunSession.cs",
+        "Assets/Scrpits/UI/SamuraiCombatHUD.cs",
+        "Assets/Scrpits/UI/SamuraiUI.cs",
+        "Assets/Scrpits/UI/SpawnLocator.cs",
+        "Assets/Scrpits/UI/TeleportGate1.cs",
+        "Assets/Scrpits/UI/TeleportGateMinimal.cs",
+        "Assets/Scrpits/UI/TutorialEnd.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/ArchitectureFoundationValidation.cs",
+        "Assets/Editor/BossArchitectureValidation.cs",
+        "Assets/Editor/BreakablePropValidation.cs",
+        "Assets/Editor/CitadelValidation.cs",
+        "Assets/Editor/DamageContractValidation.cs",
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/EnemyConfigurationValidation.cs",
+        "Assets/Editor/HealthLevelPresentationValidation.cs",
+        "Assets/Editor/HudPresentationValidation.cs",
+        "Assets/Editor/Phase3Validation.cs",
+        "Assets/Editor/Phase4Validation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/PlayerActionPolicyValidation.cs",
+        "Assets/Editor/RepairValidation.cs",
+        "Assets/Editor/TimeOwnershipValidation.cs",
+        "Assets/Editor/UpgradePurchaseValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/SpawnLocator.cs",
+      "guid": "b89e043316b8c1043b3a3c126d8ff69f",
+      "sha256": "634BBCA8F6C6C1BBAB23D787BDA6402D3B1D9306C0F1479C7E031700A8088331",
+      "monoType": "SpawnLocator",
+      "assetClass": "SpawnLocator",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "SpawnLocator"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [
+        "Assets/Scrpits/UI/EndItemGate.cs",
+        "Assets/Scrpits/UI/MainMenu.cs",
+        "Assets/Scrpits/UI/TeleportGate1.cs",
+        "Assets/Scrpits/UI/TeleportGateMinimal.cs",
+        "Assets/Scrpits/UI/TutorialEnd.cs"
+      ],
+      "editorMentions": [
+        "Assets/Editor/DamagePickupValidation.cs",
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/TeleportGate1.cs",
+      "guid": "f83c777b29579694babb3b652b37f745",
+      "sha256": "AF304248DE63963840918DCA0E74087DEC950FD55B38BDAE09C4C7EE443FE1F9",
+      "monoType": "TeleportGate1",
+      "assetClass": "TeleportGate1",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "TeleportGate1"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/ItemPack_Outline_White_16.prefab",
+        "Assets/Scenes/SampleScene.unity"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/TeleportGateMinimal.cs",
+      "guid": "f7a0c397d6cacaa4c8ea8466594344df",
+      "sha256": "42165AC52DF1429249F8A2A8AACB13CCE15273C8E0965CE0B2D642294D06A652",
+      "monoType": "TeleportGateMinimal",
+      "assetClass": "TeleportGateMinimal",
+      "disposition": "manual_review_indirect_evidence",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "TeleportGateMinimal"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [
+        "Assets/Editor/Phase5Validation.cs",
+        "Assets/Editor/RepairValidation.cs"
+      ],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/TextButtonEffects.cs",
+      "guid": "0775e19ab289a2f43b433a08aa3106a6",
+      "sha256": "30C2BE258E2C3E169A7C36C7C0C5AE1C30180D9911DD74E504F3D5F48A8A1F6E",
+      "monoType": "TextButtonEffects",
+      "assetClass": "TextButtonEffects",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "TextButtonEffects"
+      ],
+      "assetReferences": [
+        "Assets/Scenes/MenuScene.unity"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/TutorialEnd.cs",
+      "guid": "a4496ff24c98ce345b4e1c731341c468",
+      "sha256": "59A52660457490301841A41C8B079196E5038E6ABF82393A09131E25F6A24283",
+      "monoType": "TutorialEnd",
+      "assetClass": "TutorialEnd",
+      "disposition": "manual_review_no_detected_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "TutorialEnd"
+      ],
+      "assetReferences": [],
+      "runtimeMentions": [],
+      "editorMentions": [],
+      "callbackEvidence": []
+    },
+    {
+      "path": "Assets/Scrpits/UI/UIToggleHotkey.cs",
+      "guid": "e51192c3bbd34f34dac6dace8de94b2a",
+      "sha256": "5BD6F6CBC22530E2158E43EAB60F827224AF7B93E3229AA23BC7905B83AA1BEC",
+      "monoType": "UIToggleHotkey",
+      "assetClass": "UIToggleHotkey",
+      "disposition": "retain_asset_reference",
+      "filenameMismatch": false,
+      "bootstrapMarker": false,
+      "declaredNames": [
+        "UIToggleHotkey"
+      ],
+      "assetReferences": [
+        "Assets/Prefabs/Canvas.prefab",
+        "Assets/Prefabs/PersistentRoot.prefab"
+      ],
+      "runtimeMentions": [],
+      "editorMentions": [],
+      "callbackEvidence": []
+    }
+  ],
+  "dynamicCallSites": [
+    "Assets/Editor/ArchitectureBoundaryValidation.cs:61 var syncType = AppDomain.CurrentDomain.GetAssemblies().Select(a => a.GetType(\"UnityEditor.SyncVS\")).First(t => t != null);",
+    "Assets/Editor/ArchitectureBoundaryValidation.cs:62 var sync = syncType.GetMethod(\"SyncSolution\", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public |",
+    "Assets/Editor/ArchitectureFoundationValidation.cs:144 wallet.TrySetBalance(int.MaxValue); coin.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/ArchitectureFoundationValidation.cs:148 coin.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/BossArchitectureValidation.cs:58 actor.SendMessage(\"FindTarget\");",
+    "Assets/Editor/BossArchitectureValidation.cs:199 actor.SendMessage(\"ShootRangedProjectile\", 1f);",
+    "Assets/Editor/BreakablePropValidation.cs:70 Invoke(\"InstallSceneHooks\");",
+    "Assets/Editor/BreakablePropValidation.cs:71 Invoke(\"PopulateScene\", SceneManager.GetActiveScene(), LoadSceneMode.Single);",
+    "Assets/Editor/BreakablePropValidation.cs:137 Debug.Log($\"[BreakablePropValidation] {active.name} collider {collider.name}, {collider.GetType().Name}, enabled {collider.enabled}, trigger {collider.isTrigger}, bounds {collider.bounds}\");",
+    "Assets/Editor/CitadelMapBuilder.cs:120 bounds.SendMessage(\"OnValidate\");",
+    "Assets/Editor/CitadelMapBuilder.cs:299 Debug.Log(\"[MapInspect] ROOT \"+root.name+\" components=\"+string.Join(\",\",root.GetComponents<Component>().Select(c=>c.GetType().Name)));",
+    "Assets/Editor/CitadelValidation.cs:61 Object.FindFirstObjectByType<EndItemGate>().SendMessage(\"OnTriggerEnter2D\",player.GetComponent<Collider2D>());",
+    "Assets/Editor/CitadelValidation.cs:78 var cp=level.checkpoints[2]; cp.SendMessage(\"OnTriggerEnter2D\",player.GetComponent<Collider2D>());",
+    "Assets/Editor/CitadelValidation.cs:82 SceneTransition.TryLoad(\"LV6-MoonlitCitadel\",()=>SaveRuntime.QueueLoad(SaveSystem.Load()));",
+    "Assets/Editor/CitadelValidation.cs:104 level.exitTrigger.GetComponent<EndItemGate>().SendMessage(\"OnTriggerEnter2D\",player.GetComponent<Collider2D>());",
+    "Assets/Editor/CombatUpgradeValidation.cs:153 wave.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/CombatUpgradeValidation.cs:155 wave.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/CombatUpgradeValidation.cs:174 bar.SendMessage(\"HandleBossDied\");",
+    "Assets/Editor/DamageContractValidation.cs:277 sword.SendMessage(\"OnTriggerEnter2D\", child.GetComponent<Collider2D>());",
+    "Assets/Editor/DamageContractValidation.cs:279 Time.timeScale = 0; sword.SendMessage(\"OnTriggerEnter2D\", a.GetComponent<Collider2D>());",
+    "Assets/Editor/DamageContractValidation.cs:281 Time.timeScale = 1; sword.SendMessage(\"OnTriggerEnter2D\", a.GetComponent<Collider2D>());",
+    "Assets/Editor/DamageContractValidation.cs:323 reflected.SendMessage(\"OnTriggerEnter2D\", b.GetComponent<Collider2D>());",
+    "Assets/Editor/DamageContractValidation.cs:326 reflected.SendMessage(\"OnTriggerEnter2D\", b.GetComponent<Collider2D>());",
+    "Assets/Editor/DamagePickupValidation.cs:47 sword.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DamagePickupValidation.cs:51 sword.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DamagePickupValidation.cs:54 sword.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DamagePickupValidation.cs:55 sword.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DamagePickupValidation.cs:80 sword.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/DamagePickupValidation.cs:93 sword.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/DamagePickupValidation.cs:126 movement.SendMessage(\"HandleStopOnRelease\");",
+    "Assets/Editor/DamagePickupValidation.cs:143 menu.SendMessage(\"OpenSettings\");",
+    "Assets/Editor/DamagePickupValidation.cs:169 health.Heal(1); menu.SendMessage(\"OpenSettings\"); stats.UpgradeHealth();",
+    "Assets/Editor/DamagePickupValidation.cs:174 menu.SendMessage(\"OpenSettings\");",
+    "Assets/Editor/DamagePickupValidation.cs:208 wave.SendMessage(\"OnTriggerEnter2D\", irrelevant.AddComponent<BoxCollider2D>());",
+    "Assets/Editor/DamagePickupValidation.cs:211 wave.SendMessage(\"OnTriggerEnter2D\", hitboxes[0]);",
+    "Assets/Editor/DamagePickupValidation.cs:214 wave.SendMessage(\"OnTriggerEnter2D\", hitboxes[0]);",
+    "Assets/Editor/DamagePickupValidation.cs:215 wave.SendMessage(\"OnTriggerEnter2D\", hitboxes[1]);",
+    "Assets/Editor/DeepAuditProbe.cs:76 coin.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/DeepAuditProbe.cs:83 pickup.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/DeepAuditProbe.cs:139 combat.SendMessage(\"LandDiveAttack\");",
+    "Assets/Editor/DeepAuditRepairValidation.cs:92 combat.SendMessage(\"LandDiveAttack\");",
+    "Assets/Editor/DeepAuditRepairValidation.cs:149 coin.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DeepAuditRepairValidation.cs:153 coin.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DeepAuditRepairValidation.cs:158 pickup.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DeepAuditRepairValidation.cs:162 pickup.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DeepAuditRepairValidation.cs:165 pickup.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/DeepAuditRepairValidation.cs:167 coin.SendMessage(\"OnTriggerEnter2D\", collider); coin.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/EnemyBehaviorValidation.cs:65 enemy.SendMessage(\"FindTarget\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:80 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:97 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:169 enemy.SendMessage(\"Update\"); enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:172 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:175 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:178 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:181 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:192 Check(!(bool)Invoke(\"CanMove\", 1f, 0.1f), \"ground enemy stops at ledge\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:194 Check((bool)Invoke(\"CanMove\", 1f, 0.1f), \"flyer can cross ledge\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:199 Check(!(bool)Invoke(\"CanMove\", 1f, 0.1f), \"solid wall blocks movement\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:200 Check(!(bool)Invoke(\"HasLineOfSight\", (Vector2)(Origin + Vector3.right * 0.7f)), \"solid wall blocks vision\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:202 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:208 Check(!(bool)Invoke(\"CanMove\", 1f, 0.1f), \"body sweep blocks low obstacles\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:211 Check((bool)Invoke(\"CanMove\", 1f, 0.1f), \"navigation ignores trigger volumes\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:217 Check(!(bool)Invoke(\"CanMove\", 1f, 0.1f), \"ground enemy cannot walk unsupported\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:219 Check((bool)Invoke(\"CanMove\", 1f, 0.1f), \"explicit flyer travels unsupported\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:230 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:234 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:242 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:248 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:252 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:256 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/EnemyBehaviorValidation.cs:271 enemy.SendMessage(\"Update\");",
+    "Assets/Editor/HealthLevelPresentationValidation.cs:52 vignette.SendMessage(\"FindPlayer\"); vignette.SendMessage(\"Update\");",
+    "Assets/Editor/HealthLevelPresentationValidation.cs:59 vignette.enabled = true; vignette.SendMessage(\"Update\");",
+    "Assets/Editor/HealthLevelPresentationValidation.cs:81 Set(bar, \"nextSearchTime\", 0f); bar.SendMessage(\"Update\");",
+    "Assets/Editor/HealthLevelPresentationValidation.cs:178 typeof(LevelBannerUI).GetMethod(\"OnSceneLoaded\", BindingFlags.Instance | BindingFlags.NonPublic)",
+    "Assets/Editor/HudPresentationValidation.cs:50 Set(hud, \"nextBind\", 0f); hud.SendMessage(\"Update\");",
+    "Assets/Editor/HudPresentationValidation.cs:57 hud.SendMessage(\"Update\");",
+    "Assets/Editor/HudPresentationValidation.cs:60 player.enabled = false; hud.SendMessage(\"Update\");",
+    "Assets/Editor/HudPresentationValidation.cs:63 Set(hud, \"nextBind\", 0f); hud.SendMessage(\"Update\");",
+    "Assets/Editor/HudPresentationValidation.cs:174 private static void InvokeSceneLoaded(SamuraiCombatHUD hud) => typeof(SamuraiCombatHUD).GetMethod(\"OnSceneLoaded\", BindingFlags.Instance | BindingFlags.NonPublic)",
+    "Assets/Editor/Phase3Validation.cs:61 coins[0].SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/Phase4Validation.cs:222 fire.SendMessage(\"Update\");",
+    "Assets/Editor/Phase4Validation.cs:224 fire.SendMessage(\"Update\");",
+    "Assets/Editor/Phase4Validation.cs:283 typeof(GroundFireAOE).GetMethod(\"Deal\", BindingFlags.NonPublic | BindingFlags.Instance)",
+    "Assets/Editor/Phase4Validation.cs:288 wave.SendMessage(\"OnTriggerEnter2D\", first);",
+    "Assets/Editor/Phase4Validation.cs:289 wave.SendMessage(\"OnTriggerEnter2D\", second);",
+    "Assets/Editor/Phase5Validation.cs:44 gate.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/Phase5Validation.cs:49 gate.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/Phase5Validation.cs:53 gate.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/Phase5Validation.cs:65 gate.SendMessage(\"OnTriggerEnter2D\", collider);",
+    "Assets/Editor/Phase5Validation.cs:71 Object.FindFirstObjectByType<PauseSettingsMenu>().SendMessage(\"OpenSettings\");",
+    "Assets/Editor/Phase5Validation.cs:100 gate.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/Phase5Validation.cs:113 gate.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/Phase5Validation.cs:117 gate.SendMessage(\"OnTriggerEnter2D\", player.GetComponent<Collider2D>());",
+    "Assets/Editor/Phase5Validation.cs:136 Invoke(ending, \"OnVideoFinished\", video);",
+    "Assets/Editor/Phase5Validation.cs:137 Invoke(ending, \"OnVideoFinished\", video);",
+    "Assets/Editor/Phase5Validation.cs:140 Invoke(ending, \"OnVideoPrepared\", video);",
+    "Assets/Editor/PlayerActionPolicyValidation.cs:316 bool focused = (bool)typeof(PlayerFocusHeal).GetMethod(\"StartFocus\", System.Reflection.BindingFlags.Instance |",
+    "Assets/Editor/RepairValidation.cs:243 Require(JsonUtility.ToJson(SaveSystem.Load()) == JsonUtility.ToJson(expected), \"Save and Quit state\");",
+    "Assets/Editor/SamuraiUIValidation.cs:132 menu.SendMessage(\"OpenSettings\");",
+    "Assets/Editor/SamuraiUIValidation.cs:147 var sizesType = assembly.GetType(\"UnityEditor.GameViewSizes\");",
+    "Assets/Editor/SamuraiUIValidation.cs:149 var getGroup = sizesType.GetMethod(\"GetGroup\");",
+    "Assets/Editor/SamuraiUIValidation.cs:151 var group = getGroup.Invoke(sizes, new[] { Enum.Parse(groupType, \"Standalone\") });",
+    "Assets/Editor/SamuraiUIValidation.cs:152 var sizeType = assembly.GetType(\"UnityEditor.GameViewSize\");",
+    "Assets/Editor/SamuraiUIValidation.cs:153 var fixedType = Enum.Parse(assembly.GetType(\"UnityEditor.GameViewSizeType\"), \"FixedResolution\");",
+    "Assets/Editor/SamuraiUIValidation.cs:156 group.GetType().GetMethod(\"AddCustomSize\").Invoke(group, new[] { size });",
+    "Assets/Editor/SamuraiUIValidation.cs:157 int count = (int)group.GetType().GetMethod(\"GetTotalCount\").Invoke(group, null);",
+    "Assets/Editor/SamuraiUIValidation.cs:158 var viewType = assembly.GetType(\"UnityEditor.GameView\");",
+    "Assets/Editor/SceneEnemyDiagnostic.cs:35 foreach(float sign in new[]{-1f,1f}) Debug.Log($\"[DIAG] CanMove {sign}=\"+typeof(GhostController).GetMethod(\"CanMove\",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(e,new object[]{sign,.04f}));",
+    "Assets/Editor/UpgradePurchaseValidation.cs:52 panel.SendMessage(\"OnClickHealth\");",
+    "Assets/Editor/UpgradePurchaseValidation.cs:63 string state = State(); panel.SendMessage(\"OnClickDamage\");",
+    "Assets/Editor/UpgradePurchaseValidation.cs:71 shrine.SendMessage(\"Buy\", 1);",
+    "Assets/Editor/UpgradePurchaseValidation.cs:73 balance = wallet.Score; shrine.SendMessage(\"Buy\", 1); shrine.SendMessage(\"Buy\", 4);",
+    "Assets/Editor/UpgradePurchaseValidation.cs:82 panel.SendMessage(\"OnClickMana\");",
+    "Assets/Editor/UpgradePurchaseValidation.cs:86 Object.FindFirstObjectByType<PauseSettingsMenu>().SendMessage(\"OpenSettings\");",
+    "Assets/Scrpits/FireballController.cs:49 Invoke(nameof(DestroySelf), lifeTime);",
+    "Assets/Scrpits/Player/PlayerCombat.cs:473 Invoke(nameof(FinishAttack), 0.12f);",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs:46 //m_textMeshPro.font = Resources.Load(\"Fonts & Materials/Anton SDF\", typeof(TextMeshProFont)) as TextMeshProFont; // Make sure the Anton SDF exists before calling this...",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs:47 //m_textMeshPro.fontSharedMaterial = Resources.Load(\"Fonts & Materials/Anton SDF\", typeof(Material)) as Material; // Same as above make sure this material exists.",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs:78 m_textMesh.font = Resources.Load(\"Fonts/ARIAL\", typeof(Font)) as Font;",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs:52 //m_textMeshPro.font = Resources.Load(\"Fonts & Materials/Anton SDF\", typeof(TextMeshProFont)) as TextMeshProFont; // Make sure the Anton SDF exists before calling this...",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs:53 //m_textMeshPro.fontSharedMaterial = Resources.Load(\"Fonts & Materials/Anton SDF\", typeof(Material)) as Material; // Same as above make sure this material exists.",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs:84 //m_textMesh.font = Resources.Load(\"Fonts/ARIAL\", typeof(Font)) as Font;",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark04.cs:44 //textMeshPro.font = Resources.Load(\"Fonts & Materials/LiberationSans SDF\", typeof(TextMeshProFont)) as TextMeshProFont;",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark04.cs:70 textMesh.font = Resources.Load(\"Fonts/ARIAL\", typeof(Font)) as Font;",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs:26 //m_FontAsset = Resources.Load(\"Fonts & Materials/LiberationSans SDF\", typeof(TMP_FontAsset)) as TMP_FontAsset;",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs:30 //m_textMeshPro.fontSharedMaterial = Resources.Load(\"Fonts & Materials/LiberationSans SDF - Bevel\", typeof(Material)) as Material;",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:60 //m_textMeshPro.fontAsset = Resources.Load(\"Fonts & Materials/JOKERMAN SDF\", typeof(TextMeshProFont)) as TextMeshProFont; // User should only provide a string to the resource.",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:61 //m_textMeshPro.fontSharedMaterial = Resources.Load(\"Fonts & Materials/LiberationSans SDF\", typeof(Material)) as Material;",
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:41 //textMeshPro.FontAsset = Resources.Load(\"Fonts & Materials/LiberationSans SDF\", typeof(TextMeshProFont)) as TextMeshProFont;"
+  ]
+}

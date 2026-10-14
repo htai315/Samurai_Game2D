@@ -185,7 +185,7 @@ public static class Phase4Validation
                 Check(combat.TryAttack(1), "attack accepted");
                 combat.LateUpdateCombat();
                 Check(combat.IsAttacking, "attack not cancelled before Animator evaluates trigger");
-                Check(!combat.TryAttack(2) && !fire.TryCastFire() && !sword.TryUseSwordSkill() && !dash.TryDash(), "attack excludes other actions");
+                Check(!combat.TryAttack(2) && !fire.TryCastFire() && !sword.TryUseSwordSkill(), "attack excludes other attacks and casts");
                 began = Time.time; step = 7;
                 return;
             }
@@ -201,6 +201,9 @@ public static class Phase4Validation
                 if (Time.time < began + 0.9f) return;
                 Check(!combat.IsAttacking && player.CanStartAction, "attack animation unlocks");
                 Object.Destroy(target.gameObject);
+                Reset();
+                Check(combat.TryAttack(1) && dash.TryDash() && !combat.IsAttacking,
+                    "dash cancels melee by the current combat contract");
                 Reset();
                 Check(dash.TryDash(), "dash accepted");
                 Check(!fire.TryCastFire() && !sword.TryUseSwordSkill() && !combat.TryAttack(1) && !dash.TryDash(), "dash excludes actions");

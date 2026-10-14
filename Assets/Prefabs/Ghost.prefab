@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  explodesOnDeath: 0
   healthBarPrefab: {fileID: 30794626843532559, guid: 7ae128468e52e0d4dabdf40ed3d1bacd, type: 3}
   uiCanvasParent: {fileID: 8329889298201905395, guid: 7ae128468e52e0d4dabdf40ed3d1bacd, type: 3}
   damageTextPrefab: {fileID: 3088725981678146829, guid: 6f944d0990522844195b85eca947f7a7, type: 3}
@@ -230,6 +231,8 @@ MonoBehaviour:
   attackPoint: {fileID: 6588489147532421327}
   flipCooldown: 0.2
   flipDeadzone: 0.05
+  archetype: 0
+  canShootRanged: 0
   avoidLedges: 0
 --- !u!1 &7911962323949794408
 GameObject:

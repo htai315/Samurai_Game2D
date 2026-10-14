@@ -1,0 +1,1207 @@
+{
+  "captured": "2026-10-14",
+  "assets": [
+    {
+      "path": "Assets/Scenes/SampleScene.unity",
+      "sha256": "BBCA0042D3BBA3B895312E966E8B67ABDA5E8B1B88E71FC3DEB7F15C766D9BE1"
+    },
+    {
+      "path": "Assets/Scenes/MenuScene.unity",
+      "sha256": "3C762A9F654A723C7766734BD27D27BB307C26F0775386A1BBA87A08E42F15C2"
+    },
+    {
+      "path": "Assets/Scenes/LV6-MoonlitCitadel.unity",
+      "sha256": "A7A148E4FC51BF71FD813A37C99522F1997107E62F6CFFA9E4555A032FDCD952"
+    },
+    {
+      "path": "Assets/Scenes/LV5-Scene5.unity",
+      "sha256": "8F10534C0D7A2EF28931E3A498C3084AC0B1BEBC2ED1D829352D26F485518517"
+    },
+    {
+      "path": "Assets/Scenes/Lv4-Scene4.unity",
+      "sha256": "A4ACA3D06CD19A706DC1C9FC2408881DD99B5581F42F867E6BD745E32A5FB025"
+    },
+    {
+      "path": "Assets/Scenes/Lv3-Scene3.unity",
+      "sha256": "48E4B66418C8B5D4F6C67EB3623D3ECD77CAB502ED8129681B355E7B0AC5445A"
+    },
+    {
+      "path": "Assets/Scenes/LV2-Scene2.unity",
+      "sha256": "9F1EE995FCF9998CA4788130265FC105E6498A2AC41EC9FA928238E00966399E"
+    },
+    {
+      "path": "Assets/Scenes/Ending.unity",
+      "sha256": "A5178151DFBAC39DEEA890912A89D07C8B97DCFFB47AFA38DED81AFEF8D93253"
+    },
+    {
+      "path": "Assets/Prefabs/Demon.prefab",
+      "sha256": "B9BC948FD3AFB3789A3D06DDC0F0C36D1AD7CD8BC45F841AF2C870015E017B7B"
+    },
+    {
+      "path": "Assets/Prefabs/DamageText.prefab",
+      "sha256": "0B04731452C963D98284633A7EB1F8CF8D1164D5583391ED8912D1B3DCB3E473"
+    },
+    {
+      "path": "Assets/Prefabs/Coin.prefab",
+      "sha256": "C1CF8A3EC99665C50CE564964F844AF51B6245A06359AEFA7B523E57CEE437E7"
+    },
+    {
+      "path": "Assets/Prefabs/Canvas.prefab",
+      "sha256": "DE320896CC1297C4143F82AE03BF5573137C1C7964638532FFCFA9253DE53EFC"
+    },
+    {
+      "path": "Assets/Prefabs/Boss1.prefab",
+      "sha256": "1DA07DC27AD6593E89AB95FF0339B8C81E3C792A0848C4E50B90161815DB17E4"
+    },
+    {
+      "path": "Assets/Prefabs/Bat.prefab",
+      "sha256": "018EA7AE7B533E51040D3B647950A18EBCA9DBED0F2F15D37E5E671BC7E103BE"
+    },
+    {
+      "path": "Assets/Prefabs/Fireball.prefab",
+      "sha256": "603E1DE09F4DEA7F675228C3DEE0A3F74E8249C73D1FC2014A55A3063D033A80"
+    },
+    {
+      "path": "Assets/Prefabs/FadeCanvas.prefab",
+      "sha256": "2A5F1804EF885622666E6057A7B4571C07B7B32BE75AA130FB1CA5AD94B6AFAD"
+    },
+    {
+      "path": "Assets/Prefabs/EnemyHealthBar.prefab",
+      "sha256": "34205D4BC40914BF6E13609265C40A3130F13580B5F7DF287C22C11E2DC09AEB"
+    },
+    {
+      "path": "Assets/Prefabs/DustEffect.prefab",
+      "sha256": "A3531D6E7FD606412F23A9BED4DF5B37A71DBEFFC8E683D299C777E6C60F6E73"
+    },
+    {
+      "path": "Assets/Prefabs/Goblin.prefab",
+      "sha256": "0B5872D65D9B17FACACA65B74E84474961084645563AD1B2801B3C6DAED24AA0"
+    },
+    {
+      "path": "Assets/Prefabs/GlobalHUD .prefab",
+      "sha256": "8C82D616D68E770F3D34BC59FDBCB98B065CF004CE88A94F5258114E2F24EE94"
+    },
+    {
+      "path": "Assets/Prefabs/Ghost.prefab",
+      "sha256": "B3BACBABF577E654EC47B6706A38E498053D0569E6B5DFFC0457112304F9EE72"
+    },
+    {
+      "path": "Assets/Prefabs/Golem.prefab",
+      "sha256": "82AA437EF3B5CC8910F7599307F175459F9B37991285C94CDC17E8DB795D6197"
+    },
+    {
+      "path": "Assets/Prefabs/GroundFire.prefab",
+      "sha256": "6A5D9F11CE9ECE7C672A9AE50E292892B5839B1BFAE005E0FB256D9AC7E66C84"
+    },
+    {
+      "path": "Assets/Prefabs/ThanhMau.prefab",
+      "sha256": "FAB9FF0AE4C7E7249C977E064A4FA0B628BD35C8B37FF73427D9365CD10B4F3B"
+    },
+    {
+      "path": "Assets/Prefabs/ThanhMana.prefab",
+      "sha256": "75A10BCD0F3E531506B11DC1E37AA12300157F6E1E6D49540BF40D9B3ACB4CEE"
+    },
+    {
+      "path": "Assets/Prefabs/Thanh Máu New.prefab",
+      "sha256": "786E07CB470B15B16DED5A88BCA1FB7B8F6813BD72618E178BFB29CBE1F53376"
+    },
+    {
+      "path": "Assets/Prefabs/Sword.prefab",
+      "sha256": "928A6867DD78937856292D0651446F73E1AA257256B4068B4C832D1DCC9DEBBA"
+    },
+    {
+      "path": "Assets/Prefabs/Stage0_Walls.prefab",
+      "sha256": "FC4000BDDC0A9C2E82335FC3BB4E3FFE440D9A3C9831C21EAEE275D04F3D0171"
+    },
+    {
+      "path": "Assets/Prefabs/Skeleton.prefab",
+      "sha256": "52DA975CC0786B697D32BBFB6E61CA49C754C730F7AC643960D5C1AAD7A9C83B"
+    },
+    {
+      "path": "Assets/Prefabs/Player.prefab",
+      "sha256": "659CF7BAB25D38A8F4B376E6F66B995F7F7C1D27512BC356A153163E678E6160"
+    },
+    {
+      "path": "Assets/Prefabs/PersistentRoot.prefab",
+      "sha256": "DEC04BAAF94D48BF571F1504F97FDD9D1417EDE152165F0E79C9466D50C97450"
+    },
+    {
+      "path": "Assets/Prefabs/Overworld.prefab",
+      "sha256": "84D14C75B1B8BC9706B4D30956ABD8E55DDC6E7B558A77FBB747378E82151D1B"
+    },
+    {
+      "path": "Assets/Prefabs/Mushroom.prefab",
+      "sha256": "585B63E6228765ECEB209038DD03E48E84C6219E3D10271E2DA55FCE71A804E9"
+    },
+    {
+      "path": "Assets/Prefabs/KiemKhiProjectile.prefab",
+      "sha256": "E9151E38310F8D801D4EDCACAE39C38D41D7424F8427A72CAB2AAF27115EDF77"
+    },
+    {
+      "path": "Assets/Prefabs/ItemPack_Outline_White_16.prefab",
+      "sha256": "C8C4AA9075762B68F0F9F3AC049CD7F164935EFE851C838F6F4DA0B4C4214AE8"
+    },
+    {
+      "path": "Assets/Prefabs/hoisinhpoint.prefab",
+      "sha256": "D10B705223E0CBFD606A5315084FA1D6303676053F1CF4A4442B8B67FBB3542A"
+    },
+    {
+      "path": "Assets/Prefabs/Hoisinh.prefab",
+      "sha256": "0C4CBA225F5ED0B17DA7B171B857C80449CBCE9B800679895E351C9289E752A3"
+    },
+    {
+      "path": "Assets/Prefabs/HealingPotion.prefab",
+      "sha256": "A62F694C2F866BC444579D255C2F145F439B87E8704C648ED38A193A6A94A99A"
+    },
+    {
+      "path": "Assets/Animation/Skill_Kiemkhi/Skill_kiemkhi.controller",
+      "sha256": "DC9A5B8E93F2385CED8B3F432FB84DAD8BB56D29156EFA702AA7672B4CE74F08"
+    },
+    {
+      "path": "Assets/Animation/Skill_Kiemkhi/KiemKhi.anim",
+      "sha256": "BF411610F9F27DEF677CD90685EA6F4F0CDB9393FCBCFBE5A4C2E564704A915F"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Impact.anim",
+      "sha256": "AC04310C9194CE59D031A2E7E4E90FCC14E28E6FC81BFA935A80902E4B26D43A"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fly.anim",
+      "sha256": "73788CBDB7CAAE2522DBADF2E85B80FA9FF53EDAC3B7B21A0C1CE91C10B8A84A"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fire_Impact.anim",
+      "sha256": "0C4D11BD0E5AD86A15BA3E234BF6ADAA4029B3C7E89FD2E5D82062B0E8FCCDD2"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fire_Fly.anim",
+      "sha256": "13EF5E672768F14F2BBB9A9A19566E63E0CBB337BF25F99A5AA7D9B697EA72CB"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fire_Attack.anim",
+      "sha256": "315933418DE28EEB8891121A72942E083455AEC268AC89E252DF067A450E70C2"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/FireMage.controller",
+      "sha256": "76E9E84A8833BB6A9760C720BAFA38E1F4EFB04206994C5AA48C71007505208B"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fireball.controller",
+      "sha256": "3C82638F473E652DB3B505C26CCAC7C331C04B12F91FA34F6AA14884255CA723"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/FireAttack.anim",
+      "sha256": "028A55361D26C36F5EDD10932A0A2EA369A48FF64AB1C8F3C2833615E96D18DC"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/DoT.anim",
+      "sha256": "FC7136E4D95CD7C611AF2F31336F881FEF6A1AE0C07FFF01334463A7E3F5A167"
+    },
+    {
+      "path": "Assets/Animation/Mushroom/run.anim",
+      "sha256": "6B81CE204B62CF33637146A0A6C192D35EAFB5BAE9A661EB7080A596A428533F"
+    },
+    {
+      "path": "Assets/Animation/Mushroom/Mushroom.controller",
+      "sha256": "0CAEA788F55FCF40817532B9E91BCD5C9AD795C53CBC16DA8EE4ED62F97BB915"
+    },
+    {
+      "path": "Assets/Animation/Mushroom/die.anim",
+      "sha256": "AE8D1C84D4CF0A0793D9432F5349C56D3F1AB0988567173ABF5007522C1699CC"
+    },
+    {
+      "path": "Assets/Animation/Mushroom/attack.anim",
+      "sha256": "376693A92552EF98FFB35368FC7ADCD3B7E84864BBEF400402082FD9F7270174"
+    },
+    {
+      "path": "Assets/Animation/Skeleton/Skeleton.controller",
+      "sha256": "D884B39672C337FFBD0101FE0B899B9162A7ECA7501CB3363D2AA5D9083B3137"
+    },
+    {
+      "path": "Assets/Animation/Skeleton/run.anim",
+      "sha256": "3173E58E9B8987D77BE7ADFDCF9D197F39B2486026C4D66E2EF74C24D8991B58"
+    },
+    {
+      "path": "Assets/Animation/Skeleton/die.anim",
+      "sha256": "260EEA235920A8A6DA97319DF07E8CBBECF3C80D8E36BCE476831CB9C0862E0E"
+    },
+    {
+      "path": "Assets/Animation/Skeleton/attack.anim",
+      "sha256": "E351984BACA29A99126C115C759C3334CECED2321A5D42E9441DCEE7B9F4DDE4"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Samurai_v1/SamuraiIdle.anim",
+      "sha256": "DBA44E1D466BAC48B4299C8843CCE81221E641D3C828D32E586E46328AC3E215"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Samurai_v1/SamuraiAttack.anim",
+      "sha256": "7A69F94C6C89B5592739EDFE95F40244481AAA08CEF4C16238DBBEA23115AF91"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Samurai_v1/Samurai.controller",
+      "sha256": "28F9F22668DAA712CC83B7FBED3FB05F5C8E08926448A083DC520C5F5D4725DE"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem_Walk.anim",
+      "sha256": "98E4A4BF9AD01C61523F5A21F7BDEFD07B0526C1CC25BF92EB68234CEF220BBE"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem_Idle.anim",
+      "sha256": "DE7637EB39F8437D5F71ED4F8E4A9264CE2CB98B0F1A24ABE0D596EC6FBB37CC"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem_Die.anim",
+      "sha256": "204872983876643C984790ACA6F894A3FE964D2B5594D3A127BEE0C84A886982"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem_Attack.anim",
+      "sha256": "D71DFB02277FE7152B122BD6A8807BB065F77134F70A772D57E36102F12CD373"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem.controller",
+      "sha256": "97999D07A450295B8067723EF2154E04E088413FD13A987CFB37E37937971E0D"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Old_Samurai_Run.anim",
+      "sha256": "77FFD6063B615B41F6816E985AE5728D2892561270D384494163D538606666D8"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Old_Samurai_Idle.anim",
+      "sha256": "4AD5B5FFB1EDF56AFCF7569F447ED177339CEF6DBA2DEE73A776842A2CEAF536"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Old_Samurai_Hurt.anim",
+      "sha256": "7AE9E2543AE47201732A004789FDD6A36236CCBE83B144E79E72DE06DD9624BE"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Old_Samurai_Attack.anim",
+      "sha256": "4BF5D98A622062CD7F43E36CD52665236DD25D146C6D591C489F613C8A4F4CA8"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Enemy.controller",
+      "sha256": "00B365A58983C8A8CB245218CB057176B17F73F59E06E1BE284E937ACC67A502"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Ultimate_Finish.anim",
+      "sha256": "9BA28F6AC93C9CC41E552488DB750305C2701CAEF3DACF7FB9D640F5BD7E121E"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Ultimate_Dash.anim",
+      "sha256": "902663F03A7608EBFB3B52300B242BF5F5AC8B5C148F41A4507FA03671419D65"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Ultimate_Charge.anim",
+      "sha256": "DB2FDEBCEB070B13180729D52749BAC84A07937575B0ABEB017549BDA6C01204"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Throw.anim",
+      "sha256": "B82564D8B47B34C91F1F5C1ED3B3F2124FBB4785770F42E44457E5B64E9138C3"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Skill1.anim",
+      "sha256": "DBED966F62F75828B6E26F7AB4D9F078243B75CCB838E5BA83B1184C253BC70B"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Run.anim",
+      "sha256": "1428789A8FB2F1395C6B5BDB2A089EBF99CB38E645631DD1E652A1103EF989B7"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_KiemKhi1.anim",
+      "sha256": "16217C79029B57BD2086E3ECE08AF2C237E933A47E262BBDDEE3DD627D513EEA"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_KiemKhi.anim",
+      "sha256": "98DC1D9404813246EBD20591291BED7A15461A523A60FDF8D545E6FD6F8E6B1C"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Jump.anim",
+      "sha256": "30A2A1A50EA142DA82F748C1E44D23E7CAA81DFA6F7B54A0F8278C080ABC89C4"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Idle.anim",
+      "sha256": "D421052D215C130D5555112484ED615E05A94AAFEEF979E0AAE8EBE8F25B8259"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Hurt.anim",
+      "sha256": "3CF3718345A312679719E805A765FDAEE74A24458078C7BA485020CEAFC225BE"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Fire_Skill.anim",
+      "sha256": "849DE9ADB80133929FFEF255C1BEDDEDBE2F832331389316ECEA129849AEED84"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Defence.anim",
+      "sha256": "66449B951E4D9983DF8DCA6DB207A9563AF944292D207C6B6B3170A9EDBE0077"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Death.anim",
+      "sha256": "6C19B776A6C58DB4C57F495C9AEBCC2F996565B386E50072F948829048988CE4"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Dash_Attack.anim",
+      "sha256": "5AB85607B650AA4E186FB3AE066D8C3D9EA41C1B86BE4C27B3404E2A49DA37AC"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Dash.anim",
+      "sha256": "C1F31B66B841F0934F3A4B5D58AFFA7AB5BC736649B2CDC1A4E6BF906FCFDCFC"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Attack3.anim",
+      "sha256": "DA66DC567171DD7BB5A7E26975EE8A88AEE2B069877CF7688EA44D56CAB5EE02"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Attack2.anim",
+      "sha256": "9A6249D37239E77751A313D2FC9609DE2D2069669D959BF69D8B5F51B0F5689C"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Attack1.anim",
+      "sha256": "72DFBE67441BE2C9C02E367473A76A556AC9F3383CC0EC507E74E3888EA8D3F7"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player.controller",
+      "sha256": "9F7FC3A1F72BCD7B552D69F45BF4B6EF0109721D9BE65BA6316E7218C76774F1"
+    },
+    {
+      "path": "Assets/Animation/Goblin/Goblin_run.anim",
+      "sha256": "F865CDDD159755AF421B9F36516D10E66B2DF7B2EB07BF4D3C94ADC0EEE9D759"
+    },
+    {
+      "path": "Assets/Animation/Goblin/goblin_Die.anim",
+      "sha256": "34FBBE2AD8E8AF67EBEB7877EB790958DADA394DE8C4BFD8C95A9632DB1057D8"
+    },
+    {
+      "path": "Assets/Animation/Goblin/goblin_attack.anim",
+      "sha256": "FA566A3E6CE27DF440FE4C95AAA7EEF3E3EEC8C9721BDB6CD998ED59E35CFDD9"
+    },
+    {
+      "path": "Assets/Animation/Goblin/Goblin.controller",
+      "sha256": "0C84297F2FBE4BE2A70D606AA6274241B4BE2907A4DDF300A43AA2C29D81B29E"
+    },
+    {
+      "path": "Assets/Animation/New_Boss/Boss_Samurai.controller",
+      "sha256": "7966F192BA880DB791DBFF5A108E6582657289E8F3BBAE53A7F4D05C1216777C"
+    },
+    {
+      "path": "Assets/Animation/New_Boss/Boss_run.anim",
+      "sha256": "D04292D02137CB7FDF07A6A720E74695BDA15E995EF011A9E1E7F006AD5F9AC8"
+    },
+    {
+      "path": "Assets/Animation/New_Boss/Boss_Idle.anim",
+      "sha256": "EC959B9164662FCE71BC3BEF4D02258745227CAA2D506F6061E9FB605B90C8C1"
+    },
+    {
+      "path": "Assets/Animation/New_Boss/Boss_Attack.anim",
+      "sha256": "328C2832A60C2785650054BA8A5F6C6B1EA234312EFE901B567F6BA8EE87A629"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost_2.0/Ghost.controller",
+      "sha256": "ABE19BB3866CA451B3255F0842BD78CB271DFF366BD79686B525439664368EC7"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost_2.0/Ghost_Attack.anim",
+      "sha256": "18AD0CAD7C29E78D5DF91FF6EE74CDDE6AFD37CBB7ECBCF7BD7912847980FEB2"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost_2.0/Ghost_Idle.anim",
+      "sha256": "94FEF28610192083F43ECD08D21DB406B85020F5ED415D21ACD3AB6F08CFFDE9"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost_2.0/Ghost_Dead.anim",
+      "sha256": "494A5F2603B3BF6849DF266E73DA5658D25BDE991D76C6E3500B8718D2703550"
+    },
+    {
+      "path": "Assets/Animation/Coin/Coin_Anim.anim",
+      "sha256": "01A6617E55238246824E55D8D089A993FF58F598BA6E9E3BCC5080DAF9A5EA8E"
+    },
+    {
+      "path": "Assets/Animation/Coin/Coin.controller",
+      "sha256": "845E6F998CBDBC51F063BA9D28BBD1966E1CAD3947E21DB7D9C2E55F36ED8A23"
+    },
+    {
+      "path": "Assets/Animation/Demon/Demon_Idle.anim",
+      "sha256": "EC03CFA10B47F44E4D4AB05230BCA3F57710F0E97078BE3A68D7DE4CBC2F44D0"
+    },
+    {
+      "path": "Assets/Animation/DustEffect/DustEffect.controller",
+      "sha256": "F5A997146D218F58238C7287B0ABA1FCA7F658CF1ACC3A0A4C05907CE25A5457"
+    },
+    {
+      "path": "Assets/Animation/DustEffect/DushEffect.anim",
+      "sha256": "ECE431DE09967EFF6E331E6567FAEC8376DBA517CC6137FB52A67DC0E66EAB18"
+    },
+    {
+      "path": "Assets/Animation/Demon/Demon_Die.anim",
+      "sha256": "8405BA0174585CCE77295776C05D2E26FA770BF568F41E709F9B2D5D78226045"
+    },
+    {
+      "path": "Assets/Animation/Demon/Demon_Attack.anim",
+      "sha256": "62C694D0128BE0D4B299D5FCC70C3C40EDCBE7FB14AE33C28EE4D744DE015B96"
+    },
+    {
+      "path": "Assets/Animation/Demon/Demon.controller",
+      "sha256": "776D92D7A10A8459712E5B6ACB9D0E5B632FCC46310A6357D1264314DA3CFC51"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost/Enemy_Attacking.anim",
+      "sha256": "6373AF0461A1D44C9955182FB7CA9DFAAC34CF83EFF12123C8306D1FDC4466D0"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost/Enemy_Death.anim",
+      "sha256": "397FF5C1CDDF806B31F201B541A2DBC3A51294C7ABA01C7B5ABF66493F527A9E"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss_Slime.controller",
+      "sha256": "C055C103EE05765F9F7082594B9C287698EDEED23EAA05851464CFC414FB7FA4"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss2_Walk.anim",
+      "sha256": "3FFECD59B538C92A43BAD888C41FD64F2713431AA6F283266B7B2B14B626C3B5"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss2_Idle.anim",
+      "sha256": "AD96CAF2B89C7B1431C60AC1CDF34711C7F57D2DF5251837C3FEE48DA32AAFF8"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss2_Die.anim",
+      "sha256": "C33F9D6D501180928FFA4F82B0B27BF508E111C973BCAE0C591717A0A9AF9D11"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss2_Attack.anim",
+      "sha256": "FF532D8790D3B3FFC36975C7538DC19AB1F0824882F36118DA5675A3671C8C62"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss1_Walk.anim",
+      "sha256": "3401829A4B36C6275B3D91E4D05DDE6783ECC41889C68E115D7865FB252A53A3"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost/Enemy_Idle.anim",
+      "sha256": "ABC832C30BF5CE46E6CA08633E75BE0173DC151303153698666C0069FB3AA479"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss1_Idle.anim",
+      "sha256": "FF4F14E797F83F2C0093F45C45F8FB3A39C1355E61971193E069BF961057B384"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost/Enemy_Ghost.controller",
+      "sha256": "0D4E32D15E9D1EB4F74D83E1732268B0CA9EAF5D96F66553EED809591065AA20"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss1_Attack.anim",
+      "sha256": "DCC704FAA1192712D66C623746D67C38512D06A2A51B28D4D8A6B67AE28EF0A9"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss1.controller",
+      "sha256": "CFC699424D79EBDCC1E3492F256935A5A5B9E3A052FD10FC7EFA3AF80BED550D"
+    },
+    {
+      "path": "Assets/Animation/Bat/Bat_Run.anim",
+      "sha256": "3991B54D8967B5566089706B36E5F350F7DCE78EC6BABEF2B08A100FD7259085"
+    },
+    {
+      "path": "Assets/Animation/Bat/Bat_Die.anim",
+      "sha256": "CCFFB4375D16308B9961798B8D4B7365F6D16A23E7AE79A0BF707A2027EE0145"
+    },
+    {
+      "path": "Assets/Animation/Bat/Bat_Attack.anim",
+      "sha256": "8D5B210028367C87521B2C44E6A469AFEBE127E65D3249DE318000DF5FB6F9CE"
+    },
+    {
+      "path": "Assets/Animation/Bat/Bat.controller",
+      "sha256": "5C6E34D8998309B6ADF3007136126E0E3EE29DB2682511384DF0643403D50E2E"
+    },
+    {
+      "path": "Assets/Animation/BossDino/Boss_Walk.anim",
+      "sha256": "4C7F2C56159A2B6DC9592B7FBEC3F343CF2BC73961519BC2A4DC05E0E3D9F6A3"
+    },
+    {
+      "path": "Assets/Animation/BossDino/Boss_Idle.anim",
+      "sha256": "E4701B316ECB8642ECAAF489AF5665EA8631F25ACB64A012372004D928D775B5"
+    },
+    {
+      "path": "Assets/Animation/BossDino/Boss_Dino.controller",
+      "sha256": "3DA02793D2F1E92D454C3E7FB6A068EC5BA6E78EBDFB2A80F4D392FE0DCDDB82"
+    },
+    {
+      "path": "Assets/Animation/BossDino/Boss_Attack.anim",
+      "sha256": "50B304A2609EE9C084B5BF271BA799EFE4E62D52B1B55A3BA75D87A44EB324DC"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "Assets/Scrpits/UI/SamuraiGuideUI.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.F1)",
+        "Input.GetKeyDown(KeyCode.Escape)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/UI/PauseSettingsMenu.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.Escape)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/UI/CheckpointShrineUI.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.B)",
+        "Input.GetKeyDown(KeyCode.W)",
+        "Input.GetKeyDown(KeyCode.Escape)",
+        "Input.GetKeyDown(KeyCode.Alpha1)",
+        "Input.GetKeyDown(KeyCode.Alpha2)",
+        "Input.GetKeyDown(KeyCode.Alpha3)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerUltimateSkill.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.Q)",
+        "Input.GetKeyDown(KeyCode.O)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerSwordSkill.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.U)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerStatsUI.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.Alpha1)",
+        "Input.GetKeyDown(KeyCode.Alpha2)",
+        "Input.GetKeyDown(KeyCode.Alpha3)",
+        "Input.GetKeyDown(KeyCode.Escape)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerParry.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.C)",
+        "Input.GetKeyDown(KeyCode.LeftShift)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerMovement.cs",
+      "bindings": [
+        "Input.GetKey(KeyCode.A)",
+        "Input.GetKey(KeyCode.LeftArrow)",
+        "Input.GetKey(KeyCode.D)",
+        "Input.GetKey(KeyCode.RightArrow)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerJump.cs",
+      "bindings": [
+        "Input.GetKeyUp(KeyCode.K)",
+        "Input.GetKeyDown(KeyCode.K)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerFocusHeal.cs",
+      "bindings": [
+        "Input.GetKey(KeyCode.H)",
+        "Input.GetKey(KeyCode.E)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerFireSkill.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.I)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerDash.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.L)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerCombat.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.J)",
+        "Input.GetKey(KeyCode.W)",
+        "Input.GetKey(KeyCode.UpArrow)",
+        "Input.GetKey(KeyCode.S)",
+        "Input.GetKey(KeyCode.DownArrow)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/Player/AutoSaveTester.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.F5)"
+      ]
+    },
+    {
+      "path": "Assets/Scrpits/GameManager.cs",
+      "bindings": [
+        "Input.GetKeyDown(KeyCode.P)"
+      ]
+    }
+  ],
+  "metadata": [
+    {
+      "path": "Assets/Scenes/SampleScene.unity.meta",
+      "sha256": "204F446BC13539151C15AF875550A7FA6F791662E967572A1B4B06FD0005DAD1"
+    },
+    {
+      "path": "Assets/Scenes/MenuScene.unity.meta",
+      "sha256": "CA3AF54EFB135DEBC3D53CF815A06633B9B60EA6DD98A1EB03D8304B1C9BA647"
+    },
+    {
+      "path": "Assets/Scenes/LV6-MoonlitCitadel.unity.meta",
+      "sha256": "31A9FF3B95D0C7D5BC3EDCBA4682F2FA8F286F574A8A8EFA8DE177C7F7380F8E"
+    },
+    {
+      "path": "Assets/Scenes/LV5-Scene5.unity.meta",
+      "sha256": "6021E2927A718BCEE18963A284C4C0A4F8E7822659750E95824622337B3EF7F3"
+    },
+    {
+      "path": "Assets/Scenes/Lv4-Scene4.unity.meta",
+      "sha256": "B6585E5D65E6068C150A9CBE2329EC872B4A94BEE334409CE801ABA1D328584D"
+    },
+    {
+      "path": "Assets/Scenes/Lv3-Scene3.unity.meta",
+      "sha256": "3A9E1E36C734680D6B2B6611B8A3E0972E6AC76ADF6537377300E7CFBE337E63"
+    },
+    {
+      "path": "Assets/Scenes/LV2-Scene2.unity.meta",
+      "sha256": "DB86B79910723943E6377DA59782DB675FFF2A1AC9CF8C7C21AE4859E8A7608C"
+    },
+    {
+      "path": "Assets/Scenes/Ending.unity.meta",
+      "sha256": "1941C21EF4A013ABEC4080DA67A5D82F2DB4FFA28D92940F69FCA8AC301A09D3"
+    },
+    {
+      "path": "Assets/Prefabs/Demon.prefab.meta",
+      "sha256": "D37A64F176D20CF04F60A38AD178AAA0929811303A60E0148754FD0D83219C8B"
+    },
+    {
+      "path": "Assets/Prefabs/DamageText.prefab.meta",
+      "sha256": "5BAA8E5E18CFB5C5D362DAE5293A1E7C55C49C0A2786E6825FB313DF891540CE"
+    },
+    {
+      "path": "Assets/Prefabs/Coin.prefab.meta",
+      "sha256": "A5105CFCBAA45139DE9C9B98D579153F36C0CFC87EF07E8BC5D7BFB42797C1D2"
+    },
+    {
+      "path": "Assets/Prefabs/Canvas.prefab.meta",
+      "sha256": "4C16DCD814EAA78970941939BBFA7669C57F10011533A1A7238FB0F837E23753"
+    },
+    {
+      "path": "Assets/Prefabs/Boss1.prefab.meta",
+      "sha256": "188613E5CFBAFB7EB2EB30AD3F0135A0ACFB1247385467008D4A5334DD65DABC"
+    },
+    {
+      "path": "Assets/Prefabs/Bat.prefab.meta",
+      "sha256": "5B0FFCDDB30257E1D86ED0316B575782E8FD68B1D0E893AFC9E2BF459BC57268"
+    },
+    {
+      "path": "Assets/Prefabs/Fireball.prefab.meta",
+      "sha256": "D77FF23E259BC707F821E31394C1DE8EA23A9C58522D00772545CDE27398CA2C"
+    },
+    {
+      "path": "Assets/Prefabs/FadeCanvas.prefab.meta",
+      "sha256": "7E40B2F5BA59A101D50CE00DB6704D011F6F99B85E86EF17CB8942A71406D7CE"
+    },
+    {
+      "path": "Assets/Prefabs/EnemyHealthBar.prefab.meta",
+      "sha256": "8123CD2F3E484D2CCD95939EC85F1A08F8D08404E733E246F6FDC842A029249E"
+    },
+    {
+      "path": "Assets/Prefabs/DustEffect.prefab.meta",
+      "sha256": "B592326E2BFAE518446A82243F5BEC8D55903182A78C8F1408C068FC8B7C879A"
+    },
+    {
+      "path": "Assets/Prefabs/Goblin.prefab.meta",
+      "sha256": "967B6848CD641EC9D629901CAE70297C4D6E74F0A42EF6FCD927F9EFBECE3E13"
+    },
+    {
+      "path": "Assets/Prefabs/GlobalHUD .prefab.meta",
+      "sha256": "7AF1E0B7A411373B06491FBA0EEA34455932FCD9415D572481897A09947F48E7"
+    },
+    {
+      "path": "Assets/Prefabs/Ghost.prefab.meta",
+      "sha256": "ADB5AA8863E057B233AD8990D3884B2D9B62C9F9B49FB9F6B7CAD7B32B164CED"
+    },
+    {
+      "path": "Assets/Prefabs/Golem.prefab.meta",
+      "sha256": "183FD1E119854F43AC9977C7AC15C485713019E5EB2B765BC6072B676CE699A6"
+    },
+    {
+      "path": "Assets/Prefabs/GroundFire.prefab.meta",
+      "sha256": "8A084C292430E6C73D1C9563D28003C0C498FD31F3DA4F4F5EF200B6A3A2541B"
+    },
+    {
+      "path": "Assets/Prefabs/ThanhMau.prefab.meta",
+      "sha256": "FBD73E750A830720C2988AB005F5DAB9CC801728E512031656C4ABC4E37CDEA7"
+    },
+    {
+      "path": "Assets/Prefabs/ThanhMana.prefab.meta",
+      "sha256": "C4A71D84002BCEE290D8FA17956AB32517C185E51AAA5DDCE051FADBD0A5FF52"
+    },
+    {
+      "path": "Assets/Prefabs/Thanh Máu New.prefab.meta",
+      "sha256": "C9AF06FE4BEAABC9C355A785FF0857F9D4189CCCE0F623657F2FCC20463E1B32"
+    },
+    {
+      "path": "Assets/Prefabs/Sword.prefab.meta",
+      "sha256": "D7DE3D3925E43D19E4F6127F0EFF9F10F67B901C8023BAC9702DE8148B09B069"
+    },
+    {
+      "path": "Assets/Prefabs/Stage0_Walls.prefab.meta",
+      "sha256": "072BCA118AFFFC110E64BD0975F5B81B44784026389853A254B6CFD463A34132"
+    },
+    {
+      "path": "Assets/Prefabs/Skeleton.prefab.meta",
+      "sha256": "15C6219C6A005A9AFE4D45CFA2F140C128B5D34756E2AD93A5F9822D591E9B28"
+    },
+    {
+      "path": "Assets/Prefabs/Player.prefab.meta",
+      "sha256": "2AF08B6C41B31ED23AE65D9F033C8C1E5F13387C0BD539C91AF7887EB092B2F8"
+    },
+    {
+      "path": "Assets/Prefabs/PersistentRoot.prefab.meta",
+      "sha256": "799C2D3D9852491918D01A11742FC4174EF7A865B5ED43761FF500EA25219903"
+    },
+    {
+      "path": "Assets/Prefabs/Overworld.prefab.meta",
+      "sha256": "1068B159B8840BBA27DBE7B81EDB9C86CD2E660B2B58891A335882DC17209EB4"
+    },
+    {
+      "path": "Assets/Prefabs/Mushroom.prefab.meta",
+      "sha256": "D3F48EB90B43D9995CEA8509B980F1EA8488219A79F258DA6880D08539C0D6F8"
+    },
+    {
+      "path": "Assets/Prefabs/KiemKhiProjectile.prefab.meta",
+      "sha256": "3A8DEB0A37C8CEB5EDDD9153CDB2C8205EBC92E6D8870A98CCFF569E65473C59"
+    },
+    {
+      "path": "Assets/Prefabs/ItemPack_Outline_White_16.prefab.meta",
+      "sha256": "13AD1A7439EFAC2ECE3AD395332A906F1F41C8C5AAB304DC788166C0B7500BCA"
+    },
+    {
+      "path": "Assets/Prefabs/hoisinhpoint.prefab.meta",
+      "sha256": "528193395EDD77B55C438C95653587041F53D13C5AB4A3436720CB92A2AA2A1D"
+    },
+    {
+      "path": "Assets/Prefabs/Hoisinh.prefab.meta",
+      "sha256": "107DC690A387A978AA30AAF66C7B60EBA68E8E928D868C8E28A1148ADF221568"
+    },
+    {
+      "path": "Assets/Prefabs/HealingPotion.prefab.meta",
+      "sha256": "53730E8167D67EFB2C4CBD452E6F5F389090A94982AECAF1F603E8B346ACF84A"
+    },
+    {
+      "path": "Assets/Animation/Skill_Kiemkhi/Skill_kiemkhi.controller.meta",
+      "sha256": "8400FAFD01DF0B51257F6C88E8048AAFE219DA4EA5CB9C4383C7F1E4284437B9"
+    },
+    {
+      "path": "Assets/Animation/Skill_Kiemkhi/KiemKhi.anim.meta",
+      "sha256": "AE235E64FB5D028B34A8A426CD981378D758648C89BAD71008B12AC1EA694C23"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Impact.anim.meta",
+      "sha256": "30A21BD4A8F666460DA6D860BAB7DDC8D34249FAADDD68E5BA19CA945F45FF59"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fly.anim.meta",
+      "sha256": "D828F978D3A6F8134B0424A20CB510A2BCF0948F58193D5CCB31CC50CA34AED7"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fire_Impact.anim.meta",
+      "sha256": "5F2080D54C5FB29B9BC4BC79B0459AC364B86F981C77E3B644AB2CBA294A2DCF"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fire_Fly.anim.meta",
+      "sha256": "4BD5BB8870557D8D5E00B9DD712DA69F62786A658667FFF2C927FCDF6B112FC1"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fire_Attack.anim.meta",
+      "sha256": "2B2BE4A93064E34B5787AB9CF7A10C6EB17F25289730F7D27226DC54F884C959"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/FireMage.controller.meta",
+      "sha256": "8B4F34F81CF4D4E0E6D1D9CC60EBD5CEBF593A7D2B03116DDD65EDBB3420631C"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/Fireball.controller.meta",
+      "sha256": "D9D3347F8A9A831E26EF0C724D9131351ED38E592551185677BEF72062B916EA"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/FireAttack.anim.meta",
+      "sha256": "380ACFD3E4C11FB2E974D2911558671F5522E59955DE92F90AFF5BB72C231C08"
+    },
+    {
+      "path": "Assets/Animation/Skill_Fire/DoT.anim.meta",
+      "sha256": "192879604826D6BC3349CAD57CD8E4928E18CB88C2EDEA667B43F82D6E3B718F"
+    },
+    {
+      "path": "Assets/Animation/Mushroom/run.anim.meta",
+      "sha256": "9B189922DC1D8AA7156558036318DBBC27BE5C816D73B983572811EF03211B54"
+    },
+    {
+      "path": "Assets/Animation/Mushroom/Mushroom.controller.meta",
+      "sha256": "039F246D7D26EFA37C525E131D0EAA2B15540522070AEE0326A35B37415BCA1B"
+    },
+    {
+      "path": "Assets/Animation/Mushroom/die.anim.meta",
+      "sha256": "B413EEFF11EA82B51D5428F1B57FA4FFA60B48822579063471980B626EDB337B"
+    },
+    {
+      "path": "Assets/Animation/Mushroom/attack.anim.meta",
+      "sha256": "EFD987E3AE25D1EB2D62E1DE93EA4952A235A03F294DDE287A4ECF1C8FF5FCB7"
+    },
+    {
+      "path": "Assets/Animation/Skeleton/Skeleton.controller.meta",
+      "sha256": "EA6CDEE365F99A229C9AFC3DA133A273CCD3FF1B5A1AF6726FB29A21BAAF86E1"
+    },
+    {
+      "path": "Assets/Animation/Skeleton/run.anim.meta",
+      "sha256": "CDD904A61E890048EE930CF24A67B12BCA0B30378FA3C975451EEE5FFB226C89"
+    },
+    {
+      "path": "Assets/Animation/Skeleton/die.anim.meta",
+      "sha256": "A858460B4032133CA642EE9759AD9354C28EA330275FAE654F8BF48DA20C0274"
+    },
+    {
+      "path": "Assets/Animation/Skeleton/attack.anim.meta",
+      "sha256": "D6C4515F82A23D0D81AB0B8BA8885DC49F4E3370F2CD38CF771B186B26272C2E"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Samurai_v1/SamuraiIdle.anim.meta",
+      "sha256": "EA0801436CC91CE326C4C70485023C7EF97FF2920E4D90FB54B081B5776FE52D"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Samurai_v1/SamuraiAttack.anim.meta",
+      "sha256": "7FA13B5B0722C1CCC860CE7ECFE505C5D2E1999EF3A60EEFAF67C7680A9822E1"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Samurai_v1/Samurai.controller.meta",
+      "sha256": "FA153204EC31A62C3440E615C489CAAFE191BC31715618878DB5919B81ABE2F7"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem_Walk.anim.meta",
+      "sha256": "F5DFC17F9B2D685FAA931E6812C79DD051618740562994CC388DFC756C32389E"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem_Idle.anim.meta",
+      "sha256": "66133CB479FC127F792F7ECB5BE0DD56C3B3ACCDB0C5B42ACEC05E1837171BD2"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem_Die.anim.meta",
+      "sha256": "F46CAB7A60EB419A46C38BC97CC78567DE62FDA0AFD48C13F30368CF7323E19B"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem_Attack.anim.meta",
+      "sha256": "7551224A492BE80AAEE658709191D9F5524BDA049FCBE3383E686D9CC2769FC2"
+    },
+    {
+      "path": "Assets/Animation/Golem/Golem.controller.meta",
+      "sha256": "135B093D8E18302BE001013433052BF6745E347916951D4BBC546878EA326012"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Old_Samurai_Run.anim.meta",
+      "sha256": "CC5CDEF42FCA0A9F48924E8003AD8B9D79B11DB4B54A47954B2A0216D9586CD3"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Old_Samurai_Idle.anim.meta",
+      "sha256": "72AD3F7ED8A972FC6C4195411F7986A53690369003B1EE897FAE01087C455784"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Old_Samurai_Hurt.anim.meta",
+      "sha256": "B9CE7AF91462BA668703392157E54C83D1204938C8CF9C6D5C9B765C2C3A3173"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Old_Samurai_Attack.anim.meta",
+      "sha256": "365A371683CBEACFF5920ABCF14356F94A52892526383C8B2F09365E3952E74D"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Old_Samurai/Enemy.controller.meta",
+      "sha256": "57D025B2343F64E290437DCF5DF36D5FFA8D5D0F370517D8DF254B6A6A5BBEDC"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Ultimate_Finish.anim.meta",
+      "sha256": "B924658150912E55321A530688AD09A174FBE0E1053A9D3211EFC1732D3DB420"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Ultimate_Dash.anim.meta",
+      "sha256": "1D2B24F21F12469139FAB8BAF92A8431A958636A28767F1858C5C967A8EF85C9"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Ultimate_Charge.anim.meta",
+      "sha256": "F4AC6CC22DD30234C8E977B21106FC655687BD08263BC366154F79BD7C49C6EA"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Throw.anim.meta",
+      "sha256": "352E055B5689ECCA96D48934E415F8FEAB497A5D7F9B7CE65403A530F09E5623"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Skill1.anim.meta",
+      "sha256": "4CDC05FBAD3AB417E1001613070438F009CAB5D195E67A3DC6B2C4259876ED19"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Run.anim.meta",
+      "sha256": "5316DCBC1361FFCA722CEA0582BAABC956C6D15AC2ED30D88A426D535EC46F65"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_KiemKhi1.anim.meta",
+      "sha256": "AF4002E151C4055B8A8F08B8C9FCD8E438BE878CBBEFA957DC3DB35CCA9E9808"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_KiemKhi.anim.meta",
+      "sha256": "84A470EE2F93A7FC327AEBE62E42706CCAFCF3D514F5EE0644D9B911A85970E3"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Jump.anim.meta",
+      "sha256": "3B8F83311FC73C5EE9B87E4CD5BB0EFB7C1C108D8F090711D979475AFBBF657E"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Idle.anim.meta",
+      "sha256": "36274D166A34D77BC6181B6D640F64071C8C49A8D34CD4A2413AC68CB03F3B1A"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Hurt.anim.meta",
+      "sha256": "BB9B772966F5EEA1E3F5517FECBDFE28443B0862E65ED5B1EB5B502BBB1D1D70"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Fire_Skill.anim.meta",
+      "sha256": "4FA6F68127BC83DD2E465D88EC3F704D4E26F62E9B2AEF041D26D2FDA52DB658"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Defence.anim.meta",
+      "sha256": "1D3291050011CEBA295237500DB0A2D2124139AEDA7299017D31535D7290D63F"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Death.anim.meta",
+      "sha256": "3A7736518F8E45ABE4DEE617F9151C341DA10CD5B231C29349C608426599B7F5"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Dash_Attack.anim.meta",
+      "sha256": "FCACBA670F2B159823ADE713BC42563ABF7BA82EF1C09437F96B56CACF1B46F6"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Dash.anim.meta",
+      "sha256": "CA9D0F0CC7F553E58EA42868DB725C59D10A1B2481461E85CE0F5C2212EE8965"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Attack3.anim.meta",
+      "sha256": "445418AD2C2F4110E90BE5FA1C2B6E54295C868A557385CA2D22D1880E259B3E"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Attack2.anim.meta",
+      "sha256": "3C45483A3DEF97A17384142C867C7F7CC9CCA4A77EFA4EDD5081CB00F02471DE"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player_Attack1.anim.meta",
+      "sha256": "84797DACCCCB9687B83360C89DBAC56C39FE8484EA643AE87B220D1AE74DCA9A"
+    },
+    {
+      "path": "Assets/Animation/Player_Samurai/Player.controller.meta",
+      "sha256": "B45512298958218058199149A85F401A7C13379590704A8AB7CE7304943633A1"
+    },
+    {
+      "path": "Assets/Animation/Goblin/Goblin_run.anim.meta",
+      "sha256": "39F0793D2AA5912A0F06DFA4575CDCBAC715098CFF1E2C3686A319A21E491761"
+    },
+    {
+      "path": "Assets/Animation/Goblin/goblin_Die.anim.meta",
+      "sha256": "0C03A8760198FA84DF70FDA89BBD1D40825B95910762855C7546994791DA435A"
+    },
+    {
+      "path": "Assets/Animation/Goblin/goblin_attack.anim.meta",
+      "sha256": "CB91EC58C3D4DA53F6D39CCC53F22F66D8DC8491F8CD36D01F4A7F858F298876"
+    },
+    {
+      "path": "Assets/Animation/Goblin/Goblin.controller.meta",
+      "sha256": "5199E468AAA658067019F59EF3579DEC1EC96EC83282B95308A15F383348564B"
+    },
+    {
+      "path": "Assets/Animation/New_Boss/Boss_Samurai.controller.meta",
+      "sha256": "5C75E83B0C3C34A242A60D78442E5BA74D02EAB460D35FE46CF79F9412C47251"
+    },
+    {
+      "path": "Assets/Animation/New_Boss/Boss_run.anim.meta",
+      "sha256": "DE1A3A65325A570C47B9B17D8DDEB30CC7C81FB0842A4B70F03127161E8D7925"
+    },
+    {
+      "path": "Assets/Animation/New_Boss/Boss_Idle.anim.meta",
+      "sha256": "C35D387CB2EE3FDC70A04076B0A5829777BD6091806C7D11CDCC2247FB1E65E7"
+    },
+    {
+      "path": "Assets/Animation/New_Boss/Boss_Attack.anim.meta",
+      "sha256": "157291D82D9BF3ADB4B1E085E96A785A0139C54ADC7990AEE63FF5A35306FF26"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost_2.0/Ghost.controller.meta",
+      "sha256": "63B98F2B29EA38FBC8DEC3C60B47FFEF904EFDAA527F814E37087CEA12A4095B"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost_2.0/Ghost_Attack.anim.meta",
+      "sha256": "220DA78FC57292CF0132DF9F9916A54906B5C4E596C37E664851AEE61F8019CE"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost_2.0/Ghost_Idle.anim.meta",
+      "sha256": "2346281A8193576B561DB748E9105CE3ED7CA47CFE8FF9A82969A0E510A1C07D"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost_2.0/Ghost_Dead.anim.meta",
+      "sha256": "90D05BA9A2FD6A38BC65AB65F1093C7689B22C212BB15E6F6F1C60169D32B31C"
+    },
+    {
+      "path": "Assets/Animation/Coin/Coin_Anim.anim.meta",
+      "sha256": "C7DC10F551E02DFB68FE52142747748E2C0C0FAAF4F18E8509EEF6D136778BA3"
+    },
+    {
+      "path": "Assets/Animation/Coin/Coin.controller.meta",
+      "sha256": "E74099EB85B212AFAFAE5F3E87A3C84761CE6D206E9E344CBDF6076161C89B97"
+    },
+    {
+      "path": "Assets/Animation/Demon/Demon_Idle.anim.meta",
+      "sha256": "F4F76BF622759E0C785369E485A62598132BE8C46D43803D8EA3C4E404A9DA2B"
+    },
+    {
+      "path": "Assets/Animation/DustEffect/DustEffect.controller.meta",
+      "sha256": "F19859B66792A7308557E05B45A2C0054D7F2D4E291E144408EB23DC5F60EA72"
+    },
+    {
+      "path": "Assets/Animation/DustEffect/DushEffect.anim.meta",
+      "sha256": "26303A55A31929A5AF80807241DDF08F8180C6BB4B7317B7EA26B960EFF02F5A"
+    },
+    {
+      "path": "Assets/Animation/Demon/Demon_Die.anim.meta",
+      "sha256": "087D902B9343D58E4B2B60A299EF830AFF9381E9FBFA96105B112965381CC084"
+    },
+    {
+      "path": "Assets/Animation/Demon/Demon_Attack.anim.meta",
+      "sha256": "F72C0631B112DB85F49BCE245CE708F0E5950A84B6B4717CD3255BB3E794398A"
+    },
+    {
+      "path": "Assets/Animation/Demon/Demon.controller.meta",
+      "sha256": "B330328C135BB0584782DB0D05FABF46B209CFF554A787742D8824D7B02E6421"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost/Enemy_Attacking.anim.meta",
+      "sha256": "8F97BAB76EFB091F40F6B03EFC9330D8B19143D3BB7506B5ED7672035C8046F5"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost/Enemy_Death.anim.meta",
+      "sha256": "A1CC54A35C6472EF6ABE0B4033FFFF47A91CB7FFD1D871B3DF90A06E3753E8C9"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss_Slime.controller.meta",
+      "sha256": "217151F1836CDB500336125CE3B32FB65022092BC8B738C8B89B780112D165F6"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss2_Walk.anim.meta",
+      "sha256": "57E22496180769C038F5749924380883A7025B2A14CBB053F862C92A85A89426"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss2_Idle.anim.meta",
+      "sha256": "BB5AF45F2EA917425AF6964120B0CF466891FB316940EC36168DE08DC8D4B8BC"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss2_Die.anim.meta",
+      "sha256": "651B3D6CA7F18F40CB55A89C63D8348D81B30F9E02DA73C6556B36CAA116FB2C"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss2_Attack.anim.meta",
+      "sha256": "05A3EBC43EF46068C90EB34FC1E8AA59AD93B3D31C34636924141178A5BA85EF"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss1_Walk.anim.meta",
+      "sha256": "AE5EC8F44090C46171A0F003D944CDDB90C2CF4E542FE2D5E09A7D5E75801D38"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost/Enemy_Idle.anim.meta",
+      "sha256": "1A00CF0DFDD1BEF7FDD571FEE6DD532A81B9D202171D22543AC6B820FEA29902"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss1_Idle.anim.meta",
+      "sha256": "2150A4247D6CE590C2E405BDA0C2FC3693964065EF3C43B90D49289B117E0E1E"
+    },
+    {
+      "path": "Assets/Animation/Enemy/Ghost/Enemy_Ghost.controller.meta",
+      "sha256": "FCC042DA6F5B37DF42A31DABD30E1F432B65402A736AFBA914A22722FBC6C0B1"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss1_Attack.anim.meta",
+      "sha256": "5EB25F6F23DE58A01A758D7EE3E213C572B9FFE08C08619D05196599A7C42BF0"
+    },
+    {
+      "path": "Assets/Animation/Boss1/Boss1.controller.meta",
+      "sha256": "C0BCEDB87113E8E8E9BEFC31743CFAA091B01D736D0E1E17628DA480E9BBCD9B"
+    },
+    {
+      "path": "Assets/Animation/Bat/Bat_Run.anim.meta",
+      "sha256": "1CFF569EDAA32D625B60E777B71503146412C9B766BB9FE8644735772FF7F8B3"
+    },
+    {
+      "path": "Assets/Animation/Bat/Bat_Die.anim.meta",
+      "sha256": "7B09D8CFFB8FB602D383311B771F582A42F8062EF46F5E8A151EFA7CAED8C957"
+    },
+    {
+      "path": "Assets/Animation/Bat/Bat_Attack.anim.meta",
+      "sha256": "B9B1391DF789ACB9E6886965047459AE4A2117472644CD0F9891F11161079322"
+    },
+    {
+      "path": "Assets/Animation/Bat/Bat.controller.meta",
+      "sha256": "BD342B5E3730087DA11CDB4F43932DB8B7F47B6B7AD5C551571184FDAE383F9F"
+    },
+    {
+      "path": "Assets/Animation/BossDino/Boss_Walk.anim.meta",
+      "sha256": "E58CB4BC40B52FA72DC987AB96B9355C714D2249C61D2531AB804786DB3E70B7"
+    },
+    {
+      "path": "Assets/Animation/BossDino/Boss_Idle.anim.meta",
+      "sha256": "F6FE8C8B9AE1638D3C91A98A8E9DE693A8D208E552C76A2FBE0DD532901ABF88"
+    },
+    {
+      "path": "Assets/Animation/BossDino/Boss_Dino.controller.meta",
+      "sha256": "9B10363602C5880DF0DA2FD1FC11B0A19507B6641659CE09B5D5BBE6B928E9DA"
+    },
+    {
+      "path": "Assets/Animation/BossDino/Boss_Attack.anim.meta",
+      "sha256": "0857CB2B995427169155BA20880DAD9A5E4843F69A3C0D7CC137DC35F2330906"
+    },
+    {
+      "path": "Assets/Scrpits/GameManager.cs.meta",
+      "sha256": "453D04E21FDB49A153F9291D01A9034C2B3607727093E2D1C783F5CF3CE0748A"
+    },
+    {
+      "path": "Assets/Scrpits/PersistentRoot.cs.meta",
+      "sha256": "106340FB923BEE22053D2DA307A643EC4589069C6F573E35536021F20B9A6137"
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerStats.cs.meta",
+      "sha256": "9C53587DCB2B9F55DB7629D02C3CDEAFD4A90937830F779DADEB47473AE55937"
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerSaveBridge.cs.meta",
+      "sha256": "182011AB771F1911F8F808313A163C1CF8B95BFB5212C97BEF6CF61F7652EF82"
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerController 1.cs.meta",
+      "sha256": "BE3B7EFA76425A3DA481E5CCFD8E7B26BF31BF9BC9B8DE9B90446AB1DF5DE163"
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerLives.cs.meta",
+      "sha256": "C5F883CED8CB8CF1C27B3E73D59E0411D43ADC352232FBC19C247F4EE59D002A"
+    },
+    {
+      "path": "Assets/Scrpits/Player/PlayerStatsUI.cs.meta",
+      "sha256": "9196C79296259AA800FADEC96312FB73390CD6C6EBF174950C98CBDA01981FFC"
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/Ghost2.0/GhostController.cs.meta",
+      "sha256": "D95CD9D52E6F624D06BEF56F2CF94B9BCF322519AAE596630DD895DDCA5817FE"
+    },
+    {
+      "path": "Assets/Scrpits/Enemy/Ghost2.0/EnemyHealth1.cs.meta",
+      "sha256": "BAB7772827AC2AC1B8C6059EEF9C3D7106EB9438428B54357930BBAA28F93777"
+    },
+    {
+      "path": "Assets/Scrpits/Boss/BossHealth.cs.meta",
+      "sha256": "73A3C4FDD15C6DE0FA9557FC3480B5D0F5B3BE83856CAA955A4B48119B711632"
+    }
+  ]
+}

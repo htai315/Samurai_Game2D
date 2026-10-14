@@ -1,0 +1,87 @@
+using UnityEngine;
+
+public class SwordProjectile : MonoBehaviour
+{
+    public CombatFeedbackChannel CombatFeedback { get; } = new CombatFeedbackChannel();
+    [Header("Projectile Settings")]
+    public float speed = 10f;        // tốc độ bay
+    public float maxDistance = 8f;   // quãng đường tối đa
+    public int damage = 6;           // damage gây ra (cân bằng 6 DMG)
+
+    private Vector3 startPos;
+    private float direction = 1f;
+    private bool hasHit;
+    private Rigidbody2D rb;
+    private Collider2D col;
+    private Animator anim; // Animator của phần hiển thị (Visual child)
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
+        anim = GetComponentInChildren<Animator>();
+    }
+
+    // Gọi sau khi SetDirection() (từ PlayerSwordSkill)
+    public void Launch()
+    {
+        startPos = transform.position;
+
+        // Bỏ va chạm với Player
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
+        {
+            var playerCol = player.GetComponent<Collider2D>();
+            if (playerCol && col)
+                Physics2D.IgnoreCollision(col, playerCol);
+        }
+
+        // Bắt đầu bay
+        if (rb)
+        {
+            rb.linearVelocity = new Vector2(speed * direction, 0f);
+            rb.gravityScale = 0f;
+        }
+
+        // Phát animation bay (nếu có)
+        if (anim)
+            anim.Play(0);
+    }
+
+    // Đặt hướng bay và lật sprite
+    public void SetDirection(float dir)
+    {
+        direction = Mathf.Sign(dir) == 0 ? 1 : Mathf.Sign(dir);
+
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * direction;
+        transform.localScale = scale;
+    }
+
+    void Update()
+    {
+        // Kiểm tra khoảng cách, hết tầm thì biến mất
+        if (Vector2.Distance(startPos, transform.position) >= maxDistance)
+            Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (hasHit || Time.timeScale == 0f || !other) return;
+        var enemy = other.GetComponentInParent<EnemyHealth1>();
+        var boss = enemy ? null : other.GetComponentInParent<BossHealth>();
+        // Health components identify a target, including untagged child hitboxes.
+        if ((enemy && !enemy.IsDead) || (boss && !boss.IsDead))
+        {
+            hasHit = true;
+            bool accepted = enemy ? enemy.TryTakeDamage(damage) : boss.TryTakeDamage(damage);
+            if (!accepted) { hasHit = false; return; }
+
+            CombatFeedback.Publish(new ConfirmedCombatHit(CombatFeedbackKind.SwordWave, transform.position, damage));
+
+            Destroy(gameObject); // chỉ biến mất khi trúng enemy hoặc boss
+        }
+
+
+    }
+}

@@ -230,6 +230,8 @@ MonoBehaviour:
   attackPoint: {fileID: 4666831294990622961}
   flipCooldown: 0.2
   flipDeadzone: 0.05
+  archetype: 0
+  canShootRanged: 1
 --- !u!1 &5024374903746424227
 GameObject:
   m_ObjectHideFlags: 0

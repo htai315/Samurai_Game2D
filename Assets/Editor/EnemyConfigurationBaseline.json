@@ -1,0 +1,859 @@
+{
+  "records": [
+    {
+      "hp": 6,
+      "instance": "",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "prefab"
+    },
+    {
+      "hp": 10,
+      "instance": "",
+      "archetype": 0,
+      "prefab": "Demon",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "prefab"
+    },
+    {
+      "hp": 10,
+      "instance": "",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "prefab"
+    },
+    {
+      "hp": 10,
+      "instance": "",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "prefab"
+    },
+    {
+      "hp": 16,
+      "instance": "",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "prefab"
+    },
+    {
+      "hp": 8,
+      "instance": "",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "prefab"
+    },
+    {
+      "hp": 10,
+      "instance": "",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "prefab"
+    },
+    {
+      "hp": 40,
+      "instance": "",
+      "archetype": 0,
+      "prefab": "Boss1",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "prefab"
+    },
+    {
+      "hp": 10,
+      "instance": "11199810",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/SampleScene.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "704368595",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/SampleScene.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1000449046",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/SampleScene.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1166675475",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/SampleScene.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1520153663",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/SampleScene.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1848727281",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/SampleScene.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "148346313376480661",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/SampleScene.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "72911384",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "114025822",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "114681079",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "295937024",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "448832917",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "807762870",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "872354789",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "1061703816",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "1153373836",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "1166458418",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1182614633",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "1202986482",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "1246348810",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1249016578",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1415079176",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1469692877",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1510536351",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1540161411",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 120,
+      "instance": "1597755632",
+      "archetype": 0,
+      "prefab": "Boss1",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "1630421096",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1699980241",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1715182886",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1746661759",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1772438896",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "1791484369",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1925606201",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "1992626102",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "2118262677",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/LV6-MoonlitCitadel.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "102341028",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 50,
+      "instance": "248616993",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "444305892",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 100,
+      "instance": "489714761",
+      "archetype": 0,
+      "prefab": "Boss1",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 50,
+      "instance": "945200115",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 30,
+      "instance": "1001435914",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 100,
+      "instance": "1258982770",
+      "archetype": 0,
+      "prefab": "Boss1",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "1580184785",
+      "archetype": 0,
+      "prefab": "Demon",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 100,
+      "instance": "1661249891",
+      "archetype": 0,
+      "prefab": "Boss1",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "1686569517",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "2102759194",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV5-Scene5.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "58103739",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 30,
+      "instance": "115318990",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 30,
+      "instance": "171819410",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "437711020",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "521686162",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "530170227",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 30,
+      "instance": "636754688",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "638272966",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 15,
+      "instance": "801970785",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 30,
+      "instance": "824556272",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "1262057229",
+      "archetype": 0,
+      "prefab": "Demon",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1461484351",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1514245963",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1887377021",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "2010161476",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv4-Scene4.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "134928113",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "214012745",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 30,
+      "instance": "346102170",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "379232850",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 15,
+      "instance": "390096322",
+      "archetype": 0,
+      "prefab": "Demon",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "395808206",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "571213892",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "642103774",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "657683421",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "661668849",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 20,
+      "instance": "811171494",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "873492884",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "913309845",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 30,
+      "instance": "1462170311",
+      "archetype": 0,
+      "prefab": "Goblin",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 8,
+      "instance": "1637474129",
+      "archetype": 2,
+      "prefab": "Mushroom",
+      "ranged": 0,
+      "explodes": 1,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 25,
+      "instance": "1730141825",
+      "archetype": 0,
+      "prefab": "Demon",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/Lv3-Scene3.unity"
+    },
+    {
+      "hp": 15,
+      "instance": "193621767",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "583295074",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "879516000",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 30,
+      "instance": "1069640379",
+      "archetype": 0,
+      "prefab": "Boss1",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1135928293",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 16,
+      "instance": "1248667531",
+      "archetype": 3,
+      "prefab": "Golem",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "1320913118",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 10,
+      "instance": "1446271072",
+      "archetype": 0,
+      "prefab": "Skeleton",
+      "ranged": 1,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 15,
+      "instance": "2017038488",
+      "archetype": 0,
+      "prefab": "Ghost",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    },
+    {
+      "hp": 6,
+      "instance": "2062657433",
+      "archetype": 1,
+      "prefab": "Bat",
+      "ranged": 0,
+      "explodes": 0,
+      "scene": "Assets/Scenes/LV2-Scene2.unity"
+    }
+  ]
+}

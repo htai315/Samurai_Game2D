@@ -58,6 +58,8 @@ public sealed class CoinIdentityValidator : IProcessSceneWithReport
                 yield return coin;
             foreach (var sword in root.GetComponentsInChildren<SwordPickup>(true))
                 yield return sword;
+            foreach (var prop in root.GetComponentsInChildren<BreakableProp>(true))
+                yield return prop;
         }
     }
 }
