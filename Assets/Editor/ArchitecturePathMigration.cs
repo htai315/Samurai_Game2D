@@ -33,6 +33,17 @@ public static class ArchitecturePathMigration
         }
     }
     private static Manifest ReadManifest() => JsonUtility.FromJson<Manifest>(File.ReadAllText("Assets/Editor/ArchitectureFolderMigration.json"));
+    [Serializable] private sealed class Revision { public string path = null, original = null, approved = null; }
+    [Serializable] private sealed class Revisions { public Revision[] entries = null; }
+    private static readonly Dictionary<string, Revision> revisions = JsonUtility.FromJson<Revisions>(
+        File.ReadAllText("Assets/Editor/ResponsivenessSourceRevisions.json")).entries.ToDictionary(r => r.path, StringComparer.Ordinal);
+    private static string ApprovedHash(string path, string original)
+    {
+        if (!revisions.TryGetValue(path, out var revision)) return original;
+        if (revision.original != original || revision.approved.Length != 64)
+            throw new InvalidOperationException("Invalid explicit responsiveness revision: " + path);
+        return revision.approved;
+    }
 
     public static string Resolve(string originalPath)
     {
@@ -47,7 +58,7 @@ public static class ArchitecturePathMigration
         ValidateFolders(check);
         check(!File.Exists(OldPath) && !File.Exists(OldPath + ".meta"), "migration: old source/metadata absent");
         check(File.Exists(NewPath) && File.Exists(NewPath + ".meta"), "migration: new source/metadata present");
-        check(Hash(NewPath) == SourceHash, "migration: controller source bytes unchanged");
+        check(Hash(NewPath) == ApprovedHash(NewPath, SourceHash), "migration: controller source matches explicit approved revision");
         check(Hash(NewPath + ".meta") == MetadataHash, "migration: metadata bytes unchanged");
         check(AssetDatabase.GUIDToAssetPath(ScriptGuid) == NewPath && AssetDatabase.AssetPathToGUID(NewPath) == ScriptGuid,
             "migration: original GUID resolves exclusively to new source");
@@ -71,6 +82,8 @@ public static class ArchitecturePathMigration
     private static void ValidateFolders(Action<bool, string> check)
     {
         var entries = ReadManifest().entries;
+        check(revisions.Count == 8 && revisions.Keys.All(path => entries.Any(e => e.newPath == path)),
+            "responsiveness revisions: eight explicit runtime sources, no unknown paths");
         check(entries.Length == 237 && entries.Select(e => e.oldPath).Distinct().Count() == entries.Length &&
             entries.Select(e => e.newPath).Distinct().Count() == entries.Length, "folder migration: complete unique manifest");
         check(!Directory.Exists("Assets/Scrpits") && !File.Exists("Assets/Scrpits.meta") &&
@@ -81,7 +94,15 @@ public static class ArchitecturePathMigration
                 entry.newPath.StartsWith("Assets/Scripts", StringComparison.Ordinal) && !entry.oldPath.Contains("..") &&
                 !entry.newPath.Contains("..") && Resolve(entry.oldPath) == entry.newPath && Resolve(entry.newPath) == entry.newPath,
                 "folder migration: exact one-hop safe mapping " + entry.oldPath);
-            check(File.Exists(entry.newPath) && Hash(entry.newPath) == entry.sha256,
+            // Approved post-migration visual-only revision; the original manifest stays frozen.
+            string expectedHash = entry.sha256;
+            if (entry.newPath == "Assets/Scripts/Player/PlayerUltimateSkill.cs")
+            {
+                check(entry.sha256 == "74604448EA5DC49471C65CEA01375777D4BF22CCB5640A13AC85166019BBB057",
+                    "ultimate visual revision: original migration fingerprint retained");
+                expectedHash = "9C9AEFCF32DA8854BE4276C370D8BF6D6B39C0F4AA4E3F67ADA896C6B53C5F17";
+            }
+            check(File.Exists(entry.newPath) && Hash(entry.newPath) == ApprovedHash(entry.newPath, expectedHash),
                 "folder migration: original file bytes " + entry.newPath);
             if (!string.IsNullOrEmpty(entry.guid))
                 check(AssetDatabase.GUIDToAssetPath(entry.guid) == entry.newPath && AssetDatabase.AssetPathToGUID(entry.newPath) == entry.guid,

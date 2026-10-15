@@ -23,6 +23,8 @@ public static class CombatUpgradeValidation
     private static Camera testCamera;
     private static Vector3 cameraStart;
     private static BossHealth boss;
+    private static float cinematicAge;
+    private static LineRenderer[] ultimateLines;
 
     static CombatUpgradeValidation() { EditorApplication.update += Tick; }
 
@@ -83,6 +85,12 @@ public static class CombatUpgradeValidation
                     body.gravityScale = 0f;
                     player.GetComponent<PlayerMana>().SetCurrentMana(100);
                     Check(ultimate.TryExecuteUltimate(), "ultimate starts on real animator");
+                    var visual = Get(ultimate, "cinematic");
+                    ultimateLines = (LineRenderer[])Get(visual, "lines");
+                    Check(ultimateLines.Length == 28, "ultimate geometry has fixed bounded capacity");
+                    visual.GetType().GetMethod("Tick").Invoke(visual, new object[] { .1f, player.transform.position });
+                    cinematicAge = (float)Get(visual, "age");
+                    Check(System.Array.Exists(ultimateLines, line => line.enabled), "ultimate charge draws reusable geometry");
                     HitStop.Cancel();
                     Time.timeScale = 0f;
                     pausedPosition = body.position;
@@ -91,9 +99,11 @@ public static class CombatUpgradeValidation
                     Check(ultimate.IsExecuting && Vector2.Distance(body.position, pausedPosition) < 0.001f,
                         "paused ultimate does not advance movement");
                     Check(PlayerActionAnimation.InState(player.GetComponent<Animator>(), "Player_Ultimate_Charge"), "paused ultimate remains in charge phase");
+                    Check((float)Get(Get(ultimate, "cinematic"), "age") == cinematicAge, "actual pause freezes cinematic geometry clock");
                     Time.timeScale = 1f;
                     player.SetHurting(true);
                     Check(!ultimate.IsExecuting && body.gravityScale == 0f, "hurt cancels ultimate and restores gravity");
+                    Check(System.Array.TrueForAll(ultimateLines, line => !line.enabled), "hurt hides every ultimate cinematic renderer");
                     player.ResetForRespawn(true);
                     body.gravityScale = 0f;
                     body.position = new Vector2(1000, 1000);
@@ -110,14 +120,17 @@ public static class CombatUpgradeValidation
                     Advance(2.5); break;
                 case 4:
                     Check(!ultimate.IsExecuting, "ultimate releases its action lock after completion");
+                    Check(System.Array.TrueForAll(ultimateLines, line => !line.enabled), "completed ultimate leaves no cinematic geometry");
                     Check(player.GetComponent<Collider2D>().bounds.max.x <= wall.bounds.min.x + 0.015f,
                         "ultimate body cannot penetrate a nearby wall");
                     Object.Destroy(wall.gameObject);
                     player.ResetForRespawn(true);
                     player.GetComponent<PlayerMana>().SetCurrentMana(100);
                     Check(ultimate.TryExecuteUltimate(), "ultimate can be reused after reset");
+                    Check(ReferenceEquals(ultimateLines, Get(Get(ultimate, "cinematic"), "lines")), "repeat casts reuse the same line pool");
                     ultimate.enabled = false;
                     Check(!ultimate.IsExecuting && body.gravityScale == 0f, "component disable cancels ultimate");
+                    Check(System.Array.TrueForAll(ultimateLines, line => !line.enabled), "disable clears cinematic geometry");
                     ultimate.enabled = true;
                     player.ResetForRespawn(true);
                     HitStop.Cancel();

@@ -56,6 +56,12 @@ public sealed class PlayerActionAnimation
         return true;
     }
 
+    // Only the cosmetic tail can yield to a new command; never skip the strike event.
+    public bool CanReleaseRecovery(float normalizedTime)
+        => Active && emitted && animator && !animator.IsInTransition(0) &&
+           animator.GetCurrentAnimatorStateInfo(0).IsName(state) &&
+           animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= normalizedTime;
+
     public void Cancel()
     {
         if (animator && animator.runtimeAnimatorController && !string.IsNullOrEmpty(trigger))

@@ -32,6 +32,9 @@ public class PlayerController1 : MonoBehaviour, IPlayerInputSink
     private bool isDead, isHurting;
     private readonly PlayerActionOwnership actionOwnership = new PlayerActionOwnership();
     private int actionCleanupDepth;
+    private PlayerInputCommands bufferedAction;
+    private float bufferedUntil;
+    private const float ActionBufferSeconds = .14f;
     public PlayerActionKind OwnedAction => actionOwnership.CurrentAction;
     public bool HasActionReservation => actionOwnership.HasReservation;
 
@@ -99,7 +102,46 @@ public class PlayerController1 : MonoBehaviour, IPlayerInputSink
     }
 
     private void Update()
-        => ProcessInputFrame(ReadInputFrame());
+        => ProcessResponsiveInputFrame(ReadInputFrame());
+
+    // One recent command, not a replay queue. Movement/focus/jump remain live input.
+    public PlayerInputCommands ProcessResponsiveInputFrame(PlayerInputFrame frame)
+    {
+        if (!isActiveAndEnabled || !CanContinueAction || Time.timeScale <= 0f ||
+            actionCleanupDepth > 0 || actionOwnership.HasReservation || IsUltimateExecuting || IsFocusing)
+        {
+            ClearInputBuffer();
+            return ProcessInputFrame(frame);
+        }
+        var fresh = SelectBufferedAction(frame.Commands);
+        if (fresh != 0)
+        {
+            bufferedAction = fresh;
+            bufferedUntil = Time.unscaledTime + ActionBufferSeconds;
+        }
+        if (Time.unscaledTime > bufferedUntil) ClearInputBuffer();
+        if (frame.Movement != 0 || bufferedAction != 0) combatModule?.TryReleaseRecovery();
+        var commands = frame.Commands | bufferedAction;
+        var winner = ProcessInputFrame(new PlayerInputFrame(frame.Movement, commands));
+        // Never replay a losing same-frame command, focus, or an invalid ready-state request.
+        if (winner != 0 || (CanStartAction && fresh == 0) || IsUltimateExecuting || IsFocusing)
+            ClearInputBuffer();
+        else if (fresh != 0 && OwnedAction == PlayerActionKind.None && !InActionAnimation())
+            ClearInputBuffer();
+        return winner;
+    }
+
+    private static PlayerInputCommands SelectBufferedAction(PlayerInputCommands commands)
+    {
+        if ((commands & PlayerInputCommands.Parry) != 0) return PlayerInputCommands.Parry;
+        if ((commands & PlayerInputCommands.Dash) != 0) return PlayerInputCommands.Dash;
+        if ((commands & PlayerInputCommands.Attack) != 0)
+            return commands & (PlayerInputCommands.Attack | PlayerInputCommands.AttackUpHeld | PlayerInputCommands.AttackDownHeld);
+        if ((commands & PlayerInputCommands.Fire) != 0) return PlayerInputCommands.Fire;
+        if ((commands & PlayerInputCommands.Sword) != 0) return PlayerInputCommands.Sword;
+        return PlayerInputCommands.None;
+    }
+    private void ClearInputBuffer() { bufferedAction = PlayerInputCommands.None; bufferedUntil = 0f; }
 
     public PlayerInputFrame ReadInputFrame()
     {
@@ -269,6 +311,7 @@ public class PlayerController1 : MonoBehaviour, IPlayerInputSink
 
     public void InterruptActions()
     {
+        ClearInputBuffer();
         actionCleanupDepth++;
         actionOwnership.CancelAll();
         try
@@ -291,6 +334,7 @@ public class PlayerController1 : MonoBehaviour, IPlayerInputSink
 
     public void ResetForRespawn(bool newAttempt = false)
     {
+        ClearInputBuffer();
         actionCleanupDepth++;
         actionOwnership.CancelAll();
         try

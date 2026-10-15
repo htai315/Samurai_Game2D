@@ -77,7 +77,7 @@ internal static class CombatFeedbackPresenter
         switch (hit.Kind)
         {
             case CombatFeedbackKind.Melee:
-                HitStop.Trigger(hit.AttackSlot == 3 ? .08f : .05f);
+                HitStop.Trigger(hit.AttackSlot == 3 ? .04f : .025f);
                 CameraShaker.Shake(hit.AttackSlot == 3 ? .14f : .08f, hit.AttackSlot == 3 ? .22f : .15f);
                 SoundManager.PlayHit(); CombatVFX.SpawnSlashImpactCross(hit.Position); break;
             case CombatFeedbackKind.Dive:
@@ -85,13 +85,13 @@ internal static class CombatFeedbackPresenter
             case CombatFeedbackKind.Ultimate:
                 CombatVFX.SpawnParryVFX(hit.Position); CombatVFX.SpawnFireSparks(hit.Position); break;
             case CombatFeedbackKind.Parry:
-                HitStop.Trigger(.14f); CameraShaker.Shake(.2f, .3f); SoundManager.PlayParry();
+                HitStop.Trigger(.09f); CameraShaker.Shake(.2f, .3f); SoundManager.PlayParry();
                 CombatVFX.SpawnParryVFX(hit.Position); break;
             case CombatFeedbackKind.Deflection:
                 CombatVFX.SpawnDeflectVFX(hit.Position); CombatVFX.SpawnBladeGlint(hit.Position, .28f);
                 SoundManager.PlayParry(); break;
             case CombatFeedbackKind.SwordWave:
-                HitStop.Trigger(.06f); CameraShaker.Shake(.1f, .2f); break;
+                HitStop.Trigger(.03f); CameraShaker.Shake(.1f, .2f); break;
             case CombatFeedbackKind.FireballBurst:
                 HitStop.Trigger(.05f); break;
             case CombatFeedbackKind.ReflectedEnemy:

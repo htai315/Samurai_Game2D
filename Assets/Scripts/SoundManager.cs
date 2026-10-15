@@ -57,6 +57,7 @@ public class SoundManager : MonoBehaviour
         Instance = go.AddComponent<SoundManager>();
         DontDestroyOnLoad(go);
     }
+    public static void Prewarm() => EnsureInstance();
 
     private void Awake()
     {

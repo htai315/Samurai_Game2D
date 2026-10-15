@@ -35,6 +35,7 @@ public class PlayerUltimateSkill : MonoBehaviour
     private float cinematicAlpha = 0f;
     private Color savedColor;
     private float savedGravity;
+    private UltimateCinematic cinematic;
     private readonly List<RaycastHit2D> wallHits = new List<RaycastHit2D>(16);
     private readonly List<Collider2D> enemyHits = new List<Collider2D>(32);
     private readonly List<EnemyHealth1> markedHealths = new List<EnemyHealth1>(16);
@@ -46,9 +47,11 @@ public class PlayerUltimateSkill : MonoBehaviour
     private void Update()
     {
         if (isExecuting && (!controller || !controller.CanContinueAction || !controller.OwnsAction(actionToken))) CancelExecution();
+        if (isExecuting) cinematic?.Tick(ActionDelta, sr ? sr.bounds.center : transform.position);
     }
 
     private void OnDisable() => CancelExecution();
+    private void OnDestroy() => cinematic?.Dispose();
 
     public void CancelExecution(bool newAttempt = false)
     {
@@ -72,6 +75,7 @@ public class PlayerUltimateSkill : MonoBehaviour
         }
         isExecuting = false;
         cinematicAlpha = 0f;
+        cinematic?.Clear();
         markedHealths.Clear();
         markedBosses.Clear();
         markedPositions.Clear();
@@ -102,6 +106,7 @@ public class PlayerUltimateSkill : MonoBehaviour
         sr = spriteRenderer;
         mana = GetComponent<PlayerMana>();
         ghostTrail = GetComponent<GhostTrail>() ?? gameObject.AddComponent<GhostTrail>();
+        if (cinematic == null) cinematic = new UltimateCinematic(transform, sr);
 
         if (enemyLayer == 0)
         {
@@ -148,6 +153,7 @@ public class PlayerUltimateSkill : MonoBehaviour
         markedPositions.Clear();
 
         float dir = transform.localScale.x >= 0 ? 1f : -1f;
+        cinematic?.Charge(sr ? sr.bounds.center : transform.position, dir);
 
         // =========================================================================
         // PHA 1: QUỲ 1 CHÂN XUỐNG, TAY CẦM CHUÔI KIẾM TỤ KHÍ (Iai Kneeling Stance)
@@ -184,7 +190,8 @@ public class PlayerUltimateSkill : MonoBehaviour
         // Chỉ quét quãng đường đã thực sự đi qua, sau khi physics xử lý va chạm.
         if (anim) anim.Play("Player_Ultimate_Dash", 0, 0f);
         SoundManager.PlayDash();
-        if (ghostTrail) ghostTrail.StartTrail(0.28f, new Color(1f, 0.88f, 0.25f, 0.95f), 0.02f);
+        if (ghostTrail) ghostTrail.StartTrail(0.28f, new Color(.85f, .16f, .22f, .8f), 0.02f);
+        cinematic?.Dash(sr ? sr.bounds.center : transform.position);
         rb.gravityScale = 0f;
         float remaining = actualDist;
         float speed = dashDistance / 0.12f;
@@ -241,6 +248,7 @@ public class PlayerUltimateSkill : MonoBehaviour
             CombatVFX.SpawnDimensionSlash(markedPositions[i], 0.55f);
             CombatVFX.SpawnDeflectVFX(markedPositions[i]);
         }
+        cinematic?.Seal(markedPositions, sr ? sr.bounds.center : transform.position);
 
         // =========================================================================
         // PHA 3: DỪNG LẠI CHỐT THẾ THẤP CỰC NGẦU (Low Finish Crouch Pose)
@@ -265,8 +273,9 @@ public class PlayerUltimateSkill : MonoBehaviour
         // 3. Động đất màn hình dữ dội & tiếng va chạm kim loại
         SoundManager.PlayParry();
         SoundManager.PlayHit();
-        CameraShaker.Shake(0.55f, 0.55f);
+        CameraShaker.Shake(0.24f, 0.22f);
         HitStop.Trigger(0.12f);
+        cinematic?.Detonate();
 
         // Toàn bộ vết cắt không gian đồng loạt bùng nổ sát thương
         for (int i = 0; i < markedHealths.Count; i++)
@@ -333,10 +342,141 @@ public class PlayerUltimateSkill : MonoBehaviour
         if (cinematicAlpha <= .01f || SamuraiModal.IsOpen) return;
         using (new SamuraiUI.Scope(-10))
         {
+            SamuraiUI.Fill(new Rect(0, 45, SamuraiUI.Width, SamuraiUI.Height - 90),
+                new Color(.035f, .015f, .035f, cinematicAlpha * .12f));
             SamuraiUI.Fill(new Rect(0, 0, SamuraiUI.Width, 45), new Color(0, 0, 0, cinematicAlpha * .9f));
             SamuraiUI.Fill(new Rect(0, SamuraiUI.Height - 45, SamuraiUI.Width, 45), new Color(0, 0, 0, cinematicAlpha * .9f));
             SamuraiUI.Text(new Rect(0, 48, SamuraiUI.Width, 48), "NHẤT KIẾM ĐOẠT MỆNH", 30,
                 new Color(.94f, .8f, .48f, cinematicAlpha), true, TextAnchor.MiddleCenter);
+            SamuraiUI.Fill(new Rect(SamuraiUI.Width * .34f, 97, SamuraiUI.Width * .32f, 1),
+                new Color(.85f, .16f, .22f, cinematicAlpha * .8f));
+        }
+    }
+
+    // Presentation only: bounded reusable geometry, no physics, RNG, damage or time ownership.
+    private sealed class UltimateCinematic : System.IDisposable
+    {
+        private const int Count = 28;
+        private readonly GameObject root;
+        private readonly Material material;
+        private readonly LineRenderer[] lines = new LineRenderer[Count];
+        private readonly Vector3[] centers = new Vector3[8];
+        private static readonly Color Crimson = new Color(.85f, .09f, .19f);
+        private static readonly Color Ivory = new Color(1f, .94f, .8f);
+        private static readonly Color Gold = new Color(1f, .72f, .3f);
+        private int phase, targets;
+        private float age, facing;
+        private Vector3 origin, dashEnd;
+
+        public UltimateCinematic(Transform owner, SpriteRenderer source)
+        {
+            root = new GameObject("Ultimate_CinematicGeometry");
+            root.transform.SetParent(owner, false);
+            var shader = Shader.Find("Sprites/Default");
+            if (shader) material = new Material(shader);
+            for (int i = 0; i < Count; i++)
+            {
+                var go = new GameObject("Cut_" + i);
+                go.transform.SetParent(root.transform, false);
+                var line = go.AddComponent<LineRenderer>();
+                line.useWorldSpace = true;
+                line.sharedMaterial = material;
+                line.sortingLayerID = source ? source.sortingLayerID : 0;
+                line.sortingOrder = (source ? source.sortingOrder : 0) + 8;
+                line.numCapVertices = 2;
+                line.positionCount = 2;
+                line.enabled = false;
+                lines[i] = line;
+            }
+            lines[0].positionCount = 49;
+        }
+
+        public void Clear()
+        {
+            phase = 0; age = 0f; targets = 0;
+            foreach (var line in lines) if (line) line.enabled = false;
+        }
+        public void Charge(Vector3 center, float direction)
+        {
+            Clear(); phase = 1; origin = center; facing = direction;
+        }
+        public void Dash(Vector3 center)
+        {
+            Clear(); phase = 2; origin = dashEnd = center;
+        }
+        public void Seal(List<Vector3> positions, Vector3 end)
+        {
+            // Freeze the ribbon at the actual end position; never imply travel through a wall.
+            dashEnd = end; phase = 3; age = 0f;
+            targets = Mathf.Min(centers.Length, positions.Count);
+            for (int i = 0; i < targets; i++) centers[i] = positions[i];
+        }
+        public void Detonate() { phase = 4; age = 0f; }
+
+        public void Tick(float delta, Vector3 actorCenter)
+        {
+            if (phase == 0 || delta <= 0f || !material) return;
+            age += delta;
+            foreach (var line in lines) line.enabled = false;
+            if (phase == 1)
+            {
+                float t = Mathf.Clamp01(age / .35f);
+                float radius = Mathf.Lerp(1.15f, .18f, t * t);
+                for (int i = 0; i <= 48; i++)
+                {
+                    float a = i * Mathf.PI * 2f / 48f;
+                    lines[0].SetPosition(i, actorCenter + new Vector3(Mathf.Cos(a), Mathf.Sin(a), 0) * radius);
+                }
+                Style(lines[0], Gold, .65f * t, .018f);
+                for (int i = 0; i < 8; i++)
+                {
+                    float a = i * Mathf.PI / 4f + t * 1.4f;
+                    Vector3 ray = new Vector3(Mathf.Cos(a), Mathf.Sin(a), 0);
+                    Stroke(i + 1, actorCenter + ray * radius * 1.3f,
+                        actorCenter + ray * radius * 1.8f, i % 2 == 0 ? Crimson : Ivory, t * .65f, .022f);
+                }
+                Vector3 hilt = actorCenter + new Vector3(facing * .2f, -.15f);
+                Stroke(10, hilt - Vector3.right * .25f * t, hilt + Vector3.right * .25f * t, Ivory, t, .025f);
+                return;
+            }
+            if (phase == 2) dashEnd = actorCenter;
+            float ribbon = phase == 2 ? .8f : Mathf.Clamp01(1f - age / .32f) * .65f;
+            if (Vector3.Distance(origin, dashEnd) > .06f)
+            {
+                Stroke(1, origin, dashEnd, Crimson, ribbon * .65f, .15f);
+                Stroke(2, origin, dashEnd, Ivory, ribbon, .025f);
+                Stroke(3, origin + Vector3.up * .12f, dashEnd + Vector3.up * .12f, Gold, ribbon * .5f, .015f);
+            }
+            if (phase < 3) return;
+            for (int target = 0; target < targets; target++)
+                for (int cut = 0; cut < 3; cut++)
+                {
+                    int index = 4 + target * 3 + cut;
+                    float reveal = Mathf.Clamp01((age - cut * .045f) / .055f);
+                    float alpha = phase == 4 ? Mathf.Clamp01(1f - age / .24f) : .85f * reveal;
+                    float angle = (cut == 0 ? 32f : cut == 1 ? -48f : 5f) * Mathf.Deg2Rad;
+                    Vector3 axis = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+                    float extent = phase == 4 ? 1.1f + age * 3f : .9f;
+                    Vector3 start = centers[target] - axis * extent;
+                    Stroke(index, start, Vector3.Lerp(start, centers[target] + axis * extent, phase == 4 ? 1f : reveal),
+                        phase == 4 ? Ivory : cut == 1 ? Crimson : Gold, alpha, phase == 4 ? .055f : .025f);
+                }
+        }
+
+        private void Stroke(int index, Vector3 start, Vector3 end, Color color, float alpha, float width)
+        {
+            var line = lines[index]; line.SetPosition(0, start); line.SetPosition(1, end);
+            Style(line, color, alpha, width);
+        }
+        private static void Style(LineRenderer line, Color color, float alpha, float width)
+        {
+            color.a = alpha; line.startColor = line.endColor = color;
+            line.startWidth = width; line.endWidth = width * .12f; line.enabled = alpha > .001f;
+        }
+        public void Dispose()
+        {
+            if (root) Object.Destroy(root);
+            if (material) Object.Destroy(material);
         }
     }
 }

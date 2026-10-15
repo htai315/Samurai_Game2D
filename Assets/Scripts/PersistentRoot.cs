@@ -21,4 +21,10 @@ public class PersistentRoot : MonoBehaviour
         context?.Dispose();
         if (_instance == this) _instance = null;
     }
+    private void Start()
+    {
+        if (_instance != this) return;
+        SoundManager.Prewarm();
+        CombatVFX.Prewarm();
+    }
 }

@@ -507,6 +507,11 @@ public class CombatVFX : MonoBehaviour
     }
 
     private static GameObject dustPrefabCache;
+    public static void Prewarm()
+    {
+        _ = Instance;
+        if (!dustPrefabCache) dustPrefabCache = Resources.Load<GameObject>("DustEffect");
+    }
 
     /// <summary>
     /// Triệu hồi hiệu ứng khói bụi cuộn dưới chân khi Dash, Bật nhảy hoặc Tiếp đất

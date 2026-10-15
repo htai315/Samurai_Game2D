@@ -287,6 +287,14 @@ public class PlayerCombat : MonoBehaviour
         if (anim && anim.runtimeAnimatorController) anim.SetBool(AnimIsAttacking, false);
     }
 
+    public void TryReleaseRecovery()
+    {
+        if (!isAttacking || isDiving || !controller || !controller.CanAct ||
+            !controller.OwnsAction(actionToken) || !action.CanReleaseRecovery(.85f)) return;
+        FinishAttack();
+        anim.Play("Player_Idle", 0, 0f);
+    }
+
     public void CancelAction() => FinishAttack();
     private void OnDisable() => CancelAction();
 

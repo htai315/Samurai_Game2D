@@ -11,7 +11,8 @@ public class HitStop : MonoBehaviour
     private bool isStopping;
     private TimeScaleLease timeLease;
     private float stopUntil;
-    private const float SlowScale = 0.04f;
+    private const float SlowScale = 0.18f;
+    private float savedFixedStep, ownedFixedStep;
 
     public static bool IsActive => instance != null && instance.isStopping;
 
@@ -41,6 +42,10 @@ public class HitStop : MonoBehaviour
         if (!isStopping)
         {
             if (!GameTime.TryAcquire(SlowScale, out timeLease)) return;
+            savedFixedStep = Time.fixedDeltaTime;
+            // Preserve real-time physics cadence during slowdown, not a half-second tick.
+            ownedFixedStep = savedFixedStep * SlowScale;
+            Time.fixedDeltaTime = ownedFixedStep;
             isStopping = true;
         }
         stopUntil = Mathf.Max(stopUntil, Time.realtimeSinceStartup + duration);
@@ -60,6 +65,10 @@ public class HitStop : MonoBehaviour
     {
         if (!instance || !instance.isStopping) return;
         GameTime.Release(instance.timeLease);
+        // Unity quantizes this native timer; a microsecond tolerance avoids a false
+        // ownership loss after setting small fixed intervals.
+        if (Mathf.Abs(Time.fixedDeltaTime - instance.ownedFixedStep) <= .000001f)
+            Time.fixedDeltaTime = instance.savedFixedStep;
         instance.timeLease = default;
         instance.isStopping = false;
         instance.stopUntil = 0f;
@@ -69,6 +78,6 @@ public class HitStop : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (instance == this) instance = null;
+        if (instance == this) { Cancel(); instance = null; }
     }
 }
