@@ -73,6 +73,35 @@ public static class RepairValidation
         data.gold = 32;
         Require(SaveSystem.SaveTo(path, data), "replace save");
         Require(SaveSystem.LoadFrom(path + ".bak").gold == 31, "previous save backup");
+        var recoveryPath = Path.Combine(folder, "recovery.json");
+        File.Copy(path + ".bak", recoveryPath + ".bak");
+        var recoveredData = SaveSystem.LoadWithBackup(recoveryPath, out bool recovered);
+        Require(recovered && recoveredData.gold == 31, "restore missing primary");
+        File.WriteAllText(recoveryPath, "{broken");
+        recoveredData = SaveSystem.LoadWithBackup(recoveryPath, out recovered);
+        Require(recovered && recoveredData.gold == 31 &&
+            File.ReadAllText(Directory.GetFiles(folder, "recovery.json.corrupt-*").Single()) == "{broken",
+            "recover corrupt primary and retain original");
+        Require(SaveSystem.SaveTo(recoveryPath, data) && SaveSystem.LoadFrom(recoveryPath + ".bak").gold == 31,
+            "save after recovery keeps valid backup");
+        Require(SaveSystem.LoadWithBackup(recoveryPath, out recovered).gold == 32 && !recovered,
+            "valid primary preferred");
+        Require(SaveSystem.DeleteFrom(recoveryPath) && !File.Exists(recoveryPath) &&
+            !File.Exists(recoveryPath + ".bak") && SaveSystem.LoadWithBackup(recoveryPath, out recovered) == null,
+            "new game after recovery cannot reload previous run");
+        File.WriteAllText(recoveryPath, "{}");
+        File.WriteAllText(recoveryPath + ".bak", "{}");
+        Require(SaveSystem.LoadWithBackup(recoveryPath, out recovered) == null && !recovered,
+            "reject invalid backup");
+        Require(File.ReadAllText(recoveryPath) == "{}" && File.ReadAllText(recoveryPath + ".bak") == "{}",
+            "failed recovery leaves both files intact");
+        File.Copy(path, recoveryPath + ".bak", true);
+        var future = Sample();
+        future.version = SaveSystem.CurrentVersion + 1;
+        string futureJson = JsonUtility.ToJson(future);
+        File.WriteAllText(recoveryPath, futureJson);
+        Require(SaveSystem.LoadWithBackup(recoveryPath, out recovered) == null && !recovered &&
+            File.ReadAllText(recoveryPath) == futureJson, "valid older backup never replaces a future save");
         var before = File.ReadAllText(path);
         using (var locked = new FileStream(path + ".tmp", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None))
             Require(!SaveSystem.SaveTo(path, data), "write failure reported");

@@ -14,6 +14,14 @@ public class CoinPickup : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerController1 pickupPlayer;
     private float nextSearchTime;
+    private ContactFilter2D groundFilter;
+    private readonly RaycastHit2D[] groundHit = new RaycastHit2D[1];
+
+    private void Awake()
+    {
+        groundFilter.SetLayerMask(LayerMask.GetMask("Ground"));
+        groundFilter.useTriggers = false;
+    }
 
     private void OnEnable()
     {
@@ -47,6 +55,7 @@ public class CoinPickup : MonoBehaviour
                 float flySpeed = (playerStats != null && playerStats.hasMagnetTalisman) ? 12f : 7.5f;
                 // Bay mượt mà hướng về phía ngực Samurai
                 Vector3 targetPos = playerTransform.position + Vector3.up * 0.35f;
+                if (Physics2D.Linecast(transform.position, targetPos, groundFilter, groundHit) > 0) return;
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, flySpeed * Time.deltaTime);
 
                 // Nếu bay sát vào người thì tự động thu thập luôn

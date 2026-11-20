@@ -180,8 +180,10 @@ public static class CitadelRenovation
                 for(int lamp=0;lamp<(hasBeacon?0:region==5?3:1);lamp++)
                 {
                     float lx=x+2+lamp*(w-4)/3;
-                    Draw("Lantern pedestal",brick,lx,y+.65f,.38f,1.3f,-2,new Color(.65f,.7f,.8f));
-                    Draw("Warm waylight",flame,lx,y+1.75f,.7f,1.1f,-1,Color.white);
+                    float lampFloor = y;
+                    if (i == 13) { lx = x + 9.75f; lampFloor += 3.5f; }
+                    Draw("Lantern pedestal",brick,lx,lampFloor+.65f,.38f,1.3f,-2,new Color(.65f,.7f,.8f));
+                    Draw("Warm waylight",flame,lx,lampFloor+1.75f,.7f,1.1f,-1,Color.white);
                 }
                 // Sparse motes brighten the negative space without concealing enemies.
                 for(int n=0;n<7;n++) Draw("Firefly",square,x+(float)random.NextDouble()*w,y+2+(float)random.NextDouble()*5,.045f,.045f,-5,new Color(.6f,.84f,.66f,.7f));
@@ -207,12 +209,22 @@ public static class CitadelRenovation
                     if(reward.position.x>=bounds.min.x && reward.position.x<=bounds.max.x && reward.position.y>floor+3.3f && reward.position.y<floor+5)
                     {
                         reward.position+=Vector3.up*.5f;
+                        if (index == 13)
+                        {
+                            float start = routes[index].bounds.min.x;
+                            float rewardX = reward.GetComponent<SwordPickup>() ? start + 8f :
+                                start + 4.2f + (reward.position.x - start - 4f) * 1.55f;
+                            reward.position = new Vector3(rewardX, reward.position.y, reward.position.z);
+                        }
                         PrefabUtility.RecordPrefabInstancePropertyModifications(reward);
                     }
-                balcony.transform.position=new Vector3(bounds.center.x,floor+3.25f,0);
-                balcony.size=new Vector2(bounds.size.x,.5f);
-                Draw("Raised reward balcony",log,bounds.center.x,floor+3.25f,bounds.size.x,.5f,3,Color.white);
-                Prop("Balcony back rail",rail,bounds.center.x,floor+3.5f,1,-3,new Color(.68f,.74f,.8f));
+                float centerX = bounds.center.x + (index == 13 ? .75f : 0f);
+                float thickness = index == 13 ? .30f : .50f;
+                float deckTop = floor + 3.5f;
+                balcony.size = new Vector2(bounds.size.x + (index == 13 ? .75f : 0f), thickness);
+                balcony.transform.position = new Vector3(centerX, deckTop - thickness / 2, 0);
+                Draw("Raised reward balcony",log,centerX,balcony.transform.position.y,balcony.size.x,thickness,3,Color.white);
+                Prop("Balcony back rail",rail,centerX,deckTop,1,-3,new Color(.68f,.74f,.8f));
             }
             Physics2D.SyncTransforms();
             ValidateClearance();
@@ -244,6 +256,16 @@ public static class CitadelRenovation
                 var b=balcony.bounds; var route=routes.Single(r=>b.center.x>r.bounds.min.x && b.center.x<r.bounds.max.x);
                 float floor=route.bounds.max.y, clearance=b.min.y-floor;
                 if(clearance<size.y+.3f) throw new Exception(balcony.name+" insufficient headroom: "+clearance);
+                if (balcony.name == "Optional balcony 13")
+                {
+                    var beam = Object.FindObjectsByType<SpriteRenderer>(FindObjectsSortMode.None)
+                        .Single(sr => sr.name == "Raised reward balcony" && b.Contains(sr.bounds.center));
+                    if (Mathf.Abs(clearance - 3.2f) > .01f || Mathf.Abs(b.max.y - floor - 3.5f) > .01f ||
+                        Mathf.Abs(b.size.x - 6.75f) > .01f ||
+                        Vector2.Distance(beam.bounds.min, b.min) > .02f ||
+                        Vector2.Distance(beam.bounds.max, b.max) > .02f)
+                        throw new Exception("Sword balcony: beam edges or landing height differ from the tested route.");
+                }
                 // Sweep a real-sized player body under the full beam in both directions.
                 for(int side=-1;side<=1;side+=2)
                 {

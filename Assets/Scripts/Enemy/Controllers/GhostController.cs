@@ -40,6 +40,16 @@ public class GhostController : MonoBehaviour
     [SerializeField] private float rangedCooldown = 2.8f;
     [SerializeField] private float rangedMaxDistance = 8f;
     private float nextRangedTime;
+    [SerializeField] private bool bridgeGuard;
+    [SerializeField] private bool goblinSkirmisher;
+    private const float BackstepDistance = 0.65f;
+    private const float BackstepSpeed = 3.5f;
+    private float backstepDirection, backstepEndX;
+    private const float MinimumShotDistance = 2.5f;
+    private const float GuardAimTime = 0.32f;
+    private const float GuardMissRecovery = 0.38f;
+    private float guardFireAt, guardShotDirection, meleeRecoverUntil;
+    private Sprite missedSwingPose;
 
     public enum EnemyArchetype { Standard, Bat, Mushroom, Golem }
     [Header("Archetype")]
@@ -88,6 +98,10 @@ public class GhostController : MonoBehaviour
 
     protected virtual void Awake()
     {
+#if UNITY_EDITOR
+        if (bridgeGuard && canShootRanged && !attackPoint)
+            Debug.LogWarning("Bridge guard has no attack point assigned. Ranged attacks will use its facing direction.", this);
+#endif
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
@@ -135,6 +149,7 @@ public class GhostController : MonoBehaviour
         if (Dead || Suspended) { bossAbilities?.CancelShadowDash(); CancelAttack(); SetMoving(false); return; }
         if (Time.time < staggerUntil) { SetMoving(false); return; }
         FindTarget();
+        if (Time.time < meleeRecoverUntil) { SetMoving(false); return; }
         if (!TargetAlive && attackActive) CancelAttack();
         if (attackActive) { SetMoving(false); return; }
 
@@ -146,6 +161,7 @@ public class GhostController : MonoBehaviour
         leash = Mathf.Max(0.1f, patrolDistance, leash);
         bool visible = TargetAlive && (TargetPoint - BodyCenter).sqrMagnitude <= agroRange * agroRange &&
             HasLineOfSight(TargetPoint);
+        if (UpdateGuardAim(visible, homeDistance <= leash)) return;
         if (homeDistance > leash)
         {
             leashRetreat = true;
@@ -185,8 +201,13 @@ public class GhostController : MonoBehaviour
                 {
                     float dist = Mathf.Abs(dx);
                     if (canShootRanged &&
-                        dist >= 2.5f && dist <= rangedMaxDistance && Time.time >= nextRangedTime && !attackActive)
+                        dist >= MinimumShotDistance && dist <= rangedMaxDistance && Time.time >= nextRangedTime && !attackActive)
                     {
+                        if (bridgeGuard)
+                        {
+                            BeginGuardAim(dx);
+                            return;
+                        }
                         ShootRangedProjectile(Mathf.Sign(dx));
                     }
 
@@ -294,6 +315,7 @@ public class GhostController : MonoBehaviour
         if (Mathf.Abs(dx) < 0.02f) return;
         Face(dx);
         float actualSpeed = moveSpeed;
+        if (goblinSkirmisher && State == EnemyState.Chase) actualSpeed *= 1.45f;
         if (archetype == EnemyArchetype.Bat && State == EnemyState.Chase)
         {
             actualSpeed *= 1.6f; // Dơi bổ nhào tốc độ cao
@@ -315,6 +337,8 @@ public class GhostController : MonoBehaviour
         }
 
         staggerVelocity = Mathf.Sign(pushDirection) * Mathf.Abs(pushSpeed);
+        CancelGuardAim();
+        meleeRecoverUntil = 0f;
         staggerPushUntil = Time.time + Mathf.Clamp(duration, 0.04f, 0.35f);
         staggerUntil = Mathf.Max(staggerUntil, Time.time + Mathf.Clamp(duration, 0.04f, 0.35f));
         if (attackActive && !bossHealth) CancelAttack();
@@ -325,6 +349,8 @@ public class GhostController : MonoBehaviour
         if (Dead || Suspended) return;
         bossAbilities?.CancelShadowDash(); // Only the owned telegraphed ability is interrupted.
         isArmorBroken = true;
+        CancelGuardAim();
+        meleeRecoverUntil = 0f;
         armorBreakUntil = Time.time + duration;
         staggerVelocity = 0f;
         staggerUntil = Mathf.Max(staggerUntil, Time.time + duration);
@@ -344,7 +370,16 @@ public class GhostController : MonoBehaviour
             {
                 vx = Time.time < staggerPushUntil ? staggerVelocity : 0f;
             }
-            else if (!attackActive)
+            else if (Time.time < meleeRecoverUntil && backstepDirection != 0f)
+            {
+                float remaining = (backstepEndX - rb.position.x) * backstepDirection;
+                float step = Mathf.Min(remaining, BackstepSpeed * Time.fixedDeltaTime);
+                if (step > 0f && CanMove(backstepDirection, step))
+                    vx = backstepDirection * step / Time.fixedDeltaTime;
+                else
+                    backstepDirection = 0f;
+            }
+            else if (!attackActive && Time.time >= meleeRecoverUntil)
             {
                 vx = desiredVelocity;
             }
@@ -367,7 +402,7 @@ public class GhostController : MonoBehaviour
     public bool TryAttack()
     {
         if (!isActiveAndEnabled || Dead || Suspended || Time.timeScale <= 0 || !TargetAlive ||
-            attackActive || Time.time < staggerUntil || Time.time < nextAttackTime || !attackPoint || attackRange <= 0 ||
+            attackActive || guardFireAt > 0f || Time.time < meleeRecoverUntil || Time.time < staggerUntil || Time.time < nextAttackTime || !attackPoint || attackRange <= 0 ||
             attackDamage <= 0 || float.IsNaN(attackDamage) || float.IsInfinity(attackDamage) ||
             !hasAttackTrigger || !animator.isActiveAndEnabled || InAttackAnimation()) return false;
         Face(player.position.x - transform.position.x, true);
@@ -384,7 +419,7 @@ public class GhostController : MonoBehaviour
         // 👁️ Sát khí cảnh báo: Lóe sáng mắt đỏ và phát âm thanh cảnh báo trước khi đòn đánh tung ra
         Vector3 eyePos = transform.position + Vector3.up * (bodyCollider ? bodyCollider.bounds.extents.y * 0.7f : 0.45f);
         if (facingRight) eyePos.x += 0.2f; else eyePos.x -= 0.2f;
-        CombatVFX.SpawnPerilousAttackTell(eyePos);
+        CombatVFX.SpawnPerilousAttackTell(goblinSkirmisher ? attackPoint.position : eyePos);
 
         return true;
     }
@@ -396,10 +431,25 @@ public class GhostController : MonoBehaviour
 
     protected virtual void LateUpdate()
     {
+        if (Time.time < meleeRecoverUntil && sprite && missedSwingPose) sprite.sprite = missedSwingPose;
         if (!attackActive || Time.timeScale <= 0) return;
         bool inAttack = InAttackAnimation();
         if (attackWindow.ShouldCancel(Time.time, false, !Dead && !Suspended && TargetAlive, inAttack))
+        {
+            bool recoverMiss = (bridgeGuard || goblinSkirmisher) && attackWindow.DamageSpent && damaged.Count == 0 &&
+                attackWindow.EnteredAnimation && !inAttack && !Dead && !Suspended && TargetAlive;
             CancelAttack();
+            if (recoverMiss)
+            {
+                meleeRecoverUntil = Time.time + (goblinSkirmisher ? 0.3f : GuardMissRecovery);
+                float away = facingRight ? -1f : 1f;
+                if (goblinSkirmisher && CanMove(away, BackstepDistance))
+                {
+                    backstepDirection = away;
+                    backstepEndX = rb.position.x + away * BackstepDistance;
+                }
+            }
+        }
     }
 
     // One committed swing has one damage window, including when it misses.
@@ -430,10 +480,14 @@ public class GhostController : MonoBehaviour
             if (!target || !CanHit(hit) || !damaged.Add(target)) continue;
             target.TakeDamage(attackDamage);
         }
+        if (bridgeGuard && damaged.Count == 0 && sprite) missedSwingPose = sprite.sprite;
     }
 
     public void CancelAttack()
     {
+        backstepDirection = 0f;
+        CancelGuardAim();
+        meleeRecoverUntil = 0f;
         if (hasAttackTrigger && animator) animator.ResetTrigger(AttackHash);
         attackWindow.Cancel();
         desiredVelocity = 0;
@@ -500,10 +554,50 @@ public class GhostController : MonoBehaviour
         }
     }
 
+    private void BeginGuardAim(float dx)
+    {
+        Face(dx, true);
+        guardShotDirection = Mathf.Sign(dx);
+        guardFireAt = Time.time + GuardAimTime;
+        nextRangedTime = guardFireAt + rangedCooldown;
+        CombatVFX.SpawnBladeGlint(RangedOrigin(guardShotDirection), GuardAimTime);
+        SetMoving(false);
+    }
+
+    private bool UpdateGuardAim(bool visible, bool withinLeash)
+    {
+        if (guardFireAt <= 0f) return false;
+        float dx = visible ? player.position.x - transform.position.x : 0f;
+        if (!visible || !withinLeash || dx * guardShotDirection < MinimumShotDistance ||
+            Mathf.Abs(dx) > rangedMaxDistance || HasAttackTarget())
+        {
+            CancelGuardAim();
+            return false;
+        }
+
+        SetMoving(false);
+        if (Time.time >= guardFireAt)
+        {
+            float direction = guardShotDirection;
+            CancelGuardAim();
+            ShootRangedProjectile(direction);
+        }
+        return true;
+    }
+
+    private void CancelGuardAim()
+    {
+        guardFireAt = 0f;
+        guardShotDirection = 0f;
+    }
+
+    private Vector3 RangedOrigin(float dir) =>
+        attackPoint ? attackPoint.position : transform.position + Vector3.right * (dir * 0.6f);
+
     private void ShootRangedProjectile(float dir)
     {
         nextRangedTime = Time.time + rangedCooldown * (bossAbilities?.RangedCooldownMultiplier ?? 1f);
-        Vector3 spawnPos = attackPoint ? attackPoint.position : transform.position + new Vector3(dir * 0.6f, 0f, 0f);
+        Vector3 spawnPos = RangedOrigin(dir);
         EnemyRangedAttack.Launch(spawnPos, dir, projectilePrefab, bossHealth ? 2f : 1f, bossAbilities);
     }
 }

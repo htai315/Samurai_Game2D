@@ -40,7 +40,7 @@ public class PlayerUltimateSkill : MonoBehaviour
     private readonly List<Collider2D> enemyHits = new List<Collider2D>(32);
     private readonly List<EnemyHealth1> markedHealths = new List<EnemyHealth1>(16);
     private readonly List<BossHealth> markedBosses = new List<BossHealth>(2);
-    private readonly List<Vector3> markedPositions = new List<Vector3>(16);
+    private readonly List<Vector3> confirmedPositions = new List<Vector3>(16);
 
     private float ActionDelta => Time.timeScale > 0f ? Time.unscaledDeltaTime : 0f;
 
@@ -78,7 +78,7 @@ public class PlayerUltimateSkill : MonoBehaviour
         cinematic?.Clear();
         markedHealths.Clear();
         markedBosses.Clear();
-        markedPositions.Clear();
+        confirmedPositions.Clear();
         if (newAttempt) nextCastTime = 0f;
     }
 
@@ -150,7 +150,7 @@ public class PlayerUltimateSkill : MonoBehaviour
         savedColor = sr ? sr.color : Color.white;
         markedHealths.Clear();
         markedBosses.Clear();
-        markedPositions.Clear();
+        confirmedPositions.Clear();
 
         float dir = transform.localScale.x >= 0 ? 1f : -1f;
         cinematic?.Charge(sr ? sr.bounds.center : transform.position, dir);
@@ -231,24 +231,16 @@ public class PlayerUltimateSkill : MonoBehaviour
             if (eHealth && !eHealth.IsDead && !markedHealths.Contains(eHealth))
             {
                 markedHealths.Add(eHealth);
-                markedPositions.Add(eHealth.transform.position);
             }
 
             var bHealth = col.GetComponentInParent<BossHealth>();
             if (bHealth && !bHealth.IsDead && !markedBosses.Contains(bHealth))
             {
                 markedBosses.Add(bHealth);
-                markedPositions.Add(bHealth.transform.position);
             }
         }
 
-        // Sinh ra các vết chém không gian rực rỡ (Dimension Cross Slashes) trên người mục tiêu
-        for (int i = 0; i < markedPositions.Count; i++)
-        {
-            CombatVFX.SpawnDimensionSlash(markedPositions[i], 0.55f);
-            CombatVFX.SpawnDeflectVFX(markedPositions[i]);
-        }
-        cinematic?.Seal(markedPositions, sr ? sr.bounds.center : transform.position);
+        cinematic?.Seal(sr ? sr.bounds.center : transform.position);
 
         // =========================================================================
         // PHA 3: DỪNG LẠI CHỐT THẾ THẤP CỰC NGẦU (Low Finish Crouch Pose)
@@ -262,22 +254,6 @@ public class PlayerUltimateSkill : MonoBehaviour
         // =========================================================================
         // PHA 4: LÓE SÁNG Ở MŨI KIẾM & NỔ TUNG (*BLADE GLINT & EXPLOSION!*)
         // =========================================================================
-        Vector3 swordTipPos = transform.position + new Vector3(dir * 0.9f, -0.05f, 0f);
-
-        // 1. Ngôi sao 4 cánh chói lòa bừng nở ở đầu mũi kiếm Samurai!
-        CombatVFX.SpawnBladeGlint(swordTipPos, 0.35f);
-
-        // 2. Tiếng "KEEENG!" kim loại thanh thoát ngân vang!
-        SoundManager.PlayBladeGlint();
-
-        // 3. Động đất màn hình dữ dội & tiếng va chạm kim loại
-        SoundManager.PlayParry();
-        SoundManager.PlayHit();
-        CameraShaker.Shake(0.24f, 0.22f);
-        HitStop.Trigger(0.12f);
-        cinematic?.Detonate();
-
-        // Toàn bộ vết cắt không gian đồng loạt bùng nổ sát thương
         for (int i = 0; i < markedHealths.Count; i++)
         {
             if (markedHealths[i] != null && !markedHealths[i].IsDead)
@@ -285,6 +261,7 @@ public class PlayerUltimateSkill : MonoBehaviour
                 Vector3 pos = markedHealths[i].transform.position;
                 if (!markedHealths[i].TryTakeDamage(ultimateDamage)) continue;
 
+                confirmedPositions.Add(pos);
                 var confirmed = new ConfirmedCombatHit(CombatFeedbackKind.Ultimate, pos, ultimateDamage);
                 CombatFeedback.PresentImpact(confirmed);
 
@@ -302,11 +279,27 @@ public class PlayerUltimateSkill : MonoBehaviour
                 Vector3 bPos = markedBosses[i].transform.position;
                 if (!markedBosses[i].TryTakeDamage(ultimateDamage)) continue;
 
+                confirmedPositions.Add(bPos);
                 CombatFeedback.Publish(new ConfirmedCombatHit(CombatFeedbackKind.Ultimate, bPos, ultimateDamage));
             }
         }
 
-        Debug.Log($"⚔️ [NHẤT KIẾM ĐOẠT MỆNH 2.0] Trảm sát hoàn tất với {markedPositions.Count} vết chém không gian & Lóe sáng mũi kiếm!");
+        if (confirmedPositions.Count == 0)
+        {
+            SoundManager.PlaySlash();
+        }
+        else
+        {
+            confirmedPositions.Sort(CompareImpactX);
+            if (dir < 0f) confirmedPositions.Reverse();
+            cinematic?.Detonate(confirmedPositions);
+            CombatVFX.SpawnBladeGlint(confirmedPositions[0], 0.18f);
+            SoundManager.PlayBladeGlint();
+            if (confirmedPositions.Count > 1) SoundManager.PlayHit();
+            CameraShaker.Shake(confirmedPositions.Count > 1 ? 0.20f : 0.10f, 0.16f);
+            HitStop.Trigger(0.12f);
+        }
+
 
         // Chờ hiệu ứng nổ tan dần
         yield return WaitAction(0.28f);
@@ -327,6 +320,8 @@ public class PlayerUltimateSkill : MonoBehaviour
 
         CancelExecution();
     }
+
+    private static int CompareImpactX(Vector3 a, Vector3 b) => a.x.CompareTo(b.x);
 
     private IEnumerator FlashSamurai(Color flashColor, float duration)
     {
@@ -404,14 +399,17 @@ public class PlayerUltimateSkill : MonoBehaviour
         {
             Clear(); phase = 2; origin = dashEnd = center;
         }
-        public void Seal(List<Vector3> positions, Vector3 end)
+        public void Seal(Vector3 end)
         {
             // Freeze the ribbon at the actual end position; never imply travel through a wall.
             dashEnd = end; phase = 3; age = 0f;
+        }
+        public void Detonate(List<Vector3> positions)
+        {
+            phase = 4; age = 0f;
             targets = Mathf.Min(centers.Length, positions.Count);
             for (int i = 0; i < targets; i++) centers[i] = positions[i];
         }
-        public void Detonate() { phase = 4; age = 0f; }
 
         public void Tick(float delta, Vector3 actorCenter)
         {
@@ -452,14 +450,15 @@ public class PlayerUltimateSkill : MonoBehaviour
                 for (int cut = 0; cut < 3; cut++)
                 {
                     int index = 4 + target * 3 + cut;
-                    float reveal = Mathf.Clamp01((age - cut * .045f) / .055f);
-                    float alpha = phase == 4 ? Mathf.Clamp01(1f - age / .24f) : .85f * reveal;
+                    float localAge = age - target * (0.14f / Mathf.Max(1, targets - 1)) - cut * .022f;
+                    if (localAge <= 0f) continue;
+                    float reveal = Mathf.Clamp01(localAge / .035f);
+                    float alpha = Mathf.Clamp01(1f - localAge / .22f);
                     float angle = (cut == 0 ? 32f : cut == 1 ? -48f : 5f) * Mathf.Deg2Rad;
-                    Vector3 axis = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-                    float extent = phase == 4 ? 1.1f + age * 3f : .9f;
-                    Vector3 start = centers[target] - axis * extent;
-                    Stroke(index, start, Vector3.Lerp(start, centers[target] + axis * extent, phase == 4 ? 1f : reveal),
-                        phase == 4 ? Ivory : cut == 1 ? Crimson : Gold, alpha, phase == 4 ? .055f : .025f);
+                    Vector3 axis = new Vector3(facing * Mathf.Cos(angle), Mathf.Sin(angle), 0);
+                    Vector3 start = centers[target] - axis;
+                    Stroke(index, start, Vector3.Lerp(start, centers[target] + axis, reveal),
+                        cut == 1 ? Crimson : Ivory, alpha, .055f);
                 }
         }
 

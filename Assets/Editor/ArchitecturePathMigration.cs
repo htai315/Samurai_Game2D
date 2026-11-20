@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -82,8 +82,8 @@ public static class ArchitecturePathMigration
     private static void ValidateFolders(Action<bool, string> check)
     {
         var entries = ReadManifest().entries;
-        check(revisions.Count == 8 && revisions.Keys.All(path => entries.Any(e => e.newPath == path)),
-            "responsiveness revisions: eight explicit runtime sources, no unknown paths");
+        check(revisions.Count == 14 && revisions.Keys.All(path => entries.Any(e => e.newPath == path)),
+            "post-migration revisions: fourteen explicit runtime sources, no unknown paths");
         check(entries.Length == 237 && entries.Select(e => e.oldPath).Distinct().Count() == entries.Length &&
             entries.Select(e => e.newPath).Distinct().Count() == entries.Length, "folder migration: complete unique manifest");
         check(!Directory.Exists("Assets/Scrpits") && !File.Exists("Assets/Scrpits.meta") &&
@@ -100,7 +100,7 @@ public static class ArchitecturePathMigration
             {
                 check(entry.sha256 == "74604448EA5DC49471C65CEA01375777D4BF22CCB5640A13AC85166019BBB057",
                     "ultimate visual revision: original migration fingerprint retained");
-                expectedHash = "9C9AEFCF32DA8854BE4276C370D8BF6D6B39C0F4AA4E3F67ADA896C6B53C5F17";
+                expectedHash = "17E1692EB87C5995DAA447739F64BA2DCE32F11200C39792CA493D8C541A0643";
             }
             check(File.Exists(entry.newPath) && Hash(entry.newPath) == ApprovedHash(entry.newPath, expectedHash),
                 "folder migration: original file bytes " + entry.newPath);

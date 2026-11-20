@@ -16,7 +16,24 @@ public class GroundFireAOE : MonoBehaviour
     private readonly List<Collider2D> hits = new(16);
     private readonly HashSet<Component> damaged = new();
 
-    void Start() { StartCoroutine(Loop()); }
+    void Start()
+    {
+        var outline = gameObject.AddComponent<LineRenderer>();
+        outline.sharedMaterial = CombatVFX.Instance.EffectMaterial;
+        outline.sortingLayerName = "ForceGround";
+        outline.sortingOrder = 10;
+        outline.useWorldSpace = false;
+        outline.loop = true;
+        outline.widthMultiplier = 0.06f;
+        outline.startColor = outline.endColor = new Color(1f, 0.44f, 0.12f, 0.85f);
+        outline.positionCount = 64;
+        for (int i = 0; i < outline.positionCount; i++)
+        {
+            float angle = i * Mathf.PI * 2f / outline.positionCount;
+            outline.SetPosition(i, radius * new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)));
+        }
+        StartCoroutine(Loop());
+    }
 
     IEnumerator Loop()
     {
@@ -32,7 +49,7 @@ public class GroundFireAOE : MonoBehaviour
 
     void Deal(float r, int dmg)
     {
-        if (Time.timeScale == 0f) return;
+        if (Time.timeScale <= 0f || SceneTransition.IsBusy) return;
         var filter = new ContactFilter2D { useTriggers = true };
         filter.SetLayerMask(enemyLayer);
         Physics2D.OverlapCircle(transform.position, r, filter, hits);

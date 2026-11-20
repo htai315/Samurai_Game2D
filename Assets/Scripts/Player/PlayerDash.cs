@@ -36,6 +36,7 @@ public class PlayerDash : MonoBehaviour
 
     // ⟵ THÊM: Biến theo dõi thời gian cooldown còn lại
     private float nextDashTime;
+    private float activeCooldown;
 
     // Animator hashes
     private static readonly int DoDash = Animator.StringToHash("doDash");
@@ -61,6 +62,7 @@ public class PlayerDash : MonoBehaviour
 
         // ⟵ KHỞI TẠO: Đảm bảo có thể dash ngay khi bắt đầu
         nextDashTime = 0f;
+        activeCooldown = dashCooldown;
     }
 
     public PlayerInputCommands ReadInputCommands()
@@ -85,8 +87,8 @@ public class PlayerDash : MonoBehaviour
         }
 
         var stats = GetComponent<PlayerStats>();
-        float actualCooldown = (stats && stats.hasWindTalisman) ? dashCooldown * 0.75f : dashCooldown;
-        nextDashTime = Time.time + actualCooldown;
+        activeCooldown = (stats && stats.hasWindTalisman) ? dashCooldown * 0.75f : dashCooldown;
+        nextDashTime = Time.time + activeCooldown;
         StartDash();
         return true;
     }
@@ -192,7 +194,7 @@ public class PlayerDash : MonoBehaviour
         if (newAttempt) nextDashTime = 0f;
     }
     // === 🔎 Cho UI đọc trạng thái cooldown ===
-    public float DashCooldown => dashCooldown;
+    public float DashCooldown => activeCooldown;
     public float ManaCost => dashManaCost;
 
     public float DashCooldownRemaining

@@ -102,8 +102,20 @@ public static class HudPresentationValidation
             "old snapshot is immutable; fresh capture sees mana changes");
         player.ResetForRespawn(true); mana.SetCurrentMana(100);
         var dash = player.GetComponent<PlayerDash>();
+        var stats = player.GetComponent<PlayerStats>();
+        bool originalWind = stats.hasWindTalisman;
+        stats.hasWindTalisman = false;
         Check(dash.TryDash() && source.Capture().Dash.Status == SkillHudStatus.Executing && !source.Capture().Dash.Ready,
             "real dash snapshot reports execution before cooldown");
+        float baseDuration = source.Capture().Dash.Duration;
+        stats.hasWindTalisman = true;
+        Check(source.Capture().Dash.Duration == baseDuration, "purchase preserves active dash duration");
+        player.ResetForRespawn(true); mana.SetCurrentMana(100);
+        Check(dash.TryDash(), "dash with wind talisman");
+        var wind = source.Capture().Dash;
+        Check(Mathf.Approximately(wind.Duration, baseDuration * 0.75f) &&
+            Mathf.Abs(wind.Remaining - wind.Duration) < 0.001f, "wind dash HUD starts empty");
+        stats.hasWindTalisman = originalWind;
         player.ResetForRespawn(true); mana.SetCurrentMana(100);
         var sword = player.GetComponent<PlayerSwordSkill>();
         Check(sword.TryUseSwordSkill() && source.Capture().Sword.Status == SkillHudStatus.Executing,

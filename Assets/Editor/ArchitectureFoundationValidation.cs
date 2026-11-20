@@ -27,6 +27,18 @@ public static class ArchitectureFoundationValidation
     [Serializable] public class InputRecord { public string path; public string[] bindings; }
     [Serializable] public class Baseline { public Asset[] assets, metadata; public InputRecord[] inputs; }
     static ArchitectureFoundationValidation() { EditorApplication.update += Tick; }
+    // SampleScene gained the bridge encounter layout and twin-cut post.
+    private static string ExpectedAssetHash(Asset asset)
+    {
+        if (asset.path == "Assets/Scenes/SampleScene.unity" &&
+            asset.sha256 == "BBCA0042D3BBA3B895312E966E8B67ABDA5E8B1B88E71FC3DEB7F15C766D9BE1")
+            return "F5CEBA5D6504094883A1BE0E3C352398F7EAACA687335B32A93086E78C9B04F9";
+        if (asset.path == "Assets/Scenes/LV6-MoonlitCitadel.unity" &&
+            asset.sha256 == "A7A148E4FC51BF71FD813A37C99522F1997107E62F6CFFA9E4555A032FDCD952")
+            return "93AB289E67CB57A742D710053D377009079B2EC45DDB233FBC13F7DF4D94EB83";
+        return asset.sha256;
+    }
+
     public static void Run()
     {
         if (!Application.isBatchMode) throw new InvalidOperationException("Isolated batch copy only");
@@ -36,7 +48,7 @@ public static class ArchitectureFoundationValidation
             var baseline = JsonUtility.FromJson<Baseline>(File.ReadAllText("Assets/Editor/ArchitectureBaseline.json"));
             using (var sha = SHA256.Create())
                 foreach (var asset in baseline.assets.Concat(baseline.metadata ?? Array.Empty<Asset>()))
-                    Check(BitConverter.ToString(sha.ComputeHash(File.ReadAllBytes(ArchitecturePathMigration.Resolve(asset.path)))).Replace("-", "") == asset.sha256,
+                    Check(BitConverter.ToString(sha.ComputeHash(File.ReadAllBytes(ArchitecturePathMigration.Resolve(asset.path)))).Replace("-", "") == ExpectedAssetHash(asset),
                         "immutable asset baseline: " + asset.path);
             foreach (var input in baseline.inputs)
             {

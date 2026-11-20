@@ -259,7 +259,7 @@ public static class Phase4Validation
     private static void CheckProjectileEffects()
     {
         var targetObject = new GameObject("Phase4EffectTarget");
-        targetObject.transform.position = player.transform.position;
+        targetObject.transform.position = new Vector3(800, 800);
         targetObject.layer = LayerMask.NameToLayer("Enemy");
         targetObject.tag = "Enemy";
         var first = targetObject.AddComponent<BoxCollider2D>();
@@ -275,8 +275,20 @@ public static class Phase4Validation
         ball.DoBurst(); ball.DoBurst();
         Check((int)hp.GetValue(health) == 100 - ball.burstDamage, "burst once per enemy despite duplicate event/colliders");
         int groundCount = Count<GroundFireAOE>();
+        var airborne = Object.Instantiate(fire.fireballPrefab, targetObject.transform.position + Vector3.right * 4,
+            Quaternion.identity).GetComponent<FireballController>();
+        var platform = new GameObject("GroundFireSlope", typeof(BoxCollider2D));
+        platform.layer = LayerMask.NameToLayer("Ground");
+        platform.transform.position = targetObject.transform.position + Vector3.down * 0.6f;
+        platform.transform.rotation = Quaternion.Euler(0, 0, 20);
+        platform.GetComponent<BoxCollider2D>().size = new Vector2(2, 0.2f);
+        Physics2D.SyncTransforms();
+        airborne.SpawnGroundFire();
+        Check(Count<GroundFireAOE>() == groundCount, "fire beyond ledge leaves no damaging field");
         ball.SpawnGroundFire(); ball.SpawnGroundFire();
         Check(Count<GroundFireAOE>() == groundCount + 1, "ground fire spawned once");
+        Object.Destroy(platform);
+        Object.Destroy(airborne.gameObject);
         hp.SetValue(health, 100);
         var ground = Object.FindFirstObjectByType<GroundFireAOE>();
         ground.transform.position = targetObject.transform.position;

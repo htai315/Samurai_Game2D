@@ -22,6 +22,7 @@ public class FireballController : MonoBehaviour
     private Animator anim;
     private bool hasDamaged = false;
     private bool hasSpawnedGroundFire;
+    private readonly RaycastHit2D[] groundHits = new RaycastHit2D[1];
     private float dir = 1f;
     private readonly List<Collider2D> burstHits = new(16);
     private readonly HashSet<Component> burstTargets = new();
@@ -101,9 +102,15 @@ public class FireballController : MonoBehaviour
     // 🔥 GỌI TỪ ANIMATION EVENT ở frame cuối (lửa lan ra)
     public void SpawnGroundFire()
     {
-        if (!groundFirePrefab || hasSpawnedGroundFire || Time.timeScale == 0f) return;
+        if (!groundFirePrefab || hasSpawnedGroundFire || Time.timeScale <= 0f || SceneTransition.IsBusy) return;
         hasSpawnedGroundFire = true;
-        Instantiate(groundFirePrefab, transform.position + (Vector3)groundOffset, Quaternion.identity);
+        var filter = new ContactFilter2D { useTriggers = false };
+        filter.SetLayerMask(LayerMask.GetMask("Ground"));
+        filter.SetNormalAngle(45f, 135f);
+        Vector2 origin = (Vector2)transform.position + Vector2.up * 0.1f;
+        if (Physics2D.Raycast(origin, Vector2.down, filter, groundHits, 1f) == 0 ||
+            groundHits[0].fraction == 0f) return;
+        Instantiate(groundFirePrefab, groundHits[0].point + groundOffset, Quaternion.identity);
     }
 
     void DestroySelf()

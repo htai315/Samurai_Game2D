@@ -49,10 +49,10 @@ public static class UltimateVisualPreview
             animator.Play("Player_Ultimate_Dash", 0, .3f); animator.Update(0);
             Capture(camera, Path.Combine(output, "02-dash.png"));
             var targets = new List<Vector3> { center - Vector3.right * 2, center + Vector3.right * 2 };
-            Invoke(visual, "Seal", targets, center); Invoke(visual, "Tick", .14f, center);
+            Invoke(visual, "Seal", center); Invoke(visual, "Tick", .14f, center);
             animator.Play("Player_Ultimate_Finish", 0, .3f); animator.Update(0);
             Capture(camera, Path.Combine(output, "03-seal.png"));
-            Invoke(visual, "Detonate"); Invoke(visual, "Tick", .035f, center);
+            Invoke(visual, "Detonate", targets); Invoke(visual, "Tick", .035f, center);
             Capture(camera, Path.Combine(output, "04-impact.png"));
             Invoke(visual, "Clear");
             Debug.Log("[UltimateVisualPreview] PASS: four real-camera geometry previews: " + output);

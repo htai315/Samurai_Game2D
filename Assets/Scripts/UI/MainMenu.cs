@@ -32,8 +32,13 @@ public class MainMenu : MonoBehaviour
     {
         if (SceneTransition.IsBusy) return;
         loadError = null;
-        var data = SaveSystem.Load();
+        var data = SaveSystem.Load(out bool recovered);
         if (data == null) { loadError = SaveSystem.LastError; return; }
+        if (recovered)
+        {
+            loadError = "Đã khôi phục bản lưu trước. Nhấn Tiếp tục để chơi từ mốc này.";
+            return;
+        }
         if (!CanLoadScene(data.sceneName)) return;
         if (data.sceneName == "MenuScene" || data.sceneName == "Ending")
         {

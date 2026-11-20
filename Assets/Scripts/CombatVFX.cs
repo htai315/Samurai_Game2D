@@ -25,6 +25,7 @@ public class CombatVFX : MonoBehaviour
     private Sprite rockSprite;
     private Sprite slashArcSprite;
     private Material defaultMaterial;
+    public Material EffectMaterial => defaultMaterial;
 
     private readonly List<GameObject> vfxPool = new();
     private Transform poolRoot;

@@ -9,8 +9,45 @@ public static class SaveSystem
     private static string path => Path.Combine(Application.persistentDataPath, "save.json");
 
     public static bool Save(SaveData data) => SaveTo(path, data);
-    public static SaveData Load() => LoadFrom(path);
-    public static bool HasSave() => File.Exists(path);
+    public static SaveData Load() => LoadWithBackup(path, out _);
+    public static SaveData Load(out bool recovered) => LoadWithBackup(path, out recovered);
+    public static bool HasSave() => File.Exists(path) || File.Exists(path + ".bak");
+
+    public static SaveData LoadWithBackup(string filePath, out bool recovered)
+    {
+        recovered = false;
+        var primary = ReadFrom(filePath, out bool recoverable);
+        if (primary != null || !recoverable || !File.Exists(filePath + ".bak")) return primary;
+
+        // Validate and migrate a private copy, keeping the last good backup intact.
+        string staged = filePath + ".recover-" + Guid.NewGuid().ToString("N");
+        try
+        {
+            File.Copy(filePath + ".bak", staged);
+            var fallback = LoadFrom(staged);
+            if (fallback == null) return null;
+            if (File.Exists(filePath))
+                File.Replace(staged, filePath, filePath + ".corrupt-" + Guid.NewGuid().ToString("N"));
+            else
+                File.Move(staged, filePath);
+            recovered = true;
+            return fallback;
+        }
+        catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)
+        {
+            Fail("Không thể khôi phục bản lưu trước: " + e.Message);
+            return null;
+        }
+        finally
+        {
+            foreach (string suffix in new[] { "", ".bak", ".legacy-v0.bak", ".tmp" })
+            {
+                try { File.Delete(staged + suffix); }
+                catch (IOException e) { Debug.LogWarning(e.Message); }
+                catch (UnauthorizedAccessException e) { Debug.LogWarning(e.Message); }
+            }
+        }
+    }
 
     // Explicit paths allow tests to use temporary files, never the player's save.
     public static bool SaveTo(string filePath, SaveData data)
@@ -44,14 +81,25 @@ public static class SaveSystem
         }
     }
 
-    public static SaveData LoadFrom(string filePath)
+    public static SaveData LoadFrom(string filePath) => ReadFrom(filePath, out _);
+
+    private static SaveData ReadFrom(string filePath, out bool recoverable)
     {
+        recoverable = false;
         LastError = null;
         try
         {
-            if (!File.Exists(filePath)) { Fail("Không tìm thấy file save."); return null; }
-            var data = JsonUtility.FromJson<SaveData>(File.ReadAllText(filePath));
-            if (!Validate(data, out var error)) { Fail(error); return null; }
+            if (!File.Exists(filePath)) { recoverable = true; Fail("Không tìm thấy file save."); return null; }
+            var json = File.ReadAllText(filePath);
+            SaveData data;
+            try { data = JsonUtility.FromJson<SaveData>(json); }
+            catch (ArgumentException) { recoverable = true; throw; }
+            if (!Validate(data, out var error))
+            {
+                recoverable = data == null || data.version <= CurrentVersion;
+                Fail(error);
+                return null;
+            }
             if (data.version == 0)
             {
                 BackupLegacyFile(filePath);
@@ -127,12 +175,15 @@ public static class SaveSystem
         return false;
     }
 
-    public static bool Delete()
+    public static bool Delete() => DeleteFrom(path);
+
+    public static bool DeleteFrom(string filePath)
     {
         LastError = null;
         try
         {
-            if (File.Exists(path)) File.Delete(path);
+            if (File.Exists(filePath + ".bak")) File.Delete(filePath + ".bak");
+            if (File.Exists(filePath)) File.Delete(filePath);
             return true;
         }
         catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)
